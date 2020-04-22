@@ -1,0 +1,1052 @@
+<!doctype html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>
+
+<head><META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Barclays Live - Login</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta content="no-cache" http-equiv="Pragma">
+    <meta content="no-cache" http-equiv="Cache-Control">
+    <meta name="viewport" content="width=device-width">
+    <meta content="-1" http-equiv="Expires">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
+	
+    
+        <meta name="keywords" content="Barclays,Capital,Live,barcaplive,Portal,Analytics,Research,Prime,Services,Investment,Banking">
+        <meta name="description" content="Barclays Live is designed to deliver applications, information and data customized to fit your business and personal needs.">
+    
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/BC_S/favicon.ico">
+    <link href="/BC_S/bl_rebrand/css/main.css" type="text/css" rel="stylesheet" media="all">
+    <link rel="stylesheet" type="text/css" href="/BC_S/bl_rebrand/css/responsive_page.css" media="all">
+	<link rel="stylesheet" type="text/css" href="/BC_S/bl_rebrand/css/credential_management.css" media="all">
+    
+	
+    
+    
+			<!--[if IE 7]>
+			<link xmlns:fn="http://www.w3.org/2005/02/xpath-functions" xmlns:ll="http://lehmanlive.com/functions" xmlns:func="http://exslt.org/functions" rel="stylesheet" type="text/css" href="/BC_S/bl_rebrand/css/iestyles-login.css">
+			<!--<![endif]-->
+			<!--[if IE 6]>
+			<link rel="stylesheet" type="text/css" href="/BC_S/bl_rebrand/css/ie6styles-login.css">
+			<!--<![endif]-->
+			
+
+    
+    <script type="text/javascript" src="/BC_S/html/urlParam.js" language="javascript"></script>
+    <script type="text/javascript" src="/BC_S/js/libraries/swfobject/swfobject.js" language="javascript"></script>
+    <script type="text/javascript" src="/BC_S/js/cookies.js" language="javascript"></script>
+    <script type="text/javascript" src="/BC_S/js/api.js" language="javascript"></script>
+    <script>var dontImportAll=true;</script>
+    <script type="text/javascript" src="/BC_S/bl_rebrand/js/barcaplive.js" language="javascript"></script>
+    <script type="text/javascript" src="/BC_S/bl_rebrand/js/jquery-1.7.2.min.js"></script>
+	<script src="/BC_S/bl_rebrand/js/compressed/bl-bcag-client-bundle-min.js"></script>
+	<script src="/BC_S/bl_rebrand/js/bcag/core-min.js"></script>
+	<script src="/BC_S/bl_rebrand/js/bcag/enc-base64-min.js"></script>		
+    <script language="javascript">
+	$(function () {
+	
+        $('a[href="#test"]').on('click', function () {
+			var $trigger = $(this);
+			$('.grid_5.sub_5').slideToggle('fast');
+        });
+
+        $('input.mandatory').keyup(function (){
+
+            var enable = true;
+            $('input.mandatory').each(function () {
+                if(enable) {
+                    enable = ($(this).val() != '');
+                }
+            });
+
+        });
+
+        $('#submit').click(function () {
+            $('input.mandatory').each(function () {
+                if($(this).val() == '') {
+                    $(this).css('border-color', '#D71D4F');
+                } else {
+                    $(this).css('border-color', '#c3c3c3');
+                }
+            });
+
+            if(validate(document.forms['passwdForm'])){
+                formSubmit();
+            }
+        });
+    });
+	
+    window.alert = function (msg) {
+        $('.error-message').remove();
+        $("form[name='passwdForm']").before('<div class="error-message">' + msg + '</div>');
+    };
+
+    function encryptContents() {
+        //
+
+        var $form = $("form[name='passwdForm']");
+
+        var loginType = $('input[name="auth_mode"]', $form).val();
+        if (loginType != "basic") {
+            return true;
+        }
+
+        var pae = $('#e').val();
+
+        if (!$('#k').val() && !pae) {
+            return true;
+        }
+
+        var user = $('input[name="user"]', $form).val();
+        var $password = $('input[name="password"]', $form);
+        var hasError = false;
+
+        var bondhubAccountPattern = /^bh-/i;
+        if(bondhubAccountPattern.test(user)){
+            return true;
+        }
+
+        var bcagVersionParam = $('#v').val();
+        var bcagNonceParam = $('#n').val();
+        var bcagServerNonceParam = $('#s').val();
+        var bcagIv = $('#i').val();
+        var bcagKey = $('#k').val();
+
+        var bcagPreAuthRequired = $('#bcagPreAuthFlag').val();
+
+        if(bcagPreAuthRequired == "Y") {
+            $.ajax({
+                url: '/UAB/S/bcag/preauth',
+                type: 'POST',
+                contentType: "application/x-www-form-urlencoded",
+                dataType: 'json',
+                data: 'user=' + user,
+                async: false,
+                success: function (data) {
+                    if (data['e'] == "") {
+                        bcagVersionParam = data['v'];
+                        bcagNonceParam = data['n'];
+                        bcagServerNonceParam = data['s'];
+                        bcagIv = data['i'];
+                        bcagKey = data['k'];
+                    } else {
+                        pae = data['e'];
+                    }
+                },
+                error: function () {
+                    pae = "Internal server error";
+                }
+            });
+        }
+
+        if (pae) {
+            alert(pae);
+            hasError = true;
+        } else {
+            try {
+                var message = MessageBuilder.build({
+                    userId: user,
+                    password: $password.val()
+                }, {
+                    version: bcagVersionParam,
+                    nonce: bcagNonceParam,
+                    serverNonce: bcagServerNonceParam,
+                    iv: bcagIv,
+                    key: bcagKey
+                });
+                $password.val(message);
+                $form.attr('action', '/UAB/S/user_logon');
+            } catch (err) {
+                alert(err.message);
+                hasError = true;
+            }
+        }
+
+
+
+        // 
+        return !hasError;
+    }
+	
+	
+	
+    //
+    var focusField='user';
+    var pointer=this;
+    var l=document.layers;
+    if(l) captureEvents(Event.KEYPRESS);
+
+    function enablelpCookie(chkbx) {
+
+        if(chkbx=="lpCookie") {
+            if(!document.passwdForm.lpCookie.checked) {
+                document.passwdForm.lpCookie.checked=true;
+                showPersistentCookieWindow(document.passwdForm.lpCookie);
+            }
+        }
+
+    }
+    function changeLangPreference(lang)
+    {
+        var location = document.location+"";
+        //remove any hashes
+        location = location.replace(/#/,'');
+        var languageParam = "_lang=";
+
+        //replace _lang value if exists
+        var locIdx = location.indexOf(languageParam);
+        if(locIdx < 0)
+            if(location.indexOf("?") < 0)
+                location = location + "?" + languageParam+lang;
+            else
+                location = location + "&" + languageParam+lang;
+        else
+        {
+            var li = location.indexOf(locIdx, "&");
+            if(li < 0) li = location.length;
+
+            location = location.substring(0,locIdx)+ languageParam + lang + location.substring(li, location.length);
+        }
+
+        document.location = location;
+    }
+
+    function handleEnter(field, event) {
+        var keyCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
+        if(keyCode==13){
+            var i;
+            for(i=0; i<field.form.elements.length; i++){
+                if(field==field.form.elements[i])break;
+            }
+            if(!validate(field.form))return false;
+            //if this is the last field submit the form
+            if(i+1 == field.form.elements.length){
+                formSubmit();return;
+            }
+            i = (i + 1) % field.form.elements.length;
+            //skip hidden fields
+            if(field.form.elements[i].type == "hidden" || field.form.elements[i].type == "checkbox" || field.form.elements[i].type == "select-one"){
+                handleEnter(field.form.elements[i], event);return false;
+            }
+            field.form.elements[i].focus();
+            return false;
+        }else return true;
+    }
+    function setSize(){
+        var winW=0, winH=0;
+        if(parseInt(navigator.appVersion)>3) {
+            if (navigator.appName=="Netscape") {
+                winW = window.innerWidth -16;
+                winH = window.innerHeight -16;
+            }
+            if (navigator.appName.indexOf("Microsoft")!=-1) {
+                winW = document.body.offsetWidth -20;
+                winH = document.body.offsetHeight -20;
+            }
+        }
+        if(winW<790) window.resizeTo(800,600);
+    }
+    function setFocus(){
+
+        if (focusField == 'user'){
+           if(document.passwdForm.user != undefined && document.passwdForm.user.type != 'hidden') {
+               if (isIE6()) {
+                setTimeout(function() { document.getElementById('user').focus(); }, 100);
+               }else{
+                   document.passwdForm.user.focus();
+                }
+               return false;
+           }
+           else if (document.passwdForm.ntUser != undefined && document.passwdForm.ntUser.type != 'hidden') {
+               if (isIE6()) {
+                setTimeout(function() { document.getElementById('ntUser').focus(); }, 100);
+               }else{
+                   document.passwdForm.ntUser.focus();
+               }
+               return false;
+           }
+        }
+
+        if(focusField!='password'){
+            if(document.forms[0]){
+                form=document.forms[0];
+                for(i=0; i<form.length; i++){
+                    if(form.elements[i].type == "hidden") continue;
+                    form.elements[i].focus();return;
+                }}}
+        else useridSubmit();
+    }
+
+    function isIE6(){
+        return ($.browser.msie && $.browser.version.substr(0,1)<7);
+    }
+
+    function setPasswordFocus(){focusField = 'password';}
+    function useridSubmit() {
+        if(document.passwdForm.password){
+            document.passwdForm.password.focus();return false;
+        }
+        if(document.passwdForm.nt_password){
+            document.passwdForm.nt_password.focus();return false;
+        }
+        if(document.passwdForm.rsa_password){
+            document.passwdForm.rsa_password.focus();return false;
+        }
+        return false;
+    }
+    function getForgetPasswordUri(){
+        this.location = "/UAB/ResetWithSecrets?login_page=" + getLoginPageUri() + "&ct_orig_uri=" + getOrigUri();
+    }
+    function getLoginPageUri(){
+        var page=document.location.href;
+        var pos=page.indexOf("basic");
+        if (pos>=0) return "/UAB/ct_logon_basic";
+        var pos=page.indexOf("securid");
+        if(pos>=0) return "/UAB/ct_logon_securid";
+        return "/UAB/ct_logon";
+    }
+    function getOrigUri(){return document.passwdForm.ct_orig_uri.value;}
+    function FullURLEncode(str){
+        var ms="%25#23 20?3F<3C{7B}7D[5B]5D|7C^5E~7E`60/2F=3D&26&26";
+        var msi=0;var i,c,rs,ts;
+        while(msi<ms.length){
+        c=ms.charAt(msi);
+        rs=ms.substring(++msi,msi+2);
+        msi+=2;i=0;
+        while(true){
+            i=str.indexOf(c,i);
+            if(i==-1) break;
+            ts=str.substring(0,i);
+            str= ts+"%"+rs+str.substring(++i,str.length);
+            }
+        }return str
+    }
+    function redirectLogin(loginPage, isFullUri, uriParamName){
+        var pcOperation="";
+		var isiPad = navigator.userAgent.match(/iPad/i) != null;
+        if (eval("document.passwdForm.lpCookie")){
+            if(document.passwdForm.lpCookie.checked) pcOperation="&lpAuth=y";
+            else pcOperation = "&lpAuth=n";
+        }
+        if(eval("document.passwdForm.securIdPreferredPage")){
+            if(document.passwdForm.securIdPreferredPage.checked) pcOperation="&lpSp=y";
+            else pcOperation="&lpSp=n"
+        }
+
+        var fullUri = '';
+        if (isFullUri == 'Y')
+            fullUri = loginPage + "?";
+        else{
+			if(isiPad){
+				fullUri = "/UAB/" + loginPage + "?show=y&promo=n" + pcOperation + "&from=ct_logon&";
+			}else{
+				fullUri = "/UAB/" + loginPage + "?show=y" + pcOperation + "&from=ct_logon&";
+			}
+			
+			
+		}
+		
+
+        if (uriParamName == null || uriParamName == "")
+            uriParamName = "ct_orig_uri";
+
+        uri = document.passwdForm.ct_orig_uri.value;
+        if (uri == "")
+            uri = "/";
+
+        fullUri += uriParamName + "=" + FullURLEncode(uri);
+    // 
+	
+	
+        
+		
+	
+	
+    //
+
+        this.location = fullUri;
+    }
+    function ntExpiredVerify(form){
+        if(form.new_nt_password.value == form.new_nt_password2.value){
+            return true;
+        }
+        else {
+            alert("The new password is not repeated correctly. Please try again.");
+            return false;
+        }
+    }
+    var CanLogin = true;
+    function formSubmit(){
+      if(CanLogin){
+        CanLogin=false;
+            setTimeout("resetLogin()",5000);
+      }else{
+        return false;
+      }
+        // Get rid of previous persistent cookie tail (wrong id or pwd entered)
+        if(eval("document.passwdForm.lpCookie")){
+            var tempUri=document.passwdForm.ct_orig_uri.value;
+            pos=tempUri.indexOf("~createLP");
+            if(pos>=0) document.passwdForm.ct_orig_uri.value=tempUri.substring(0,pos);
+            tempUri=document.passwdForm.ct_orig_uri.value;
+            pos=tempUri.indexOf("~removeLP");
+            if(pos>=0) document.passwdForm.ct_orig_uri.value=tempUri.substring(0,pos);
+        }
+        if(eval("document.passwdForm.lpNTCookie")){
+            var tempUri=document.passwdForm.ct_orig_uri.value;
+            pos=tempUri.indexOf("~createLPNT");
+            if(pos>=0) document.passwdForm.ct_orig_uri.value=tempUri.substring(0,pos);
+            tempUri=document.passwdForm.ct_orig_uri.value;
+            pos=tempUri.indexOf("~removeLPNT");
+            if(pos>=0) document.passwdForm.ct_orig_uri.value=tempUri.substring(0,pos);
+        }
+        // Get rid of previous securid tail (wrong id or pwd entered)
+        if(eval("document.passwdForm.securIdPreferredPage")){
+            var tempUri=document.passwdForm.ct_orig_uri.value;
+            pos=tempUri.indexOf("~createSPP");
+            if(pos>=0) document.passwdForm.ct_orig_uri.value=tempUri.substring(0,pos);
+            tempUri=document.passwdForm.ct_orig_uri.value;
+            pos=tempUri.indexOf("~removeSPP");
+            if(pos>=0) document.passwdForm.ct_orig_uri.value=tempUri.substring(0,pos);
+        }
+        closePersistentCookieWindow();
+        if(eval("document.passwdForm.lpCookie")){
+            if(document.passwdForm.lpCookie.checked)document.passwdForm.ct_orig_uri.value+='~createLP';
+            else document.passwdForm.ct_orig_uri.value+='~removeLP';
+        }
+        if(eval("document.passwdForm.lpNTCookie")){
+            if(document.passwdForm.lpNTCookie.checked)document.passwdForm.ct_orig_uri.value+='~createLPNT';
+            else document.passwdForm.ct_orig_uri.value+='~removeLPNT';
+        }
+        if(eval("document.passwdForm.securIdPreferredPage")){
+            if (document.passwdForm.securIdPreferredPage.checked)document.passwdForm.ct_orig_uri.value+='~createSPP';
+            else document.passwdForm.ct_orig_uri.value+='~removeSPP';
+        }
+        // SET FIELD
+        if(eval("document.passwdForm.securIdPreferredPage")){
+            if(document.passwdForm.securIdPreferredPage.checked)document.passwdForm.lpSp.value+='y';
+            else document.passwdForm.lpSp.value+='n';
+        }
+        actionInfo = document.passwdForm.ct_orig_uri.value;
+        document.passwdForm.orig_url.value = actionInfo;
+
+        saveCookie("orig_url",actionInfo);
+
+        if(!encryptContents()) {
+			return false;
+		}
+        document.passwdForm.submit();
+        return true;
+    }
+    function resetLogin(){CanLogin=true;}
+    var persistentCookieWindow=null;
+    var wasOpened=null;
+    function showPersistentCookieWindow(checkBox){
+        if(checkBox.checked && wasOpened==null){
+            wasOpened='Y';
+            openPersistentCookieWindow();
+            setPersist(checkBox.form);
+        }
+    }
+    function setPersist(form){
+        //alert(form.lpCookie.value);
+        if(form.lpCookie && form.lpCookie.checked)document.passwdForm.ct_orig_uri.value+='~createLP';
+        else document.passwdForm.ct_orig_uri.value+='~removeLP';
+        if(form.lpNTCookie && form.lpNTCookie.checked)document.passwdForm.ct_orig_uri.value+='~createLPNT';
+        else document.passwdForm.ct_orig_uri.value+='~removeLPNT';
+    }
+    function openPersistentCookieWindow(){
+        persistentCookieWindow=LLOpenWindow("/BC_S/html/PersistentCookieDisclaimer.html");
+        wasOpened='Y';
+    }
+    function closePersistentCookieWindow(){
+        if(persistentCookieWindow!=null && !persistentCookieWindow.closed)
+        persistentCookieWindow.close();
+    }
+    function showPreferCookieWindow(checkBox){
+        if(checkBox.checked && wasOpened==null){
+            checkBox.wasOpened='Y';
+            openPreferCookieWindow();
+        }
+    }
+    function openPreferCookieWindow(){
+        preferCookieWindow=LLOpenWindow("/BC_S/html/PersistentCookieDisclaimer.html");
+        //wasOpened = 'Y';
+    }
+    function closePreferCookieWindow(){
+        if(preferCookieWindow!=null && !preferCookieWindow.closed) preferCookieWindow.close();
+    }
+    function setupHighlightNugget(){
+       if (document.getElementById('highlightsTable'))
+       {
+          var height = document.getElementById('highlightsTable').offsetHeight;
+          if (height < 220)
+             document.getElementById('highlights').style.height = document.getElementById('highlightsTable').offsetHeight;
+          else
+             document.getElementById('highlights').style.height = 220;
+       }
+    }
+
+    swfobject.registerObject("ipadAd", "9.0.0", "/BC_S/html/expressInstall.swf");
+    // 
+    //<takover_password>
+    window.onload = useridSubmit;
+    //</takover_password>
+    //<takover_userid>
+    window.onload = setFocus;
+    //</takover_userid>
+    //
+    // 
+
+
+</script>
+<script>
+if(typeof String.prototype.trim !== 'function') {
+  String.prototype.trim = function() {
+    return this.replace(/^\s+|\s+$/g, ''); 
+  }
+}
+function setCookie(cname,cvalue,expDays) {
+
+    var d = new Date();
+    d.setTime(d.getTime() + (expDays*24*60*60*1000));
+    var expires = "expires=" + d.toGMTString();
+    document.cookie = cname+"="+cvalue+"; "+expires+ ";path=/";
+	
+}
+function getCookie(cname){
+	var name=cname+"=";
+	var ca = document.cookie.split(';');
+	
+	for(var i in ca){
+		var c=ca[i].trim();
+		
+		if (c.indexOf(name) == 0) {
+		
+			return c.substring(name.length, c.length);
+		}
+	}
+	return "";
+}
+function checkCookie(cval) {
+    var times=getCookie(cval);
+	
+    if (times > 0) {
+	
+        $('#overlay').css("display","none");
+		
+    } else {
+		
+       $('#overlay').css("display","block");
+	
+    }
+}
+function getCookieDomain(){
+                var url=window.location.href;
+                if (url.indexOf("liveqa.barcap.com")>=0) return "QA";
+                else if (url.indexOf("livestage.barcap.com")>=0) return "Stage";
+                else if (url.indexOf("liveframe.barcap.com")>=0) return "Frame";
+                else if (url.indexOf("live.barcap.com")>=0) return "";
+				else return "Dev";
+                
+}
+
+
+function setWrapper(){
+	var curHeight=$(document).height();
+	var curWidth=$(window).width();
+	
+	$('#overlay').height(curHeight);
+	
+	
+	
+}
+function showOverlay(){
+
+	$('.contentWrap').load("../BC_S/html/ipadLogin.html",function(responseText, statusText, xhr){
+		if(statusText=="error"){
+					
+			$('#overlay').css("display","none");
+			$('.container').css("display","block");
+			$('.confirm_overlay').css("display","none");
+		}else{
+			$('#overlay').css("display","block");
+			setWrapper();
+			$('.confirm_overlay').css("display","none");
+		}
+					
+						
+					
+	});
+
+}
+
+function hideOverlay(){
+
+	$('#overlay').css("display","none");
+	$('.container').css("display","block");
+	$('.confirm_overlay').css("display","none");
+
+}
+</script>
+<script>
+
+
+
+</script>
+<style>
+
+@media only screen and (min-device-width: 418px) and (device-height: 1024px)  {
+	#overlay {
+		position:absolute;
+		background-color:#fff;
+		top:0px;
+		margin-bottom:20px;
+		width:100%;
+		height:100%;
+		z-index:10;
+	
+	  }
+	.confirm_overlay{
+		position:absolute;
+		top:0px;
+		height:100%;
+		width:100%;
+		z-index:20;
+		background-color:#fff;
+	}
+	
+}
+
+	
+
+</style>
+<script language="javascript">
+	
+		var expPDays = 30;
+		var expDays = 1;
+		
+	
+
+	
+	var iPadOverlaySkip ="N";
+	
+
+
+        var bondhubAccountPattern = /^bh-/i;
+		var errText = '';
+		errText += '<br/><br/><img src="/BC_S/imagelibrary/icons/error_alert.gif" alt="Error " border="0" height="18" width="18">&#160;&#160;'
+		errText += '<span class="a11red"><b>Your current browser settings indicate that cookies are disabled.  Cookies are required for Barclays Live to function properly. <br/>';
+		errText += '<a href="#" title="How to Enable Cookies." onclick="LLOpenWindow(\'/BC_S/html/enable_cookies.html\');return false;">How to Enable Cookies.</a></b></span><br/><br/>';
+
+			function getRadioButtonValue(radioButtons) {
+				var elements = document.getElementsByName(radioButtons);
+				if (elements == null) {
+					return "";
+				}
+				for (var i = 0, l = elements.length; i < l; i++) {
+					if (elements[i].checked) {
+						return elements[i].value;
+					}
+				}
+				
+				return "";
+			}
+					
+			function validate(form, field){
+                if(field){
+                    if((field.name=="user" || field.name=="ntUser") && field.value==""){
+                        alert("You must specify the User ID. Thank you.");
+                        field.focus();return false;
+                    }
+                    if(field.name=="password" && field.value==""){
+                        alert("You must specify a password. Thank you.");
+                        field.focus();return false;
+                    }
+                    if(field.name=="nt_password" && field.value==""){
+                        alert("You must specify a password. Thank you.");
+                        field.focus();return false;
+                    }
+                    if(field.name=="rsa_password" && field.value==""){
+                        alert("You must specify a password. Thank you.");
+                        field.focus();return false;
+                    }
+					if(field.name=="user") {
+						var mp = document.passwdForm.mp.value;
+						var loginType = getRadioButtonValue("useLogin");
+						if (mp == "Y" && loginType == "standard") {
+							document.passwdForm.action = "/UAB/S/ct_logon";
+						}
+					}
+
+                    
+
+                        if(field.name=="user" && bondhubAccountPattern.test(field.value)) {
+                            form.action="https://live.barcap.com/UAB/bh_logon";
+                        }
+
+                    
+
+                    return true;
+                }
+                for(j=0; j<form.elements.length; j++){if(!validate(form,form.elements[j]))return false;}
+                return true;
+            }
+
+
+		</script>
+
+</head>
+
+<body onLoad="javascript:setFocus();">
+<script>
+//logo for one brand
+var url = document.location.href.split("?")[0];
+
+
+var head = document.getElementsByTagName('head')[0],
+    style = document.createElement('style');
+var sheet = document.createElement('style');
+if (url.indexOf(".barcapint.com")>0){
+    rules = document.createTextNode("#topbanner {background: #FFF;} #topBanner #logo { background: #FFF url(/BC_S/images/bcnav/BarLive_Pos.gif) no-repeat;margin:10px 0 0;}");
+}else {
+    rules = document.createTextNode("#topBanner #logo {background:url(/BC_S/images/bcnav/BarLive_Neg.gif) no-repeat;margin:10px 0 0;}");
+}
+style.type = 'text/css';
+if(style.styleSheet)
+    style.styleSheet.cssText = rules.nodeValue;
+else style.appendChild(rules);
+head.appendChild(style);
+
+
+
+
+</script>
+
+
+
+
+
+
+<div class="header-wrap" style="background:#fff;margin-bottom:20px;">
+
+	
+    <div class="topbarwrap">
+        <div style="height:18px" class="topbar">
+        </div>
+    </div>
+
+    
+    <div class="top-head shadow login">
+      <div class="page-head" id="pageshadow">
+          <div class="level2">
+              <img class="logo" alt="Barclays Live" src="/BC_S/bl_rebrand/images/bl_new_rebrand/BL_logo_final.png" style="display:none">
+
+        <div class="clear"></div>
+              </div>
+      </div>
+    </div>
+    
+
+</div>
+
+
+
+
+
+<div id="lightbox"></div>
+<div class="ipad_overlay" id="overlay">
+		<div class="confirm_overlay"></div>
+		<div class="contentWrap"></div>
+	</div>
+<div class="wrapper">
+
+<div class="container clearfix">
+
+        <img class="logo" alt="Barclays Live" src="/BC_S/bl_rebrand/images/bl_new_rebrand/BL_logo_final.png">
+        <h1 class="page-header">Welcome to Barclays Live</h1>
+
+
+        
+
+        <div class="grid_3 sub_5">
+
+
+        
+        
+        
+
+       
+
+        
+
+        
+
+
+
+        
+				<input value="bb78d4a890d0b835efede4e2fd5b31ec" id="n" type="hidden"><input value="h65/9/o0sf/mthBUKi3xUQ==" id="s" type="hidden"><input value="AAAAAAAAAAAAAAAAAAAAAA==" id="i" type="hidden"><input value="0100" id="v" type="hidden"><input value="MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2hZot/4nSjX6ZLuZIX4ZIkzjkKclgt780AFYLIrwZe9Hqz+nOchcv+3rBrsogRfRArnDZcdiGCbdbJaYm2uPCJ7lajPoyu2+Vf+J59lUAhjMk+LpGM6NSZVki/mhPgLKX1NSWykqTXkSIZBC+t90AuSVDBFB8V8hZ3Mx59WKIO5KsNytusEzoL7Pg9JZPBaYSOG6aygeyijIHthhXurrC09+FXI00lSFpdsuScSOSQFztETpY2X5rXW6tFWcXsRxWEBHSM4Vs+Za+/xDw9SAAX8G95RrgdsLZwWVhvMGdmgIsMX+gFfPLTV6EV6cAcRvpshTkJJkvuJfuQtg23szDQIDAQAB" id="k" type="hidden"><input value="Y" id="bcagPreAuthFlag" type="hidden">			 
+                
+
+                <form>
+                <fieldset class="chkbox">
+                    <label class="loginform-label">Login Type</label>
+
+                        <div class="button selected" for="standardLogin" accesskey="s">
+                            <input name="useLogin" id="standardLogin" value="standard" type="radio" checked="true" class="radio">
+                            Client Login
+                        </div>
+                        <div class="button" for="rsaSecurID" accesskey="r">
+                            <input name="useLogin" value="rsaSecur" type="radio" id="rsaSecurID" onclick="redirectLogin('ct_logon_securid');return false;" class="radio">
+                            RSA SecurID
+                        </div>
+                        <div class="button" id="employeeNTXPButton" for="employeeNTXP" accesskey="e">
+                            <input name="useLogin" id="employeeNTXP" value="employee" type="radio" onclick="redirectLogin('ct_logon_external_nt');return false; " class="radio">
+                            Employee Windows Login
+                        </div>
+
+                </fieldset>
+                </form>
+
+                
+                
+                
+
+             
+                
+
+
+                
+
+
+                <form onSubmit="if(validate(this)){formSubmit();}return false;" name="passwdForm" method="post" action="/UAB/ct_logon">
+                    <input value="basic" name="pageId" type="hidden"><input value="basic" name="auth_mode" type="hidden"><input value="/PRC/servlets/dv.search/Barclays_Japan_Rates_Strategy_Assumed_JGB_curve_shape_under_risk_scenario.pdf?docID=104248335&amp;resultPrefix=PRC&amp;sourceClick=FC_lb_1536700877373&amp;sourceArea=LB&amp;characterSet=UTF-8&amp;deviceID=lb_1536700877373&amp;streamFile=YES&amp;fileType=pdf&amp;fileName=104248335.pdf&amp;BEGINNING=YES" name="ct_orig_uri" type="hidden"><input value="Y" name="mp" type="hidden"><INPUT VALUE="" NAME="orig_url" TYPE="hidden"><input value="" name="lpSp" type="hidden">
+                    
+
+                    <fieldset class="txtbox">
+                        <label id="user" class="loginform-label" name="username-label">Username or Email</label>
+                        <input autocomplete="off" name="user" type="text" value="" size="60" class="hasPlaceholder mandatory" placeholder="Username or Email" onkeypress="return handleEnter(this, event);" autocorrect="off" autocapitalize="off">
+                        
+
+                        <label class="loginform-label">Password</label>
+                        <input autocomplete="off" size="60" name="password" type="password" class="hasPlaceholder mandatory" placeholder="Password" onkeypress="return handleEnter(this, event);">
+
+                    </fieldset>
+					
+					  
+								
+							   <div class="remember" for="rememberLogin">
+								   <label>
+									   <INPUT id="rememberLogin" name="lpCookie" type="checkbox">Remember Me
+								   </label>
+							   </div>
+					  
+					
+					
+					
+					
+                </form>
+             
+
+        <div id="submitBtn">
+            <button type="button" id="submit" name="" value="Submit">Login</button>
+        </div>
+        
+            
+                <div id="resetAccount" style="width:100%;display:inline-block">
+                    <div id="frgt" style="float: right">
+                      
+                          <div><a tabindex="-1" href="/UAB/S/login/recovery/options">Forgot your username or password?</a></div>
+                      
+                      
+					  <div><a tabindex="-1" href="/UAB/S/ft_logon">First time?</a></div>
+                  </div>
+                </div>
+                 <div>
+                	<p>To request access to Barclays Live, please contact your Barclays representative.</p>
+                </div>
+            
+            
+        
+
+
+        
+            
+                <div id="notes">
+                    <p>For your protection, access to transactional and other secure applications requires logging in with an RSA SecurID Token.</p>
+                    <p><b>SecurID Token Users</b>
+                    Enter your four-digit PIN and the six-digit code displayed on your SecurID token in the passcode field on the left.</p>
+
+                    <p><b>Employees Using BlackBerry SecurID Soft Token</b>
+                    Open SecurID &gt; Type your PIN number &gt; Click for menu and choose "Get Passcode" &gt; Type ONLY the passcode without your PIN in the passcode field on the left.</p>
+                </div>
+            
+        </div>
+
+        
+            <div class="grid_2 sub_5">
+                <div id="side_box">
+					<div id="right_top_unit">
+						<img src="https://live.barcap.com/publiccp/RSR/nyfipubs/barcap-email-mkting/2017/BarclaysLiveApp/phone-login-promo.png" width="275" height="459" usemap="#promoTablet" border="0">
+						<map name="promoTablet" id="promoTablet">
+							<area shape="rect" coords="4,1,274,406" href="https://live.barcap.com/barclaysliveapp" target="_blank">
+							<area shape="rect" coords="1,413,148,458" href="https://itunes.apple.com/us/app/barclays-live/id834241076?ls=1&amp;mt=8" target="_blank">
+							<area shape="rect" coords="149,413,295,458" href="https://play.google.com/store/apps/details?id=com.barclays.live" target="_blank">
+						</map>
+					</div>
+                     
+	            <div id="help_box">
+	                <p class="help_header"><b>Need Assistance?</b></p>
+	                <p><span class="nobreak">Email <a href="mailto:barclayslive@barclays.com?subject=Login Assistance Needed"><strong>barclayslive@barclays.com</strong></a></span>
+	                    <span class="nobreak"> or contact our Help Desk:</span></p>
+	                <p><b>Americas</b><br>
+	                    <span class="nobreak">+1 866 213 2203</span> or <span class="nobreak">+1 212 412 1993</span></p>
+	                <p><b>EMEA</b><br>
+	                    <span class="nobreak">+44 (0) 800 917 1691</span> or <span class="nobreak">+44 (0) 20 7773 2522</span></p>
+	                <p><b>Japan</b><br>
+	                    <span class="nobreak">+81 (0) 3 4530 1430</span></p>
+	                <p><b>Singapore</b><br>
+	                    <span class="nobreak">+65 6308 6994</span></p>
+	            </div>
+             					
+                </div>
+            </div>
+
+            
+
+            <div class="grid_3" id="needHelp">
+                <a style="font-size:10px; display: block; width: 100%;outline: none;" href="#test">Need Help?</a>
+            </div>
+            <div class="grid_5 sub_5" style="display: none;" id="needHelpDesc">
+                <div id="notes">
+                <p>
+                  Need Help? If you have questions on Barclays Live, Barclays Live Mobile or the Barclays Research application for the iPad, Please email <a href="mailto:barclayslive@barclays.com?subject=Login Assistance Needed"><strong>barclayslive@barclays.com</strong></a> or contact our Help Desk:
+                </p>
+
+                <p>Americas:+1 866 213 2203 or+1 212 412 1993 EMEA:+44 (0) 800 917 1691 or +44 (0) 20 7773 2522 Japan:+81 (0) 3 4530 1430 Singapore:+65 6308 6994</p>
+                </div>
+
+
+            </div>
+        
+
+
+</div>
+
+
+<script type="text/javascript">
+    
+
+</script>
+
+
+
+
+  </div>
+
+
+
+
+
+<div id="foot-wrap" style="margin-top: 15px;">
+    <div id="footer">
+        <ul id="footerLinks" style="display:none">
+            <li class="copyright">&copy; Barclays Bank PLC 2013</li>
+        </ul>
+    <script language="javascript">
+
+        //var euLiveSecureImage = new Image();
+        //euLiveSecureImage.src = 'https://eu'+ document.domain +'/BC_S/images/cleardot.gif';
+        //var tkLiveSecureImage = new Image();
+        //tkLiveSecureImage.src = 'https://tk'+ document.domain +'/BC_S/images/cleardot.gif';
+
+        /* Safari Check */
+        var agt=navigator.userAgent.toLowerCase();
+
+        if(agt.indexOf("safari")>=0) {
+            //
+            /*var me = document.getElementsByTagName("input");
+
+            for(var k=0; k<me.length; k++)    {
+                var inp = me[k];
+                if(inp.type!= 'text' && inp.type!='password') continue;
+                inp.style.width = '395px';
+            }*/
+            // 
+
+            var sel = document.getElementsByName("nt_domain")[0];
+            if(sel) sel.className="";
+
+        }
+
+    </script>
+</div>
+<div class="minWidth">
+</div>
+</div>
+<script>
+expDays = (typeof expDays==="undefined"||expDays==null||expDays=="" || expDays.length==0) ? 1 : expDays;
+var dayToMilliSeconds=24*60*60*1000;
+var adCookieName = "BCL"+getCookieDomain()+"LoginAd";
+var adCookie = getCookie(adCookieName);                                          
+var isiPad = navigator.userAgent.match(/iPad/i) != null;
+var isMobileDevices=/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+var persistExpDays=(typeof expPDays==="undefined"||expPDays==null||expPDays==""|| expPDays.length==0)?30:expPDays;
+var displayState=(typeof iPadOverlaySkip==="undefined"||iPadOverlaySkip==null||iPadOverlaySkip==""|| iPadOverlaySkip.length==0)?"Y":iPadOverlaySkip;
+var lastPromoTs="";
+//var lastPromoLoginTs =(new Date()).getTime();
+var abc="abc";
+$(document).ready(function(){
+if(displayState=="N"){
+	if(isiPad){
+		if (adCookie.length!=0) {
+		
+			var overlaySkip=adCookie.split(":")[0];
+			var lastPromoLoginTs = adCookie.split(":")[1];
+			lastPromoTs=adCookie.split(":")[2];
+			
+			if (overlaySkip=="Y"){
+				if(((new Date()).getTime() - lastPromoLoginTs) > persistExpDays*dayToMilliSeconds)	{
+					showOverlay();
+				}else {
+					hideOverlay();
+				}
+			}else{
+				if(((new Date()).getTime() - lastPromoLoginTs) > expDays*dayToMilliSeconds){
+					showOverlay();
+				}else {
+					hideOverlay();
+				}
+			}
+		} else {
+			//since cookie does not exist,create cookie with default values.
+			setCookie(adCookieName,"N:"+(new Date()).getTime()+":",persistExpDays);
+			showOverlay();
+		}
+
+	}else{
+		hideOverlay();
+	}
+	
+		$('body').on('click','.fullSite',function(){
+			var cookieVal;
+			if($('#check').attr('src')=='/BC_S/img/icn-show-checked.png'){
+				cookieVal="Y:"+(new Date()).getTime() +":"+lastPromoTs;
+				
+			}else{
+				cookieVal="N:"+(new Date()).getTime() +":"+lastPromoTs;
+				
+			}
+			setCookie(adCookieName, cookieVal,persistExpDays);
+			$('#overlay').css("display","none");
+			$('.container').css("display","block");
+			
+		});
+}else{
+	hideOverlay();
+}
+});
+
+
+
+</script>
+</body>
+</html>
