@@ -1,0 +1,6 @@
+Altman’s original five-ratio model was designed for manufacturers, or sectors with high capital intensity, such as mining.
+
+The problem is it uses the sales/total assets ratio, which can skew the result in sectors that are not capital intensive. A low total assets figure brings this ratio, and the resulting Z score, down too far and can generate a number that suggests financial distress when there may be none. Low capital intensity sectors include many service sector firms where people, rather than physical assets, are the main source of added value.
+
+
+https://statweb.stanford.edu/~candes/software/
