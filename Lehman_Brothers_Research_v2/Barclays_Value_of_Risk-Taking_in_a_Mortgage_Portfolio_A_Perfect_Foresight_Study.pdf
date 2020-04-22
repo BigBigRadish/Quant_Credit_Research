@@ -1,0 +1,5646 @@
+%PDF-1.2
+%âãÏÓ
+2 0 obj
+<<
+/Length 9744
+>>
+stream
+0 0 0 1 K
+0 J 0 j 0.24 w 10 M []0 d
+/GS1 gs
+1 i 
+54 56.04 m
+558 56.04 l
+S
+BT
+/F4 1 Tf
+8.1 0 1.7217 9 54 42.48 Tm
+0 0 0 1 k
+/GS2 gs
+0.0066 Tc
+0 Tw
+(Lehman Brothers)Tj
+8.1 0 0 9 294.24 42.48 Tm
+0.0078 Tc
+-0.0027 Tw
+[(PTS)7.8(-)-21.7(1)-21384.8(February 12, 2001)]TJ
+ET
+/GS1 gs
+55.2 720.12 m
+559.2 720.12 l
+S
+1.92 w 
+54.24 719.04 m
+242.88 719.04 l
+S
+BT
+/F6 1 Tf
+25.2 0 0 28 55.44 726.2401 Tm
+-0.026 Tc
+0.0456 Tw
+(Portfolio Strategies)Tj
+/F4 1 Tf
+8.1 0 0 9 195.84 676.8 Tm
+/GS2 gs
+0.026 Tc
+0.0115 Tw
+[(Lev Dynkin)-537(212-526-6302)]TJ
+-8.4741 -1.44 TD
+0.0245 Tc
+0.0453 Tw
+[(Vadim Konstantinovsky, CFA)-568.1(212-526-8290)]TJ
+4.7111 -1.44 TD
+0.0249 Tc
+0.0173 Tw
+[(Bruce Phelps, CFA)-567.7(212-526-9205)]TJ
+/F7 1 Tf
+9 0 0 10 54 624.72 Tm
+-0.0053 Tc
+0.0157 Tw
+(VALUE OF RISK-TAKING IN A MORTGAGE PORTFOLIO:)Tj
+0 -1.296 TD
+0.0059 Tc
+0.0222 Tw
+(A PERFECT FORESIGHT STUDY)Tj
+9.5 0 0 9.5 54 585.84 Tm
+0.0068 Tc
+-0.0263 Tw
+(Objectives and Formulation)Tj
+/F1 1 Tf
+0 -1.3642 TD
+0.0058 Tc
+0.1684 Tw
+(Successful money managers constantly shift scarce research)Tj
+0 -1.3895 TD
+-0.0065 Tw
+[(resources in search of performance alpha. One way to evaluate)]TJ
+0 -1.3642 TD
+0.0062 Tc
+0.0006 Tw
+(the potential value-added of various investment strategies is to)Tj
+T*
+0.0061 Tc
+0.0391 Tw
+(employ the “perfect foresight” approach. The first step of this)Tj
+T*
+0.1023 Tw
+(approach identifies investment skills relevant for a particular)Tj
+T*
+0.0064 Tc
+-0.0242 Tw
+(market. In most cases, these skills align with the important risk)Tj
+T*
+-0.0737 Tw
+(dimensions in the market. For example, in the corporate market,)Tj
+0 -1.3895 TD
+0.0062 Tc
+-0.0978 Tw
+(credit quality is a key risk factor, and credit analysis is a valuable)Tj
+0 -1.3642 TD
+0.0064 Tc
+0.1827 Tw
+(skill. Once the risk and skill are identified, the portfolio is)Tj
+T*
+0.0058 Tc
+0.0361 Tw
+(structured to profit from perfectly anticipated \(hence, “perfect)Tj
+T*
+0.006 Tc
+-0.0612 Tw
+(foresight”\) changes in the risk factor while maintaining neutral-)Tj
+T*
+0.0062 Tc
+0.2116 Tw
+[(ity to the benchmark along all other risk dimensions \()]TJ
+/F8 1 Tf
+23.6716 0 TD
+0.006 Tc
+0 Tw
+(e.g.,)Tj
+/F1 1 Tf
+-23.6716 -1.3642 TD
+0.0176 Tc
+0.2527 Tw
+[(duration and sector\). To compare results fairly, achieved)]TJ
+0 -1.3895 TD
+0.006 Tc
+0.0218 Tw
+(outperformance is adjusted by the accompanying risk, defined)Tj
+0 -1.3642 TD
+0.1572 Tw
+(as the variability of the portfolio’s outperformance over the)Tj
+T*
+-0.1026 Tw
+(benchmark. A widely accepted measure of investment success is)Tj
+T*
+0.0483 Tc
+0 Tw
+(the )Tj
+/F8 1 Tf
+1.92 0 TD
+0.0509 Tc
+0.2527 Tw
+(information ratio,)Tj
+/F1 1 Tf
+8.3621 0 TD
+[( which is the mean of monthly)]TJ
+-10.2821 -1.3642 TD
+0.0061 Tc
+-0.0609 Tw
+(outperformance divided by its standard deviation. This exercise)Tj
+T*
+-0.0542 Tw
+(is repeated for all identified skills and risk factors, and informa-)Tj
+T*
+0.0062 Tc
+0.0758 Tw
+(tion ratios are compared. The results reveal the skill with the)Tj
+0 -1.3895 TD
+0.0059 Tc
+0.0132 Tw
+(most potential for adding value.)Tj
+0 -2.7284 TD
+0.0058 Tc
+0.1512 Tw
+(Recently, we examined the relative value-added of different)Tj
+0 -1.3642 TD
+0.0061 Tc
+-0.1091 Tw
+[(skills within the corporate market.)]TJ
+7.1 0 0 7.1 181.92 276.96 Tm
+0 Tc
+0 Tw
+(1)Tj
+9.5 0 0 9.5 185.52 273.84 Tm
+0.0063 Tc
+-0.1105 Tw
+[( The benchmark \(the Lehman)]TJ
+-13.8442 -1.3642 TD
+0.006 Tc
+0.0678 Tw
+(Brothers Credit Index\) was divided along term structure \()Tj
+/F8 1 Tf
+23.8737 0 TD
+0.011 Tc
+0 Tw
+(i.e.,)Tj
+/F1 1 Tf
+-23.8737 -1.3642 TD
+0.0062 Tc
+-0.0807 Tw
+(duration\), sector, and quality. Then, for example, to measure the)Tj
+0 -1.3895 TD
+0.0684 Tw
+(value of sector selection skill, we constructed a portfolio that)Tj
+0 -1.3642 TD
+0.006 Tc
+-0.0954 Tw
+(matched benchmark allocations along term structure and quality)Tj
+T*
+0.0062 Tc
+0.2309 Tw
+(but was invested solely in the best-performing sector. The)Tj
+T*
+0.0059 Tc
+-0.0941 Tw
+(perfect foresight to choose the best-performing sector was based)Tj
+27.6632 50.6274 TD
+0.0013 Tw
+(on curve-adjusted excess returns over a particular horizon. We)Tj
+0 -1.3642 TD
+0.0062 Tc
+-0.1093 Tw
+(measured security selection skill by matching the portfolio to the)Tj
+T*
+0.0448 Tw
+(benchmark along all three dimensions while investing in only)Tj
+0 -1.3895 TD
+0.006 Tc
+0.0202 Tw
+(the best-performing bonds. This corporate study demonstrated)Tj
+0 -1.3642 TD
+0.0515 Tw
+(that the most effective way to outperform the benchmark was)Tj
+T*
+0.0062 Tc
+0.0114 Tw
+(security selection, or a “bottom-up” investment style.)Tj
+0 -2.7284 TD
+0.0059 Tc
+-0.0969 Tw
+(Mortgage investors are equally interested in evaluating different)Tj
+0 -1.3642 TD
+0.0064 Tc
+-0.0321 Tw
+(investment skills, so now we are exploring this issue within the)Tj
+0 -1.3895 TD
+-0.0911 Tw
+[(mortgage market. The approach to this study, however, has to be)]TJ
+0 -1.3642 TD
+0.0061 Tc
+-0.1047 Tw
+(somewhat different. Instead of dividing the index into cells \()Tj
+/F8 1 Tf
+23.6716 0 TD
+0.0071 Tc
+0 Tw
+(e.g.)Tj
+/F1 1 Tf
+1.4653 0 TD
+0 Tc
+(,)Tj
+-25.1368 -1.3642 TD
+0.0064 Tc
+-0.0079 Tw
+(low, par, and high coupons\), we identify the three most impor-)Tj
+T*
+0.0061 Tc
+0.2263 Tw
+(tant risk factors)Tj
+7.1 0 0 7.1 381.12 523.92 Tm
+0 Tc
+0 Tw
+(2)Tj
+9.5 0 0 9.5 384.72 520.8 Tm
+0.0061 Tc
+0.2272 Tw
+[( affecting the mortgage market. The three)]TJ
+-7.1495 -1.3642 TD
+-0.0388 Tw
+(factors we chose are realized volatility, spread movements, and)Tj
+T*
+0.0062 Tc
+-0.0534 Tw
+(prepayments. The majority of portfolio decisions that mortgage)Tj
+0 -1.3895 TD
+0.0059 Tc
+0.0316 Tw
+(managers make revolve around these risk factors. Prepayment)Tj
+0 -1.3642 TD
+0.0542 Tw
+(uncertainty leads managers to overweight current coupons. In)Tj
+T*
+-0.0391 Tw
+(anticipation of increased interest rate volatility, managers often)Tj
+T*
+0.0061 Tc
+-0.1135 Tw
+[(reduce the negative convexity of their portfolios by staying away)]TJ
+T*
+0.0063 Tc
+0.0211 Tw
+(from the cusp. Thus, the first condition of successful portfolio)Tj
+T*
+0.1234 Tw
+(decisions in the mortgage market is the managers’ ability to)Tj
+0 -1.3895 TD
+0.006 Tc
+0.0031 Tw
+(forecast changes in these risk factors.)Tj
+0 -2.7284 TD
+0.0062 Tc
+-0.0616 Tw
+(The second and equally important step is to structure a portfolio)Tj
+0 -1.3642 TD
+0.0006 Tw
+(by appropriately adjusting its sensitivities to these risk factors.)Tj
+T*
+0.1339 Tw
+(The sensitivities to the risk factors we use are, respectively,)Tj
+T*
+0.006 Tc
+-0.0123 Tw
+[(convexity, spread duration, and prepayment duration \(approxi-)]TJ
+T*
+0.0065 Tc
+-0.1158 Tw
+(mated by )Tj
+/T10 1 Tf
+3.7642 0 TD
+0 Tc
+0 Tw
+(d)Tj
+/F9 1 Tf
+0.5053 0 TD
+-0.0003 Tc
+(P/)Tj
+/T10 1 Tf
+0.8337 0 TD
+0 Tc
+(d)Tj
+/F9 1 Tf
+0.5053 0 TD
+0.0051 Tc
+(PSA)Tj
+7.1 0 0 7.1 387.84 329.04 Tm
+0 Tc
+(3)Tj
+9.5 0 0 9.5 391.44 325.92 Tm
+0.0058 Tc
+-0.1158 Tw
+(\). The link between correctly anticipated risk)Tj
+-7.8568 -1.3895 TD
+0.0249 Tw
+(factor changes and the correct portfolio restructuring response)Tj
+0 -1.3642 TD
+0.0061 Tc
+-0.0837 Tw
+[(may not be as straightforward as it is in the corporate market and)]TJ
+T*
+0.0062 Tc
+0.0088 Tw
+(merits a separate investigation.)Tj
+0 -2.7284 TD
+0.0064 Tc
+0.0113 Tw
+(As a consequence, we pose the following questions:)Tj
+/F1 1 Tf
+0 -2.7537 TD
+0 Tc
+0 Tw
+()Tj
+/F9 1 Tf
+1.8947 0 TD
+0.006 Tc
+0.0737 Tw
+(Assuming perfect foresight, how much value \(defined as)Tj
+0 -1.3642 TD
+-0.0243 Tw
+(outperformance of the Lehman MBS Index\) can be gained)Tj
+T*
+0.0489 Tw
+(from boosting a portfolio)Tj
+/F1 1 Tf
+10.383 0 TD
+0 Tc
+0 Tw
+(’)Tj
+/F9 1 Tf
+0.3391 0 TD
+0.0061 Tc
+0.0489 Tw
+(s sensitivity \(exposure\) to each)Tj
+ET
+0.24 w 
+/GS1 gs
+316.8 178.2 m
+380.16 178.2 l
+S
+BT
+/F4 1 Tf
+5.6 0 0 5.6 316.8 166.08 Tm
+/GS2 gs
+0 Tc
+0 Tw
+(2)Tj
+7 0 0 7 319.92 163.92 Tm
+0.0007 Tc
+-0.0487 Tw
+[( )24.3(The conclusion about relative importance was based on the comparison of)]TJ
+-0.4457 -1.2 TD
+0.0563 Tw
+[(explanatory power of various risk factors, presented in )34.8(A)6.2(.)6.2( )69.1(Arora, D. Heike,)]TJ
+T*
+-0.0571 Tw
+(and R. Mattu,)Tj
+7 0 1.4879 7 358.08 147.12 Tm
+0.0008 Tc
+-0.0607 Tw
+[( Risk and Return in the Mortgage Market: Review and Outlook)]TJ
+7 0 0 7 546.72 147.12 Tm
+0 Tc
+0 Tw
+(,)Tj
+-32.8457 -1.2 TD
+0.0005 Tc
+-0.0257 Tw
+[(The Journal of Fixed Income, V)34.8(ol. 10 No. 1, Summer 2000)]TJ
+5.6 0 0 5.6 316.8 124.08 Tm
+0 Tc
+0 Tw
+(3)Tj
+7 0 0 7 319.92 121.92 Tm
+0.0106 Tc
+-0.0531 Tw
+[( In this measure, PSA represents the )]TJ
+7 0 1.4879 7 436.32 121.92 Tm
+0.01 Tc
+0 Tw
+(yield-equivalent)Tj
+7 0 0 7 486.24 121.92 Tm
+0.0108 Tc
+-0.0536 Tw
+[( prepayment speed,)]TJ
+-24.2057 -1.2 TD
+0.0104 Tc
+0.0078 Tw
+(i.e., a constant prepayment level at which the static PSA model produces)Tj
+T*
+0.011 Tc
+-0.0357 Tw
+(the same yield as the prepayment model using zero-volatility assumption.)Tj
+ET
+/GS1 gs
+54 160.68 m
+126.72 160.68 l
+S
+BT
+5.6 0 0 5.6 54 148.56 Tm
+/GS2 gs
+0 Tc
+0 Tw
+(1)Tj
+7 0 0 7 57.12 146.4 Tm
+0.0001 Tc
+-0.0453 Tw
+[( L. Dynkin, P)102.9(.)-0.4( Ferket, J. Hyman, E. van Leeuwen and W)68.7(.)7.5( )7.4(Wu)11.2(,)]TJ
+7 0 1.4879 7 241.44 146.4 Tm
+0.0017 Tc
+-0.0476 Tw
+[( )7.7(V)36(alue of Security)]TJ
+-26.5221 -1.2 TD
+0.0002 Tc
+-0.0226 Tw
+[(Selection versus )34.7(Asset )34.7(Allocation in Credit Markets: )34.7(A)15.8( Perfect Foresight Study)]TJ
+7 0 0 7 293.28 138 Tm
+0 Tc
+0 Tw
+(,)Tj
+-34.1829 -1.2 TD
+-0.0113 Tc
+-0.0697 Tw
+[(The Journal of Portfolio Management, V)57.3(ol. 25 No. 4, Summer 1999 and L. Dynkin,)]TJ
+T*
+0.0012 Tc
+0.0802 Tw
+[(J. Hyman and W)69.8(.)3.3( Wu, )]TJ
+7 0 1.4879 7 126.48 121.2 Tm
+0.0002 Tc
+0.0841 Tw
+[(V)50.1(alue of Security Selection versus )34.9(Asset )34.9(Allocation in)]TJ
+-10.0992 -1.2 TD
+0 Tc
+-0.0684 Tw
+[(Credit Markets: Part II—An “Imperfect Foresight” Study)68.6(,)7.6( )]TJ
+7 0 0 7 224.4 112.8 Tm
+-0.0004 Tc
+-0.0714 Tw
+(The Journal of Portfolio)Tj
+-24.3429 -1.2 TD
+0 Tc
+-0.0298 Tw
+[(Management, V)34.3(ol. 27 No. 1, Fall 2000)]TJ
+ET
+endstream
+endobj
+3 0 obj
+<<
+/ProcSet [/PDF /Text ]
+/Font <<
+/F1 4 0 R
+/F4 5 0 R
+/F6 6 0 R
+/F7 7 0 R
+/F8 8 0 R
+/F9 9 0 R
+/T10 10 0 R
+>>
+/ExtGState <<
+/GS1 11 0 R
+/GS2 12 0 R
+>>
+>>
+endobj
+14 0 obj
+<<
+/FunctionType 0
+/Domain [0 1]
+/Range [0 1]
+/BitsPerSample 8
+/Size [256]
+/Length 271
+/Filter /FlateDecode
+>>
+stream
+H‰  ÿş 	
+ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~€‚ƒ„…†‡ˆ‰Š‹Œ‘’“”•–—˜™š›œŸ ¡¢£¤¥¦§¨©ª«¬­®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖ×ØÙÚÛÜİŞßàáâãäåæçèéêëìíîïğñòóôõö÷øùúûüışÿ ­ö
+endstream
+endobj
+15 0 obj
+<<
+/FunctionType 0
+/Domain [0 1]
+/Range [-1 1]
+/BitsPerSample 16
+/Size [256]
+/Length 527
+/Filter /FlateDecode
+>>
+stream
+H‰  ÿı€ €€‚‚‚ƒƒƒ„„„………†††‡‡‡ˆˆˆ‰	‰‰Š
+ŠŠ‹‹‹ŒŒŒ‘‘‘’’’“““”””•••–––———˜˜˜™™™ššš›››œœœŸŸŸ    ¡!¡¡¢"¢¢£#££¤$¤¤¥%¥¥¦&¦¦§'§§¨(¨¨©)©©ª*ªª«+««¬,¬¬­-­­®.®®¯/¯¯°0°°±1±±²2²²³3³³´4´´µ5µµ¶6¶¶·7··¸8¸¸¹9¹¹º:ºº»;»»¼<¼¼½=½½¾>¾¾¿?¿¿À@ÀÀÁAÁÁÂBÂÂÃCÃÃÄDÄÄÅEÅÅÆFÆÆÇGÇÇÈHÈÈÉIÉÉÊJÊÊËKËËÌLÌÌÍMÍÍÎNÎÎÏOÏÏĞPĞĞÑQÑÑÒRÒÒÓSÓÓÔTÔÔÕUÕÕÖVÖÖ×W××ØXØØÙYÙÙÚZÚÚÛ[ÛÛÜ\ÜÜİ]İİŞ^ŞŞß_ßßà`ààáaááâbââãcããädääåeååæfææçgççèhèèéiééêjêêëkëëìlììímííînîîïoïïğpğğñqññòròòósóóôtôôõuõõövöö÷w÷÷øxøøùyùùúzúúû{ûûü|üüı}ıış~şşÿÿÿ ç¬?
+endstream
+endobj
+17 0 obj
+<<
+/Length 8556
+>>
+stream
+0 0 0 1 K
+0 J 0 j 0.24 w 10 M []0 d
+/GS1 gs
+1 i 
+55.2 720.12 m
+559.2 720.12 l
+54 56.04 m
+558 56.04 l
+S
+BT
+/F10 1 Tf
+8.1 0 1.7217 9 54 42.48 Tm
+0 0 0 1 k
+/GS2 gs
+0.0066 Tc
+0 Tw
+(Lehman Brothers)Tj
+8.1 0 0 9 294.24 42.48 Tm
+0.0078 Tc
+-0.0027 Tw
+[(PTS)7.8(-)-21.7(2)-21384.8(February 12, 2001)]TJ
+ET
+1.44 w 
+/GS1 gs
+54 719.28 m
+139.44 719.28 l
+S
+BT
+/F8 1 Tf
+10.8 0 0 12 54.48 726 Tm
+/GS2 gs
+-0.005 Tc
+0.1436 Tw
+(Portfolio Strategies)Tj
+/F9 1 Tf
+9.5 0 0 9.5 72 676.8 Tm
+0.0062 Tc
+-0.1134 Tw
+(one of the three main risk factors while staying neutral in the)Tj
+0 -1.3642 TD
+-0.0621 Tw
+(other two? In this case, perfect foresight is based simply on)Tj
+T*
+0.006 Tc
+0.0204 Tw
+(the known outcomes. Here we are not concerned with the)Tj
+0 -1.3895 TD
+0.0677 Tw
+(link between correctly predicting market risk factors and)Tj
+0 -1.3642 TD
+-0.1219 Tw
+(making correct sensitivity adjustments, but investigate rela-)Tj
+T*
+-0.0527 Tw
+[(tive merits of creating maximum achievable isolated expo-)]TJ
+T*
+0.0065 Tc
+0.0022 Tw
+(sures to one risk factor at a time.)Tj
+/F1 1 Tf
+-1.8947 -1.3642 TD
+0 Tc
+0 Tw
+()Tj
+/F9 1 Tf
+1.8947 0 TD
+0.0058 Tc
+-0.015 Tw
+(How much outperformance can be gained from successful)Tj
+0 -1.3642 TD
+0.0061 Tc
+-0.024 Tw
+(relative value choices when the portfolio is matched to the)Tj
+0 -1.3895 TD
+0.0062 Tc
+-0.0277 Tw
+(index in the three main risk dimensions? Perfect foresight,)Tj
+0 -1.3642 TD
+0.0593 Tw
+(in this case, is based on the known excess return of each)Tj
+T*
+0.1807 Tw
+(security in the MBS Index. We realize that among the)Tj
+T*
+0.0059 Tc
+-0.1138 Tw
+(sources of this excess return are both non-systematic factors)Tj
+T*
+0.0061 Tc
+-0.0059 Tw
+(that would merit the term )Tj
+/F1 1 Tf
+10.5442 0 TD
+0 Tc
+0 Tw
+(“)Tj
+/F9 1 Tf
+0.4501 0 TD
+0.0061 Tc
+-0.0059 Tw
+(security selection,)Tj
+/F1 1 Tf
+7.3304 0 TD
+0 Tc
+0 Tw
+(”)Tj
+/F9 1 Tf
+0.4501 0 TD
+0.0061 Tc
+-0.0059 Tw
+[( and certain)]TJ
+-18.7748 -1.3642 TD
+-0.0403 Tw
+[(systematic risks other than the three factors we control for.)]TJ
+-1.8947 -2.7537 TD
+0.0064 Tc
+-0.0153 Tw
+[(In this report, we do not address the important question of how)]TJ
+0 -1.3642 TD
+0.006 Tc
+0.0658 Tw
+(the manager can profit from a correct view on upcoming risk)Tj
+T*
+-0.0436 Tw
+(factor changes. How easy is it to take advantage of even perfect)Tj
+T*
+0.0924 Tw
+(knowledge of the future market moves? In other words, how)Tj
+T*
+0.0395 Tw
+(reliable are the common truths in mortgage portfolio manage-)Tj
+0 -1.3895 TD
+0.0062 Tc
+0.2526 Tw
+(ment? For example, if the manager correctly anticipates a)Tj
+0 -1.3642 TD
+-0.0006 Tw
+(mortgage spread tightening, will a portfolio that is long spread)Tj
+T*
+0.0059 Tc
+0.0722 Tw
+(duration relative to the index necessarily outperform? Perfor-)Tj
+T*
+0.0064 Tc
+0.1239 Tw
+(mance in this, more realistic, case is likely to be below that)Tj
+T*
+0.0056 Tc
+0.0684 Tw
+(achieved under )Tj
+/F1 1 Tf
+6.552 0 TD
+0 Tc
+0 Tw
+(“)Tj
+/F9 1 Tf
+0.4496 0 TD
+0.0056 Tc
+(direct)Tj
+/F1 1 Tf
+2.3107 0 TD
+0 Tc
+(”)Tj
+/F9 1 Tf
+0.4496 0 TD
+0.0056 Tc
+0.0684 Tw
+[( perfect foresight of performance out-)]TJ
+-9.7618 -1.3642 TD
+0.0062 Tc
+0.115 Tw
+(comes of portfolios containing various exposures. This issue)Tj
+T*
+0.0064 Tw
+(will become a subject for the next stage of the study.)Tj
+/F7 1 Tf
+0 -2.7537 TD
+-0.0263 Tw
+(Methodology and Data)Tj
+/F9 1 Tf
+0 -1.3642 TD
+0.0059 Tc
+-0.006 Tw
+(The straightforward technique employed in the corporate stud-)Tj
+T*
+0.0063 Tc
+-0.0232 Tw
+(ies of dividing the benchmark into cells is not easily applicable)Tj
+T*
+0.0059 Tc
+0.0173 Tw
+(for mortgages. The corporate cells \(buckets\) are )Tj
+/F1 1 Tf
+19.8478 0 TD
+0 Tc
+0 Tw
+(“)Tj
+/F9 1 Tf
+0.4499 0 TD
+0.0059 Tc
+(orthogonal,)Tj
+/F1 1 Tf
+4.6478 0 TD
+0 Tc
+(”)Tj
+/F9 1 Tf
+-24.9455 -1.3642 TD
+0.0063 Tc
+0.0842 Tw
+(or independent from each other in the sense that it is easy to)Tj
+0 -1.3895 TD
+-0.0959 Tw
+(invest in any one of them at a time, and so to construct a portfolio)Tj
+0 -1.3642 TD
+-0.0747 Tw
+(that matches the benchmark along all dimensions but one. In the)Tj
+T*
+0.006 Tc
+0.2066 Tw
+(mortgage market, the risk factors are interrelated. Figure 1)Tj
+T*
+0.2098 Tw
+(provides a stylized illustration of this interdependence. For)Tj
+T*
+0.0063 Tc
+-0.0254 Tw
+[(example, a security with low spread duration is likely to have a)]TJ
+T*
+0.0065 Tc
+-0.0559 Tw
+(high coupon \(to be a premium\). In turn, this means that it is also)Tj
+0 -1.3895 TD
+0.088 Tw
+(likely to have low prepayment duration. As a result, it is not)Tj
+0 -1.3642 TD
+0.2526 Tw
+(obvious how to construct a portfolio with spread duration)Tj
+T*
+0.0059 Tc
+0.0173 Tw
+(significantly higher than the benchmark but perfectly matched)Tj
+T*
+0.0064 Tc
+0.0115 Tw
+(to it in terms of prepayment sensitivity. In fact, any method of)Tj
+T*
+0.0062 Tc
+-0.0538 Tw
+(isolating one risk exposure while neutralizing all the others will)Tj
+27.6632 60.2021 TD
+0.0061 Tc
+0.0521 Tw
+[(meet with difficulties and can have only limited success. One)]TJ
+0 -1.3642 TD
+-0.0614 Tw
+(could break down the mortgage index along such dimensions as)Tj
+T*
+-0.0022 Tw
+(pricing tiers, seasoning, and mortgage sector \(GNMA 30-year,)Tj
+0 -1.3895 TD
+0.0059 Tc
+0.0579 Tw
+(conventional 30-year, 15-year\). Yet an attempt to concentrate)Tj
+0 -1.3642 TD
+0.0063 Tc
+0.1638 Tw
+(the portfolio in premiums, for example, while matching the)Tj
+T*
+-0.0661 Tw
+(index seasoning and sector distributions would fail in months in)Tj
+T*
+-0.0977 Tw
+(which the index was dominated by discounts. A concentration in)Tj
+T*
+-0.0556 Tw
+(seasoned paper would make it impossible on many occasions to)Tj
+T*
+0.0151 Tw
+(match the index coupon distribution, and so on.)Tj
+0 -2.7537 TD
+-0.0129 Tw
+[(As a result, we had to look beyond the simple )]TJ
+/F1 1 Tf
+18.6802 0 TD
+0 Tc
+0 Tw
+(“)Tj
+/F9 1 Tf
+0.4502 0 TD
+0.0062 Tc
+(manual)Tj
+/F1 1 Tf
+2.9809 0 TD
+0 Tc
+(”)Tj
+/F9 1 Tf
+0.4502 0 TD
+0.0062 Tc
+-0.013 Tw
+[( break-)]TJ
+-22.5615 -1.3642 TD
+0.0061 Tc
+0.1053 Tw
+(down and search for other means of isolating individual risk)Tj
+T*
+0.0403 Tw
+[(exposures. We chose to use linear optimization to achieve the)]TJ
+T*
+0.0059 Tc
+-0.003 Tw
+(maximum possible exposure to one risk factor while maintain-)Tj
+T*
+0.0061 Tc
+-0.0647 Tw
+(ing the best possible \(never perfect\) neutrality to the others. The)Tj
+/F1 1 Tf
+0 -1.3895 TD
+0 Tc
+0 Tw
+(“)Tj
+/F9 1 Tf
+0.4501 0 TD
+0.0061 Tc
+(bet-factor)Tj
+/F1 1 Tf
+3.9482 0 TD
+0 Tc
+(”)Tj
+/F9 1 Tf
+0.4501 0 TD
+0.0061 Tc
+-0.0345 Tw
+[( sensitivity is constrained to the index value plus or)]TJ
+-4.8485 -1.3642 TD
+0.0066 Tc
+-0.0158 Tw
+(minus the maximum bias \(bet\) that would still yield a solution.)Tj
+T*
+0.006 Tc
+0.0158 Tw
+(The other two \(non-bet factors\) sensitivities are constrained to)Tj
+T*
+0.0062 Tc
+-0.0005 Tw
+(the index levels with certain tolerances that allow a solution to)Tj
+T*
+-0.0515 Tw
+[(be found. Both the maximum bets and tolerances for the neutral)]TJ
+T*
+0.0059 Tc
+-0.1099 Tw
+(variables had to be found by an extensive trial-and-error process.)Tj
+0 -1.3895 TD
+0.0063 Tc
+-0.046 Tw
+(Besides the three main risk sensitivities, we imposed additional)Tj
+0 -1.3642 TD
+0.0061 Tc
+0.0507 Tw
+(constraints on the portfolio)Tj
+/F1 1 Tf
+11.1278 0 TD
+0 Tc
+0 Tw
+(’)Tj
+/F9 1 Tf
+0.3391 0 TD
+0.0061 Tc
+0.0507 Tw
+(s overall price, coupon, and Trea-)Tj
+-11.4669 -1.3642 TD
+0.0363 Tc
+0.2527 Tw
+(sury duration to make sure the solution portfolio does)Tj
+T*
+0.0063 Tc
+-0.0837 Tw
+[(not significantly deviate from the index in any important dimen-)]TJ
+T*
+0.0128 Tw
+(sion. Tolerances for these additional constraints also had to be)Tj
+/F10 1 Tf
+9 0 0 9 316.8 276.24 Tm
+-0.0001 Tc
+0.0278 Tw
+(Figure 1.)Tj
+/F7 1 Tf
+5.4933 0 TD
+0.0001 Tc
+0.0102 Tw
+(Risk Sensitivities as a Function of Coupon)Tj
+0 -1.2 TD
+-0.0008 Tc
+0.0037 Tw
+(in the MBS Market)Tj
+ET
+0 G
+1 J 1 j 0.416 w 
+/GS1 gs
+330 156.72 m
+548.16 156.72 l
+S
+0 g
+330.24 158.88 m
+325.68 156.72 l
+330.24 154.32 l
+f*
+547.92 154.32 m
+552.48 156.72 l
+547.92 158.88 l
+f*
+330 228 m
+548.16 135.84 l
+330 232.08 m
+537.84 176.16 l
+S
+q
+325.44 148.8 223.68 -34.32 re
+W n
+325.68 148.32 m
+345.36 143.04 406.08 120.72 443.28 116.16 c
+480.24 111.84 526.32 120.72 548.16 121.68 c
+S
+Q
+q
+329.52 235.2 209.28 -60 re
+W* n
+330 176.16 m
+362.4 204.96 395.28 233.52 429.84 234.96 c
+464.4 236.4 519.84 192.96 537.84 184.56 c
+S
+Q
+BT
+/F10 1 Tf
+7 0 0 7 313.92 147.12 Tm
+0 0 0 1 k
+/GS2 gs
+0.0012 Tc
+-0.0572 Tw
+(Low Coupons)Tj
+30.72 0.0343 TD
+-0.0004 Tc
+(High Coupons)Tj
+-25.68 13.1314 TD
+-0.0071 Tc
+0 Tw
+(Spread)Tj
+-0.2743 -1.2 TD
+-0.006 Tc
+(Duration)Tj
+10.3543 -17.76 TD
+-0.0045 Tc
+(Convexity)Tj
+8.5029 4.8 TD
+-0.0047 Tc
+(Prepayment)Tj
+-2.2286 12.5143 TD
+0.006 Tc
+[(V)90.1(ega)]TJ
+ET
+0 0 0 1 K
+0 J 0 j 0.24 w 
+/GS1 gs
+316.8 318.6 m
+558 318.6 l
+S
+endstream
+endobj
+18 0 obj
+<<
+/ProcSet [/PDF /Text ]
+/Font <<
+/F1 4 0 R
+/F7 7 0 R
+/F8 8 0 R
+/F9 9 0 R
+/F10 19 0 R
+>>
+/ExtGState <<
+/GS1 11 0 R
+/GS2 12 0 R
+>>
+>>
+endobj
+21 0 obj
+<<
+/Length 7783
+>>
+stream
+0 0 0 1 K
+0 J 0 j 0.24 w 10 M []0 d
+/GS1 gs
+1 i 
+54 56.04 m
+558 56.04 l
+S
+BT
+/F10 1 Tf
+8.1 0 1.7217 9 54 42.48 Tm
+0 0 0 1 k
+/GS2 gs
+0.0066 Tc
+0 Tw
+(Lehman Brothers)Tj
+8.1 0 0 9 294.24 42.48 Tm
+0.0078 Tc
+-0.0027 Tw
+[(PTS)7.8(-)-21.7(3)-21384.8(February 12, 2001)]TJ
+ET
+/GS1 gs
+55.2 720.12 m
+559.2 720.12 l
+S
+1.44 w 
+54 719.28 m
+139.44 719.28 l
+S
+BT
+/F8 1 Tf
+10.8 0 0 12 54.24 726 Tm
+/GS2 gs
+-0.005 Tc
+0.1436 Tw
+(Portfolio Strategies)Tj
+/F9 1 Tf
+9.5 0 0 9.5 54 676.8 Tm
+0.0061 Tc
+0.0663 Tw
+(determined empirically. Finally, we constrained contributions)Tj
+0 -1.3642 TD
+-0.0924 Tw
+(to spread duration from 30-year and 15-year mortgages to match)Tj
+T*
+0.0062 Tc
+-0.0368 Tw
+(the index levels. Figure 2 summarizes the constraints and toler-)Tj
+0 -1.3895 TD
+0.006 Tc
+0.0105 Tw
+(ances used in the study.)Tj
+0 -2.7284 TD
+0.0162 Tc
+0.0263 Tw
+(The objective function in this setup plays a subordinate role,)Tj
+0 -1.3642 TD
+0.0037 Tw
+(with constraints being both the means and the end. We chose)Tj
+T*
+-0.023 Tw
+(to maximize liquidity \(amount outstanding\) to make the solu-)Tj
+T*
+0.016 Tc
+-0.0105 Tw
+(tion portfolios represent the most realistic and easy-to-imple-)Tj
+0 -1.3895 TD
+0.017 Tc
+0.0106 Tw
+[(ment strategies.)]TJ
+0 -2.7284 TD
+0.006 Tc
+0.1243 Tw
+(The linear optimizer faced, of course, the same fundamental)Tj
+0 -1.3642 TD
+-0.0662 Tw
+(problem of interdependence of risk sensitivities in pass-through)Tj
+T*
+0.0829 Tw
+(mortgage securities. It was just )Tj
+/F1 1 Tf
+13.2798 0 TD
+0 Tc
+0 Tw
+(“)Tj
+/F9 1 Tf
+0.4501 0 TD
+0.0061 Tc
+0.0829 Tw
+(better equipped)Tj
+/F1 1 Tf
+6.3669 0 TD
+0 Tc
+0 Tw
+(”)Tj
+/F9 1 Tf
+0.4501 0 TD
+0.0061 Tc
+0.0829 Tw
+[( for dealing)]TJ
+-20.5469 -1.3642 TD
+0.0063 Tc
+-0.0153 Tw
+(with it. In every month, to find the maximum achievable expo-)Tj
+0 -1.3895 TD
+0.0061 Tc
+0 Tw
+(sure for each risk variable, the process first attempted to find a)Tj
+0 -1.3642 TD
+0.0063 Tc
+-0.0389 Tw
+[(solution using a relatively high setting \(bet\). The initial bet was)]TJ
+T*
+-0.0851 Tw
+[(chosen such that in most cases, the first attempt would fail. Then)]TJ
+T*
+0.0061 Tc
+-0.0684 Tw
+(the optimizer went through iterations gradually reducing the bet)Tj
+T*
+0.0063 Tc
+-0.0411 Tw
+[(until a solution was found. We anticipated that the way to solve)]TJ
+T*
+0.0061 Tc
+-0.0047 Tw
+(this problem would be to use relatively few securities to create)Tj
+0 -1.3895 TD
+0.0062 Tc
+0.023 Tw
+(a portfolio with a difficult-to-achieve risk profile. This insight)Tj
+0 -1.3642 TD
+0.006 Tc
+0.1894 Tw
+(was confirmed. Attempts to force greater diversification by)Tj
+T*
+0.0062 Tc
+0.0868 Tw
+[(setting relatively low maximum per-security allocation limits)]TJ
+T*
+0.0621 Tw
+(prevented the process from finding a solution. In the end, the)Tj
+T*
+0.0064 Tc
+-0.0263 Tw
+(limit of 10% was used, ensuring that the portfolio will have the)Tj
+T*
+-0.1105 Tw
+(minimum of ten securities. In fact, the number of securities in the)Tj
+T*
+0.0065 Tc
+0.0123 Tw
+(solution portfolios was between 12 and 16.)Tj
+27.6632 36.9347 TD
+0.0061 Tc
+-0.0064 Tw
+(The small number of securities posed an additional problem of)Tj
+0 -1.3642 TD
+-0.1226 Tw
+(idiosyncratic influences on performance. To prevent what would)Tj
+T*
+0.1759 Tw
+(essentially be security selection \(or, even worse, occasional)Tj
+0 -1.3895 TD
+0.0526 Tw
+(pricing errors\) from tainting results, we restrict the investable)Tj
+0 -1.3642 TD
+0.0062 Tc
+0.1988 Tw
+(universe \(and the benchmark\) to a highly liquid portion of)Tj
+T*
+0.0065 Tc
+0.0204 Tw
+(the MBS Index. We imposed minimum liquidity thresholds of)Tj
+T*
+0.0063 Tc
+0.2268 Tw
+[($1 billion on 30-year paper and $500 million on  15-year)]TJ
+T*
+0.1729 Tw
+(securities. In addition, we entirely excluded less-liquid seg-)Tj
+T*
+0.0473 Tw
+(ments of the index such as balloons, GNMA II, older Freddie)Tj
+0 -1.3895 TD
+0.0061 Tc
+-0.0157 Tw
+[(Mac cash bonds, FNMA governments, and 20-year mortgages.)]TJ
+0 -1.3642 TD
+-0.0438 Tw
+(These restrictions are summarized in Figure 3. This strict filter-)Tj
+T*
+0.0063 Tc
+0.0172 Tw
+(ing eliminates more than half of the securities in the index but)Tj
+T*
+0.0059 Tc
+-0.0941 Tw
+(provides a reasonable assurance that results do indeed reflect the)Tj
+T*
+0.0064 Tc
+-0.0473 Tw
+[(effects of risk positioning. At the same time, as Figure 3 shows,)]TJ
+T*
+0.0097 Tw
+(the reduction in market value was modest.)Tj
+0 -2.7537 TD
+0.0161 Tc
+0.0912 Tw
+(The methodology used for the security selection part of the)Tj
+0 -1.3642 TD
+-0.0414 Tw
+(study employed the same linear optimization process, with all)Tj
+T*
+0.1626 Tw
+(variables constrained to the index values. In this setup, of)Tj
+T*
+0.0163 Tc
+-0.0727 Tw
+(course, one was assured of a solution \(with the limiting case of)Tj
+T*
+-0.0305 Tw
+(buying the index\), so very tight constraints were placed on all)Tj
+0 -1.3895 TD
+0.021 Tw
+(parameters \(0.001\). Unlike the risk sensitivities optimization)Tj
+0 -1.3642 TD
+0.0161 Tc
+-0.024 Tw
+(setup, here the objective function played a critical role, deter-)Tj
+T*
+0.0908 Tw
+(mining the choice of securities. The process maximized the)Tj
+T*
+0.0158 Tc
+0 Tw
+(portfolio)Tj
+/F1 1 Tf
+3.642 0 TD
+0 Tc
+(’)Tj
+/F9 1 Tf
+0.3488 0 TD
+0.0158 Tc
+0.0421 Tw
+(s next month excess return \(reflecting perfect fore-)Tj
+-3.9908 -1.3642 TD
+0.0163 Tc
+0.0247 Tw
+(sight\) while maintaining a close match to the index along all)Tj
+/F10 1 Tf
+9 0 0 9 54 257.04 Tm
+-0.0001 Tc
+0.0278 Tw
+(Figure 2.)Tj
+/F7 1 Tf
+5.4933 0 TD
+-0.0006 Tc
+0.0167 Tw
+(Optimization Constraints)Tj
+8 0 0 8 54 237.6 Tm
+0.0003 Tc
+0.0525 Tw
+[(Controlled Portfolio Sensitivities)-1949.7(Index )34.1(+ )34.1(Bet)-1559.7(Index )19.6(V)60.3(alue)]TJ
+/F10 1 Tf
+0 -1.2 TD
+0.0014 Tc
+0.0047 Tw
+[(Spread Duration \(years\))-8428.6(±0.01)-4198.6(±0.05)]TJ
+T*
+0.0021 Tc
+0 Tw
+[(Convexity)-14727.9(±0.01)-4197.9(±0.05)]TJ
+/T11 1 Tf
+T*
+0 Tc
+(d)Tj
+/F10 1 Tf
+0.48 0 TD
+-0.015 Tc
+(P/)Tj
+/T11 1 Tf
+0.96 0 TD
+0 Tc
+(d)Tj
+/F10 1 Tf
+0.48 0 TD
+0.0045 Tc
+(PSA)Tj
+6.4 0 0 6.4 85.44 211.44 Tm
+0 Tc
+(*)Tj
+8 0 0 8 206.88 208.8 Tm
+0.005 Tc
+[(±0.01)-4195(±0.05)]TJ
+/F7 1 Tf
+-19.11 -2.4 TD
+-0.0004 Tc
+0.0141 Tw
+(Contribution to Spread Duration )Tj
+/F10 1 Tf
+15.6 0 TD
+0.0015 Tc
+0 Tw
+(\(years\))Tj
+-15.6 -1.2 TD
+0.0005 Tc
+-0.002 Tw
+[(30-year MBS)-20039.5(±0.05)]TJ
+T*
+[(15-year MBS)-20039.5(±0.05)]TJ
+/F7 1 Tf
+0 -2.4 TD
+-0.0005 Tc
+0.0188 Tw
+(Other Factors)Tj
+/F10 1 Tf
+0 -1.2 TD
+0.0001 Tc
+0.0029 Tw
+[(Price \(in 100s\))-19409.9(±0.025)]TJ
+T*
+0.0002 Tc
+0.0059 Tw
+[(Coupon \(%\))-20519.8(±0.025)]TJ
+T*
+0.0009 Tc
+-0.0198 Tw
+[(OA Duration \(years\))-17009.1(±0.05)]TJ
+5.6 0 0 5.6 54 106.32 Tm
+0 Tc
+0 Tw
+(*)Tj
+7 0 0 7 56.16 103.92 Tm
+0.0008 Tc
+-0.0269 Tw
+[( Change in price \(in decimals\) per unit change of PSA, scaled by 10000.)]TJ
+ET
+0.24 w 
+/GS1 gs
+54 294.36 m
+295.2 294.36 l
+316.8 328.44 m
+558 328.44 l
+S
+BT
+9 0 0 9 316.8 296.64 Tm
+/GS2 gs
+-0.0001 Tc
+0.0278 Tw
+(Figure 3.)Tj
+/F7 1 Tf
+4.9867 0 TD
+-0.0004 Tc
+0.0149 Tw
+(Filtering Rules and Statistics)Tj
+8 0 0 8 361.68 277.2 Tm
+0.0007 Tc
+0.0248 Tw
+[(Security T)60.7(ype Exclusions)]TJ
+/F10 1 Tf
+0 -1.2 TD
+0.0002 Tc
+-0.0062 Tw
+(All Balloons)Tj
+T*
+0.0012 Tc
+0.0029 Tw
+[(All 20-Y)91.2(ear MBS)]TJ
+T*
+0.0009 Tc
+-0.0062 Tw
+(All GNMA II)Tj
+T*
+0.0007 Tc
+0.0083 Tw
+[(All FHLM Cash \(non-Gold\))]TJ
+T*
+-0.0009 Tc
+-0.0125 Tw
+(All FNMA Government)Tj
+/F7 1 Tf
+0 -2.4 TD
+0.0002 Tc
+0.0312 Tw
+(Liquidity Thresholds)Tj
+/F10 1 Tf
+9.87 0 TD
+0.0006 Tc
+[( \($ million\))]TJ
+-9.87 -2.4 TD
+-0.0001 Tc
+0 Tw
+[(30-Y)59.9(ear)-3300.1(1,000)]TJ
+0 -1.2 TD
+-0.0034 Tc
+[(15-Y)56.6(ear)-4143.4(5)-9.4(0)-9.4(0)]TJ
+/F7 1 Tf
+0 -2.4 TD
+-0.0011 Tc
+0.0625 Tw
+(After-Filtering Statistics)Tj
+10.83 -2.4 TD
+-0.0007 Tc
+0.0158 Tw
+[(Issues)-3780.7(% of Index MV)]TJ
+-0.69 -1.2 TD
+-0.0017 Tc
+0 Tw
+[(Accepted)-5521.7(Used)]TJ
+/F10 1 Tf
+-10.14 -1.2 TD
+0.0028 Tc
+[(Minimum:)-7197.2(152)-7167.2(80.2)]TJ
+T*
+0.0022 Tc
+[(Maximum:)-6927.8(228)-7167.8(90.9)]TJ
+T*
+0 Tc
+[(A)7(verage:)-7560(1)-6(9)-6(5)-7170(86.6)]TJ
+ET
+endstream
+endobj
+22 0 obj
+<<
+/ProcSet [/PDF /Text ]
+/Font <<
+/F1 4 0 R
+/F7 7 0 R
+/F8 8 0 R
+/F9 9 0 R
+/F10 19 0 R
+/T11 23 0 R
+>>
+/ExtGState <<
+/GS1 11 0 R
+/GS2 12 0 R
+>>
+>>
+endobj
+25 0 obj
+<<
+/Length 7490
+>>
+stream
+0 0 0 1 K
+0 J 0 j 0.24 w 10 M []0 d
+/GS1 gs
+1 i 
+55.2 720.12 m
+559.2 720.12 l
+54 56.04 m
+558 56.04 l
+S
+BT
+/F10 1 Tf
+8.1 0 1.7217 9 54 42.48 Tm
+0 0 0 1 k
+/GS2 gs
+0.0066 Tc
+0 Tw
+(Lehman Brothers)Tj
+8.1 0 0 9 294.24 42.48 Tm
+0.0078 Tc
+-0.0027 Tw
+[(PTS)7.8(-)-21.7(4)-21384.8(February 12, 2001)]TJ
+ET
+1.44 w 
+/GS1 gs
+54 719.28 m
+139.44 719.28 l
+S
+BT
+/F8 1 Tf
+10.8 0 0 12 54.48 726 Tm
+/GS2 gs
+-0.005 Tc
+0.1436 Tw
+(Portfolio Strategies)Tj
+/F9 1 Tf
+9.5 0 0 9.5 54 676.8 Tm
+0.0164 Tc
+-0.1035 Tw
+(risk dimensions. The minimum number of bonds was no longer)Tj
+0 -1.3642 TD
+0.0162 Tc
+0.1468 Tw
+(a limiting factor. This allowed us to produce and compare)Tj
+T*
+-0.0766 Tw
+(results at varying diversification levels. In the next section, we)Tj
+0 -1.3895 TD
+0.0169 Tc
+0.2526 Tw
+(present results obtained in both the risk sensitivities and)Tj
+0 -1.3642 TD
+0.0164 Tc
+0.0074 Tw
+(security selection parts of the study.)Tj
+/F7 1 Tf
+0 -2.7284 TD
+0.0043 Tc
+0 Tw
+(Results)Tj
+8.1 0 1.7217 9 54 572.88 Tm
+0.0079 Tc
+0.0247 Tw
+(Risk Sensitivities)Tj
+/F9 1 Tf
+9.5 0 0 9.5 54 559.6801 Tm
+0.0057 Tc
+0.0145 Tw
+(We define perfect foresight as knowledge of performance out-)Tj
+0 -1.3642 TD
+0.006 Tc
+0.05 Tw
+(comes from various risk exposures relative to the benchmark.)Tj
+T*
+0.1234 Tw
+(Each month, for each risk sensitivity, we calculate the next-)Tj
+T*
+0 Tw
+(month)Tj
+/F1 1 Tf
+2.586 0 TD
+0 Tc
+(’)Tj
+/F9 1 Tf
+0.339 0 TD
+0.006 Tc
+0.1534 Tw
+(s performance for the following three portfolios: one)Tj
+-2.925 -1.3642 TD
+0.0062 Tc
+0.0632 Tw
+(with the maximum achievable positive risk exposure bet, one)Tj
+T*
+0.1713 Tw
+[(with the maximum achievable negative bet, and one that is)]TJ
+0 -1.3895 TD
+0.0079 Tw
+(neutral to the benchmark \(the index return\).)Tj
+0 -2.7284 TD
+0.0059 Tc
+0.0829 Tw
+(Figure 4 summarizes the performance for strategies based on)Tj
+0 -1.3642 TD
+0.0064 Tc
+-0.0105 Tw
+(risk sensitivities. Contrary to what one might expect, the index)Tj
+T*
+-0.0813 Tw
+(is not outperformed by one of the bet portfolios every month. As)Tj
+T*
+-0.0193 Tw
+(the figure shows, in some months both underperform, in which)Tj
+0 -1.3895 TD
+0.0061 Tc
+-0.1086 Tw
+(case we assume that the strategy earns the index return \(thus both)Tj
+0 -1.3642 TD
+0.0062 Tc
+0.0829 Tw
+(the minimum bet level and the minimum outperformance are)Tj
+T*
+0.0061 Tc
+-0.0737 Tw
+(zero\). The number of such months ranges from 18 for the spread)Tj
+T*
+0.0063 Tc
+-0.0488 Tw
+(duration bets portfolios to as high as 29 for the prepayment bets)Tj
+T*
+0.0241 Tc
+0.2526 Tw
+(portfolios. One reason for the relatively frequent under-)Tj
+T*
+0.0059 Tc
+0.0173 Tw
+(performance of both positive and negative exposure portfolios)Tj
+T*
+0.0058 Tc
+0.002 Tw
+(is the presence of other systematic risk factors \()Tj
+/F8 1 Tf
+19.3768 0 TD
+0.0071 Tc
+0 Tw
+(e.g.)Tj
+/F9 1 Tf
+1.4653 0 TD
+0.0065 Tc
+0.0026 Tw
+(, vega\) that)Tj
+-20.8421 -1.3895 TD
+0.0062 Tc
+-0.0205 Tw
+(the strategy does not control for. The other is idiosyncratic risk)Tj
+0 -1.3642 TD
+0.1205 Tw
+(that is not diversified away sufficiently in portfolios of only)Tj
+T*
+0.0067 Tc
+0.0158 Tw
+(about 14 issues.)Tj
+27.6632 41.0526 TD
+0.0062 Tc
+0.0171 Tw
+(The number of months in which bet-containing portfolios out-)Tj
+0 -1.3642 TD
+0.006 Tc
+0.0316 Tw
+[(performed is split roughly equally between positive and nega-)]TJ
+T*
+0.0062 Tc
+-0.0615 Tw
+(tive bets. From this, we conclude that over the eight-year period)Tj
+0 -1.3895 TD
+0.0061 Tc
+0.0403 Tw
+(covered by this study, there were no systematic advantages in)Tj
+0 -1.3642 TD
+0.0062 Tc
+0.0789 Tw
+(taking either a positive or negative exposure to the three risk)Tj
+T*
+0.006 Tc
+0.0276 Tw
+(factors. The average absolute bet sizes are significantly below)Tj
+T*
+0.0063 Tc
+0.0011 Tw
+(the maximums in all three cases, which confirms the difficulty)Tj
+T*
+0.176 Tw
+(of isolating one risk exposure at a time. Another important)Tj
+T*
+0.0216 Tw
+(conclusion is that to the extent that isolated risk exposures are)Tj
+0 -1.3895 TD
+0.006 Tc
+0.1307 Tw
+(possible in mortgage portfolios, their respective value-added)Tj
+0 -1.3642 TD
+0.1263 Tw
+(potentials are approximately equal, in terms of both average)Tj
+T*
+-0.0301 Tw
+(outperformance and volatility. The three information ratios fall)Tj
+T*
+0.0063 Tc
+-0.0555 Tw
+(within a very narrow range of 2.61 to 2.74, showing no material)Tj
+T*
+0.0059 Tc
+0.0093 Tw
+(advantage of any particular strategy.)Tj
+/F7 1 Tf
+8.1 0 1.7217 9 316.8 481.68 Tm
+0.0062 Tc
+0.0247 Tw
+(Security Selection)Tj
+/F9 1 Tf
+9.5 0 0 9.5 316.8 468.72 Tm
+0.0061 Tc
+-0.0836 Tw
+(Figure 5 summarizes results for the security selection strategy at)Tj
+T*
+-0.0903 Tw
+(three different minimum-diversification levels. Each month, the)Tj
+T*
+0.0065 Tc
+0.2526 Tw
+[(linear optimization process constructs a new portfolio that)]TJ
+T*
+0.0062 Tc
+-0.1039 Tw
+(matches the index precisely along all systematic risk dimensions)Tj
+T*
+0.006 Tc
+0.0166 Tw
+(and, using perfect foresight, maximizes the next-month curve-)Tj
+0 -1.3895 TD
+0.0062 Tc
+0.1873 Tw
+(adjusted return. As in the risk sensitivities-based strategies,)Tj
+0 -1.3642 TD
+0.0061 Tc
+0.0988 Tw
+(there is no attempt at measuring or constraining turnover \(or)Tj
+T*
+0.018 Tw
+(accounting for transaction costs\). The solution portfolios were)Tj
+T*
+0.0059 Tc
+0.0105 Tw
+(not supposed to represent feasible investment strategies.)Tj
+0 -2.7284 TD
+0.0062 Tc
+0.0463 Tw
+(The number of securities in the liquid benchmark used in this)Tj
+0 -1.3642 TD
+0.1063 Tw
+(study ranged from 152 to 228, averaging 195 over the study)Tj
+0 -1.3895 TD
+0.0118 Tw
+(period \(Figure 3\). Thus, on average, the portfolios constructed)Tj
+0 -1.3642 TD
+0.0064 Tc
+0.0059 Tw
+(with the 10-, 25-, and 50-bond minimum constraints compose,)Tj
+T*
+-0.05 Tw
+(respectively, 7.4%, 15.0%, and 27.7% of the benchmark issues.)Tj
+/F10 1 Tf
+9 0 0 9 54 239.52 Tm
+-0.0001 Tc
+0.0278 Tw
+(Figure 4.)Tj
+/F7 1 Tf
+5.0133 0 TD
+0.0001 Tc
+0.0139 Tw
+(Results: Portfolio Sensitivities)Tj
+/F10 1 Tf
+14.4533 0 TD
+0 Tc
+0 Tw
+(,)Tj
+8 0 0 8 231.84 239.52 Tm
+-0.0008 Tc
+0.0146 Tw
+[( February 1993-December 2000)]TJ
+/F7 1 Tf
+-5.61 -2.46 TD
+0.0014 Tc
+0.0117 Tw
+[(Spread Duration)-11728.6(Convexity)]TJ
+/T12 1 Tf
+37.05 0 TD
+0 Tc
+0 Tw
+(d)Tj
+/F7 1 Tf
+0.51 0 TD
+-0.015 Tc
+(P/)Tj
+/T12 1 Tf
+0.96 0 TD
+0 Tc
+(d)Tj
+/F7 1 Tf
+0.51 0 TD
+-0.008 Tc
+(PSA)Tj
+-41.01 -1.2 TD
+0.0011 Tc
+0.0057 Tw
+[(Bet Size)-4828.9(Outperf.)-4798.9(Bet Size)-4828.9(Outperf.)-4828.9(Bet Size)-4798.9(Outperf.)]TJ
+/F10 1 Tf
+-0.51 -1.2 TD
+-0.0004 Tc
+0.0008 Tw
+[(\(abs value\))-5340.4(\(bp\))-5370.4(\(abs value\))-5340.4(\(bp\))-5370.4(\(abs value\))-5370.4(\(bp\))]TJ
+-14.13 -1.2 TD
+0.0005 Tc
+0 Tw
+[(A)7.5(verage:)-11489.5(0.21)-7889.5(4)-7033.5(0.38)-7889.5(4)-7333.5(0.15)-7589.5(3)]TJ
+T*
+[(Maximum:)-10859.5(0.40)-7319.5(39)-7049.5(0.60)-7349.5(36)-7319.5(0.35)-7049.5(26)]TJ
+T*
+0.0004 Tc
+0.0312 Tw
+[(Standard Deviation:)-16499.6(6)-16873.6(5)-16873.6(4)]TJ
+0 -2.4 TD
+-0.0017 Tc
+0.025 Tw
+(# of )Tj
+/F4 1 Tf
+1.9875 0 TD
+0 Tc
+0 Tw
+(“)Tj
+/F10 1 Tf
+0.3313 0 TD
+-0.0017 Tc
+(No-Bet)Tj
+/F4 1 Tf
+3.1018 0 TD
+0 Tc
+(”)Tj
+/F10 1 Tf
+0.3313 0 TD
+-0.0018 Tc
+0.0251 Tw
+[( Months:)-6721.8(18)-16321.8(25)-16621.8(29)]TJ
+-5.7519 -1.2 TD
+-0.0014 Tc
+0.021 Tw
+[(# of Negative Bets:)-7831.4(43)-16321.4(28)-16621.4(31)]TJ
+T*
+0.0189 Tw
+[(# of Positive Bets:)-8281.3(34)-16321.3(42)-16621.3(35)]TJ
+T*
+0.0229 Tw
+[(\()12.6(T)88.6(otal = 95 Months\))]TJ
+/F7 1 Tf
+0 -2.4 TD
+0 Tc
+0.0303 Tw
+[(Ann. Info. Ratio:)-16140(2.74)-15510(2.68)-15480(2.61)]TJ
+ET
+0.24 w 
+/GS1 gs
+54 266.52 m
+558 266.52 l
+168.24 217.8 m
+271.2 217.8 l
+303.12 217.56 m
+411.84 217.56 l
+440.4 217.56 m
+554.64 217.56 l
+S
+endstream
+endobj
+26 0 obj
+<<
+/ProcSet [/PDF /Text ]
+/Font <<
+/F1 4 0 R
+/F4 5 0 R
+/F7 7 0 R
+/F8 8 0 R
+/F9 9 0 R
+/F10 19 0 R
+/T12 27 0 R
+>>
+/ExtGState <<
+/GS1 11 0 R
+/GS2 12 0 R
+>>
+>>
+endobj
+29 0 obj
+<<
+/Length 35223
+>>
+stream
+0 0 0 1 K
+0 J 0 j 0.24 w 10 M []0 d
+/GS1 gs
+1 i 
+54 56.04 m
+558 56.04 l
+S
+BT
+/F10 1 Tf
+8.1 0 1.7217 9 54 42.48 Tm
+0 0 0 1 k
+/GS2 gs
+0.0066 Tc
+0 Tw
+(Lehman Brothers)Tj
+8.1 0 0 9 294.24 42.48 Tm
+0.0078 Tc
+-0.0027 Tw
+[(PTS)7.8(-)-21.7(5)-21384.8(February 12, 2001)]TJ
+ET
+/GS1 gs
+55.2 720.12 m
+559.2 720.12 l
+S
+1.44 w 
+54 719.28 m
+139.44 719.28 l
+S
+BT
+/F8 1 Tf
+10.8 0 0 12 54.24 726 Tm
+/GS2 gs
+-0.005 Tc
+0.1436 Tw
+(Portfolio Strategies)Tj
+/F9 1 Tf
+9.5 0 0 9.5 54 507.6 Tm
+0.0058 Tc
+0.2296 Tw
+(The relative pattern of outperformance for the three levels)Tj
+0 -1.3642 TD
+0.0061 Tc
+-0.1218 Tw
+(confirms our expectations that more diversified portfolios would)Tj
+T*
+0.0059 Tc
+0.0816 Tw
+(achieve a higher information ratio. Indeed, while the average)Tj
+T*
+0.0217 Tw
+(outperformance declines as more securities are added, the risk)Tj
+T*
+0.0061 Tc
+-0.0067 Tw
+(reduction outpaces this decline, leading to higher risk-adjusted)Tj
+0 -1.3895 TD
+0.0048 Tc
+0 Tw
+(performance.)Tj
+0 -2.7284 TD
+0.0062 Tc
+0.0106 Tw
+(To build confidence in the information ratios produced by this)Tj
+0 -1.3642 TD
+0.1783 Tw
+(study \(both for security selection and risk sensitivities\), we)Tj
+T*
+-0.0247 Tw
+(examine how stable they are over time. Stability of a strategy)Tj
+/F1 1 Tf
+24.6613 0 TD
+0 Tc
+0 Tw
+(’)Tj
+/F9 1 Tf
+0.3392 0 TD
+(s)Tj
+-25.0005 -1.3642 TD
+0.0061 Tc
+-0.1082 Tw
+(information ratio is usually reliable evidence that a true phenom-)Tj
+0 -1.3895 TD
+0.0062 Tc
+-0.0516 Tw
+(enon, rather than a chance outcome, is being observed. Figure 6)Tj
+0 -1.3642 TD
+0.0061 Tc
+-0.0711 Tw
+(plots information ratios for all four strategies \(security selection)Tj
+T*
+0.0058 Tw
+(is represented by the 50-bonds case\) over a steadily increasing)Tj
+T*
+0.0063 Tc
+-0.0521 Tw
+[(time frame beginning at 24 months and ending at the 95 months)]TJ
+T*
+0.0339 Tw
+(that encompass the whole study period. The figure shows that)Tj
+T*
+0.0802 Tw
+(the information ratios are sufficiently stable, giving us confi-)Tj
+0 -1.3895 TD
+0.0061 Tc
+0.0158 Tw
+(dence in our conclusions.)Tj
+0 -2.7284 TD
+-0.0036 Tc
+-0.0974 Tw
+(Most important, the results presented in Figure 5 indicate that, just)Tj
+0 -1.3642 TD
+-0.0041 Tc
+0.1068 Tw
+(as was the case in the corporate market, correct relative value)Tj
+T*
+-0.0039 Tc
+0.0015 Tw
+(choices \(security selection\) hold significantly more potential for)Tj
+T*
+0.0684 Tw
+(outperformance than taking systematic risk exposures. Clearly,)Tj
+0 -1.3895 TD
+0.2505 Tw
+(the nature of these choices in the mortgage market is very)Tj
+0 -1.3642 TD
+-0.0041 Tc
+0.0489 Tw
+(different. Unlike the extremely diverse corporate market, mort-)Tj
+T*
+-0.0105 Tw
+(gage passthroughs have essentially no idiosyncratic \(event\) risk.)Tj
+T*
+-0.0039 Tc
+0.0193 Tw
+(Relative value choices are based not on individual credit stories)Tj
+T*
+0.1948 Tw
+[(but rather on picking a particular coupon among a few in a)]TJ
+T*
+-0.004 Tc
+0.0599 Tw
+(relatively narrow range \(thus identical from the systematic risk)Tj
+0 -1.3895 TD
+-0.0042 Tc
+0.1857 Tw
+(perspective\), or preferring a GNMA versus the same-coupon)Tj
+0 -1.3642 TD
+-0.0038 Tc
+-0.0247 Tw
+(FNMA. A good example can be found if we take a closer look at)Tj
+T*
+-0.0037 Tc
+-0.0478 Tw
+(the dip in the security selection information ratio line in Figure 6.)Tj
+/F10 1 Tf
+9 0 0 9 54 678.2401 Tm
+-0.0001 Tc
+0.0278 Tw
+(Figure 5.)Tj
+/F7 1 Tf
+4.9867 0 TD
+-0.0005 Tc
+0.0139 Tw
+(Results: Security Selection)Tj
+/F10 1 Tf
+12.9333 0 TD
+0 Tc
+0 Tw
+(,)Tj
+8 0 0 8 217.68 678.2401 Tm
+0.0001 Tc
+0.0166 Tw
+[( February 1993-December 2000)]TJ
+/F7 1 Tf
+-3.75 -2.46 TD
+0.0188 Tw
+[(10 Bonds Min)-11159.9(25 Bonds Min)-10499.9(50 Bonds Min)]TJ
+-2.67 -1.2 TD
+-0.0001 Tc
+0.0234 Tw
+[(# Issues)-4800.1(Outperf.)-4770.1(# Issues)-4800.1(Outperf.)-4800.1(# Issues)-4770.1(Outperf.)]TJ
+/F10 1 Tf
+-14.04 -1.2 TD
+0.0001 Tc
+0 Tw
+[(Monthly:)-20039.9(\(bp\))-15689.9(\(bp\))-15659.9(\(bp\))]TJ
+2.25 -1.2 TD
+-0.0033 Tc
+[(Average)-9543.3(14)-7893.3(16)-7323.3(29)-7893.3(13)-7623.3(54)-7593.3(10)]TJ
+T*
+0.0042 Tc
+[(Minimum)-9145.8(1)6.2(2)-8455.8(3)-7299.8(2)6.2(7)-8455.8(3)-7599.8(5)6.2(2)-8155.8(3)]TJ
+T*
+-0.0002 Tc
+[(Maximum)-8880.2(16)-7890.2(50)-7320.2(31)-7890.2(40)-7620.2(56)-7590.2(27)]TJ
+T*
+0.0188 Tw
+[(Standard Deviation)-14280.2(8)-16874.2(6)-16874.2(4)]TJ
+/F7 1 Tf
+-2.25 -2.4 TD
+0.0004 Tc
+0.0306 Tw
+[(Ann. Inf. Ratio:)-16469.6(6.88)-15479.6(7.09)-15479.6(7.46)]TJ
+ET
+0.24 w 
+/GS1 gs
+164.16 657.96 m
+268.32 657.96 l
+302.64 657.96 m
+408.48 657.96 l
+443.28 657.96 m
+547.92 657.96 l
+54 546.36 m
+558 546.36 l
+S
+BT
+/F9 1 Tf
+9.5 0 0 9.5 316.8 286.56 Tm
+/GS2 gs
+0.0562 Tc
+0.2526 Tw
+(This sudden drop was caused by an unusually )Tj
+/F8 1 Tf
+23.04 0 TD
+0.0533 Tc
+0 Tw
+(large)Tj
+/F9 1 Tf
+-23.04 -1.3642 TD
+0.0159 Tc
+0.0881 Tw
+(outperformance \(50 bp\) over the benchmark in March 2000)Tj
+T*
+0.075 Tw
+(\(note that when performance is measured on a risk-adjusted)Tj
+T*
+0.0163 Tc
+-0.0661 Tw
+(basis positive spikes can actually hurt the information ratio, as)Tj
+T*
+0.0292 Tw
+(the spike contributes more to risk than it does to the average)Tj
+T*
+0.0159 Tc
+0.0825 Tw
+(outperformance\). In that month, GNMAs experienced much)Tj
+0 -1.3895 TD
+0.0441 Tw
+(larger excess returns than conventionals. With the benefit of)Tj
+0 -1.3642 TD
+0.0126 Tc
+-0.1263 Tw
+(perfect foresight, the portfolio was heavily overweighted \(89%\))Tj
+T*
+0.0164 Tc
+0.0095 Tw
+(in GNMA and outperformed the index.)Tj
+/F7 1 Tf
+0 -2.7284 TD
+0.0064 Tc
+-0.0211 Tw
+(Conclusions and Further Research)Tj
+/F9 1 Tf
+0 -1.3642 TD
+0.0065 Tc
+0.1158 Tw
+(Results of this study suggest that the most valuable skill for)Tj
+0 -1.3895 TD
+0.0062 Tc
+-0.1118 Tw
+(mortgage investing is security selection within a portfolio whose)Tj
+0 -1.3642 TD
+0.023 Tc
+0.2527 Tw
+[(systematic risk sensitivities match the benchmark. Skills)]TJ
+T*
+0.0062 Tc
+0.1404 Tw
+[( at correctly positioning the portfolio with respect to spread)]TJ
+/F10 1 Tf
+9 0 0 9 316.8 507.36 Tm
+-0.0001 Tc
+0.0278 Tw
+(Figure 6.)Tj
+/F7 1 Tf
+5.4933 0 TD
+-0.0005 Tc
+0.0167 Tw
+(Dynamics of Information Ratios)Tj
+/F10 1 Tf
+8 0 0 8 366.24 497.52 Tm
+0.0063 Tw
+(February 1993-December 2000)Tj
+6 0 0 6 316.8 479.76 Tm
+0.0334 Tw
+(Information Ratio)Tj
+ET
+/GS1 gs
+316.8 320.76 m
+558 320.76 l
+S
+BT
+7 0 0 7 408.72 341.52 Tm
+/GS2 gs
+0.0004 Tc
+-0.0357 Tw
+(Number of Months)Tj
+ET
+0 G
+1 J 1 j 0.457 w 
+/GS1 gs
+327.84 474.72 m
+327.84 362.64 l
+325.68 362.64 m
+327.84 362.64 l
+325.68 384.96 m
+327.84 384.96 l
+325.68 407.52 m
+327.84 407.52 l
+325.68 429.84 m
+327.84 429.84 l
+325.68 452.4 m
+327.84 452.4 l
+325.68 474.72 m
+327.84 474.72 l
+327.84 362.64 m
+552.48 362.64 l
+327.84 360.48 m
+327.84 362.64 l
+365.28 360.48 m
+365.28 362.64 l
+402.72 360.48 m
+402.72 362.64 l
+440.16 360.48 m
+440.16 362.64 l
+477.6 360.48 m
+477.6 362.64 l
+515.04 360.48 m
+515.04 362.64 l
+552.48 360.48 m
+552.48 362.64 l
+S
+q
+327.84 463.44 4.32 -4.32 re
+W* n
+1.371 w 
+327.84 462.48 m
+329.28 461.52 l
+330.96 460.56 l
+S
+Q
+q
+313.2 481.92 242.88 -134.88 re
+W n
+1.371 w 
+330.96 460.56 m
+331.68 460.08 l
+332.4 459.84 l
+333.12 459.36 l
+334.08 458.88 l
+334.32 458.4 l
+334.8 457.92 l
+335.04 457.44 l
+335.52 456.72 l
+336.48 455.76 l
+336.72 455.28 l
+337.2 455.04 l
+337.44 454.8 l
+338.64 454.8 l
+339.36 455.28 l
+339.84 455.28 l
+340.32 455.52 l
+342.48 456.24 l
+343.44 456.72 l
+344.64 457.92 l
+344.88 458.4 l
+345.36 458.88 l
+345.84 458.88 l
+345.84 459.12 l
+346.32 459.12 l
+346.56 458.88 l
+346.56 458.88 l
+346.8 458.64 l
+347.04 458.16 l
+347.28 457.92 l
+347.52 457.44 l
+347.52 456.96 l
+348.48 455.04 l
+348.72 454.08 l
+349.2 453.12 l
+349.68 452.64 l
+349.68 452.4 l
+351.12 452.4 l
+351.6 452.64 l
+351.84 452.88 l
+352.56 452.88 l
+354 451.44 l
+354.24 450.72 l
+354.72 450.24 l
+355.2 449.52 l
+355.44 449.04 l
+355.92 448.8 l
+356.16 448.32 l
+356.64 448.08 l
+356.88 448.08 l
+357.36 447.84 l
+357.84 447.84 l
+358.08 447.6 l
+358.56 447.36 l
+359.04 446.88 l
+359.04 446.4 l
+359.28 446.16 l
+359.76 445.2 l
+360.24 444.48 l
+360.48 443.28 l
+361.2 441.84 l
+361.2 441.6 l
+361.44 441.12 l
+361.68 440.88 l
+361.92 440.4 l
+362.16 440.4 l
+362.4 440.16 l
+362.88 440.16 l
+363.36 440.4 l
+363.6 440.64 l
+364.08 440.88 l
+364.8 441.6 l
+365.28 441.84 l
+366.72 442.8 l
+368.4 443.52 l
+369.84 444.24 l
+370.56 444.48 l
+371.52 444.96 l
+372.24 445.2 l
+372.96 445.44 l
+373.44 445.44 l
+373.68 445.68 l
+374.16 445.44 l
+374.64 445.44 l
+374.64 445.2 l
+375.84 444 l
+376.08 443.52 l
+376.56 442.8 l
+377.04 442.32 l
+377.28 441.84 l
+378 441.12 l
+378.48 440.88 l
+379.2 440.4 l
+379.92 440.16 l
+380.88 439.92 l
+382.32 439.92 l
+383.04 440.16 l
+384 440.4 l
+385.44 440.88 l
+386.4 440.88 l
+386.64 441.12 l
+387.12 440.88 l
+387.36 440.88 l
+388.32 440.4 l
+388.56 440.16 l
+389.04 439.92 l
+389.28 439.68 l
+390.24 439.2 l
+391.68 439.2 l
+392.4 439.44 l
+393.36 439.44 l
+394.08 439.68 l
+394.8 439.92 l
+395.76 440.16 l
+396.48 440.4 l
+397.92 440.4 l
+398.64 440.16 l
+399.6 440.16 l
+399.84 440.4 l
+400.32 440.4 l
+401.04 440.64 l
+402 440.88 l
+402.24 440.88 l
+402.72 441.12 l
+403.2 441.12 l
+403.44 440.88 l
+404.16 440.88 l
+405.12 440.64 l
+405.84 440.64 l
+S
+405.84 440.64 m
+408 440.64 l
+408.96 440.88 l
+409.68 440.88 l
+410.4 440.64 l
+411.36 440.64 l
+412.08 440.4 l
+412.56 440.4 l
+412.8 440.16 l
+413.52 439.68 l
+414.48 439.2 l
+414.72 438.96 l
+416.64 438.96 l
+417.36 439.2 l
+418.32 439.44 l
+419.76 439.92 l
+420.72 440.16 l
+422.88 440.88 l
+424.56 441.12 l
+426 441.6 l
+426.72 441.6 l
+427.68 441.84 l
+430.8 441.84 l
+431.28 442.08 l
+431.52 442.08 l
+432.24 442.56 l
+433.2 442.8 l
+434.64 442.8 l
+435.12 442.56 l
+435.36 442.32 l
+435.84 442.32 l
+436.08 442.08 l
+436.56 442.08 l
+437.04 441.84 l
+437.28 442.08 l
+437.76 442.08 l
+438.24 442.32 l
+438.48 442.56 l
+438.96 442.56 l
+439.44 442.8 l
+439.68 442.8 l
+440.16 443.04 l
+440.64 442.8 l
+440.88 442.8 l
+441.6 442.56 l
+442.56 442.08 l
+444 441.6 l
+444.72 441.12 l
+445.44 440.88 l
+445.92 440.88 l
+446.4 440.64 l
+446.88 440.64 l
+447.12 440.88 l
+447.6 440.88 l
+447.84 441.12 l
+448.56 441.36 l
+449.04 441.6 l
+450.24 441.6 l
+450.96 441.84 l
+452.64 441.6 l
+454.08 441.6 l
+455.76 441.36 l
+457.2 440.88 l
+457.92 440.4 l
+458.88 440.4 l
+459.6 440.16 l
+461.28 440.16 l
+463.44 440.88 l
+464.4 441.12 l
+465.12 441.36 l
+468.24 442.08 l
+469.68 442.56 l
+470.64 442.8 l
+471.36 443.04 l
+473.76 443.04 l
+474.48 442.8 l
+474.96 442.56 l
+475.2 442.32 l
+475.68 442.08 l
+475.92 441.84 l
+476.4 441.6 l
+477.12 440.88 l
+478.32 440.88 l
+478.8 441.12 l
+479.04 441.12 l
+479.52 441.36 l
+480.72 441.36 l
+481.2 441.12 l
+481.44 440.88 l
+481.92 440.64 l
+483.36 439.2 l
+484.32 438.72 l
+486.96 438.72 l
+488.4 439.2 l
+489.36 439.44 l
+490.08 439.68 l
+491.76 439.68 l
+492.48 439.92 l
+493.2 439.92 l
+493.92 440.16 l
+494.64 440.16 l
+495.6 440.4 l
+496.32 440.4 l
+497.04 440.64 l
+501.12 440.64 l
+501.84 440.88 l
+502.56 440.88 l
+503.28 440.64 l
+504.24 440.64 l
+504.96 440.4 l
+505.68 440.4 l
+507.12 440.16 l
+508.08 439.92 l
+511.92 439.92 l
+512.64 439.68 l
+513.6 439.44 l
+514.32 439.2 l
+514.56 438.96 l
+515.28 438.96 l
+516.24 439.44 l
+516.48 439.44 l
+516.96 439.68 l
+517.68 439.68 l
+518.16 439.2 l
+518.4 438.72 l
+518.64 438.48 l
+518.64 438 l
+518.88 437.28 l
+519.12 436.8 l
+519.36 436.08 l
+519.6 434.88 l
+520.08 433.44 l
+520.32 432.96 l
+520.56 432.24 l
+520.8 431.76 l
+520.8 431.28 l
+521.04 430.8 l
+521.28 430.56 l
+S
+521.28 430.56 m
+521.76 430.08 l
+522.48 430.08 l
+522.96 430.32 l
+523.2 430.32 l
+523.68 430.56 l
+524.4 430.56 l
+524.88 430.32 l
+525.6 429.6 l
+526.08 428.88 l
+526.32 428.4 l
+527.52 427.2 l
+528 426.96 l
+528.24 426.96 l
+528.72 426.72 l
+529.92 426.72 l
+530.64 426.48 l
+532.32 426.24 l
+533.76 425.76 l
+535.44 425.76 l
+536.16 425.52 l
+536.88 425.52 l
+537.6 425.28 l
+538.32 424.8 l
+539.28 424.56 l
+540 424.32 l
+543.84 424.32 l
+544.8 424.08 l
+545.52 423.84 l
+549.36 423.84 l
+S
+Q
+q
+327.84 385.44 3.84 -1.92 re
+W* n
+327.84 384.96 m
+329.28 384.96 l
+330 384.72 l
+330.48 384.72 l
+330.96 384.48 l
+S
+Q
+330.96 384.48 m
+331.2 384.24 l
+331.68 384 l
+332.4 383.52 l
+332.88 383.28 l
+333.12 383.04 l
+334.08 382.56 l
+335.04 382.56 l
+335.52 382.8 l
+336.48 383.04 l
+337.92 383.52 l
+339.36 384.48 l
+339.84 384.48 l
+340.32 384.72 l
+341.76 385.2 l
+342.96 385.2 l
+343.44 384.96 l
+343.68 384.72 l
+344.16 384.48 l
+344.64 384 l
+344.88 383.28 l
+345.84 382.32 l
+346.08 381.84 l
+346.56 381.6 l
+346.8 381.36 l
+347.52 381.36 l
+348 381.12 l
+351.12 381.12 l
+352.8 380.88 l
+361.2 380.88 l
+362.16 380.64 l
+362.4 380.64 l
+362.88 380.4 l
+363.6 380.16 l
+364.56 379.68 l
+366 379.68 l
+366.48 379.92 l
+366.72 379.92 l
+367.44 380.4 l
+367.92 380.4 l
+368.4 380.64 l
+369.84 380.64 l
+371.52 380.4 l
+372.96 380.4 l
+374.64 380.16 l
+376.08 379.92 l
+377.04 379.92 l
+379.2 379.2 l
+379.92 378.72 l
+380.88 378.72 l
+381.6 378.48 l
+382.32 378.72 l
+383.04 378.72 l
+384 378.96 l
+384.72 378.96 l
+385.44 379.2 l
+386.4 379.44 l
+390.24 379.44 l
+392.4 380.16 l
+395.76 380.16 l
+396.48 379.92 l
+397.2 379.92 l
+397.92 380.16 l
+399.6 380.16 l
+401.04 379.68 l
+402 379.44 l
+402.72 379.2 l
+404.16 378.96 l
+405.12 378.72 l
+407.28 378.72 l
+408.96 378.96 l
+410.4 379.44 l
+411.36 379.44 l
+412.08 379.68 l
+412.8 379.44 l
+413.52 379.44 l
+414.48 379.2 l
+415.2 378.96 l
+415.92 378.96 l
+416.64 378.72 l
+417.36 378.72 l
+418.32 378.48 l
+419.76 378.96 l
+420.72 378.96 l
+421.44 379.2 l
+422.88 379.44 l
+424.56 379.44 l
+427.68 379.68 l
+428.4 379.92 l
+431.52 379.92 l
+432.24 379.68 l
+433.2 379.44 l
+433.92 379.2 l
+435.36 378.96 l
+437.04 378.72 l
+438.48 378.48 l
+440.16 378.48 l
+441.6 378.96 l
+444 378.96 l
+445.44 378.48 l
+446.4 378.48 l
+447.84 378 l
+448.56 378 l
+449.52 377.76 l
+452.64 377.76 l
+453.36 377.52 l
+454.08 377.52 l
+455.76 377.04 l
+457.2 377.04 l
+457.92 376.8 l
+460.32 376.8 l
+462 377.04 l
+463.44 377.52 l
+465.12 377.76 l
+466.56 378 l
+467.28 378.24 l
+468.24 378.24 l
+468.96 378.48 l
+469.68 378.24 l
+472.8 378.24 l
+474.48 378 l
+475.2 378 l
+475.92 377.76 l
+476.88 377.52 l
+479.04 377.52 l
+480 377.76 l
+481.44 377.76 l
+482.4 377.52 l
+483.12 377.52 l
+483.84 377.28 l
+S
+483.84 377.28 m
+485.28 377.04 l
+493.2 377.04 l
+494.64 377.28 l
+496.32 377.52 l
+497.76 377.76 l
+499.44 378 l
+502.56 378 l
+504.24 378.24 l
+506.4 378.24 l
+507.12 378 l
+508.08 377.76 l
+510.48 377.76 l
+511.2 378 l
+512.64 378 l
+513.6 377.76 l
+514.32 377.76 l
+515.04 377.52 l
+521.28 377.52 l
+521.76 377.76 l
+522 377.76 l
+522.96 378.24 l
+524.16 378.24 l
+524.88 377.52 l
+524.88 377.04 l
+525.12 376.8 l
+526.08 374.88 l
+526.32 373.92 l
+527.04 372.48 l
+527.04 372.24 l
+528 371.28 l
+528.96 371.28 l
+529.92 371.76 l
+535.44 371.76 l
+536.88 371.52 l
+538.32 371.28 l
+544.8 371.28 l
+546.24 371.04 l
+549.36 370.8 l
+S
+q
+327.84 379.68 1.2 -1.44 re
+W* n
+0 g
+327.12 379.68 m
+328.56 379.68 l
+328.56 378.72 l
+327.36 378.72 l
+f*
+Q
+q
+327.84 379.92 0.72 -1.68 re
+W* n
+0 g
+327.6 379.68 m
+328.08 379.92 l
+328.32 378.96 l
+327.6 378.72 l
+f*
+Q
+0 g
+330 379.68 0.24 0.96 re
+f*
+329.28 380.64 m
+330.48 380.88 l
+330.48 379.92 l
+329.28 379.68 l
+f*
+329.52 380.88 0.48 -0.96 re
+f*
+330.24 379.92 m
+331.68 379.92 l
+331.68 380.88 l
+330.48 380.88 l
+f*
+330.72 379.92 0.48 0.96 re
+f*
+332.16 379.2 m
+333.12 378.96 l
+333.36 379.92 l
+332.16 379.92 l
+f*
+332.4 378.96 m
+333.12 378.72 l
+333.12 379.68 l
+332.4 379.92 l
+f*
+333.6 379.44 1.2 -0.96 re
+f*
+333.84 379.44 m
+334.32 379.44 l
+334.56 378.48 l
+333.84 378.48 l
+f*
+335.28 379.92 m
+336.72 380.4 l
+336.72 379.44 l
+335.28 378.96 l
+f*
+335.76 380.4 m
+336.24 380.4 l
+336.24 379.44 l
+336 379.44 l
+f*
+336.48 380.88 m
+338.16 381.12 l
+338.4 380.16 l
+336.72 379.92 l
+f*
+337.44 380.16 0.24 0.96 re
+f*
+339.36 381.36 m
+340.56 381.36 l
+340.56 380.64 l
+339.36 380.4 l
+f*
+339.6 381.36 m
+341.52 381.84 l
+341.52 380.88 l
+339.84 380.64 l
+f*
+340.56 381.84 m
+340.56 380.88 l
+f*
+342.48 382.56 0.96 -0.96 re
+f*
+342.48 382.56 m
+343.44 382.8 l
+343.44 381.84 l
+342.48 381.6 l
+f*
+342.96 382.8 1.68 -0.96 re
+f*
+343.68 381.84 0.24 0.96 re
+f*
+345.6 381.84 1.44 0.96 re
+f*
+346.08 382.8 m
+347.52 382.8 l
+347.76 381.84 l
+346.08 381.84 l
+f*
+346.8 381.84 0.24 0.96 re
+f*
+348.72 382.08 m
+349.68 381.84 l
+349.68 382.8 l
+348.72 382.8 l
+f*
+348.72 381.84 0.96 0.96 re
+f*
+348.96 381.84 m
+350.4 381.84 l
+350.4 382.8 l
+349.2 382.8 l
+f*
+349.44 381.84 m
+349.92 381.6 l
+350.16 382.56 l
+349.44 382.8 l
+f*
+351.84 380.88 m
+352.32 380.64 l
+352.32 381.6 l
+351.84 381.84 l
+f*
+351.36 380.64 m
+352.8 380.64 l
+352.8 381.36 l
+351.36 381.6 l
+f*
+352.32 380.4 1.2 0.96 re
+f*
+352.8 380.4 0.48 0.96 re
+f*
+354.96 381.36 m
+355.44 381.6 l
+355.44 380.64 l
+354.96 380.64 l
+f*
+354.48 381.6 m
+355.92 381.6 l
+355.92 380.64 l
+354.72 380.64 l
+f*
+355.44 381.6 m
+356.88 381.6 l
+357.12 380.88 l
+355.44 380.64 l
+f*
+356.16 380.88 0.24 0.72 re
+f*
+358.08 380.88 m
+359.28 380.88 l
+359.52 381.84 l
+358.08 381.84 l
+f*
+358.32 380.88 m
+359.76 380.64 l
+359.76 381.6 l
+358.56 381.84 l
+f*
+358.8 380.64 m
+359.28 380.64 l
+359.52 381.6 l
+358.8 381.6 l
+f*
+361.2 379.92 0.48 0.96 re
+f*
+360.72 379.92 m
+362.16 379.68 l
+362.16 380.64 l
+360.96 380.88 l
+f*
+361.68 379.68 1.2 0.96 re
+f*
+362.16 379.68 0.48 0.96 re
+f*
+364.32 380.88 m
+364.8 380.88 l
+365.04 379.92 l
+364.32 379.92 l
+f*
+364.08 379.92 1.2 0.96 re
+f*
+364.32 380.88 m
+364.32 379.92 l
+f*
+364.8 379.92 1.2 0.96 re
+f*
+365.04 379.92 m
+365.52 379.92 l
+365.76 380.64 l
+365.04 380.88 l
+f*
+367.44 379.2 m
+367.92 378.96 l
+367.92 379.92 l
+367.44 380.16 l
+f*
+366.96 378.96 m
+368.4 378.72 l
+368.4 379.68 l
+366.96 379.92 l
+f*
+367.92 378.72 m
+369.6 378.48 l
+369.6 379.2 l
+367.92 379.68 l
+f*
+371.52 378 m
+371.76 377.76 l
+372 378.72 l
+371.52 378.72 l
+f*
+370.8 377.76 m
+372.72 377.76 l
+372.72 378.72 l
+371.04 378.72 l
+f*
+371.76 377.76 0.24 0.96 re
+f*
+373.68 377.76 m
+374.88 377.52 l
+375.12 378.48 l
+373.68 378.72 l
+f*
+374.16 377.52 1.68 0.96 re
+f*
+374.88 377.52 0.24 0.96 re
+f*
+376.8 376.8 m
+378 376.8 l
+378.24 377.52 l
+376.8 377.76 l
+f*
+377.28 376.8 m
+378.96 376.32 l
+378.96 377.28 l
+377.28 377.52 l
+f*
+380.88 375.84 0.48 0.96 re
+f*
+380.16 375.84 m
+382.08 375.84 l
+382.08 376.8 l
+380.4 376.8 l
+f*
+381.12 375.84 0.24 0.96 re
+f*
+384 376.08 0.48 0.96 re
+f*
+383.52 377.04 m
+385.2 377.04 l
+385.44 376.08 l
+383.52 376.08 l
+f*
+387.12 376.32 0.48 0.72 re
+f*
+386.64 376.32 1.68 0.72 re
+f*
+389.52 376.08 m
+391.44 376.08 l
+391.44 377.04 l
+389.76 377.04 l
+f*
+390.48 376.08 0.24 0.96 re
+f*
+392.4 375.84 m
+393.6 375.84 l
+393.84 376.8 l
+392.4 376.8 l
+f*
+392.88 375.84 1.68 0.96 re
+f*
+393.6 375.84 0.24 0.96 re
+f*
+395.52 375.84 1.44 0.96 re
+f*
+396 375.84 1.68 0.96 re
+f*
+396.72 375.84 0.24 0.96 re
+f*
+398.64 375.36 m
+399.84 375.12 l
+400.08 376.08 l
+398.64 376.32 l
+f*
+399.12 375.12 m
+400.8 374.88 l
+400.8 375.84 l
+399.12 376.08 l
+f*
+402.24 374.64 m
+403.92 374.4 l
+403.92 375.36 l
+402.24 375.6 l
+f*
+402.96 374.4 0.24 0.96 re
+f*
+404.88 373.92 m
+406.08 373.92 l
+406.32 374.88 l
+404.88 374.88 l
+f*
+405.36 374.88 1.2 -0.96 re
+f*
+405.84 373.92 0.48 0.96 re
+f*
+408 375.36 0.48 -0.96 re
+f*
+407.52 375.36 m
+408.96 375.6 l
+408.96 374.64 l
+407.52 374.4 l
+f*
+408 375.6 m
+408 374.64 l
+f*
+408.48 374.64 m
+409.68 374.4 l
+409.68 375.36 l
+408.48 375.6 l
+f*
+408.72 374.4 0.72 0.96 re
+f*
+411.12 373.92 m
+411.6 373.92 l
+411.6 374.64 l
+411.12 374.88 l
+f*
+410.64 373.92 m
+412.08 373.68 l
+412.08 374.64 l
+410.88 374.64 l
+f*
+411.6 373.68 m
+413.28 373.68 l
+413.28 374.4 l
+411.6 374.64 l
+f*
+412.32 373.68 0.24 0.72 re
+f*
+414.24 373.68 1.44 0.96 re
+f*
+414.72 373.68 m
+416.4 373.44 l
+416.4 374.4 l
+414.72 374.64 l
+f*
+415.44 373.44 0.24 0.96 re
+f*
+417.36 373.2 m
+418.32 372.96 l
+418.32 373.92 l
+417.36 374.16 l
+f*
+417.36 372.96 0.96 0.96 re
+f*
+417.84 373.92 m
+419.52 374.16 l
+419.52 373.2 l
+417.84 372.96 l
+f*
+418.56 373.2 0.24 0.96 re
+f*
+420.48 374.4 m
+421.92 374.64 l
+421.92 373.68 l
+420.48 373.68 l
+f*
+420.96 374.64 m
+422.64 374.88 l
+422.88 373.92 l
+420.96 373.68 l
+f*
+424.56 374.16 0.48 0.96 re
+f*
+424.08 375.12 m
+425.76 375.36 l
+425.76 374.4 l
+424.08 374.16 l
+f*
+424.8 374.4 0.24 0.96 re
+f*
+426.72 375.36 m
+427.92 375.36 l
+428.16 374.4 l
+426.72 374.4 l
+f*
+427.2 375.36 m
+428.88 375.6 l
+428.88 374.64 l
+427.2 374.4 l
+f*
+427.92 374.64 0.24 0.96 re
+f*
+429.84 375.84 m
+431.28 376.08 l
+431.28 375.12 l
+429.84 375.12 l
+f*
+430.32 376.08 m
+432 376.32 l
+432.24 375.36 l
+430.32 375.12 l
+f*
+433.44 376.56 m
+435.12 376.56 l
+435.36 375.6 l
+433.44 375.6 l
+f*
+436.56 376.8 m
+438.24 377.04 l
+438.24 376.08 l
+436.56 375.84 l
+f*
+437.28 376.08 0.24 0.96 re
+f*
+439.2 377.28 m
+440.64 377.28 l
+440.64 376.56 l
+439.2 376.32 l
+f*
+439.68 377.28 m
+441.36 377.52 l
+441.6 376.56 l
+439.68 376.56 l
+f*
+442.8 376.56 1.68 0.96 re
+f*
+443.52 376.56 0.24 0.96 re
+f*
+445.44 376.32 1.44 0.96 re
+f*
+445.92 377.28 1.68 -0.96 re
+f*
+446.64 376.32 0.24 0.96 re
+f*
+448.56 377.76 m
+449.76 377.76 l
+450 376.8 l
+448.56 376.8 l
+f*
+449.04 377.76 m
+450.72 378 l
+450.96 377.04 l
+449.04 376.8 l
+f*
+452.16 378.24 m
+453.84 378.48 l
+453.84 377.52 l
+452.16 377.28 l
+f*
+452.88 377.52 0.24 0.96 re
+f*
+454.8 378.72 m
+456.24 378.72 l
+456.24 378 l
+455.04 377.76 l
+f*
+455.28 378 1.68 0.72 re
+f*
+456 378 0.24 0.72 re
+f*
+457.92 378 1.44 0.72 re
+f*
+458.4 378.72 m
+460.08 378.96 l
+460.08 378 l
+458.4 378 l
+f*
+459.12 378 0.24 0.96 re
+f*
+461.04 379.2 m
+462.48 379.44 l
+462.48 378.48 l
+461.04 378.48 l
+f*
+461.52 379.44 m
+463.2 379.68 l
+463.2 378.72 l
+461.52 378.48 l
+f*
+462.24 378.72 0.24 0.96 re
+f*
+464.16 379.92 m
+465.6 379.92 l
+465.6 378.96 l
+464.4 378.96 l
+f*
+464.64 378.96 1.68 0.96 re
+f*
+465.36 378.96 0.24 0.96 re
+f*
+467.28 378.48 1.44 0.96 re
+f*
+467.76 378.48 m
+469.44 378.24 l
+469.68 379.2 l
+467.76 379.44 l
+f*
+471.36 377.76 0.48 0.96 re
+f*
+470.88 377.76 1.68 0.96 re
+f*
+471.6 377.76 0.24 0.96 re
+f*
+474.48 377.76 0.48 0.96 re
+f*
+474 377.76 1.92 0.96 re
+f*
+477.6 377.76 0.48 0.96 re
+f*
+477.12 377.76 m
+478.8 377.76 l
+478.8 378.48 l
+477.12 378.72 l
+f*
+477.84 377.76 0.24 0.72 re
+f*
+479.76 377.28 1.44 0.96 re
+f*
+480.24 377.28 m
+482.16 377.04 l
+482.16 378 l
+480.24 378.24 l
+f*
+483.84 377.04 0.48 0.72 re
+f*
+483.36 377.76 m
+485.04 378 l
+485.04 377.04 l
+483.36 377.04 l
+f*
+484.08 377.04 0.24 0.96 re
+f*
+486 378.24 m
+487.44 378.48 l
+487.44 377.52 l
+486.24 377.28 l
+f*
+486.48 377.52 1.68 0.96 re
+f*
+487.2 377.52 0.24 0.96 re
+f*
+489.12 377.28 1.44 0.96 re
+f*
+489.6 378.24 1.68 -0.96 re
+f*
+490.56 378.24 m
+490.56 377.28 l
+f*
+492.24 378.48 m
+493.68 378.72 l
+493.68 377.76 l
+492.48 377.52 l
+f*
+492.72 378.72 m
+494.64 378.72 l
+494.64 378 l
+492.72 377.76 l
+f*
+496.32 378.24 0.48 0.72 re
+f*
+495.84 378.24 1.92 0.72 re
+f*
+498.96 378 m
+500.64 378 l
+500.64 378.72 l
+498.96 378.96 l
+f*
+499.92 378.72 m
+499.92 378 l
+f*
+501.6 377.52 m
+503.04 377.52 l
+503.04 378.48 l
+501.84 378.48 l
+f*
+502.08 377.52 1.68 0.96 re
+f*
+502.8 377.52 0.24 0.96 re
+f*
+504.72 377.52 m
+506.16 377.28 l
+506.16 378.24 l
+504.96 378.48 l
+f*
+505.2 377.28 1.68 0.96 re
+f*
+505.92 377.28 0.24 0.96 re
+f*
+507.84 377.04 m
+509.28 377.04 l
+509.28 377.76 l
+508.08 378 l
+f*
+508.32 377.76 m
+510 378 l
+510 377.04 l
+508.32 377.04 l
+f*
+509.28 378 m
+509.28 377.04 l
+f*
+510.96 378 m
+512.4 378.24 l
+512.4 377.28 l
+511.2 377.04 l
+f*
+511.44 378.24 1.92 -0.96 re
+f*
+514.56 378.48 1.92 -0.96 re
+f*
+518.16 377.52 0.48 0.96 re
+f*
+517.68 377.52 1.68 0.96 re
+f*
+518.4 377.52 0.24 0.96 re
+f*
+520.32 377.28 m
+521.76 377.04 l
+521.76 378 l
+520.56 378.24 l
+f*
+520.8 377.04 1.44 0.96 re
+f*
+521.28 377.04 0.48 0.96 re
+f*
+522.72 377.28 0.96 0.96 re
+f*
+522.72 377.28 m
+523.44 377.28 l
+523.68 378.24 l
+522.72 378.24 l
+f*
+523.92 377.04 m
+523.92 376.8 l
+524.88 376.56 l
+524.88 377.04 l
+f*
+523.92 377.76 m
+524.16 376.56 l
+525.12 376.32 l
+524.88 377.76 l
+f*
+524.16 377.52 m
+524.16 377.04 l
+525.12 376.8 l
+525.12 377.52 l
+f*
+524.64 376.08 m
+525.12 374.64 l
+526.08 374.64 l
+525.6 376.08 l
+f*
+525.12 375.12 0.96 0.48 re
+f*
+526.08 373.2 m
+526.32 372 l
+527.28 371.76 l
+526.8 373.2 l
+f*
+526.32 372.96 m
+526.32 372.48 l
+527.28 372.48 l
+527.28 372.72 l
+f*
+526.8 371.76 m
+527.04 370.56 l
+528 370.56 l
+527.76 371.76 l
+f*
+527.04 371.52 m
+527.28 370.32 l
+528.24 370.32 l
+528 371.52 l
+f*
+527.28 370.32 0.48 0.96 re
+f*
+528.72 370.08 0.72 0.96 re
+f*
+528.48 371.04 m
+529.68 371.04 l
+529.68 370.08 l
+528.72 370.08 l
+f*
+530.64 370.32 0.48 0.96 re
+f*
+530.16 370.32 m
+532.08 370.08 l
+532.08 371.04 l
+530.16 371.28 l
+f*
+533.28 370.08 m
+535.2 369.84 l
+535.2 370.8 l
+533.28 371.04 l
+f*
+536.4 369.84 m
+538.32 369.84 l
+538.32 370.56 l
+536.4 370.8 l
+f*
+539.52 369.6 1.92 0.96 re
+f*
+542.64 369.6 1.68 0.96 re
+f*
+543.36 369.6 0.24 0.96 re
+f*
+545.52 369.36 1.2 0.96 re
+f*
+545.76 370.32 m
+547.44 370.32 l
+547.44 369.6 l
+545.76 369.36 l
+f*
+546.48 369.6 0.24 0.72 re
+f*
+549.36 370.56 m
+549.84 370.8 l
+549.84 369.84 l
+549.36 369.84 l
+f*
+q
+327.84 380.64 0.96 -1.2 re
+W* n
+327.36 380.16 m
+328.32 379.92 l
+328.32 380.4 l
+327.6 380.64 l
+f*
+Q
+329.28 379.2 m
+330 378.96 l
+330 379.44 l
+329.28 379.68 l
+f*
+330.96 379.2 m
+330.96 378.72 l
+f*
+330.48 378.72 m
+331.44 378.48 l
+331.44 378.96 l
+330.72 379.2 l
+f*
+330.96 378.96 m
+330.96 378.48 l
+f*
+331.92 379.2 0.72 -0.48 re
+f*
+332.16 379.2 m
+332.4 379.44 l
+332.4 378.96 l
+332.16 378.72 l
+f*
+333.36 378.96 0.96 0.48 re
+f*
+333.6 378.96 m
+334.56 378.96 l
+334.56 379.44 l
+333.84 379.44 l
+f*
+334.08 378.96 0.24 0.48 re
+f*
+335.52 378.48 0.24 0.48 re
+f*
+335.28 378.48 m
+336 378.24 l
+336 378.72 l
+335.28 378.96 l
+f*
+336.72 377.76 m
+337.68 377.28 l
+337.68 377.76 l
+336.96 378.24 l
+f*
+338.64 376.8 m
+339.12 376.8 l
+339.36 377.04 l
+338.64 377.28 l
+f*
+338.88 376.8 m
+339.12 376.56 l
+339.12 377.04 l
+338.88 377.04 l
+f*
+339.84 376.56 m
+340.32 376.32 l
+340.56 376.8 l
+340.08 377.04 l
+f*
+339.84 376.8 m
+340.8 377.04 l
+340.8 376.56 l
+340.08 376.32 l
+f*
+340.32 376.56 0.24 0.48 re
+f*
+341.28 377.28 m
+342 377.28 l
+342 377.04 l
+341.28 376.8 l
+f*
+341.52 377.28 m
+341.76 377.52 l
+341.76 377.04 l
+341.52 377.04 l
+f*
+343.2 378 m
+343.2 377.52 l
+f*
+342.72 378 m
+343.44 378 l
+343.68 377.52 l
+342.72 377.52 l
+f*
+343.2 378 m
+343.92 378.24 l
+344.16 377.76 l
+343.2 377.52 l
+f*
+344.88 377.76 0.96 0.48 re
+f*
+346.08 377.52 m
+347.04 377.52 l
+347.04 378 l
+346.32 378 l
+f*
+346.56 377.52 0.24 0.48 re
+f*
+348 377.04 m
+348.24 377.04 l
+348.24 377.28 l
+348 377.52 l
+f*
+347.76 377.04 m
+348.48 376.8 l
+348.48 377.28 l
+347.76 377.28 l
+f*
+349.44 376.32 0.48 0.48 re
+f*
+349.44 376.32 0.72 0.48 re
+f*
+349.68 376.32 0.24 0.48 re
+f*
+351.12 376.56 0.24 0.48 re
+f*
+350.88 377.04 m
+351.6 377.28 l
+351.6 376.8 l
+350.88 376.56 l
+f*
+352.56 376.8 0.48 0.48 re
+f*
+352.56 376.8 m
+353.28 376.8 l
+353.52 377.28 l
+352.56 377.28 l
+f*
+354.24 376.56 m
+355.2 376.32 l
+355.2 376.8 l
+354.24 377.04 l
+f*
+355.44 376.08 m
+356.4 375.84 l
+356.64 376.32 l
+355.68 376.56 l
+f*
+357.84 375.36 m
+358.8 375.12 l
+358.8 375.6 l
+357.84 375.84 l
+f*
+358.56 375.12 m
+359.52 374.88 l
+359.52 375.36 l
+358.8 375.6 l
+f*
+360.48 374.4 m
+361.44 374.16 l
+361.44 374.64 l
+360.48 374.88 l
+f*
+361.92 374.64 0.72 -0.48 re
+f*
+362.4 374.64 m
+362.4 374.16 l
+f*
+363.6 374.88 m
+363.84 375.12 l
+363.84 374.64 l
+363.6 374.4 l
+f*
+363.36 375.12 m
+364.08 375.36 l
+364.08 374.88 l
+363.36 374.64 l
+f*
+365.04 375.6 m
+365.28 375.6 l
+365.52 375.12 l
+365.04 375.12 l
+f*
+365.04 375.6 m
+365.76 375.84 l
+366 375.36 l
+365.04 375.12 l
+f*
+367.2 376.08 m
+368.16 376.32 l
+368.16 375.84 l
+367.2 375.6 l
+f*
+367.92 376.32 m
+368.88 376.32 l
+369.12 375.84 l
+368.16 375.84 l
+f*
+369.84 375.84 0.96 0.48 re
+f*
+370.32 376.32 m
+371.28 376.56 l
+371.28 376.08 l
+370.32 375.84 l
+f*
+371.04 376.56 m
+372 376.56 l
+372 376.08 l
+371.28 376.08 l
+f*
+371.52 376.08 0.24 0.48 re
+f*
+372.96 377.04 0.24 -0.48 re
+f*
+372.72 377.04 m
+373.44 377.04 l
+373.44 376.8 l
+372.72 376.56 l
+f*
+374.4 377.04 0.48 0.24 re
+f*
+374.4 377.04 0.72 0.24 re
+f*
+374.64 377.04 0.24 0.24 re
+f*
+376.08 376.56 0.24 0.48 re
+f*
+375.84 376.56 m
+376.56 376.32 l
+376.56 376.8 l
+375.84 377.04 l
+f*
+377.28 376.08 m
+378.24 375.84 l
+378.48 376.32 l
+377.52 376.56 l
+f*
+379.2 375.6 m
+380.16 375.36 l
+380.16 375.84 l
+379.2 376.08 l
+f*
+379.68 375.36 0.96 0.48 re
+f*
+380.64 375.36 0.72 0.24 re
+f*
+380.88 375.36 0.24 0.24 re
+f*
+382.32 375.6 0.24 0.24 re
+f*
+382.08 375.84 m
+382.8 376.08 l
+382.8 375.6 l
+382.08 375.6 l
+f*
+383.76 375.84 0.48 0.48 re
+f*
+383.76 375.84 m
+384.48 375.6 l
+384.48 376.08 l
+383.76 376.32 l
+f*
+384.24 376.08 m
+384.24 375.6 l
+f*
+385.44 375.6 m
+385.68 375.36 l
+385.68 375.84 l
+385.44 375.84 l
+f*
+385.2 375.36 0.72 0.48 re
+f*
+386.88 375.12 m
+387.6 374.88 l
+387.84 375.36 l
+386.88 375.6 l
+f*
+388.56 374.88 0.96 0.48 re
+f*
+389.04 375.36 0.96 -0.48 re
+f*
+389.76 375.36 m
+390.72 375.6 l
+390.96 375.12 l
+390 374.88 l
+f*
+391.68 375.84 m
+392.64 376.08 l
+392.64 375.6 l
+391.68 375.36 l
+f*
+393.12 376.32 m
+393.84 376.32 l
+394.08 375.84 l
+393.12 375.84 l
+f*
+394.8 376.56 m
+395.76 376.56 l
+395.76 376.08 l
+395.04 376.08 l
+f*
+396.24 376.08 m
+396.96 376.08 l
+397.2 376.56 l
+396.24 376.56 l
+f*
+397.92 375.84 m
+398.88 375.6 l
+398.88 376.08 l
+397.92 376.32 l
+f*
+399.12 375.6 m
+400.08 375.36 l
+400.32 375.84 l
+399.36 375.84 l
+f*
+401.52 375.12 m
+402 374.88 l
+402 375.36 l
+401.52 375.6 l
+f*
+401.52 374.88 m
+402 374.88 l
+402 375.36 l
+401.76 375.36 l
+f*
+402.48 374.88 m
+403.2 374.64 l
+403.44 375.12 l
+402.48 375.36 l
+f*
+404.64 374.4 0.96 0.48 re
+f*
+405.6 374.4 0.96 0.48 re
+f*
+407.76 374.88 0.96 -0.48 re
+f*
+408.72 374.88 m
+409.44 374.88 l
+409.68 374.4 l
+408.72 374.4 l
+f*
+410.4 375.12 0.96 -0.48 re
+f*
+411.84 374.64 0.96 0.48 re
+f*
+414 374.64 m
+414.96 374.64 l
+414.96 375.12 l
+414.24 375.12 l
+f*
+414.96 374.64 m
+415.68 374.4 l
+415.92 374.88 l
+414.96 375.12 l
+f*
+416.64 374.16 m
+417.6 374.16 l
+417.6 374.64 l
+416.88 374.64 l
+f*
+418.08 373.92 m
+418.8 373.92 l
+419.04 374.4 l
+418.08 374.4 l
+f*
+419.76 373.68 m
+420.72 373.44 l
+420.72 373.92 l
+419.76 374.16 l
+f*
+421.2 373.92 m
+421.92 373.92 l
+422.16 373.44 l
+421.2 373.44 l
+f*
+421.68 373.92 m
+421.68 373.44 l
+f*
+422.88 374.16 m
+423.12 374.16 l
+423.12 373.68 l
+f*
+422.64 374.16 m
+423.36 374.4 l
+423.6 373.92 l
+422.64 373.92 l
+f*
+424.32 374.16 0.48 0.48 re
+f*
+424.32 374.16 m
+425.04 374.16 l
+425.28 374.64 l
+424.32 374.64 l
+f*
+426 373.92 m
+426.96 373.68 l
+426.96 374.16 l
+426.24 374.4 l
+f*
+426.48 373.68 0.96 0.48 re
+f*
+427.44 373.68 m
+428.16 373.44 l
+428.4 373.92 l
+427.44 374.16 l
+f*
+429.6 373.2 m
+430.08 373.2 l
+430.32 373.68 l
+429.6 373.68 l
+f*
+429.84 373.2 0.24 0.48 re
+f*
+430.56 372.96 0.96 0.48 re
+f*
+432.24 373.68 m
+433.2 373.68 l
+433.2 373.2 l
+432.48 373.2 l
+f*
+433.68 373.2 0.96 0.48 re
+f*
+435.36 372.96 m
+436.32 372.96 l
+436.32 373.44 l
+435.6 373.44 l
+f*
+436.8 372.96 m
+437.52 372.72 l
+437.76 373.2 l
+436.8 373.44 l
+f*
+438.48 372.72 m
+439.44 372.48 l
+439.44 372.96 l
+438.72 372.96 l
+f*
+439.92 372.96 0.96 -0.48 re
+f*
+441.6 372.96 m
+442.56 373.2 l
+442.8 372.72 l
+441.84 372.72 l
+f*
+443.04 372.72 0.96 0.48 re
+f*
+445.2 372.96 m
+446.16 372.72 l
+446.16 373.2 l
+445.44 373.44 l
+f*
+446.16 372.72 m
+446.88 372.72 l
+447.12 373.2 l
+446.16 373.2 l
+f*
+448.32 372.72 m
+449.28 372.72 l
+449.28 372.96 l
+448.32 373.2 l
+f*
+449.28 372.48 m
+450 372.48 l
+450.24 372.96 l
+449.28 372.96 l
+f*
+451.44 372.24 0.96 0.48 re
+f*
+452.4 372 0.96 0.48 re
+f*
+454.56 371.76 m
+455.52 371.76 l
+455.52 372.24 l
+454.8 372.24 l
+f*
+455.52 371.76 0.96 0.48 re
+f*
+457.92 371.76 0.72 0.48 re
+f*
+458.64 371.76 0.96 0.48 re
+f*
+460.8 371.76 0.96 0.48 re
+f*
+461.76 371.76 0.96 0.48 re
+f*
+464.16 371.76 0.72 0.48 re
+f*
+464.88 371.76 0.96 0.48 re
+f*
+467.04 371.76 m
+468 371.76 l
+468 372.24 l
+467.28 372.24 l
+f*
+468 371.76 m
+468.72 371.52 l
+468.96 372 l
+468 372.24 l
+f*
+469.68 371.52 m
+470.64 371.28 l
+470.64 371.76 l
+469.92 372 l
+f*
+471.12 371.28 0.96 0.48 re
+f*
+472.8 371.76 m
+473.76 372 l
+474 371.52 l
+473.04 371.28 l
+f*
+474.24 372 m
+475.2 372.24 l
+475.2 371.76 l
+474.24 371.52 l
+f*
+476.4 372.48 m
+477.36 372.48 l
+477.36 372 l
+476.64 372 l
+f*
+477.36 372.48 m
+478.32 372.72 l
+478.32 372.24 l
+477.36 372 l
+f*
+479.04 372.72 m
+480 372.96 l
+480 372.48 l
+479.28 372.48 l
+f*
+480.48 372.48 0.96 0.48 re
+f*
+482.4 372.24 m
+483.12 372.24 l
+483.36 372.72 l
+482.4 372.72 l
+f*
+483.6 372.72 0.96 -0.48 re
+f*
+485.28 372.72 m
+486.24 372.72 l
+486.48 372.48 l
+485.52 372.24 l
+f*
+485.76 372.72 m
+486.72 372.96 l
+486.72 372.48 l
+486 372.48 l
+f*
+486.72 372.96 m
+487.68 372.96 l
+487.68 372.72 l
+486.72 372.48 l
+f*
+489.12 372.72 0.48 0.48 re
+f*
+489.12 372.72 0.24 0.48 re
+f*
+489.84 372.72 0.96 0.48 re
+f*
+491.76 372.72 m
+492.48 372.72 l
+492.72 372.96 l
+491.76 373.2 l
+f*
+492.96 372.96 m
+493.92 373.2 l
+493.92 372.72 l
+492.96 372.48 l
+f*
+494.64 373.44 m
+495.6 373.44 l
+495.84 372.96 l
+494.88 372.96 l
+f*
+495.12 373.44 m
+496.08 373.44 l
+496.08 372.96 l
+495.36 372.96 l
+f*
+496.08 372.96 0.96 0.48 re
+f*
+497.76 372.96 m
+498.72 372.72 l
+498.72 373.2 l
+498 373.44 l
+f*
+499.2 372.72 m
+500.16 372.72 l
+500.16 372.96 l
+499.2 373.2 l
+f*
+501.12 372.48 m
+501.84 372.48 l
+502.08 372.72 l
+501.12 372.96 l
+f*
+502.32 372.72 m
+503.28 372.72 l
+503.28 372.48 l
+502.32 372.24 l
+f*
+504.24 372.96 m
+504.96 373.2 l
+505.2 372.72 l
+504.24 372.72 l
+f*
+504.48 373.2 m
+505.44 373.2 l
+505.44 372.72 l
+504.72 372.72 l
+f*
+505.44 372.72 0.96 0.48 re
+f*
+507.12 372.72 m
+508.08 372.48 l
+508.32 372.96 l
+507.36 372.96 l
+f*
+508.56 372.48 0.96 0.48 re
+f*
+510.96 372.96 m
+511.68 372.96 l
+511.92 372.48 l
+510.96 372.48 l
+f*
+511.68 372.96 m
+512.64 372.96 l
+512.64 372.72 l
+511.68 372.48 l
+f*
+513.6 373.2 m
+514.32 373.2 l
+514.56 372.72 l
+513.6 372.72 l
+f*
+513.84 373.2 m
+514.8 373.44 l
+515.04 372.96 l
+514.08 372.72 l
+f*
+514.8 372.96 0.96 0.48 re
+f*
+516.48 372.96 m
+517.44 372.72 l
+517.68 373.2 l
+516.72 373.44 l
+f*
+517.2 372.72 0.72 0.48 re
+f*
+517.92 373.2 m
+518.64 373.44 l
+518.88 372.96 l
+517.92 372.72 l
+f*
+518.4 373.44 m
+518.4 372.96 l
+f*
+519.84 373.68 m
+519.84 373.2 l
+f*
+519.36 373.68 m
+520.08 373.68 l
+520.32 373.2 l
+519.36 373.2 l
+f*
+520.56 373.2 m
+521.52 372.96 l
+521.52 373.44 l
+520.56 373.68 l
+f*
+521.04 372.96 m
+522 372.72 l
+522 373.2 l
+521.04 373.44 l
+f*
+521.52 373.2 0.48 0.24 re
+f*
+522.24 372 0.48 0.24 re
+f*
+522.24 372.72 m
+522.48 372 l
+522.96 371.76 l
+522.72 372.48 l
+f*
+523.2 371.28 m
+523.44 370.56 l
+523.92 370.56 l
+523.68 371.28 l
+f*
+523.44 371.04 0.48 0.24 re
+f*
+524.16 370.08 m
+524.88 369.84 l
+525.12 370.32 l
+524.16 370.56 l
+f*
+524.64 370.32 m
+524.64 369.84 l
+f*
+525.6 370.32 0.48 -0.48 re
+f*
+525.6 370.32 m
+526.08 370.56 l
+526.08 370.08 l
+525.84 369.84 l
+f*
+526.8 370.8 m
+527.76 370.8 l
+527.76 370.32 l
+527.04 370.32 l
+f*
+527.28 370.8 0.96 -0.48 re
+f*
+529.68 370.56 0.48 0.48 re
+f*
+529.68 370.56 0.48 0.48 re
+f*
+530.4 370.56 0.96 0.48 re
+f*
+532.32 370.56 m
+533.04 370.32 l
+533.28 370.8 l
+532.32 371.04 l
+f*
+533.52 370.32 0.96 0.48 re
+f*
+535.68 370.08 m
+536.64 370.08 l
+536.88 370.56 l
+535.92 370.56 l
+f*
+536.64 370.08 0.96 0.48 re
+f*
+538.8 370.08 m
+539.76 369.84 l
+539.76 370.32 l
+539.04 370.56 l
+f*
+539.76 369.84 0.96 0.48 re
+f*
+542.16 369.84 m
+542.88 369.84 l
+543.12 370.08 l
+542.16 370.32 l
+f*
+542.88 369.84 m
+543.84 369.6 l
+543.84 370.08 l
+542.88 370.08 l
+f*
+545.52 369.6 m
+546.48 369.6 l
+546.48 369.84 l
+545.76 370.08 l
+f*
+546 369.6 m
+546.96 369.36 l
+546.96 369.84 l
+546 369.84 l
+f*
+548.64 369.36 m
+549.6 369.12 l
+549.6 369.6 l
+548.88 369.84 l
+f*
+BT
+6.2184 0 0 6.2194 319.44 360.48 Tm
+0 Tc
+0 Tw
+(2)Tj
+0 3.5888 TD
+(4)Tj
+0 3.6274 TD
+(6)Tj
+0 3.5888 TD
+(8)Tj
+-0.5403 3.5888 TD
+-0.0157 Tc
+(10)Tj
+0 3.6274 TD
+(12)Tj
+1.3508 -19.5647 TD
+[(24)-4940.2(36)-4940.2(48)-4940.2(60)-4940.2(72)-4940.2(8)-38.6(4)-4901.6(9)-38.6(6)]TJ
+ET
+1.371 w 
+374.4 424.8 m
+388.8 424.8 l
+S
+BT
+6.2184 0 0 6.2194 390.48 422.16 Tm
+0.0017 Tc
+-0.0095 Tw
+[(S)12.6(e)17.4(cu)-21.2(r)25.9(i)-7.9(t)9.5(y)0( S)-26(e)17.4(l)-7.9(e)17.4(ct)9.5(i)-7.9(o)17.4(n)]TJ
+ET
+0.457 w 
+374.4 415.44 m
+388.8 415.44 l
+S
+BT
+6.2184 0 0 6.2194 390.48 413.04 Tm
+0.0134 Tc
+-0.0212 Tw
+[(S)24.3(p)29.1(re)29.1(a)-9.5(d)29.1( Du)29.1(ra)29.1(t)-17.4(i)42.4(o)-9.5(n)]TJ
+ET
+373.92 406.08 1.92 0.96 re
+f*
+379.44 406.08 1.92 0.96 re
+f*
+384.96 406.08 1.92 0.96 re
+f*
+BT
+6.2184 0 0 6.2194 390.48 404.16 Tm
+-0.0157 Tc
+0 Tw
+[(C)-27(onv)-17.4(e)-38.6(x)21.2(i)-25.3(t)-7.9(y)]TJ
+ET
+374.16 397.2 0.96 0.24 re
+f*
+377.04 397.2 0.72 0.24 re
+f*
+379.68 397.2 0.96 0.24 re
+f*
+382.56 397.2 0.72 0.24 re
+f*
+385.2 397.2 0.96 0.24 re
+f*
+388.08 397.2 0.72 0.24 re
+f*
+BT
+/F12 1 Tf
+6.2184 0 0 6.2194 392.16 394.08 Tm
+0 Tc
+()Tj
+/F10 1 Tf
+0.5017 0.0386 TD
+-0.0109 Tc
+(P/)Tj
+/F12 1 Tf
+0.9263 -0.0386 TD
+0 Tc
+()Tj
+/F10 1 Tf
+0.5017 0.0386 TD
+-0.0109 Tc
+[(PS)-38.6(A)]TJ
+ET
+endstream
+endobj
+30 0 obj
+<<
+/ProcSet [/PDF /Text ]
+/Font <<
+/F1 4 0 R
+/F7 7 0 R
+/F8 8 0 R
+/F9 9 0 R
+/F10 19 0 R
+/F12 31 0 R
+>>
+/ExtGState <<
+/GS1 11 0 R
+/GS2 12 0 R
+>>
+>>
+endobj
+33 0 obj
+<<
+/Length 6887
+>>
+stream
+0 0 0 1 K
+0 J 0 j 0.24 w 10 M []0 d
+/GS1 gs
+1 i 
+55.2 720.12 m
+559.2 720.12 l
+54 56.04 m
+558 56.04 l
+S
+BT
+/F10 1 Tf
+8.1 0 1.7217 9 54 42.48 Tm
+0 0 0 1 k
+/GS2 gs
+0.0066 Tc
+0 Tw
+(Lehman Brothers)Tj
+8.1 0 0 9 294.24 42.48 Tm
+0.0078 Tc
+-0.0027 Tw
+[(PTS)7.8(-)-21.7(6)-21384.8(February 12, 2001)]TJ
+ET
+1.44 w 
+/GS1 gs
+54 719.28 m
+139.44 719.28 l
+S
+BT
+/F8 1 Tf
+10.8 0 0 12 54.48 726 Tm
+/GS2 gs
+-0.005 Tc
+0.1436 Tw
+(Portfolio Strategies)Tj
+/F9 1 Tf
+9.5 0 0 9.5 54 676.8 Tm
+0.0061 Tc
+-0.1038 Tw
+(duration, convexity, or prepayment duration are roughly compa-)Tj
+0 -1.3642 TD
+0.0062 Tc
+-0.0832 Tw
+(rable among themselves but seem to be less valuable than that of)Tj
+T*
+0.0061 Tc
+-0.0855 Tw
+(security selection. Interestingly, these results mirror those of the)Tj
+0 -1.3895 TD
+0.0059 Tc
+0.0105 Tw
+(corporate bond perfect foresight study.)Tj
+0 -2.7284 TD
+0.0062 Tc
+-0.121 Tw
+(There are a number of caveats to these results. First, the difficulty)Tj
+0 -1.3642 TD
+0.0132 Tw
+(of constructing portfolios with exposure to one risk sensitivity)Tj
+T*
+0.0061 Tc
+0.124 Tw
+(while being neutral to the other two indicates that managers)Tj
+T*
+0.1355 Tw
+(either must use non-index securities in their portfolios \()Tj
+/F8 1 Tf
+23.6716 0 TD
+0.0071 Tc
+0 Tw
+(e.g.)Tj
+/F9 1 Tf
+1.4653 0 TD
+0 Tc
+(,)Tj
+-25.1368 -1.3895 TD
+0.0061 Tc
+0.0105 Tw
+(agency issues with positive spread duration and convexity and)Tj
+0 -1.3642 TD
+-0.0142 Tw
+(zero prepayment duration\) or take a combination of bets at any)Tj
+T*
+0.0064 Tc
+-0.0831 Tw
+(given time. Consequently, we may wish to explore whether skill)Tj
+T*
+-0.0784 Tw
+(with respect to a combination of risk sensitivities might produce)Tj
+T*
+0.0057 Tc
+0.008 Tw
+(better information ratios.)Tj
+0 -2.7537 TD
+0.0061 Tc
+-0.0397 Tw
+(Second, while security selection is clear in the corporate world,)Tj
+0 -1.3642 TD
+-0.1111 Tw
+(what does security selection mean in the mortgage market? Once)Tj
+T*
+0.2247 Tw
+(all of the risk factors are accounted for, why would some)Tj
+T*
+0.0038 Tw
+(mortgage securities outperform others? Perhaps there is a )Tj
+/F1 1 Tf
+23.5946 0 TD
+0 Tc
+0 Tw
+(“)Tj
+/F9 1 Tf
+0.45 0 TD
+0.006 Tc
+(po-)Tj
+-24.0446 -1.3642 TD
+0.0414 Tw
+(litical risk factor)Tj
+/F1 1 Tf
+6.8052 0 TD
+0 Tc
+0 Tw
+(”)Tj
+/F9 1 Tf
+0.4499 0 TD
+0.0059 Tc
+0.0414 Tw
+[( priced into the GNMA-conventional spread)]TJ
+-7.2551 -1.3642 TD
+0.0062 Tc
+-0.0626 Tw
+(that a manager skillful in security selection can exploit. Perhaps)Tj
+0 -1.3895 TD
+0.006 Tc
+0 Tw
+(a )Tj
+/F1 1 Tf
+0.7048 0 TD
+0 Tc
+(“)Tj
+/F9 1 Tf
+0.45 0 TD
+0.006 Tc
+-0.0012 Tw
+(liquidity risk)Tj
+/F1 1 Tf
+5.2229 0 TD
+0 Tc
+0 Tw
+(”)Tj
+/F9 1 Tf
+0.45 0 TD
+0.006 Tc
+-0.0012 Tw
+( priced into the 30-year)Tj
+/F1 1 Tf
+9.4703 0 TD
+0 Tc
+0 Tw
+(–)Tj
+/F9 1 Tf
+0.506 0 TD
+0.006 Tc
+-0.0012 Tw
+(15-year spread or the)Tj
+-16.804 -1.3642 TD
+0.0062 Tc
+0 Tw
+(FNMA)Tj
+/F1 1 Tf
+2.9138 0 TD
+0 Tc
+(–)Tj
+/F9 1 Tf
+0.5062 0 TD
+0.0062 Tc
+0.048 Tw
+(FHLMC spread? It will be informative to explore the)Tj
+-3.42 -1.3642 TD
+0.0066 Tw
+(sources of security selection skill.)Tj
+0 -2.7284 TD
+0.0059 Tc
+0.0179 Tw
+[(Third, there may be other mortgage risk factors we have over-)]TJ
+0 -1.3642 TD
+0.0064 Tc
+-0.0199 Tw
+(looked. One missing factor is changes to implied volatility that)Tj
+T*
+0.0061 Tc
+-0.0779 Tw
+(affect a portfolio according to its vega. Unfortunately, we had to)Tj
+0 -1.3895 TD
+0.0062 Tc
+-0.0632 Tw
+(omit vega, as a complete data set was not available. The relative)Tj
+0 -1.3642 TD
+0.0058 Tc
+-0.0725 Tw
+(performance of the three risk factors may have reflected embed-)Tj
+T*
+0.0063 Tc
+0.2491 Tw
+(ded vega positions. For example, if the manager chose to)Tj
+T*
+0.006 Tc
+0.0587 Tw
+(maximize the negative convexity by overweighting cusp cou-)Tj
+T*
+0.0063 Tc
+-0.0921 Tw
+(pons, this would have produced a portfolio with the highest vega)Tj
+T*
+-0.0019 Tw
+(\(Figure 1\). Depending on how realized and implied volatilities)Tj
+27.6632 45.1453 TD
+0.2448 Tw
+[(move relative to each other, this may taint the results for)]TJ
+0 -1.3642 TD
+0.0061 Tc
+0.0316 Tw
+(convexity skill.)Tj
+0 -2.7537 TD
+0.0262 Tc
+0.0784 Tw
+(Finally, so far, this study has assumed perfect foresight of)Tj
+0 -1.3642 TD
+0.0651 Tw
+(performance of various risk exposures. In other words, the)Tj
+T*
+0.026 Tc
+0.012 Tw
+(investor correctly over- or underweights his portfolio)Tj
+/F1 1 Tf
+22.7495 0 TD
+0 Tc
+0 Tw
+(’)Tj
+/F9 1 Tf
+0.359 0 TD
+0.026 Tc
+0.012 Tw
+(s risk)Tj
+-23.1085 -1.3642 TD
+0.0579 Tw
+(exposures knowing in advance which will produce a better)Tj
+T*
+0.0262 Tc
+-0.0784 Tw
+(return. But in reality, managers make bets depending on their)Tj
+T*
+0.0259 Tc
+0.1429 Tw
+(forecasts regarding changes in mortgage risk factors. The)Tj
+0 -1.3895 TD
+0.0263 Tc
+0.1299 Tw
+[(next part of the study will investigate just how profitable)]TJ
+0 -1.3642 TD
+0.026 Tc
+-0.0526 Tw
+(knowledge of changes in mortgage risk factors is in structur-)Tj
+T*
+0.0122 Tw
+(ing a mortgage portfolio.)Tj
+0 -2.7284 TD
+0.0362 Tc
+0.0211 Tw
+(The difficulty will be in defining rules to translate signals)Tj
+0 -1.3642 TD
+0.0361 Tc
+0.0752 Tw
+(indicating changes in mortgage risk factors into portfolio)Tj
+0 -1.3895 TD
+0.0363 Tc
+0.1912 Tw
+(risk sensitivities. For example, if a large change in the)Tj
+0 -1.3642 TD
+0.036 Tc
+0.0487 Tw
+(mortgage par coupon rate \()Tj
+/F8 1 Tf
+11.9495 0 TD
+0.0362 Tc
+0 Tw
+(i.e.,)Tj
+/F9 1 Tf
+1.6674 0 TD
+0.05 Tw
+[( high realized volatility\) is)]TJ
+-13.6168 -1.3642 TD
+0.2177 Tw
+(expected over the next month, then the manager might)Tj
+T*
+0.036 Tc
+-0.0924 Tw
+(reduce the negative convexity of the portfolio relative to the)Tj
+T*
+0.1105 Tw
+(benchmark. But suppose realized volatility has increased)Tj
+T*
+0.0361 Tc
+0.03 Tw
+[(over the past few months as the par coupon mortgage rate)]TJ
+0 -1.3895 TD
+0.036 Tc
+-0.112 Tw
+(declined rapidly. The manager correctly anticipated this and)Tj
+0 -1.3642 TD
+0.0362 Tc
+-0.0671 Tw
+[(reduced the negative convexity of the portfolio. Now, look-)]TJ
+T*
+0.036 Tc
+0.0708 Tw
+(ing ahead to the next month, the manager accurately pre-)Tj
+T*
+0.0365 Tc
+-0.1175 Tw
+(dicts a large )Tj
+/F8 1 Tf
+5.2295 0 TD
+0.0357 Tc
+0 Tw
+(increase)Tj
+/F9 1 Tf
+3.6884 0 TD
+0.036 Tc
+-0.1195 Tw
+[( in the par coupon mortgage rate. While)]TJ
+-8.9179 -1.3642 TD
+0.1129 Tw
+(realized volatility \(as measured by the change in the par)Tj
+T*
+0.0361 Tc
+0.1805 Tw
+(coupon mortgage rate\) remains high and could possibly)Tj
+T*
+0.0362 Tc
+0.0263 Tw
+(increase, the manager may choose not to maintain his low)Tj
+0 -1.3895 TD
+0.036 Tc
+0.2474 Tw
+[(negative convexity risk exposure. Instead, the manager)]TJ
+0 -1.3642 TD
+0.0362 Tc
+0.1655 Tw
+(might view the abrupt reversal in rates as a signal of a)Tj
+T*
+0.0359 Tc
+-0.007 Tw
+(forthcoming range-bound rate environment in which nega-)Tj
+T*
+0.0362 Tc
+-0.0064 Tw
+(tively convex mortgages will be more attractive. As a next)Tj
+T*
+0.036 Tc
+-0.0421 Tw
+(step, we plan to search for profitable translations of market)Tj
+T*
+0.0363 Tc
+0.0061 Tw
+(risk factor signals into portfolio risk sensitivities.)Tj
+ET
+endstream
+endobj
+34 0 obj
+<<
+/ProcSet [/PDF /Text ]
+/Font <<
+/F1 4 0 R
+/F8 8 0 R
+/F9 9 0 R
+/F10 19 0 R
+>>
+/ExtGState <<
+/GS1 11 0 R
+/GS2 12 0 R
+>>
+>>
+endobj
+36 0 obj
+<<
+/Length 3155
+>>
+stream
+BT
+/F10 1 Tf
+6.8 0 0 6.8 54 162.72 Tm
+0 0 0 1 k
+/GS2 gs
+0.0012 Tc
+-0.0421 Tw
+[(This document is for information purposes only)71.7(. No part of this document may be reproduced in any manner without the written pe)]TJ
+56.6136 0 TD
+0.0011 Tc
+(rmission of Lehman Brothers Inc. Under)Tj
+-56.6136 -1.2353 TD
+0.0528 Tw
+[(no circumstances should it be used or considered as an of)36.4(fer to sell or a solicitation of any of)-34.2(fer to buy the securities or ot)]TJ
+54.9359 0 TD
+0.0015 Tc
+0.0531 Tw
+[(her instruments mentioned in it. W)36.7(e)-1.6( do not)]TJ
+-54.9359 -1.2 TD
+0.0013 Tc
+0.0441 Tw
+(represent that this information is accurate or complete and it should not be relied upon as such. Opinions expressed herein are)Tj
+57.016 0 TD
+0.0015 Tc
+0.0436 Tw
+[( subject to change without notice. The)]TJ
+-57.016 -1.2 TD
+0.0013 Tc
+0.079 Tw
+[(products mentioned in this document may not be eligible for sale in some states or countries, nor suitable for all types of inv)]TJ
+56.421 0 TD
+[(estors; their value and the income they)]TJ
+-56.421 -1.2 TD
+0.0011 Tc
+0.0215 Tw
+[(produce may fluctuate and/or be adversely affected by exchange rates, interest rates or other factors.)]TJ
+7 0 0 7 54 113.28 Tm
+-0.0037 Tc
+-0.0695 Tw
+[(Lehman Brothers Inc. and/or its af)30.6(filiated companies may make a market or deal as principal in the securities mentioned in this)]TJ
+53.9703 0 TD
+-0.0038 Tc
+[( document or in options or other derivative)]TJ
+-53.9703 -1.2 TD
+0.0008 Tc
+-0.0591 Tw
+[(instruments based thereon. In addition, Lehman Brothers Inc., its af)35.1(filiated companies, shareholders, directors, officers and/o)]TJ
+54.3202 0 TD
+0.0009 Tc
+-0.0592 Tw
+(r employees, may from time to time have)Tj
+-54.3202 -1.2 TD
+0.0008 Tc
+0.0423 Tw
+(long or short positions in such securities or in options, futures or other derivative instruments based thereon. One or more di)Tj
+55.6406 0 TD
+0.0005 Tc
+0.0422 Tw
+[(rectors, of)34.8(ficers and/or employees of)]TJ
+-55.6406 -1.2 TD
+0.0007 Tc
+-0.0612 Tw
+(Lehman Brothers Inc. or its affiliated companies may be a director of the issuer of the securities mentioned in this document. )Tj
+53.9913 0 TD
+0.0008 Tc
+(Lehman Brothers Inc. or its predecessors)Tj
+-53.9913 -1.2 TD
+-0.0647 Tw
+[(and/or its af)35.1(filiated companies may have managed or co-managed a public offering of or acted as initial purchaser or placement )]TJ
+55.3513 0 TD
+0.001 Tc
+-0.0648 Tw
+(agent for a private placement of any of)Tj
+-55.3513 -1.2 TD
+0.0007 Tc
+-0.055 Tw
+[(the securities of any issuer mentioned in this document within the last three years, or may)69.3(, from time to time perform investme)]TJ
+54.4438 0 TD
+-0.0551 Tw
+[(nt banking or other services for)34.9(, or solicit)]TJ
+-54.4438 -1.2 TD
+0.0008 Tc
+-0.0335 Tw
+(investment banking or other business from any company mentioned in this document. This document has also been prepared on behal)Tj
+59.046 0 TD
+0.0009 Tc
+(f of Lehman Brothers Interna-)Tj
+-59.046 -1.2 TD
+0.0007 Tc
+-0.0302 Tw
+[(tional \(Europe\), which is regulated by the SF)69.3(A. ©2001 Lehman Brothers Inc. )35.1(All rights reserved. Member SIPC.)]TJ
+ET
+0 0 0 1 K
+0 J 0 j 0.24 w 10 M []0 d
+/GS1 gs
+1 i 
+53.76 176.04 m
+557.52 176.04 l
+S
+endstream
+endobj
+37 0 obj
+<<
+/ProcSet [/PDF /Text ]
+/Font <<
+/F10 19 0 R
+>>
+/ExtGState <<
+/GS1 11 0 R
+/GS2 12 0 R
+>>
+>>
+endobj
+11 0 obj
+<<
+/Type /ExtGState
+/SA false
+/SM 0.02
+/OP false
+/BG 14 0 R
+/UCR 15 0 R
+/HT /Default
+/TR /Identity
+>>
+endobj
+12 0 obj
+<<
+/Type /ExtGState
+/SA false
+/SM 0.02
+/OP true
+/BG 14 0 R
+/UCR 15 0 R
+/HT /Default
+/TR /Identity
+>>
+endobj
+38 0 obj
+<<
+/Type /FontDescriptor
+/Ascent 699
+/CapHeight 662
+/Descent -217
+/Flags 34
+/FontBBox [-168 -218 1000 898]
+/FontName /LDLHOO+Times-Roman
+/ItalicAngle 0
+/StemV 84
+/XHeight 450
+/CharSet (/three/o/parenleft/R/question/p/quotedblleft/S/parenright/E/four/T/q/five/bullet/U/g/B/r/space/six/b/C/s/a/W/c/seven/l/comma/D/t/eight/e/G/hyphen/quotedblright/u/H/f/Y/I/nine/period/v/colon/h/P/dollar/\
+F/w/slash/d/i/L/endash/percent/y/N/zero/j/M/z/n/one/k/A/O/quoteright/two/m/x)
+/FontFile3 39 0 R
+>>
+endobj
+39 0 obj
+<<
+/Filter /FlateDecode
+/Length 6663
+/Subtype /Type1C
+>>
+stream
+H‰|SiPTW}×¯»Eh´áµ¾n¨£ˆàÎ¦*Ò–l**4t+ÍÖØİ²Ø¢È&Ø‚J‚,*AYdQ—FgÜ	‹‰† 32)5±¾×¹Z™ÖäG~¤¦¾ªS·¾ºç»çœºñ,0Ç)ùZ¹ßÆ¡ê•Î)X“ HüĞ^ÎI0n:ÎÍ°àX‚sàqR+;ä‰Ù÷‹ÉVâ¿¿¡• êmà›©Ó§Š1Ç…åµ..‹º¸¬X£IJÓªwÅèe'[äæºlÁ\ñİ> ›‹Ì[©‰RÉBÒtzU‚NæŸ­Ñ&i´
+½J¹P&ó—˜ “«t*m²¹ûQªL­“)dz­B©JPhãdš2¹:Q£OKRÉ¼×É‰JgV¦6ót{¢tj¥Z¡U«t¿s?Úüxü£m7—Ù&´À¬E˜Ãf	1'¶„À\1ÌÃV;`jÓ`˜ÃR0Ìß F`$V„oÀâ7ñ÷î,-ò,B"Œè&Şó"x]¼ÿ’»ÉÇ|[~>ÿ Kğ\¸VØ=ÉiR£%m¹Ş²x21Y9¹Ãj®U•µ•õ6ëN‘Ÿè¼‡M…Í›){¦Ü˜:uêˆ8\|‰r j©Û<[ WÒWííO³™¶}Z=kßê°Ø¡ÑaŒQ0Z¦D"’™ËXÇ½=+¾\İÿS3ğ‡ÃË©ÿp+¹<AD›Ï§áÇ…·Õr5Œ¨¬0ïµÌ¼[FÃXÔ" &œB»_í‘îCvü½go©”,m~!ø¹ìû+ ` hAt?‡ÍÌ®œşäJd!Dşéí‘ç®1gß8É¶ 	šš¸­ìŠ[ËÌvß›ÃŠ¸$c”4Ÿ<15Õâ€¶¦w v×R—3Lœ€FA¶3}Öƒõ0ÌâÍê¢]ÒÒ8º½a×¶å>Hº4ÀØóyÇu™*àZÉOˆ‹R­lI++5H©_3Êé¥;$Èr>š1wÎ£˜+@‚óORóüÊ¼âCelNyÉ¡6ÉõºòÒ*iA>zıŞ‚ìä›y[a„Vê+¾z:ú*ö·¥ÇS3ö2ˆç,=X‘óCL<ReHU¾å|h+¬¡ø»¾‡ÌÓ R½6v_dtëÁÚ¢cG²G)åf¦şæ¯Št&×¼ó9&W9;;£ùÈ‹AlÓš/×°Bú|¾/9iVnÍkŠ^õßd£ÁöçÄäCƒóØ˜9/ØØGÛ±ªÿAö°
+áF¤™Í "Ç•Ş¬H–˜k²\Ú¨È§h&MUş¡Tä¥ÂæÛx&Ú ˜–ÃáÛ‘,üLÍ0»®l9u¾qwmB‚V§j6TJEEÉ&ß<¾$ İìĞÒŞû’÷ø¢ôZ“¸¯~	¥/	(4±4Ø £ë<óQ6²E¶ùùí½8
+¶ÒZ’+P
+²DÖHrw€¬ÁR)H.ËMóÌa¨Í!ZÚA}9ß+åD§”›d ?2]p¦Çh,‘4w'KßmxïÌÊgEÆ®ª‡Ñç§ôşc¤\™š·S‚²øà	kÉË_<}Ë oÑ=—%NÛ‘c[™K^?Ó00*Ëç0¯ÈEKJ‘/
+"pŒ@”ŞÊŞÃÃaÕ#ê>8ÁSú~AMnkªğNl‰·–ñŠò\ÈªzvHúlÍ–¹Õ°¬¾‡Y`¿¼EqZJı«ïÒÙK×™‹IÿF´ßâx4-š-?DÖ•wJú[7‡9{mwI4›CÀ.(E\ÒÙCT*z6ÁGwß‘Ğ, ® A•
+¯Èï²ù	ãd9ôóÜa¸øsOhãŸøÌøY¡ôÂHf¹/#3c·©øGÉì¼ÂœãÀO8ZÊ ‘wÈzvSÒ?$ÑÆÄƒ»¾ĞÃb°x#õ‘İÒÀGN§<Ê„¢ô:w²OâÍãpô‚6yÑ(7­BëQƒv¾^ –àÛ
+K³r`fHòØP¶D?‚|ë„(
+µÑoæ~‚È[ä^~ıày«¸º¸XZ]Óúi³DTšÌ÷ãŸsŞ·É4Ÿ~Çç""?9•Ev7®ï•@m{7Nöò!Æ4‹4«1‰êÄ=>ı ¹:@CôÒÔÜ:¼Ÿp…Ü}Gï Kv¶«e‘r§Wö¹ÁÖ|É½	xİw“¿FÌK)5x½şIÇ3°¡‘ËælšãŞ®~æm&.^¿”¡Ÿp³éÎs×¾lÙº$d§JËîªZ|cˆU$CÖ%W‡7ŒAöqsE'aC@"dç0äàv	ùûµÓç/³ù9ÚPó§Ïv€›`¢Óòì?ÈîMV¤ÅJfîIßU?#ÚhŞ2óÂ Äß1Š„éğêÏ¶‘ªDˆ÷g[ú"ëgîjƒø^W/`ëOQ¯¨	ÈWºìymûWw„-Wt1İ™UIMl½Î¿>Xâë9G]œØ^w¢ú”´UUr–iêªëlòÛê›ÍjÈœto C+F^f1Õå­õºšøD>^un¿ùQ7VÀÖ‹Ü²¼Ü´0m® #
+ÓOÄ=F\¯}
+)ßHˆ_­×:¤¥îÍ7¦Â¶
+Ar¸±ãDaÙ±RéU˜DB9ÿ¢#y<½4ÖÀìŒı›UÅ•FÓ¶UG©iªœ*¨¸qMƒÄb¢F£8®d1ÆƒEBSìÒĞ4-vÓK³6[#`—`’Ñ¸GFÍŒ“‰cÒ‘ñ+ò:sæx’9'sêß;õ¾{¿åŞ÷å„ñ""w
+1(@P¸}FIt@g;”8DÉ(è]1-ÖAoÍ—YæÔe¬{
+NMĞÈıˆi†èràÛOÎ/LäÇ®â‡• fá%dÏã&¶á¯5ß6êÓš&ötbwD ‹Y<:}åúø</›GZLær¾Èœ[Á1Ç/?ñ(å3D	3sBÉNù‡vá§|AŞ¬I‡XJGGdDõ±«šærx)Y¥Fãl‚e3`¼qÆ™r…ø2*rOP0ËaO<ê™åIÎşcmBGç'å=Œ½8±z¸®¢CşJÉõ©K¦AÅì)õçoÁğ<Tø €«hÆ*¢›™ÅiCx55qIÏì¹_Sn”N€gï¾í'ùKklµ,vâãêĞÔ‚f~ˆ6èì€#må‰¬UM6&Nşi¢è)ïnÄã8<Í˜Û!@.‚Y†»9–ä’@Ÿ*HŠ¡ƒ¤í'9Î‚hº¹ÄXÁGƒº&q®E¨¦³Á—r×ÑL«ˆúô¶ÌW^‹cÒW^q¢ì@c ”LÍ…_€«:mÌy?qA-M‹àğd»¡ ¯š‡ûîÏ±_E©IK³HÓ›$|(®ä:Q&®çØÒŠµ>¤–ÉíĞW-í@Ëï¬aäÁ­ğLƒãé‹úò¿Œv­ˆy¿ä¬„|ğëû'ÏÀ„ÓSƒj…*:vQ±tTf„>c÷ÛMS8üöÂ¤ÁŞëÎ¬_uä‘aø|bàmt¹ÆäÌã‡Òí‡¤zæ‚^—Zò»D/:œ&}ÆÂèÅ›ÑÒ¬X­Âß.¡ásyº\rôF>/a»ˆ®ešIoñ&Ü›~}Nò¾?f¿Q)© ¹Ôe^Ğ#ÑËLû‹¾P‚İ®.¸zˆ\êÑİÿQÊË†çSpLş^é³N?Æ-"=\[ÆñKçö‰r:	Ë©h{‡¬ÎÂÓ9ÿøÜvAD·ª.*©Ö?' rÊe.õàS%V(?t›p¢l¢ğ6‘¾–U‘±ˆuOGø]Ò=I:UBËé*`e_“û8e¦¡@şŒ2¹7Ò)I‹wvu^Ì‘›J2·lù}‡‡›®œH¼€àÍs2]ƒ›ÀT‘´´.#?0 7#ÇRx‰H·—ê·vî5ÿ˜%î Êo¸»(«\EÃoóú
+ ²ü§UEvky1Ğjø)YCFc
+xC8$`-ñ%òi±NÀá0{ÃJ¡u$VOşöê;.¨bï›<«…á©¯l‡EÔß¹ ‘ˆú1s§”ø×ÕƒÅ©ÁJ+ƒŒ1ÚÌá„›,WYX…6)ÇÆô—u¬¥Î/XbìşıÌóØJÃÚ`MSqnƒ¦°/‰Yc˜..×$òC¦	­Ğ¢ 6)
+â Ÿ¤ÙaÚ_[‹w@şøSEàe–…Y8 b.ëiæˆ>?hI>[º…Jµ$˜—&ı•…­¨×éøhæ±;T¾¯©?Rp¦¼³±!0İ Í!Ğ¡¤zƒªË÷!ù{µ¼¬:ú€A½±ùMnÎì˜Úÿî£Mø-(a7¾ˆ¹-àuBäcèüUI—Y+ø†îğø^üö+ŞÃÊa:û—Söş9V¾šš`ù_ªò
+wAxÅüå-’F{(UºÈÊ…gŒ¨‹Ç#*	‹)÷:/¦lÄQ+k%ÁugÓË²cf+cÖ…”®;åAIõÔ?9ÕƒÊ~‚“Dúó,[ÂW¡…i)±ü[{Cv/âğr#ı\UTyKQ%q¼zó¢ÖOÑ›äY'ïy‰ÖİæÁŒ¬–›…d¬î)S«:üã<õşJx"‹æì–¬¬.#2CÇãqøßPIÇR+­lëG&;‰\.¢39–Ì&ÿ¦€ñp$ÿÒÍ´šÙšòü.ùÃ ¢szóŞFÿ6¿§Øq
+ÿÑÃBÃ,9ğ8V}‰ÃZ|},ôyØx".ÁZó±Rsw¡Çˆ†${‘èuƒB&J¤ím†=ÉSH7ux*DSéG3¤b¶®:÷#©ID]Y–lŞøOãñr´$;fšòì—ĞœÜë–8Lİ¥7åµæùŒyvô:xÅæéx¸â.L½C¬µÆj"³S÷$ñúô=)±\Ø^û	òN7÷ÂŒ¼ÒïhÒ¤¤é¸½Æúz6£?¿ÃÓxæ1öx+øıÄ’({TY!Ñ[,¬½­¬©áÄ ~-b°võüp?öõÓag?>ÓŞäàƒwæ”q¥öÜîNaLZ£<ªü-Î8ÏK÷ î!s‡ìù×5çòúË¹¿·Nšµ2SEm´‰š°}=°æ<ÌıÛ³@xô’Mëc2y|LëMãMØ–šâ‘ˆró‹ŒùœÓ¨‹$›XÚ™ªWUßTËa¶fKxØö N»âÙfüÙgÇG
+ù±ù±ÖkL>¦R©Š-K±GVğ¥ÑïXvqdôP¬eî³U·ï|zè³„öic©üÛºaâµ÷!îÓÿpiveìÜÿ·2¨¦Á‹»{Otï~­@`öÂ\«y]o,ï`å~¤p=¥pİ:Äµğg®x6ªˆ4oçğÈ™ao¼|ã]s8jÉÎ´–ÎË¦şËvµEu^ñPºû‘‰…„ë*Ü›ŞK5“ª¥m‰!RE|ñ~É–§Â²ì^`w]–]ö	Ëc÷²¬€ QP¬ŠqÆˆ4Šn´ZGSSM:ınç³3ıÛôŸÎÜîÌ9çw¾ïœóı~‡(8{èdËD«>ÖUXĞÁ W÷Uo~V–™%)[ƒ©ğGàgU¼,„Ë¡“k©Ğëh;úÕ¬hWœ‡oidĞm¸Fôç–áiêVcX|=ŞDõÿNÜçôúÁí/ñQ"ä}„C–ÉizÜòñ(Õî°õ$÷ìFazôÙn&D|]n’©Âµ4mxÏX{x†„W /ğE„«nì“ÀÕİ0wØâôwÎÜİpÆÜìqsAÄXĞÓõ"W[Ç‘!ÿ+;õµ>sºSº$2jk2z•ÆH˜uüCÌ¥Lñ¡¢+ÃÁ{-ˆ,,Õ|²ucñƒ[4q'^;)ŞäåF«qi¥ÖljóêxôÚÎÄÅq½#xƒ¾RF®ê©¤‰ù ˜¬„TŒ1Ÿüü!üğ8+æ‚,4±ğ-Õ	òñ&Ù~|¤İH×jš©s?ÃWN«)xIäxjêe½¯»a„›Xàåœ(¶AiÁ¬×Â×ß8qlöËv4ı§“Klú©Ä/Ä`‹R½W/-q©å&	«ÁÄÈ0×KMw¦‡1(l’jâ4Ø"ønÀÀ~MÓeğ­çşß<ßMüO%'üÜ¬iÅ’‚S´4F-dÑf3Ú©–Cµ‘bÁFYõv-M\âÿ…—©]<èêììu–:ò³Y1¦£¨`€ŸoZıh14ôJ…èwÅÒYÊ‹)”TÂ–d”CÑÈ3ø*Ã')º,º<Z(Fî',"@Ïü_œûüÔ/í›¸Y¿VrÂ2ƒ ×Xj!a8–4Ú&h–5¨Ôde¥ö -ea',2¦×Ç\FkaT@o úCÊ©?Kq(¥ŒZ*Tl“–¹'+OgàjğDñQ²¨Š¸—Õ`°QÃuò$æ…ì=¨SĞ‹ùO&OİÄPÇ2¨à„;M2ëy’¼èşÌãµèŞü?÷b°§¼2Ë9>û/·©'ıï¹á6Ï·ôMâÔ½oEaùº´Z\«ıÈ6äO‘ğ(°œœº:ÙšN£|ğE‰6É3"%H5ä™nĞ:ğäıÉÃ ,ğ¹.¶[r Ø(H®7¸:±s?¾½!bÇ	=ªÈı‚Ú›*NŠdæ'»(K`*}dÀhm|Y‡m‹=ºÜ¦œö¿í†¡nâÄí‡¢H¶2ÁÍhSEK?	ÀĞ±#í.êB[Vƒ2ÀæbM¦Ç"7£¹Š'a9€~¡=‰‘Ù‰qô­E¸›¸¤E8sÓOpJ'ìôê}í½¡O!2y!?D=\EpÍ,d¾‡+×ŞGË™Ö"´¤n›ûqzò«Gg°Ùëèí°ŒÆå·Á}¼§ºè?ï†¥÷ˆ…y´\”R#	×Ğ2¨iŸÊ›0­¯â~§â8™k0¿İ›ïoJŒ+”0:£à:¨Æiş5^/‹g=%lhÔ7PGM²4†XpkEÇêÎ9)èkAï— -ë¥¹{ÆìV¸k†ÃYSæßuÊİXÊ½à7Š:ÓKl1zã]ô3D£Õó¡ffG]­ŒEc+J>ÖâÄvÔXn ñK€;È¬Ö
+¶ »¢Z±^-õQ—Ët,œşäƒcşbêúÂCh¡g+ààß†7«¾ò¿á&fn¸E»åÚ=J\ 5bŒ9æ«$aƒ¥ ïËÓ]41ÓÕ˜}”ê²êî/ëÈÉÈ)M`t¹®7®,¶<NÏjlhúï$úö);-~»CUææR„æÌÆÛˆÃğkxED4ÖÀ_
+BÂU£Õ¨U²¼ödê×)á»?™Î¼”Í=çs}åíÄä®yÎ»Òûg«h¹È@ël€èi¨3›š)ƒsLz‚º¼0zÿb¶3ÎÅ.ôÊeAfguo;y¸cxúË’•xÒ”“ü’>¯YÌ#VÌ#«0Xõ5Å–f¤û”––VW‘Z£ÖXKŸESÂwFŠÎœïë¢+›•ŠòR1£¿p„ÃÏ€¯ò|•_f÷¿æ†Ÿã–Æ‹ÁÓ¢:c„ß¡`˜Õ™%i$qU\µRu.-Ê¯È§ÂU—ğŞw­ª .]Ÿn‰,à­oŒ´M˜‡‡é±1ÁÀ¨ÒñÖcö)»o½„ßËyâ“¼ùb÷1¬°»¶SUBf…¢u9«é•°A µVsÍdw§©ËHs(†íµíÕ\ş`èwˆíÚî“Òb¬i ê=M\
+çº.Ô·˜<o½•ÀMœWÇ?çÍã³ KÓ^s€¬ª.Rì§×£ıÁ\¬0«›ÚÈŞnS¿ÇOfÁˆ¦I=„ëP|@"\	‰£¤ÓavxĞÃXĞ­³V¶ÇC
+=	È±[”õT¥É‰ıs¨şR²ìFµ•²š‡[HÃï¹!KcG} ğ3]Le^­|ª7œ¾.2kš«XR¢ªÉó<d‰ŠçÑRp.±Ú\®1C ‡‚YĞZë¨•ŠjUÄohioêLÙÑmlÃ	¥± ßĞ¬‰xŒV !
+'VèŠ´,\‰ãIôm:¦ÉŞQ×@ß‚~,Ü¿ÎOpşv~1Äz®œb…}†¥”TUŠ•EôF´X'ĞÖ«[ldÏQƒÃ€aR+€MwXÓ¼
+Qm€=oâ=–”§!:š&Šş½ºœ¹Ò±©­òÂ
+eï½¶ıìw©}rÀV·Î,`>£Øòí^ùCj%ã¡ÙÌ?Ì¾K‹Vö³ÚV·æ(Jÿ–cû¾ğ‡&ë¬ßïÙ;~s±Îe;8©íéïrl¿çıÑd­ùÁËÎ÷è‡ëw†ßßÛ»Ë…¶mJù.ÿDoöø®ìPñ0ä6ZzºHY­[´dÍ¬m›Ó§¶´uuuÈuµwtuJ·´L˜2oö³[å…¾Ï#A=ß÷Ø=Œİ?:˜¿÷±DıèØÃÎ×ò=âû"ÆÍß1?õı>Ğ¨kşÇìıızäû_»vüÄU9°{ÛîeZù]>eÓ!"¼àÈW •Sï½$u/pFIQVMBòúÆ¥“&ôôôÉõô÷õôJOšÔÖTQç™(/Üñ½µ‚õ|µ3jÍü]6õ{q7Û÷Y“ÿÔô°×Îü6õ{ÜLßy=?Š'èæ\ÎuŸûG‡È÷Ÿ¢ ÿ•
+endstream
+endobj
+40 0 obj
+<<
+/Type /FontDescriptor
+/Ascent 718
+/CapHeight 718
+/Descent -207
+/Flags 32
+/FontBBox [-166 -225 1000 931]
+/FontName /LDLHJH+Helvetica
+/ItalicAngle 0
+/StemV 88
+/XHeight 523
+/CharSet (/three/o/K/R/parenleft/p/E/S/four/quotedblleft/parenright/T/five/q/U/g/B/emdash/asterisk/r/space/six/V/b/C/copyright/s/a/W/c/seven/D/comma/l/t/eight/e/G/hyphen/u/quotedblright/nine/f/H/I/Y/numbersign/p\
+eriod/v/colon/h/P/J/dollar/F/w/slash/d/i/L/semicolon/percent/y/N/zero/j/M/z/n/one/k/A/O/equal/plusminus/two/m/x)
+/FontFile3 41 0 R
+>>
+endobj
+41 0 obj
+<<
+/Filter /FlateDecode
+/Length 4950
+/Subtype /Type1C
+>>
+stream
+H‰ŒSyTwî¡»¦m43¦gDuDå0ñâD9‡CŒ›cTDˆî%y^D×Ä‹  ¢è* /A#Êå¨(¢¸‘(Gª±0nCLÌûÇ¾îW¯~ÕßW¿ª¯«HÂLB$i¼ Ø)X·*G—¥OÔ½!Œ#…·%/Æ˜}b):–vèÙ/Ö¾˜Iñ%ä«‚‚_­%G¬¡Å¶rœ]†‚0#IÙ²“®®n.®®3æ¥¥çeê?X‘¥™”8Yãæåé1eØÎ±^ÃÖËUã—”– ÓDæ²t)MHjbZfzZ¦6K—ä¢Ñø­Z¥É`ĞdêºÌ1ú{©½A£Õdej“t)ÚÌ•š´dM¨>5-+/]§ñÒhS“¦¦ejô"×`Ğ'éµ™záüˆ„UúŒlİ›Ş	R|†•1—VÖOöÖ„;Ex„ÿ[„ r	"Ÿ vÄa‚ˆ$Ì†È%û˜<AöH&IHâ%I‘¤I2(”6™QfÑfçÍS¹ÔCš¡=éeôvZ`™õÌ!¦Aæ-K”åÉÊîËsóLó:ó_F%ê´ ,¼,,Y´ZÆ[^°²°Ò[]”ò<y¹¼ÙÚÊÚÏz‰u¹õS›6ÛlºmyÛBÛZÛWŠ‰ŠGÈjØ¶š½Ê.r“‹/$_û+ä7B¾TÉ\/ı÷+”½ì©×îAH¦‚éTL¦Ğæz}¨Yö¿¹ÃÑ«#°}}X/¸sÃ´É(_İ$ÜiRéôë‹u? “5ÂvÁ™‹øÇ¢#7”—ªêÛølçêÖPU—i#•âÃ§ñìx_ø€û<P¹?t›ìû˜…Z¸OGùşÏjÜÍ°?NÜ™^öùÏ2wıº—€ÍŞ©æ	sø“0ÔûñíJ5|Æ°w¯Ùû×h™–oh„˜Æ¯†¢¢b¶ì=öU…°sj›k2µ¶™LsZ\œçøMáíêªO^¨?ûÎ»1—yöà€¿ü_ĞGBE©_&Su´_`xÎ‹¹¹ä&)|:˜Á‰½¸„£=(1â´íCWş;z¸-9x)aÃÙ'÷a:ÿ†¾&éLä€ —K`JˆÛ	àÊ/¢o£Û”£—7,ušÃ¼zaTä**à
+†]d±%B'gI ¡zFß`jp>SüˆÒÜz{’”0öå”8#8ñÔ³òAŸô]-³n™vËì-º·Æ)ŸN`Äš`í#²ò¥P-æ»A>-ò
+FH9 ^3a|ßp¨0gps.¹¤pz0›¡qËËÍÔ5Z¾Ú(\2’ÇLPc’
+>ğ#‡±ãc  N<{vj<ğ&;pL‚•‡qI¸Ñ±WBÄUÀJpäå%9Â¦FPŠêìeÅÁH.NC&fÒŸÉæƒçĞ&#/hÊŠ=ŞPjbÛ`¬°„;S´là-UoY@äÔèÔ¹ñj—hŠısTˆÏFt”	ÙíC
+ú‹¯KêŸÔ6Uí?ß^
+%Œ™lD9Ï¶ùâ¬,ÌS‹MÀî&È1*J»ü:@È–®`kbŸB´qÅ_n-V±Ï/ö­ÃQŞ¡Qn8æ£‡W7«]éíŞ%Ş·dy¥ÕŸSAP3H1-?ô•ºPœêòçN<Rşì}Ça˜Y¾ƒ>óÅßƒ­ªÿ_Z÷ô 5ûtíG[·®U‹ıƒo«#ö¿S*ì_®ÕAˆñg°eh1åÑ·|7AÍâMÌeo…F#Lî OQ°ùBg;†úİ!«ÖMÔ‰£§öŸU=¸åè¾ØßuvxÙİõb½è¶F%?VAú·àsş„æ·‘ÏÉJQà²Œdyœí’
+B1Ö#Sí­Âäe˜‰.SwxT…¨}şİf¨SõT}}ü˜úô¹=çn*a6*ë=œ–¿§Ëæó©æƒ|kilØ?y<ˆµ\{Mc7G=Â¦D‡Ìtˆ»Ó2ò»{:ÈcÂé1±ra*tÃÑ¸Í€Ñ²nú,\ƒÙÕØ$kZÃ×¶¯RŠrÓü.ØÚhb{Ùna°‡»Şƒ®8;-ıC¾}ïbÏöú¥ÄEy(õ¾7óïŸoş´BŞ7ª6÷Ö”J5Û}xçw‡Ÿ)Ù^q£¸ÛWµSP2'k!ÊÓîo8ÕĞ#"¶´r¿vr_ƒ©÷›°ø…Ë—ûŠ
+5Aˆ®U]p —í‡ğ	×Ğx¨î€º0ŸÂÙK½Tl÷<mõjw:¨-Á6CsĞÙ°Åòúq’R8Zš®é`Ç¹E3wÊT÷ıİgÇçÏBõ´œXõÈÂ…Åƒ¾1lÉ›Edã…b³ßwrd½_£ş÷†³®}pAäLÏÈ5À4×DVER¡JPrCEşBœÙ¯Ü N¡®ƒürp´TÈ wuÔ Åƒ	JhÜ÷2ú‰nu¨ƒ®S…ô ^§ä†‚vØf„ŒvEs7Üêí¥ñ´æ €f ë‚İ§¹¨qıç¡i\¦Åïî÷»ÅÖGcö¨YÁxl×ÕåÓÀvTòxîb9ˆaÆ‡¹³–.uTc"-?¼ºC¸ÓAVÿ$œ!láÀò/NÀ`˜
+u¨@gÌÀƒ0}<Ì¬ƒô°¿RíLã¬‘L	Ua`Ø¼ÓÿşKxµ@EqaÇefˆŒ;™ÙÕ™`T*BXÅ
+Æ'Fë‹‚Ò*²ÄG´…È£¢’DETPÓD± V›ø
+ˆo1Ö[I|(Y7¬cÖ’¬]ØÿnşÅöH¦§==gÎ¹gæÜùïw¿ûıßÿ_ÓõæwĞ¸OØOnRéàìnöŠÇ`7A… ÙÕğ&„d¡NQñ„àa¼ ]Vã‡ü*ÆQ°Æ	KœÓm`>§ì‹†5¬»Ó×–²×¾’Û'DŸ?Mƒ	Ğ C³›iNO§om‹Í-ÜÎpÌIƒó(qÏxØ\—TÉ^†ó2¼#¼¾bÂÄ™JRÜÔœùŒı5Coˆyüä†æeØe¿Ú$ÀÀ4ìS‡f®
+Ä™8zx>v†ö¯ªóË.Î†Î–{ß¸V©JY»_ã¿d/â5b iN8›ÎÕ»YG‚~Š‘}ál0uDÍíµëÚ*MóÚÒ9áñÚäàV°›áğöHçŠ]ê6Ã
+yŒ8®ı ÒíOB”ÂJƒ}ûÄè”éıÆÙö;•³¢.)=NÅ	[dà©êmFF/²póhğ>Şçá¾¾Ù¼ÓÛéÇ_Ú–fIº³@``Ù r5Ml}“Á›gòÚPqïŸ+`{Ä£ÚbkbQBi®ëŠ9O€Ù¾ğßÓÀ<$Öq¹Ö4³/J¤³…‘IquMÌHe«™ «çQÔÔç	ŒóÕóÀym¡ú)µ*ïˆ‡­'ñI€2ÅÎä<ÖPèLÊÖDƒ¬Môq˜â1AØHÅR,‚©†a·0J¡ô¤B˜ÒšgŸ; ÏAº€»’†,3…¯¿XbY4@ÅéB„¤	`½ ¼ü#ø²Šu­‡°ã8é€õ£æ†¹û{(™&A•«õdó/³4¹ÂD:î¯+ÚP±L]s<¶¶b©ùÔ¾óG›!;Å
+6êA½ı`pÆşGdQq9i<ÃÁn;Œ•T	á;×È&©Fªgn¶EnÈI`ÜlÁQ£°=úa—ÇOg«ô/İoNaî‰2£ÃËÉß¬Â¸‚)UÓ”%Î%S™&šúŸ¦¶Nˆşüµ]ªTI§ù¤æ”T™{X\e¿» [=s¼œ|ä6z;ÉÓÒÉíí9Nß×­>àUÓ¹7IÂ'H#¾­A¶şBSÅfûRE4;ğ˜3ïR¤°y$ÆKçJ¼¢´Çr«dí("k{Hƒît)mëF0³$èÌíø¡§-bweÒR„ï.ÿ@€©4éÍ>».ºÌÎÒĞöf¦·L¡p„ŸÄåÓÇdØÃFò(hÃ{hƒ{<òìñÑ·c$û¬š7ªYŸã§®_Úa­&•Â«¬\±µ°ÊcqT,Ÿò~Z®Š½2yé(öÎ\Õ+ÑÜïÚäïüùLÙ!Eúmr~Aòß,%Û·n.R/‰¹ïfç¾oÉÌşp—
+çE0cHAÊ	Ø%GZœ KTmâ†Œ_rèÂ•ëÛoU€+ÜõûÂmşYu“«X—nü‹É’¤,4I•—óÄ%;ËfÜ±ÀØs	] (
+TÕÉâSæNóÏ…ÂpAÊj±‰ÌvÈR%Š³ôPjc!tI¡8İ>@yœJV’UGkpŸ4é¥Æ#»ÖÄ{°»G£Ü„}o£‚ ô3xÎñ¡:HˆÌš‘cÁç—ƒáÛ¿~ÜÍ#IÑÛT‚šœÆ[¡vA¹Fî™CzÇ"!wÿIZò_C,¨F¡€AØåFÂØÏ.îøª\Í#œ£¢Té{^ı dèR!v„ê€y±}gßQ¡è0¢¬ÆŠ&¨Ğ»¤f6"ä7×'Lˆ°ôñ%p*3
+0i$tÂ¾?‡®Hì›C%;ö¨WNì¹™ÿG2YU¶_ªµSğÏC#†nQ[=–ÅÕ€±sj(bqrMøeñXáÊ·nØ°Mi7­\µi•eàÌùQj¿Ñ£nøâ4G]ûÒèJì]š@È\pP£[ÖKÿ{Ô)ùÁv9Bì#sÅÿÆIõ©ƒe»ÕÍyËÅIùtùIºÑ±B¡ë˜ZÏÿî¬Û1µz“ÚÆ5wYƒ|jSW“¡O¯ƒC'Æ/LQragx‹Mƒr*˜7İø¦dÖ¿ÓÄ ß[ôgI:ˆãUí%c%r¸¯D$+{BİŒ'<HŸƒó¨¸ü|Òm!fÕºx%s¸»½`CL›µ“ªdõ~Jÿ…izMj‹½(»Ú¨_cì2üâyôp9.ãÙ€A-¶FHk®À`,æZñè‰y•hÓåB¨õò¢ïO'•¶·T^ìFš7µn¨‡vàìåâ¸DŸhpC¬®¬¾Y»+a´‚.ˆøqìĞó•?e-¾j	=ùí5—(¿!<7_“N>å­_MShZıÍ"ÊEédëRÎ½³¬
+Öw+ëXÏ:Ä}Áe8E2Zê0’/²Á–áˆ‘9Ñ¢¸LÕ{©Ó1‚q/š¢£—¡‰:#ã20UÓ=rrLûQ5mim§Ëç»r[j¶ååÓ„UûbdŠò„y»O-¬şŒIYœ¦oÏ­oïÙÈ‡ÛôHš{ğÿj.‹4a0‹‘ŸêõYêˆ¼˜†¨&c½&•Q7}A®;wé–rĞ%ä­Y·)Û2~–mòÊõÛ:…b›³ôª3h|£2Çh­…+–u÷®§ô‰Gqô™y5™Êƒ*Yµ¯L2OıUÊD|aõ•£ë•AÂÄü"êÜ“-ĞáÎeh÷ÕÜ
+äöQ­
+ßõï¶«6¤©(3®÷Ş4•t]%'wùCeL)+MËĞQâG&•IÙp(nÂŒ(Éj¢âæGóƒŒH±2éGNI»5‹ÊR2-Bä=î½}œ»şúã|qÎy8_ïy‡Í¼SÙ:õrÎu˜ö\sƒH£¸ÎKÂ$µmĞª„ğˆÓc\†qWy“ûÄ‚ënSc¿øªœ¯)sia™ÿÿ¿–XÃgá&}j© ]z¢·o0ë9~êş~êå`Ã–ÏÍÍ?î÷ŠÔb¨meƒ’fU9‰†…Æ¢IËAÜÅRUXDºØDE(@ LWC•*úl|DGYl]Ö±Kì¢cô\ŒœDY+–$±:.Î_§õD)ÒÒÿà‚ájh±ªÚH/ G€CĞ¢p&† 	CÀä'±tl¡­¾¾BˆÀB 4¿/¬Ş°XÃÛÈEzÍşõjézã9È“(Ò™ë—‹5U5ÍMW´êÊı¼z°şvk}‡XW;”}ÒNƒa0lIPğ	‘THCN“|áµ¬3Â#gä0ö0É’ğ= 1¯Ç€Óa8Z°æ¡‰’©Æ‰D­P7Ğ0şÌ)>á÷Ù.M‹Ò­ñê#˜º¾y—vœ1ëá}k£šÔ¹êî>Bèğ1îÂ­cù×Ä“üw¯gÎï·n@jÌæ]¡0u’Êá³3>;L	ìFŸİé HRKbÀ«ZŒ`Á‰úr	Ë!ÅÈ¡EnH£$S‹6b›œŸ‚ÏS'UµŞU/1yÂÙ(H†
+:•–T_”b&£+€–PªE¡3Sù1¨7€5˜‰Y4BDDA–H²3„œ«Å¥&Íîœw_—ŸÎ~Ÿ9ŸÛ®æ~Õx¨Áè½:Ü‘±ıííÄ·6ÔæŞ(q£¹:9èmƒmM¿;x±;½&òop 7hq+Û¾‘)üÀy[Ä
+endstream
+endobj
+42 0 obj
+<<
+/Type /FontDescriptor
+/Ascent 699
+/CapHeight 669
+/Descent -205
+/Flags 262242
+/FontBBox [-200 -218 996 921]
+/FontName /LDLHMM+Times-BoldItalic
+/ItalicAngle -15
+/StemV 121
+/XHeight 462
+/CharSet (/o/l/S/e/f/r/space/P/s/a/i/t/g)
+/FontFile3 43 0 R
+>>
+endobj
+43 0 obj
+<<
+/Filter /FlateDecode
+/Length 1643
+/Subtype /Type1C
+>>
+stream
+H‰dTkTg!Ì€ÇnÆ±vgF÷àVY­.]- 
+Ø…â…àRT &Á$„$Â%F@n!*H@n–KÂEµx+Ø­ìjµ®ZìJqukOÏö´İÖ½œóıØíİ=g¿Ï÷;Ïó|ïó½ß‡cş~ã‹â7ÇÇ%$„&iõ*óÊMÙºÌ­¥N›1».q˜ŒK‹ı$^&-ğ/
+ò“„ …h72üÿÃJ‚ïÀt:ŸcP \šŸşl"˜Ì—c6÷_	[³*,,<:Ûh3iÕ‹øJÆrqMø¯Öÿr_{†á³&Fef§«Ä6³E¥7‹[Ù&c¶IiQe®Å(NÜ1«`w¨Ì*“ÕW}vdQk•¢Å¤ÌTé•¦ıbö>1^kÈ¶ØŒ*1*VT2Wg›D­gÎM7k3µJ“Veşw¶]ñy¿Ï
+ÿ‚oáØl¶	‹Áb±8ìM,Û†íÄ’0FùÄd•cÿÆñI¿D-Ë—]õÁ_íÿ±P¤D
+8»àü)8İoê’KjXFŸK_2‡ëOpqFZ¨¬t!·Àl‰äìššb¾Âà=æzicÕ~¶¨4«ª”Góg	–ÊŒ²—Mp±+à·.ë‘AöH}ßáüJT7WŸå€ú,|r±o	Î¤ÚŸR§*òä§=§`¼óè.ã%O6ÔïêĞ|ÊÁêéiXt'íêŞQaõ¿iºÏ6Ö|ów ›ßÎz¾§‚ /Ÿ=„¤äÈvVè·{wpˆİºL@ë¡*	-dóìK¿RlÈC¼ÁEPÅw·Ü…ÿœ;”'·Â|ØÓIëèRĞŒÖdTçs%5î¡ö›î‹Â]p YAë
+’ˆ*²«Âñ^"‡(´½~‘Õ°â»‡cG»WA”Êm…ì®KÅm×®Şàiº®`ŠõnNCÙ£c½eÊ¨-¨t@=¶ß¨¼BÄ_ep–2ûLj…‚ËÛ]ûY›ëøáVŞÿúûIl«½†h”€‚‘ÿ#åÇ€?ëãcà*ãqšJvW¢—4ÂdË,½ÎQf¤ì“¦ÎÑƒ£O¤µßËà¤`V“­w‰3ÀÇ¹£Ç*Â¡Â¢|ÖĞií~··ùtûÁ?¼Šäqˆ@ÁZ~Y¢$&É¼×•H‘ƒ^DÁúâäTÎQ^_/Ôµ4w°Cûšì…›.ñ¼y¢FA-…<â¿$)”6ñVxµ¶èê“ïzì„@ <æĞß:è‡d’¢$#é¯mfµ;•C¯D„¼¡ğdŒåñš,Û^öÑÂær¾*€ş_gÛÄFüÓ8oLNİùls÷ÆN>¹™P5ÚİÍl£ûdßì.mã|º€ƒì&ø·W«p·H=a¢4gOMÔÕŞÏ-ê<öãÖ\ö­ˆ’=¼Ïÿˆ´ğÀŠ{CêœTZ¼%Íy¡•§6”Üïzzó V€£Ïƒ–0ú<mŠ™;TR×ĞÔ#ğs–bW–dT<5Şêı–¨657¾3qïÜÄÔO/B~Ò&ËiS^ñz‡†u}ª½V¥ù™‰4ÕãÍ“»|£~û'úÕÅ®¦ö–‰úN~!R;AßŞP”Rúë2Ÿ‰×5àÔíFKg’Ùbgò§Goßå)»GZïÁ+a.¤Ã\ôH[˜îÎâ”Èí¨/t—óıöïÃ`Bƒ‡Akƒ"ÑªĞ©ä?Ã:ß3‹„åÀ¢¹í*êï°ÂŸ@Xö$©Gn•VÑ×è¦)”ªn­6±ûßF’QóÈş¯.uß
+¤=W:Ç¿ïåèkîFÕ)®¯·çÂÇ
+gÅÖm((Q/”»>„‚nŠ+ĞU…”Rıv¯6€_üúì72ß×¢ddÁÁÊŠ¢¬)Ü›1êµoõ¦'
+ıûŞÍÈaMùzUI´^.âµ¹èu¢‡<Q×^{ødWŞ(wãóáo… Å_|ÄÖ9/_ù}GLÊQ¾§Šx~mçpP2ô{49!„†Œ]¡Ë,
+ÔŒ¤¡µ©hE:[æLüdêòÔÄ0Ÿë&¬öÌm&_êµÇ?€è „‡$ek}º¦9šà`=	­Çfr]Ån)¹öº‘¡F2…søhÛK?Íysk‚(©r<eş; Ö|Ÿ
+endstream
+endobj
+44 0 obj
+<<
+/Type /FontDescriptor
+/Ascent 718
+/CapHeight 718
+/Descent -207
+/Flags 262176
+/FontBBox [-170 -228 1003 962]
+/FontName /LDLHOC+Helvetica-Bold
+/ItalicAngle 0
+/StemV 140
+/XHeight 532
+/CharSet (/o/K/R/p/E/S/four/T/q/five/U/g/B/r/space/V/b/six/C/plus/s/a/seven/c/D/l/t/eight/e/G/hyphen/u/H/f/Y/I/numbersign/nine/v/period/colon/h/P/F/slash/d/i/L/percent/N/y/zero/j/M/z/n/one/A/k/O/two/m/x)
+/FontFile3 45 0 R
+>>
+endobj
+45 0 obj
+<<
+/Filter /FlateDecode
+/Length 4011
+/Subtype /Type1C
+>>
+stream
+H‰ŒTyTSgä}!ò|ñœ“7Š@#*QëBĞ
+E‹…ºë j…Hd•ØY:µÓAQÖ§t:ÕÒµêÒAÅµb]Ôã2.­Ç‘ñÔƒ•Ş/Şpf¾Çéô¯9ï}÷|ï~÷şŞı~wá9e Çó¼.5)5yÆ«Ã’í…%öâ¼%YÃ…Ù¾“±ÔÀÑp
+ F ¤&µ'aÙ³UÏæÆZş_UU}R­‚ı¡ğ}ÿ–ğ°“aœÀó[›¾µŒˆ÷ªcy¹3/'·X^ò’l™0şåŸç—|rB¬œí°Ùå9å®bû2—<­h‰Ã¹ÜáÌ*¶gå„ÂBy¶Á%Ï¶»ìÎ¦}­œç’³äbgV¶}Y–³@v,•SóŠÅåËírÂkrVQöH‡SÎc¾®6W^v^–3Ïîú…¿ï¶/¾~EÇ³‡Srá85ÇiN"Üà@.FàF+¹8K”¸ô n2#’Y©¸b®›àãùy¼“oåÿ06 8àoŠWN…GiSnT¬B•pNxF†Íä¹¥
+ST¹TÛTGÖ…	*ú4¨=xzpC0ô›ÓïË~·Õ™ê­êïBøñ!³Bö…PM’¦Vã	}9ô‹ĞÛÚßhSµkµçµÔkÑ°t‚º“ßB?QĞMĞ$™É' ºHM§`&;`0œ8pÁ¯ö«,ÌâmTÿgëÓşè·øß=…¥RŸU«ºaTw…O„íğÉ§>!ş@+`’4ô–õÑÃïo>~4şVtÔ„¸Hc·®y×Î}ûvå.^œ“›™™³³Ù(ñvÀ³ÿÏôÚ¯K	Ä;¸w™p™hä*8JP†ÁïA)f2yZÂ4¦I#b-¦ƒRÅ”éJLƒtTª4ø
+@Ço‡œ„6 ã­
+"ù³`V@>DJjÍ	fß»ÄSYÊçC—ÎzVHD°´·R€ ¢)%uƒ’o€È„E<”Ğ}Á
+ÖënpÇƒ
+­hGº¡ƒ”Ï:nÜøl*¦`ÊŠ)VëŠbÔÔ–Ğ• ´”‡?€¬è +%˜è]	²'Ud~eÎ4J‰¦
+´4‚ù¯!2C˜DKG6Tß|`h¯Ÿ·Ğš–ƒF˜p*+Æ¬HËA‹§È_[~<ØqàúiĞè!¹ŠKñw¾?ƒxhßù u°U‚©Ğ&¸ÉŠJTàd=8tñt&&øgo’€!ĞˆÁr]åc >bKÅ‚ÚÎtYŒX@¯IĞÁ^=Éğê¡…phûÁ[—ëSR_ÉüFá7m&”	ù „i 0€½FuÁ8TŸ™ZPRş–Éü(sJ|éûŠaÛA[i5İ.½{eemöÀ¹qp}9®FNiÂd–ÜA÷‚‘&ñfÏ0*>7ÿ­2ã:·pïıÚŸşi8²Í±d£é#<.[˜–¼øøµ»Ç6·Yü)¸Zú³+Ğ:ÏtÉ[I*Q+@™‘‚S±äÜ¬îOB",m¿èÑÕI,@V¨=#Njˆ»Å.h qÒŒÂıMGwiÙ7/­`é\“Øë0Gºgoyík£Øu¢¾îÈ)ıƒ‰w0
+µæD™Vÿæ·£Ø\zÕğ½ùöc3Û@î4aD…”áHMLÉni¿ÖÚxøïÛ¦§ıaÈlUƒŠ¯g»l_&Q‡ôäÜ–]—v¦Ç›—›1ÿ·ŸÿlÄ0<+¡Psg
+„` èîÂGka®GSD&b¿ë~ğxÍÁ“{€/­Ÿ•1ËYXÛúiƒ¯{X—Àrˆ»æb-¬ùe¯ˆ™t³ò¿ó«¬hV¯³KùO=“PÑl!û1Z€q7yl&ÜÜk`×éQÉMîânS˜3«t˜!¬6µaWY{ídüŠ`Ÿ^ÕÁ	QßÔıu¯iÏî/Ğ_,¾0ºÑ(ÒúÛ¾ìÖ_~0ÉˆODx#%˜CÄ§Ç¹R³
+M˜Jh¾&‘¶7•Ïœ½°x¦	“ØïÊ@GÿÈC3Wx&ÓR©ç½1|‡â Üˆ`24H~Âº%¶Ş„f2º|ÖÂñÓX§K°¸çà%Ğ~—Ycò‡OóY5]…(8Í0YÔg	¬>Náé`Ã5&¼ÀîZ‰ÕÔÙÇoc.Û05&Œ$Wˆ0­a ú@ô±Ç&yëzm´	Dï`vÖ"vÃ0ÚŸh¬ŒêãÌx¬ß˜Í0ö)A3è`º^æğ§^›/'wÊ@S[±%ŒXv[(„£8œÛJ-¾Æ·Zˆïæ†Ê‡Yë¥>¼ü³I<ĞsØâ01„‡Œ–!¸Ü€k6 Ï¸IÓãû`A-$ÅVxü\ó“øÎÇáˆGûŠà
+Ke])ÌĞÈ‚£ëàŠ„WÀì±±R©ÃF¨C³/<¸¢bã¶¶Äc+}>‰Ù•ûü@>ıŸ~5¬•.\'¶0àûá€€ó	nÇZúœTkKëíÒçœ<G£A‡¢ÁUCç²ÁÕ2ÃFŸg“ÏdÁŞ3Â:‚:zF@ƒ’i—›À@o— Qô´Kp{»@~`TVĞ¡Hb{h¥€£ü›™ã~ïfÁ]¹/t=ËS3˜©ÅÕ(a'TÛîß‡ê½Ğ	X½7&«mØi³9tó&t\Ä’‡ä,2j\ŒÛÆm¿ÎÌ°±/óÿæºZ€¢:¯°+»÷‰LÂåJ»‹÷®¬A©€"PQ0„†
+ÅG ‚b°º b1ÀRƒ`WHÂS5`‚8ÒZ[ÃKb… >"DR‡L#ËœÍ¤ç_$édvfáœÇ÷}çûÍ"áâÎÀÂ.˜0„²Œ¶*‚šÖ>ÇÓ¸myjAªNË¡ŒÀkc™/š‡^‚Bxõ€z˜Ë]Q²çÒ¢ÍG¶ÊXÎ¥šjŸhA›Z]+	OşUÓÔÓ¯mOé#áOÏŸ‹tZ?øQLrXrú"ÙiGqáº ‘(ü[ªÔ1ú=…$òa¨2D¿Vœe^NX}›<k$¡C[4i‡7˜¯h»z*¯‚«yIê!šÜ`~4í&üå$àô ôuØ§Ë}Ùa¨7ûÒŞí’àİaèjìmÊ—/”Aª5ìa¸{Q!È0@J’f´ÁŠµã©Qu“˜PË¸/3x[Ó¸ù‰kg,_ynDR6Ó÷t¾0´leãöa÷të ¸X)³0 ”9ØÁ,cÍÿ½rVƒşü‰	›ƒƒLè|¸‰¥ğ!‹ÅªD8 Äip1‡îØ…Ğ¥Áå˜¬1¬aàÍñ¯¤ujç:ªÙ*˜&d)7\qZu‘OóGØ#;uÈÜrCwæÊÁè´ôÜetÎÒøí‹XmĞ
+­8ùÎÆÛÃ­ç>9-	YN+|·8ÓfWr»‹rJ;´8í(´ş!rÓkéÉem––£K$KIuIé_ì‚r€Ÿù=ô:BŒÎŸQ9Ô³6åe(#3=}ıRnõß¯ùê»¡“Áæ(ëE‚·°—6Ú®òQõí»,:ğë¦­3!Òğ5:ø&Æoİ)çqNt6Ü¶ùfœÜ©7°ZÌÜ6=xKwõà Ôu¨*¶(ÅÜ9Ü‡Ò§:|%„ô1ÕçI°ÖÃë-à}ùùW²slFáë¤‹ó¸ú‰m¾:t0øb$ÎìF=øYÚ+¯ÕË…ğ+¶x­”Ö½“ıCßÕø/NYêç›ù¸C¢8Õ0õ!ó7ªj:8Y'ğ“÷o2&éPóî×MïËŠêïãïşæ9;1ñUÜ|(x=m—¿J Ş(nhîÖµ^Îğ/–iŠ,ÃFnÓ¡˜á2*aâÃŸJîœ©ì‚ÔÎôv–éMİì¨Dœ,',öè³†ÔÓFa8BÇS=Lqn¢€²)Óá?J€R'
+Áy|ÃîM–Y©®øŞ\î54­fÃüUŞË–ÀıÇ¿'á5E`¿&ë ì0x?’éoÕ`/X>½øeórÿe;çIY¸ıvlcS]bTuQO70ÁkQÔ"8~fX•ôF¶”Å¨gºnàBsûPaD’„½,z¦ìJñ.Lu&¹tıœ"¶²•:^ğ8æô$=zæ¸ñ-P9ı¼’i-ê­w¸øô‚)ÕÜÓÎreÁg¬êÿvÚ.€q=¶#»,Z®ÑÌÒ@0‡qĞÑ@Tá07j”ßŒGúËÌßeCûMˆx–ñptî¤”–Œÿ¸¸	mc×'ò^‘-]İ’rb±Î;iUJ6Á[øµ,9è#hY*Ïwß+ˆÜ(áô—›|Ç±ó7Î6d?«KĞÏw<+ªĞúKUgnŠJ%ûÊ	}'Zx¡õW•%8üÇÙTÂ úo6ÉcQD}Äy‹± Î}ÄAˆ•pÆÔp£7NÂIÆo{z*¾%XMªğ'ÅÄ» ØÙgÃX;İ¸—h?@Nà°x¿zœî6úo½ÕOÈ€SjÔşh¤e'
+¹m5¬~<Áx²àã¤÷NŠOÌ &Îv„[0Åë>† Ô\\c²ÅG‡/…SÀ³PcAºq±öR\ˆµô2rVG¬A×Q©îá^rËª5k#n¾:,9áeªá¢]àb¬7²N	}„8Éı³¢TGË
+òÌ¸ó¦Ü\S®nAêëqÛX“¾y„ZRÙQJÖùé¨óIš+/Â4 = ;£†‰
+'‚×~|¡Ö ÃÀxE²0Œëàîu?­qwJ(¹ôyÛ?i%WN~\ÉTß¯ìı1kğ«÷´ÕGêz©N½æ-[‹õß…û#ª;j™c™@Íõ¸‰½ÜËU`Šô1WUe2UÉ£|ş;ïäçêVå›OÉĞü`dşxŸ?($r¬ÀëlHi¶Q¯qs^ËØ°îÃ;Ü¥ïÿåÑ­7êÉ­+§¯–Hå²B€r- º¹UG•ãvJÛèI*`ucVg²âÆ†ÄXë˜Ça¯ÂÖ]PjT•)Õv`…B¡Tƒ/qóp®/Ìes–a)F`q`ş#œ¯¥œÓ3öª(µvÊvÍ,Uã×pÏ®Ycı»fÙ¾íÖèŞÎ5™è-¨æó+jòËuàôq-¬í¦JÅPc, VU(	vÊ[Š¿¼5éQÈc-vjP¥$ §éZ>öf9&–Â35fp,ş‘+á¥ÊĞl×Ÿw GGĞ?gzŞIù‡ËX¸ø¿ 3%h#
+endstream
+endobj
+46 0 obj
+<<
+/Type /FontDescriptor
+/Ascent 699
+/CapHeight 653
+/Descent -205
+/Flags 98
+/FontBBox [-169 -217 1010 883]
+/FontName /LDLIAO+Times-Italic
+/ItalicAngle -15.5
+/StemV 76
+/XHeight 441
+/CharSet (/o/c/l/comma/e/S/n/f/period/r/space/P/s/a/i/t/g/m)
+/FontFile3 47 0 R
+>>
+endobj
+47 0 obj
+<<
+/Filter /FlateDecode
+/Length 2104
+/Subtype /Type1C
+>>
+stream
+H‰TSiPSY~!¼»5–yÆ)ŞÓ÷â,.k«-¸Ìí2"¶+"4 @HB–B$†B"&AdßZVqÁl[m{T Å½Õ™®jÇÑ¹O/³$:¦NÕ©[çÖ9ßwN}ñ÷CÆìğÍáa¡;ƒöŠÄBÙÒ0¹ M”à«o 	„Ë çùÑ$“ş…?ùğ`Üt?šš>n„âw†w(éfüÇdú§€¯g‚[³NÏe§s”Á`W7´ö¯X±rÙŠk7I2²¥¢ä9QÂbşÊà5K|yíûâË!+ø¡‰’x!O¶L.Ëøaé	i†D*—ñù¡iiüİ¾	2şn¡L(Ux«ïóE2¾€/—
+…bô0_’Ä¥KäÙB~èø‚ôÄå)_äí“eÅËD‰"T$”ı¯÷Ã¶ïßÿ·>Âğ2Af"ÈJY Ÿ#ÈfÙê‡lCLd‚y¯‡0YŠì@F_2nù‘~J¿×ÌÿYş±(µ¢£¬u,O Êçxò€šñço™eÇ»Üxûê¼OÚ$*dÜÀQ´7I™GrøZÀd4 &ó–7qwÔtµd‹¥ÒÃÂv›â€r“ôvöf“K}…=ÇÆÁ‚·³x½†¦â$<· A/'áGS³·çj€ÑY®1·ã5&Se?yìCGñ÷ˆ¹8w(ì9‚ëKâHXÂ›wñ*K­Îfø5Ba4}—o¶()Nv=ÕÆ­©uÖ~óÌzt¼»‹MÒ)t
+¯D£rVv¾®PN(ó­å*Êš-³ÆË6|ñÉ¶2- áB
+»Û–Ò•¶J	YºrÏÄ[IY‰TšQlJeh-«ª´ÜÕØ>”|“ ßÿãÅuÅ©åÏ¨ÕòOœÁoµ]"±I0ÃòËİ%G;=Ds<ÜšûàÀmCÖƒ©èDàÇ‹‹UJsˆÂ"kyË3ğÂRIé-(Ö¡/..ˆC¬ÆâÔ“‡—ÂpaºåÓŸ)l`äB3àLRf#Š©4†,9®6eööµwŞ!±©í¼§OA˜ÖÔ¨Š^¼¦ÍÏH­½@ri;iÊÍh~¤˜àÕ^BrLüN"B<0ş·›`˜Së2äPêœ¢L\^[_ï©ml‘[AÒ?NJ¯½şãhk½oÔ =»Ñò¨®3ÁPÆ{ÒõİøE¢ş˜JQh€Óa¼€²E¼ø(h!ˆ¬ûÎUæ*sS¥(ø¬îÅİ	¼?íÄïÌOáø«ğÖ¯şñ™³‚äl€	nz¢¨<¸pŒ^=Áì ù¼§¬USÁhBa&äl'òõ6Ua7Õàõ™U¹GÉd£IXŒeíÉk!À´a°p©[à6
+,k+
+Ö½l¹GT;RHiLY¸ÖšÑZWër¹4› 7
+†|–I.gq`¼<vƒı§®íRÛ h$u›ÄşM§Ñ‹y,½ÎnWSØ¤=[j'B {ôßÚ'ëÔP"ù¡ô4\U_©#×îMÍÚï½°0À¼®< ½Ri.àUYå8RE`ÿzü×{w\Å®¢ãÔ96	NEó¢Æ®ÌHéó:SCOi±´7X	ÛOIºZê¸®S‹c÷èp^pTPX¬ºmàFÿßÇ{«Ó½'Ó¡g½`o¸ƒ£}?aƒ@
+X¼]ñéÊ|B§·•WVv—:¨Ç`´Ø'ÜD}°Fhdk.Ù
+J²–ÄàÙ¦¸3Ãı—ştŠÄf7Ñz¯‡=ê¶T™\•’R§®os¶¸|0}ôk§GÉíÇn˜É?¨H‰“ÃZak0Û)ì%¢Çe(v32?RYä9YÒkÊTÀßLWà’RQÿ7§Î‘š¡;£VĞçcœ\ğÏñûcæ	,ëx»LãÅ3«ˆübK…¥:îw;Ş-oH[·
+²·F3êè®›tà½Š:áÚ_ÃåÅŞÚ0ˆñ-wp¿vÁ¾/î`µ1++vhÂ¨QVà¸®w°±Ôî†±—„½Ê”¡Ú
+f~âılhÍÕ³cìÁ–[{ˆJ{a…u(7ÂÖ<×”Ò;|nx¨“,+G9ïãC>Æİ£Gïb)X}ÈÇ7IzXIsÍÕ–Øü`êÃ{å'¾
+^©Ğ/·oĞÇíÀ>í¾Ü.Óæ(¾€yiõâ÷€¹U}§o²±ÄáÎ«ÏÇ­¹ÙÖ”
+‹exºY|úbÇéçHÖM/s3îƒ“÷™à½ƒx¹.ˆx–‚y Ì¼v²)½‚wÖÉ÷š	²¢Ä—ÁG?‚hàOqZİ
+ğüå¶k‰•Üš‰]3æô€@ÇÀ×·ØXSµm0[ìÊ‰œä>¢¢Ót¾]Z-ÿœ–J*æAíÛ¤*VÿeŞ=[`®¨°T-eš\]‘¨ ‰ZPN«—é’:.`Ü>=vÒ‰½ìxJ¸
+u²*¬¥ÇMİªfbøy=`P çÉU|°Õî!1úÚ‰]»Ë('Ë(4—Uh(*P‹•5±ÄüÜõi^iı|†§j¢÷¬Ó<ë×ûô8Şµ2º@%Ò¿ç­g5¾2ÛŒv½1Pg>¢;b¤DÇ¦ªÕ:‰¾HWl0JŠØwX›`#zD£ŠÈÁÅ®ó§ú½jÌ+GKSb”„Ö`³[Læ‹×,Ñû,NvíÛù5ĞPòËYÀm™’—ä:ş»aS¿ÇÍäø×ó£xòwnÎëÜ?:D¾ÿ æ´ş.
+endstream
+endobj
+48 0 obj
+<<
+/Type /FontDescriptor
+/Ascent 0
+/CapHeight 0
+/Descent 0
+/Flags 4
+/FontBBox [-180 -293 1090 1010]
+/FontName /LDLKLL+Symbol
+/ItalicAngle 0
+/StemV 95
+/CharSet (/delta)
+/FontFile3 49 0 R
+>>
+endobj
+49 0 obj
+<<
+/Length 403
+/Subtype /Type1C
+>>
+stream
+  LDLKLL+Symbol >ø øøøø)ÁøûHû¹úÖú† ÿ‹‹ ÿ‹‹÷^÷a÷d˜ø cidelta001.007Copyright (c) 1985, 1987, 1989, 1990 Adobe Systems Incorporated.  All rights reserved.Symbol   d ‡ °÷ø‚y¹ù.¹³÷ ÷€ë÷“øSz„ûpW2[;’=¦Qœg¢dÎh­yÄ‡»˜¬”µ§¤£óòu÷ \ØdÌB¹y–~“8¸[¼k«“¬™™œ©»{¬“€«j«i­w¬£¤‚ªx¢zŸ^ h“|û]huz^tŸI“p¤t÷û­Ÿ6{>oemtl}pvbºpbÒİ°–åÃ·Ğš™ÄS=zœù5—ûZ˜ç
+ê
+endstream
+endobj
+50 0 obj
+<<
+/ProcSet [/PDF /ImageB ]
+>>
+endobj
+10 0 obj
+<<
+/Name /T10
+/Type /Font
+/Subtype /Type3
+/Resources 50 0 R
+/FontBBox [2 0 19 29]
+/FontMatrix [0.02564 0 0 0.02564 0 0]
+/FirstChar 100
+/LastChar 100
+/Encoding 51 0 R
+/CharProcs 52 0 R
+/Widths [20 ]
+>>
+endobj
+51 0 obj
+<<
+/Type /Encoding
+/Differences [100/c100 ]
+>>
+endobj
+52 0 obj
+<<
+/c100 53 0 R
+>>
+endobj
+53 0 obj
+<<
+/Length 177
+>>
+stream
+20 0 2 0 19 29 d1
+q
+17 0 0 29 2 0 cm
+BI
+/W 17
+/H 29
+/BPC 1
+/IM true
+/F /RL
+ID øÿàÿçÿÏÁÿÏñÿçÿÿ ãÿÿ ñÿÿ øÿÿ;ü?ÿşÿşÿøÿñÁÿÇàÿÇğÿğÿøøøøøøÿ‡øÿ‡ñÿÃñÿÁãÿğÿü?ÿ€
+EI
+Q
+endstream
+endobj
+54 0 obj
+<<
+/ProcSet [/PDF /ImageB ]
+>>
+endobj
+23 0 obj
+<<
+/Name /T11
+/Type /Font
+/Subtype /Type3
+/Resources 54 0 R
+/FontBBox [2 0 16 25]
+/FontMatrix [0.0303 0 0 0.0303 0 0]
+/FirstChar 100
+/LastChar 100
+/Encoding 55 0 R
+/CharProcs 56 0 R
+/Widths [16 ]
+>>
+endobj
+55 0 obj
+<<
+/Type /Encoding
+/Differences [100/c100 ]
+>>
+endobj
+56 0 obj
+<<
+/c100 57 0 R
+>>
+endobj
+57 0 obj
+<<
+/Length 137
+>>
+stream
+16 0 2 0 16 25 d1
+q
+14 0 0 25 2 0 cm
+BI
+/W 14
+/H 25
+/BPC 1
+/IM true
+/F /RL
+ID ğàßß‡ßÿÏ&ÿãÿñÿøü?øãÏ‡ÇŸÃãããããçÏÇà?ğ€
+EI
+Q
+endstream
+endobj
+58 0 obj
+<<
+/ProcSet [/PDF /ImageB ]
+>>
+endobj
+27 0 obj
+<<
+/Name /T12
+/Type /Font
+/Subtype /Type3
+/Resources 58 0 R
+/FontBBox [2 0 18 25]
+/FontMatrix [0.0303 0 0 0.0303 0 0]
+/FirstChar 100
+/LastChar 100
+/Encoding 59 0 R
+/CharProcs 60 0 R
+/Widths [17 ]
+>>
+endobj
+59 0 obj
+<<
+/Type /Encoding
+/Differences [100/c100 ]
+>>
+endobj
+60 0 obj
+<<
+/c100 61 0 R
+>>
+endobj
+61 0 obj
+<<
+/Length 137
+>>
+stream
+17 0 2 0 18 25 d1
+q
+16 0 0 25 2 0 cm
+BI
+/W 16
+/H 25
+/BPC 1
+/IM true
+/F /RL
+ID ğàÇÇÇÿÃ&ÿàÿğøüøàÃƒÁ‡ÀàààààƒáƒÃÁƒàğ€
+EI
+Q
+endstream
+endobj
+4 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/FirstChar 32
+/LastChar 181
+/Widths [250 333 408 500 500 833 778 180 333 333 500 564 250 333 250 278 
+500 500 500 500 500 500 500 500 500 500 278 278 564 564 564 444 
+921 722 667 667 722 611 556 722 722 333 389 722 611 889 722 722 
+556 722 667 556 611 722 722 944 722 722 611 333 278 333 469 500 
+333 444 500 444 500 444 333 500 500 278 278 500 278 778 500 500 
+500 500 333 389 278 500 500 722 500 500 444 480 200 480 541 350 
+350 350 0 0 0 0 0 0 0 0 0 0 0 350 350 350 
+350 0 333 444 444 350 500 0 0 0 0 0 0 350 350 0 
+250 0 500 500 0 0 0 0 0 760 0 0 0 333 0 0 
+0 564 0 0 0 500 ]
+/Encoding /WinAnsiEncoding
+/BaseFont /LDLHOO+Times-Roman
+/FontDescriptor 38 0 R
+>>
+endobj
+5 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/FirstChar 32
+/LastChar 181
+/Widths [278 278 355 556 556 889 667 191 333 333 389 584 278 333 278 278 
+556 556 556 556 556 556 556 556 556 556 278 278 584 584 584 556 
+1015 667 667 722 722 667 611 778 722 278 500 667 556 833 722 778 
+667 778 722 667 611 722 667 944 667 667 611 278 278 278 469 556 
+333 556 556 500 556 556 278 556 556 222 222 500 222 833 556 556 
+556 556 333 500 278 556 500 722 500 500 500 334 260 334 584 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 333 333 0 0 1000 0 0 0 0 0 0 0 0 
+278 0 556 556 0 0 0 0 0 737 0 0 0 333 0 0 
+0 584 0 0 0 556 ]
+/Encoding /WinAnsiEncoding
+/BaseFont /LDLHJH+Helvetica
+/FontDescriptor 40 0 R
+>>
+endobj
+6 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/FirstChar 32
+/LastChar 181
+/Widths [250 389 555 500 500 833 778 278 333 333 500 570 250 333 250 278 
+500 500 500 500 500 500 500 500 500 500 333 333 570 570 570 500 
+832 667 667 667 722 667 667 722 778 389 500 667 611 889 722 722 
+611 722 667 556 611 722 667 889 667 611 611 333 278 333 570 500 
+333 500 500 444 500 444 333 500 556 278 278 500 278 778 556 500 
+500 500 389 389 278 556 444 667 500 444 389 348 220 348 570 250 
+250 250 250 250 250 250 250 250 250 250 250 250 250 250 250 250 
+250 250 250 250 250 250 250 250 250 250 250 250 250 250 250 250 
+250 250 500 500 250 250 250 250 250 747 250 250 250 250 250 250 
+250 570 250 250 250 576 ]
+/Encoding /WinAnsiEncoding
+/BaseFont /LDLHMM+Times-BoldItalic
+/FontDescriptor 42 0 R
+>>
+endobj
+7 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/FirstChar 32
+/LastChar 181
+/Widths [278 333 474 556 556 889 722 238 333 333 389 584 278 333 278 278 
+556 556 556 556 556 556 556 556 556 556 333 333 584 584 584 611 
+975 722 722 722 722 667 611 778 722 278 556 722 611 833 722 778 
+667 778 722 667 611 722 667 944 667 667 611 333 278 333 584 556 
+333 556 611 556 611 556 333 611 611 278 278 556 278 889 611 611 
+611 611 389 556 333 611 556 778 556 556 500 389 280 389 584 278 
+278 278 278 278 278 278 278 278 278 278 278 278 278 278 278 278 
+278 278 278 278 278 278 278 278 278 278 278 278 278 278 278 278 
+278 278 556 556 278 278 278 278 278 737 278 278 278 278 278 278 
+278 584 278 278 278 611 ]
+/Encoding /WinAnsiEncoding
+/BaseFont /LDLHOC+Helvetica-Bold
+/FontDescriptor 44 0 R
+>>
+endobj
+8 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/FirstChar 32
+/LastChar 181
+/Widths [250 333 420 500 500 833 778 214 333 333 500 675 250 333 250 278 
+500 500 500 500 500 500 500 500 500 500 333 333 675 675 675 500 
+920 611 611 667 722 611 611 722 722 333 444 667 556 833 667 722 
+611 722 611 500 556 722 611 833 611 556 556 389 278 389 422 500 
+333 500 500 444 500 444 278 500 500 278 278 444 278 722 500 500 
+500 500 389 389 278 500 444 667 444 444 389 400 275 400 541 250 
+250 250 250 250 250 250 250 250 250 250 250 250 250 250 250 250 
+250 250 250 250 250 250 250 250 250 250 250 250 250 250 250 250 
+250 250 500 500 250 250 250 250 250 760 250 250 250 250 250 250 
+250 675 250 250 250 500 ]
+/Encoding /WinAnsiEncoding
+/BaseFont /LDLIAO+Times-Italic
+/FontDescriptor 46 0 R
+>>
+endobj
+9 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/FirstChar 32
+/LastChar 181
+/Widths [250 333 408 500 500 833 778 180 333 333 500 564 250 333 250 278 
+500 500 500 500 500 500 500 500 500 500 278 278 564 564 564 444 
+921 722 667 667 722 611 556 722 722 333 389 722 611 889 722 722 
+556 722 667 556 611 722 722 944 722 722 611 333 278 333 469 500 
+333 444 500 444 500 444 333 500 500 278 278 500 278 778 500 500 
+500 500 333 389 278 500 500 722 500 500 444 480 200 480 541 250 
+250 250 250 250 250 250 250 250 250 250 250 250 250 250 250 250 
+250 250 250 250 250 250 250 250 250 250 250 250 250 250 250 250 
+250 250 500 500 250 250 250 250 250 760 250 250 250 250 250 250 
+250 564 250 250 250 500 ]
+/Encoding /WinAnsiEncoding
+/BaseFont /LDLHOO+Times-Roman
+/FontDescriptor 38 0 R
+>>
+endobj
+19 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/FirstChar 32
+/LastChar 181
+/Widths [278 278 355 556 556 889 667 191 333 333 389 584 278 333 278 278 
+556 556 556 556 556 556 556 556 556 556 278 278 584 584 584 556 
+1015 667 667 722 722 667 611 778 722 278 500 667 556 833 722 778 
+667 778 722 667 611 722 667 944 667 667 611 278 278 278 469 556 
+333 556 556 500 556 556 278 556 556 222 222 500 222 833 556 556 
+556 556 333 500 278 556 500 722 500 500 500 334 260 334 584 278 
+278 278 278 278 278 278 278 278 278 278 278 278 278 278 278 278 
+278 278 278 278 278 278 278 278 278 278 278 278 278 278 278 278 
+278 278 556 556 278 278 278 278 278 737 278 278 278 278 278 278 
+278 584 278 278 278 556 ]
+/Encoding /WinAnsiEncoding
+/BaseFont /LDLHJH+Helvetica
+/FontDescriptor 40 0 R
+>>
+endobj
+31 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/FirstChar 1
+/LastChar 1
+/Widths [494 ]
+/Encoding 62 0 R
+/BaseFont /LDLKLL+Symbol
+/FontDescriptor 48 0 R
+/ToUnicode 63 0 R
+>>
+endobj
+62 0 obj
+<<
+/Type /Encoding
+/Differences [ 1/delta
+]
+>>
+endobj
+63 0 obj
+<<
+/Filter /FlateDecode
+/Length 211
+>>
+stream
+H‰T1Â0…÷ş
+œÒrŒU`é w¢À&n‰8‘›ı÷$¥€bÉ~ùô-öõ¡&@ü³SèiÆÁ¬ZìA±mTXº¹*+=ˆ7ÓĞÖÔ9(ËLœ£8`ÕL¶u÷uşâ5²¡V—âz‹ƒfôş)@U»LìÒŸ¤Å(/è</C§qğR!KêÊ¼¨Ik/¢ííçk™ÿî¶U‰—–à´ÉÛ[Ì1Ö¼îœ(e0„ï‹xç“ezÙC€ I|iR
+endstream
+endobj
+1 0 obj
+<<
+/Type /Page
+/Parent 13 0 R
+/Resources 3 0 R
+/Contents 2 0 R
+>>
+endobj
+16 0 obj
+<<
+/Type /Page
+/Parent 13 0 R
+/Resources 18 0 R
+/Contents 17 0 R
+>>
+endobj
+20 0 obj
+<<
+/Type /Page
+/Parent 13 0 R
+/Resources 22 0 R
+/Contents 21 0 R
+>>
+endobj
+24 0 obj
+<<
+/Type /Page
+/Parent 13 0 R
+/Resources 26 0 R
+/Contents 25 0 R
+>>
+endobj
+28 0 obj
+<<
+/Type /Page
+/Parent 13 0 R
+/Resources 30 0 R
+/Contents 29 0 R
+>>
+endobj
+32 0 obj
+<<
+/Type /Page
+/Parent 13 0 R
+/Resources 34 0 R
+/Contents 33 0 R
+>>
+endobj
+35 0 obj
+<<
+/Type /Page
+/Parent 13 0 R
+/Resources 37 0 R
+/Contents 36 0 R
+>>
+endobj
+13 0 obj
+<<
+/Type /Pages
+/Kids [1 0 R 16 0 R 20 0 R 24 0 R 28 0 R 32 0 R 35 0 R]
+/Count 7
+/MediaBox [0 0 612 792]
+>>
+endobj
+64 0 obj
+<<
+/Dt (D:20010208171145)
+/JTM (Distiller)
+>>
+endobj
+65 0 obj
+/This
+
+endobj
+66 0 obj
+<<
+/CP (Distiller)
+/Fi 65 0 R
+>>
+endobj
+67 0 obj
+<<
+/R [
+600.000 600.000 ]>>
+endobj
+68 0 obj
+<<
+/JTF 0
+/MB [
+0.000 0.000 612.000 792.000 ]/R 67 0 R
+/W [
+0 6 ]>>
+endobj
+69 0 obj
+<<
+/Fi [
+66 0 R
+]/P [
+68 0 R
+]>>
+endobj
+70 0 obj
+<<
+/Dm [
+612.000 792.000 612.000 792.000 ]>>
+endobj
+71 0 obj
+<<
+/Me 70 0 R
+>>
+endobj
+72 0 obj
+<<
+/D [
+69 0 R
+]/MS 71 0 R
+/Type /JobTicketContents 
+>>
+endobj
+73 0 obj
+<<
+/A [
+64 0 R
+]/Cn [
+72 0 R
+]/V 1.100
+>>
+endobj
+74 0 obj
+<<
+/Type /Catalog
+/Pages 13 0 R
+/JT 73 0 R
+>>
+endobj
+75 0 obj
+<<
+/CreationDate (D:20010208171145)
+/Producer (Acrobat Distiller 4.05 for Windows)
+/Author (ADITIZIO)
+/Creator (PageMaker 6.5)
+/Title (rpts0209.p65)
+>>
+endobj
+xref
+0 76
+0000000000 65535 f 
+0000111623 00000 n 
+0000000016 00000 n 
+0000009812 00000 n 
+0000105813 00000 n 
+0000106522 00000 n 
+0000107209 00000 n 
+0000107991 00000 n 
+0000108771 00000 n 
+0000109549 00000 n 
+0000104171 00000 n 
+0000081380 00000 n 
+0000081498 00000 n 
+0000112208 00000 n 
+0000009981 00000 n 
+0000010397 00000 n 
+0000111704 00000 n 
+0000011071 00000 n 
+0000019680 00000 n 
+0000110326 00000 n 
+0000111788 00000 n 
+0000019830 00000 n 
+0000027666 00000 n 
+0000104762 00000 n 
+0000111872 00000 n 
+0000027828 00000 n 
+0000035371 00000 n 
+0000105311 00000 n 
+0000111956 00000 n 
+0000035543 00000 n 
+0000070820 00000 n 
+0000111103 00000 n 
+0000112040 00000 n 
+0000070982 00000 n 
+0000077922 00000 n 
+0000112124 00000 n 
+0000078062 00000 n 
+0000081270 00000 n 
+0000081615 00000 n 
+0000082118 00000 n 
+0000088872 00000 n 
+0000089408 00000 n 
+0000094449 00000 n 
+0000094714 00000 n 
+0000096448 00000 n 
+0000096872 00000 n 
+0000100974 00000 n 
+0000101252 00000 n 
+0000103447 00000 n 
+0000103652 00000 n 
+0000104124 00000 n 
+0000104388 00000 n 
+0000104451 00000 n 
+0000104486 00000 n 
+0000104715 00000 n 
+0000104977 00000 n 
+0000105040 00000 n 
+0000105075 00000 n 
+0000105264 00000 n 
+0000105526 00000 n 
+0000105589 00000 n 
+0000105624 00000 n 
+0000111276 00000 n 
+0000111339 00000 n 
+0000112332 00000 n 
+0000112394 00000 n 
+0000112417 00000 n 
+0000112466 00000 n 
+0000112510 00000 n 
+0000112594 00000 n 
+0000112643 00000 n 
+0000112704 00000 n 
+0000112737 00000 n 
+0000112809 00000 n 
+0000112867 00000 n 
+0000112929 00000 n 
+trailer
+<<
+/Size 76
+/Root 74 0 R
+/Info 75 0 R
+/ID [<c17a928655ec27b69cd056abb15fe999><c17a928655ec27b69cd056abb15fe999>]
+>>
+startxref
+113097
+%%EOF
