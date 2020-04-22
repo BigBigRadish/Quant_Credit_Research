@@ -1,0 +1,2 @@
+Quantopian Factor Risk Exposure Lecture
+https://www.quantopian.com/lectures/factor-risk-exposure
