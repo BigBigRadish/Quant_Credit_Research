@@ -1,0 +1,10 @@
+% Morgan Williams
+% V3 VBA Sample Documentation Update Log
+
+## 3rd June 2013
+
+-Removed unregistered code from all examples
+
+-Upgraded the references of all files to BLP API COM v3.5 (blpapicom2.dll)
+
+-Added Realtime Bar example
