@@ -1,0 +1,2 @@
+Time Series Forecast Study with Python
+https://machinelearningmastery.com/time-series-forecast-study-python-monthly-sales-french-champagne/

@@ -1,0 +1,3 @@
+CartoDB A New Approach to Customer Segmentation Using Location Data
+
+https://carto.com/blog/new-approach-customer-segmentation-location-data/
