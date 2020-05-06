@@ -1,0 +1,22 @@
+ probit foreign length weight
+
+Iteration 0:   log likelihood =  -45.03321  
+Iteration 1:   log likelihood = -29.556273  
+Iteration 2:   log likelihood = -28.911741  
+Iteration 3:   log likelihood = -28.906937  
+Iteration 4:   log likelihood = -28.906937  
+
+Probit regression                                 Number of obs   =         74
+                                                  LR chi2(2)      =      32.25
+                                                  Prob > chi2     =     0.0000
+Log likelihood = -28.906937                       Pseudo R2       =     0.3581
+
+------------------------------------------------------------------------------
+     foreign |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+      length |   .0016412   .0303364     0.05   0.957    -.0578171    .0610996
+      weight |  -.0015511   .0009157    -1.69   0.090    -.0033458    .0002436
+       _cons |   3.485876   3.254677     1.07   0.284    -2.893174    9.864927
+------------------------------------------------------------------------------
+
+. 
