@@ -1,0 +1,715 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>coinor.blimpy.LinkedList'.LinkedList</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="coinor.blimpy-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;coinor ::
+        <a href="coinor.blimpy-module.html">Package&nbsp;blimpy</a> ::
+        <a href="coinor.blimpy.LinkedList%27-module.html">Module&nbsp;LinkedList'</a> ::
+        Class&nbsp;LinkedList
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="coinor.blimpy.LinkedList%27.LinkedList-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class LinkedList</h1><p class="nomargin-top"><span class="codelink"><a href="coinor.blimpy.LinkedList%27-pysrc.html#LinkedList">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_coinor_b" name="uml_class_diagram_for_coinor_b">
+<area shape="rect" id="node1_14" href="coinor.blimpy.LinkedList%27.LinkedList-class.html#__add__" title="coinor.blimpy.LinkedList&#39;.LinkedList.__add__" alt="" coords="17,39,232,57"/>
+<area shape="rect" id="node1_15" href="coinor.blimpy.LinkedList%27.LinkedList-class.html#__contains__" title="sequential search method pre: self, item to be searched post: True if list &#160;contains the item, False otherwise" alt="" coords="17,57,232,76"/>
+<area shape="rect" id="node1_16" href="coinor.blimpy.LinkedList%27.LinkedList-class.html#__delitem__" title="coinor.blimpy.LinkedList&#39;.LinkedList.__delitem__" alt="" coords="17,76,232,95"/>
+<area shape="rect" id="node1_17" href="coinor.blimpy.LinkedList%27.LinkedList-class.html#__getitem__" title="replace built&#45;in class method that returns the item for the given..." alt="" coords="17,95,232,113"/>
+<area shape="rect" id="node1_18" href="coinor.blimpy.LinkedList%27.LinkedList-class.html#__init__" title="constructor method of the class pre: self" alt="" coords="17,113,232,132"/>
+<area shape="rect" id="node1_19" href="coinor.blimpy.LinkedList%27.LinkedList-class.html#__iter__" title="built&#45;in class method, makes LinkedList objects iterable pre: self post: &#160;self.head, first Node on the list" alt="" coords="17,132,232,151"/>
+<area shape="rect" id="node1_20" href="coinor.blimpy.LinkedList%27.LinkedList-class.html#__len__" title="class method that returns the number of items in the list pre: self post: &#160;returns number of items in the list" alt="" coords="17,151,232,169"/>
+<area shape="rect" id="node1_21" href="coinor.blimpy.LinkedList%27.LinkedList-class.html#__repr__" title="repr(x)" alt="" coords="17,169,232,188"/>
+<area shape="rect" id="node1_22" href="coinor.blimpy.LinkedList%27.LinkedList-class.html#__reversed__" title="built&#45;in class method, makes LinkedList objects reverse iterable pre: self &#160;post: self.head, first Node on the list" alt="" coords="17,188,232,207"/>
+<area shape="rect" id="node1_23" href="coinor.blimpy.LinkedList%27.LinkedList-class.html#append" title="class method that appends the given item at the end of the list pre: self, &#160;item" alt="" coords="17,207,232,225"/>
+<area shape="rect" id="node1_24" href="coinor.blimpy.LinkedList%27.LinkedList-class.html#backward" title="coinor.blimpy.LinkedList&#39;.LinkedList.backward" alt="" coords="17,225,232,244"/>
+<area shape="rect" id="node1_25" href="coinor.blimpy.LinkedList%27.LinkedList-class.html#count" title="class method that counts the number of occurances of item..." alt="" coords="17,244,232,263"/>
+<area shape="rect" id="node1_26" href="coinor.blimpy.LinkedList%27.LinkedList-class.html#extend" title="class method that extends the list by adding otherLinkedList at the end of &#160;the self pre: self, otherLinkedList" alt="" coords="17,263,232,281"/>
+<area shape="rect" id="node1_27" href="coinor.blimpy.LinkedList%27.LinkedList-class.html#remove" title="class method that removes the first occurrence of the given item if there &#160;is one pre: self, item" alt="" coords="17,300,232,319"/>
+<area shape="rect" id="node1" href="coinor.blimpy.LinkedList%27.LinkedList-class.html" title="implementation of link list data structure." alt="" coords="5,6,243,325"/>
+</map>
+  <img src="uml_class_diagram_for_coinor_b.gif" alt='' usemap="#uml_class_diagram_for_coinor_b" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<pre class="literalblock">
+implementation of link list data structure.
+The behavior is designed to be the same as a Python list.
+For efficiency when using the list as a stack, the list is stored
+such that the last item in the list is the head node. Thus, the
+append, push, pop, and most other methods are efficient, but
+forward iteration is not. Reverse iteration is efficient, however,
+pre:  Node is the head node of a linked list and length is the length of
+      that list
+post: creates a LinkedList type object
+
+</pre>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__add__"></a><span class="summary-sig-name">__add__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">otherLinkedList</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="coinor.blimpy.LinkedList%27-pysrc.html#LinkedList.__add__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__contains__"></a><span class="summary-sig-name">__contains__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">item</span>)</span><br />
+      sequential search method pre: self, item to be searched post: True if
+      list contains the item, False otherwise</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="coinor.blimpy.LinkedList%27-pysrc.html#LinkedList.__contains__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__delitem__"></a><span class="summary-sig-name">__delitem__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">position</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="coinor.blimpy.LinkedList%27-pysrc.html#LinkedList.__delitem__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="coinor.blimpy.LinkedList%27.LinkedList-class.html#__getitem__" class="summary-sig-name">__getitem__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">index</span>)</span><br />
+      replace built-in class method that returns the item for the given...</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="coinor.blimpy.LinkedList%27-pysrc.html#LinkedList.__getitem__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="coinor.blimpy.LinkedList%27.LinkedList-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">Node</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">length</span>=<span class="summary-sig-default">0</span>)</span><br />
+      constructor method of the class pre: self</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="coinor.blimpy.LinkedList%27-pysrc.html#LinkedList.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__iter__"></a><span class="summary-sig-name">__iter__</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      built-in class method, makes LinkedList objects iterable pre: self 
+      post: self.head, first Node on the list</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="coinor.blimpy.LinkedList%27-pysrc.html#LinkedList.__iter__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__len__"></a><span class="summary-sig-name">__len__</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      class method that returns the number of items in the list pre: self 
+      post: returns number of items in the list</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="coinor.blimpy.LinkedList%27-pysrc.html#LinkedList.__len__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="coinor.blimpy.LinkedList%27.LinkedList-class.html#__repr__" class="summary-sig-name">__repr__</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      repr(x)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="coinor.blimpy.LinkedList%27-pysrc.html#LinkedList.__repr__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__reversed__"></a><span class="summary-sig-name">__reversed__</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      built-in class method, makes LinkedList objects reverse iterable pre:
+      self post: self.head, first Node on the list</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="coinor.blimpy.LinkedList%27-pysrc.html#LinkedList.__reversed__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="append"></a><span class="summary-sig-name">append</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">item</span>)</span><br />
+      class method that appends the given item at the end of the list pre: 
+      self, item</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="coinor.blimpy.LinkedList%27-pysrc.html#LinkedList.append">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="backward"></a><span class="summary-sig-name">backward</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="coinor.blimpy.LinkedList%27-pysrc.html#LinkedList.backward">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="coinor.blimpy.LinkedList%27.LinkedList-class.html#count" class="summary-sig-name">count</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">item</span>)</span><br />
+      class method that counts the number of occurances of item...</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="coinor.blimpy.LinkedList%27-pysrc.html#LinkedList.count">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="extend"></a><span class="summary-sig-name">extend</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">otherLinkedList</span>)</span><br />
+      class method that extends the list by adding otherLinkedList at the 
+      end of the self pre: self, otherLinkedList</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="coinor.blimpy.LinkedList%27-pysrc.html#LinkedList.extend">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="forward"></a><span class="summary-sig-name">forward</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="coinor.blimpy.LinkedList%27-pysrc.html#LinkedList.forward">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="coinor.blimpy.LinkedList%27.LinkedList-class.html#index" class="summary-sig-name">index</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">item</span>)</span><br />
+      class method that returns the index of the first occurance of item, 
+      returns None if there is no any item.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="coinor.blimpy.LinkedList%27-pysrc.html#LinkedList.index">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="insert"></a><span class="summary-sig-name">insert</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">position</span>,
+        <span class="summary-sig-arg">item</span>)</span><br />
+      class method that inserts item to the given position pre: self, 
+      position, item position should not be greater than length of the list</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="coinor.blimpy.LinkedList%27-pysrc.html#LinkedList.insert">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="peek"></a><span class="summary-sig-name">peek</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">index</span>=<span class="summary-sig-default">None</span>)</span><br />
+      class method that retrieves, but does not remove, the head (first 
+      element) of this list pre: self post: the data of the head of the 
+      list or None if the list is empty</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="coinor.blimpy.LinkedList%27-pysrc.html#LinkedList.peek">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="coinor.blimpy.LinkedList%27.LinkedList-class.html#pop" class="summary-sig-name">pop</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">index</span>=<span class="summary-sig-default">None</span>)</span><br />
+      class method that removes the item at the given position in the list,
+      and returns it.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="coinor.blimpy.LinkedList%27-pysrc.html#LinkedList.pop">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="remove"></a><span class="summary-sig-name">remove</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">item</span>)</span><br />
+      class method that removes the first occurrence of the given item if 
+      there is one pre: self, item</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="coinor.blimpy.LinkedList%27-pysrc.html#LinkedList.remove">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__setattr__</code>,
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__getitem__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__getitem__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">index</span>)</span>
+    <br /><em class="fname">(Indexing operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="coinor.blimpy.LinkedList%27-pysrc.html#LinkedList.__getitem__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+replace built-in class method that returns the item for the given
+ index
+pre: self, index, index should be less than length of list, list
+should not be empty
+post: return item for the given index
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">Node</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">length</span>=<span class="sig-default">0</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="coinor.blimpy.LinkedList%27-pysrc.html#LinkedList.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>constructor method of the class pre: self</p>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__init__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__repr__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__repr__</span>(<span class="sig-arg">self</span>)</span>
+    <br /><em class="fname">(Representation operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="coinor.blimpy.LinkedList%27-pysrc.html#LinkedList.__repr__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>repr(x)</p>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__repr__
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="count"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">count</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">item</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="coinor.blimpy.LinkedList%27-pysrc.html#LinkedList.count">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+class method that counts the number of occurances of item
+ in the list
+pre: self, item
+post: number of occurances of item in the list
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="index"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">index</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">item</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="coinor.blimpy.LinkedList%27-pysrc.html#LinkedList.index">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>class method that returns the index of the first occurance of item, 
+  returns None if there is no any item. pre: self, item post: item index or
+  None</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="pop"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">pop</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">index</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="coinor.blimpy.LinkedList%27-pysrc.html#LinkedList.pop">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>class method that removes the item at the given position in the list, 
+  and returns it. If no index is specified removes and returns the last 
+  item in the list pre: self, position (optional), position should be less 
+  than length of the list, list should not be empty post: return the item 
+  at given index or last item if not specified</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="coinor.blimpy-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Fri Mar 28 15:03:23 2014
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

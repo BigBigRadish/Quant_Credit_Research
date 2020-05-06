@@ -1,0 +1,12 @@
+\begin{theindex}
+
+  \item coinor \textit{(package)}
+    \subitem coinor.blimpy \textit{(package)}, \hyperpage{2}
+      \subsubitem coinor.blimpy.LinkedList' \textit{(module)}, 
+		\hyperpage{3--6}
+      \subsubitem coinor.blimpy.Queues \textit{(module)}, 
+		\hyperpage{7--10}
+      \subsubitem coinor.blimpy.Stack' \textit{(module)}, 
+		\hyperpage{11--12}
+
+\end{theindex}
