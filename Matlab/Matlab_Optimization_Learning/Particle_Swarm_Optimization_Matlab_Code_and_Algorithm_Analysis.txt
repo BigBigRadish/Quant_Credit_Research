@@ -1,0 +1,7 @@
+Particle Swarm Optimization: Algorithm and its Codes in MATLAB
+
+https://www.researchgate.net/publication/297245624_Particle_Swarm_Optimization_Algorithm_and_its_Codes_in_MATLAB
+
+Codes in MATLAB for Particle Swarm Optimization
+
+https://www.researchgate.net/publication/296636431_Codes_in_MATLAB_for_Particle_Swarm_Optimization
