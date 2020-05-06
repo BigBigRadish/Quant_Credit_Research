@@ -1,0 +1,61 @@
+\documentclass[12 pt]{article}
+
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[sc]{mathpazo}
+\linespread{1.05} % Palatino needs more leading (space between lines)
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{bbm}
+
+
+\title{IO III Problem Set I}
+
+\author{Haritz Garro and Nil Karacaoglu}
+
+\begin{document}
+\maketitle
+
+\section{Exercise 3}
+
+First of all, we perform a logit with the variable a as dependent variable and polynomials of x as independent variables (x, $x^2$ and $x^3$). We make sure that we do not include an intercept, since x never takes value zero in this setting. When we calculate the predicted probabilities of changing the engine given x, these consitute our estimators for the conditional choice probabilities $P(a = 1 \mid x)$.
+
+Once we do this, we can leverage on the Hotz-Miller inversion to get the differences of the value functions in the following way:
+
+\begin{equation}\label{HM}
+\hat{v}(x, 0) - \hat{v}(x, 1) = log(\hat{p}(0 \mid x)) - log(\hat{p}(1 \mid x)) 
+\end{equation}
+
+where the second element of $v(\quad,\quad)$ refers to the action of replacing the engine, a. We can calculate the LHS of equation \ref{HM} for every x.
+
+The next step is to normalize the flow payoff, and we will, wlog, normalize the utility of changing the engine to one, for every x, i.e. $u(x, 1) = 1$, $\forall$ x.
+
+After this useful normalization, we can characterize the value function of changing the engine as:
+
+\begin{equation}
+\hat{v}(x, 1) = 1 + \beta \left(v(x'=1, 1) - log(\hat{p}(1 \mid x'=1)) \right) 
+\end{equation}
+
+where we are making use of the fact that after changing the engine tomorrow x is equal to one.
+
+First we solve for v(1, 1), and after that we can solve for v(x, 1), $\forall$ $x \neq 1$. It turns out that the value function of changing the engine is the same regardless of x, since after the change the new x is 1 always, and because the flow payoff of changing the engine is independent from x.
+
+Once we obtained $\hat{v}(x, 1)$, we come back to equation \ref{HM} and calculate $\hat{v}(x, 0)$ for every x. This time the value function of not changing the engine is different for every x, since both the flow payoff and the continuation values depend on x.
+
+Finally, we can back out the flow utilities from not changing the engines (notice, again, that we have normalized the flow utility of changing the engine to ewual one, for every x). The equation is the following
+
+\begin{equation}
+\hat{u}(x,0) = \hat{v}(x,0) - \beta log(exp(\hat{v}(min(x+1, 7), a=1)) + exp(min(x+1, 7), a=0))
+\end{equation}
+
+Once we got all the flow payoffs, $u(x,a)$, it is time to estimate the $\theta$'s. For that purpose, notice that
+
+$$ u(x, 0) - u(x, 1) = \theta_2 RC - \theta_1 x = u(x, 0) - 1$$
+
+where the last equality comes from the normalization of $u(x, 1)$.
+
+We create a variable that stores $u(x,a)$, $\forall a, x$. Finally we regress this variable with x and RC as independent variables. Finally, we normalize $\theta_2=1$, and consequently it turns out that $\theta_1=2.65$.
+
+\end{document}
