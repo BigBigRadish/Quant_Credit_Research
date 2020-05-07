@@ -1,0 +1,57 @@
+Wire: Bloomberg News (BN) Date: Sep 6 2000  12:02:14
+Merrill Starts Fixed-Income Index to Track $13 Trillion in Debt
+
+
+     New York, Sept. 6 (Bloomberg) -- Merrill Lynch & Co. started
+a fixed-income index based on more than $13 trillion of investment-
+grade debt to help money managers evaluate major credit markets
+worldwide.
+     Merrill also launched two other indexes that track a smaller
+universe of bonds than the Global Broad Market Index, which covers
+14,000 securities around the world. The index aims to provide a
+framework for tracking major credit markets in the U.S., Canada,
+Europe, Japan and Australia.
+     More than three years of daily historical data for the
+largest investment-grade credit markets was assembled to create
+the index, the bank said.
+     ``Global fixed-income investors are increasingly looking to
+the credit markets as a key source of incremental return,'' said
+Phil Galdi, managing director of Merrill's fixed-income
+quantitative analysis and portfolio strategy group. ``As credit
+begins to consume a larger portion of their holdings, the indices
+also serve as a more representative standard against which to
+measure performance.''
+     The Global Large Cap Index captures 84 percent of
+capitalization of the broad market index, tracking about 4,000 of
+the largest bonds in the Global Broad Market Index. The Global
+Broad Market Plus Index combines the Broad Market Index with an
+extended set of smaller local currency sovereign markets.
+
+--Walden Siew in the New York newsroom at (212) 893-5240 or at
+wsiew@bloomberg.net/hl
+
+Story Illustration: To access the Merrill Lynch Global Credit
+Index, type GBMI <Index> <GO>; for the Global Large Cap Index,
+type GLCI <Index> <GO>; and for the Global Broad Market Plus
+Index, type GBMP <Index> <GO>.
+
+Company news:
+
+
+MER US <Equity>
+
+NI BNK
+NI FIN
+NI SCR
+NI COS
+NI NDX
+NI BON
+
+
+-0- (BN ) Sep/06/2000 16:02 GMT
+
+-----------------------------====================------------------------------
+                     Copyright (c) 2020, Bloomberg, L. P.
+
+################################ END OF STORY 1 ##############################
+

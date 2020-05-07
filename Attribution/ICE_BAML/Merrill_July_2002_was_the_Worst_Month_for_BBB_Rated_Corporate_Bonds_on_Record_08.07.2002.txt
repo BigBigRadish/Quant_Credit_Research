@@ -1,0 +1,117 @@
+Wire: Bloomberg News (BN) Date: Aug 7 2002  5:38:53
+
+July Was Worst Month for Triple-B Bonds, Merrill Says (Update1)
+
+     (Adds Standard & Poor's bond index in sixth paragraph.)
+
+     London, Aug. 7 (Bloomberg) -- Global corporate bonds with a
+triple-B rating, the lowest of the investment-grade categories,
+had their worst month ever in July, with losses double those of
+the record set in June, according to research from Merrill Lynch.
+     Credit downgrades helped persuade investors to shun corporate
+debt, with 4.1 percent of issuers in the bank's Global Corporate
+Index downgraded, representing $93 billion of debt, the bank said.
+Many of the downgrades shunted issuers to junk status, with debt
+worth $27 billion dropping below investment grade.
+     ``As the corporate landscape gets murkier with each passing
+day, the losses continue to mount,'' wrote Phil Galdi, managing
+director of Merrill's fixed-income quantitative analysis and
+portfolio strategy group. ``Not surprisingly, triple-B corporates
+were the worst of the high-grade market.''
+     Companies that dropped to junk this month include European
+phone makers Alcatel SA and Ericsson AB, and media giant Vivendi
+Universal SA. Moody's Investors Service and Standard & Poor's cut
+long-term ratings of 12 companies in the Bloomberg 500 stock index
+in July, according to Bloomberg calculations. Only Italian bank
+UniCredito Italiano SpA was upgraded in that index.
+
+                              Concern
+
+     Investors' concern is driving up yields as bond buyers demand
+a bigger premium over government debt to take on the additional
+risks of lending to companies, Merrill Lynch said. The average
+spread of the bank's Global Large Cap Corporate Index struck an
+all-time high in July, while triple-B spreads hit a record for a
+second month, the bank said.
+     S&P's index of the premium investment-grade corporate debt
+pays over government securities shows the spreads are heading back
+to the level they struck after Sept. 11. Investors demand on
+average 2.52 percentage points more yield than government
+securities to lend to companies, up from 1.95 percentage points in
+June. Following the Sept. 11 attacks, that spread rose to a record
+2.59 percentage points.
+     ``Poor corporate earnings and a long and growing list of
+accounting-related inquiries and admissions of understated
+expenses (have) shaken confidence in both the equity and corporate
+bond markets,'' Galdi wrote.
+     Junk bonds were the worst performing of all corporate debt,
+Merrill Lynch said. Its Global High Yield Index posted losses of
+6.5 percent in July as investors shunned the riskiest assets.
+     As investors cool toward corporate bonds and stocks, they are
+favoring the relative safety of government debt, Merrill Lynch
+said. That's driving down government bond yields to the lowest
+they've in been in years.
+     ``A flight to safe-haven assets has driven average yield of
+the Global Government Index to within 6 basis points of its all-
+time low,'' Merrill Lynch said. A basis point is 0.01 percentage
+point.
+     U.S. two-year Treasury yields struck a record low of 1.86
+percent this week amid expectations the Federal Reserve will cut
+interest rates to bolster the faltering economic recovery.
+
+--Alice James in the London newsroom, (44 20) 7330-7195, or
+ajames@bloomberg.net. Editor: Provan.
+
+Story illustration: Type {MER <GO>} to see Merrill Lynch's
+research and bond indexes on Bloomberg. See {RATC <GO>} for recent
+rating changes.
+
+Company News:
+
+
+UC IM <Equity>
+MER US <Equity>
+ERICB SS <Equity>
+CGE FP <Equity>
+
+Industry news:
+NI BON
+NI COR
+NI CRA
+NI EBN
+NI EUB
+NI FIN
+NI CORPFIN
+NI EUROPE
+NI CRA
+NI BND
+NI BON
+NI ECO
+NI EMC
+NI EUB
+NI EUROPE
+NI GBN
+NI GER
+NI GLT
+NI GOV
+NI NORTHAM
+NI UK
+NI UKECO
+NI US
+NI USB
+NI HYL
+
+
+
+
+
+
+
+#<789682.737600>#
+-0- (BN ) Aug/07/2002  9:38 GMT
+
+-----------------------------====================------------------------------
+                     Copyright (c) 2020, Bloomberg, L. P.
+
+################################ END OF STORY 1 ##############################
+
