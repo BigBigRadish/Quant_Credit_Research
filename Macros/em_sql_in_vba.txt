@@ -1,0 +1,17 @@
+'Set and Excecute SQL Command for Core Plus Opps
+    Set objMyCmd.ActiveConnection = objMyConn
+    objMyCmd.CommandText = "Select Distinct a.Date, a.mks_strat, a.combo as combo, a.client_name as client_name, a.cusip_isin as cusip_isin, a.issuer as issuer, a.ticker as ticker, a.country_risk as country_of_risk, AVG(a.coupon_rate) as coupon, a.yrs_to_eff_mty as eff_mty_yrs, AVG(a.duration) as eff_duration, AVG(a.yld_to_worst) as ytw, AVG(a.market_price_local) as price" _
+    & ", 100*SUM(a.mktvalAccrued_usd)/(SELECT SUM(mktvalAccrued_usd) FROM ERM.gfi.FACT_holdings_all_Vw WHERE Date = a.Date AND combo = a.combo) as weight" _
+    & " From ERM.gfi.FACT_holdings_all_Vw a Where a.Date = " & report_date & "" _
+    & " AND a.mackay_team = 'Global Fixed Income'" _
+    & " AND a.country_risk IN ('AFGHANISTAN','ALBANIA','ALGERIA','ANGOLA','ANTARCTICA','ARGENTINA','ARMENIA','ARUBA','AZERBAIJAN', 'BAHRAIN','BANGLADESH','BARBADOS','BELARUS','BELIZE','BENIN','BHUTAN','BOLIVIA','BOSNIA AND HERZEGOVINA','BOTSWANA','BRAZIL','BRUNEI','BULGARIA','BURKINA FASO','BURUNDI','CAMBODIA','CAMEROON','CENTRAL AFRICAN REPUBLIC','CHAD','CHILE','CHINA','COLOMBIA','COMOROS','CONGO'" _
+    & ", 'CONGO, THE DEMOCRATIC REPUBLIC OF THE','COSTA RICA','CÔTE DIVOIRE','CROATIA','CUBA','CURAÇAO','CZECH REPUBLIC','DJIBOUTI','DOMINICA','DOMINICAN REPUBLIC','ECUADOR','EGYPT','EL SALVADOR','EQUATORIAL GUINEA'" _
+    & ", 'ERITREA','ESTONIA','ETHIOPIA','GABON','GAMBIA','GEORGIA','GHANA','GUATEMALA','GUINEA','GUINEA-BISSAU','GUYANA','HAITI','HONDURAS','HONG KONG','HUNGARY','INDIA','INDONESIA','IRAN','IRAQ','ISRAEL','JAMAICA'" _
+    & ", 'JORDAN','KAZAKHSTAN','KOREA, REPUBLIC OF','KENYA','KUWAIT','KYRGYZSTAN','LAO','LATVIA','LEBANON','LESOTHO','LIBERIA','LIBYA','LIECHTENSTEIN','LITHUANIA','MACAO','MACEDONIA','MADAGASCAR','MALAWI','MALAYSIA'" _
+    & ", 'MALDIVES','MALI','MEXICO','MICRONESIA','MOLDOVA','MONACO','MONGOLIA','MONTENEGRO','MONTSERRAT','MOROCCO','MOZAMBIQUE','MYANMAR','NAMIBIA','NAURU','NEPAL','NICARAGUA','NIGER','NIGERIA','NIUE','NORTH KOREA'" _
+    & ", 'OMAN','PAKISTAN','PALAU','PALESTINE','PANAMA','PAPUA NEW GUINEA','PARAGUAY','PERU','PHILIPPINES','POLAND','QATAR','RÉUNION','ROMANIA','RUSSIAN FEDERATION','RWANDA','SAINT KITTS','NEVIS','SAINT LUCIA','SAMOA'" _
+    & ", 'SAUDI ARABIA','SENEGAL','SERBIA','SEYCHELLES','SIERRA LEONE','SINGAPORE','SOMALIA','SOUTH AFRICA','SOUTH GEORGIA','SOUTH KOREA','SOUTH SUDAN','SRI LANKA','SUDAN','SWAZILAND','SYRIA'" _
+    & ", 'TAIWAN','TAJIKISTAN','TANZANIA','THAILAND','TIMOR-LESTE','TOGO','TONGA','TRINIDAD AND TOBAGO','TUNISIA','TURKEY','TURKMENISTAN','TURKS AND CAICOS ISLANDS','UGANDA','UKRAINE','UNITED ARAB EMIRATES','URUGUAY'" _
+    & ", 'UZBEKISTAN','VENEZUELA, BOLIVARIAN REPUBLIC','VIET NAM','WESTERN SAHARA','YEMEN','ZAMBIA','ZIMBABWE') and a.mackayShields_class not in ('Curncy')" _
+    & " Group by a.Date, a.mks_strat, a.combo, a.client_name, a.cusip_isin, a.issuer, a.ticker, a.country_risk, a.yrs_to_eff_mty Having SUM(a.mktvalAccrued_usd) <> 0 Order By a.mks_strat, a.combo, a.country_risk, a.issuer, a.yrs_to_eff_mty Asc"
+    objMyCmd.CommandType = adCmdText

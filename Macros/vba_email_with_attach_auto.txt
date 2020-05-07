@@ -1,0 +1,49 @@
+Sub email_report()
+  
+Dim as_of_date, Subj, Msg, REPORT_NAME, REPORT_PATH As String
+Dim OutApp, OutMail As Object
+Dim recipients As Variant
+
+'Save most recent module.xlsm
+ThisWorkbook.Worksheets("menu").Activate
+Application.DisplayAlerts = False
+ActiveWorkbook.Save
+
+'setup workbook to be sent out in email with correct date
+as_of_date = Format(WorksheetFunction.WorkDay_Intl(Now(), -1), "MM.DD.YYYY""")
+REPORT_NAME = "treasury_future_and_forward_curve_analysis_" & as_of_date & ".XLS"
+REPORT_PATH = "G:\Share\MATLAB\graphs\"
+Application.DisplayAlerts = False
+ActiveWorkbook.SaveAs Filename:=REPORT_PATH & REPORT_NAME, FileFormat:=xlExcel8
+
+'save workbook that is to be emailed in archive folder
+ThisWorkbook.Worksheets("menu").Activate
+Application.DisplayAlerts = False
+Sheets("menu").Delete
+Workbooks(REPORT_NAME).Save
+
+'create email setup
+recipients = "Louis.Cohen@mackayshields.com ; Jakob.Bak@mackayshields.com ; Michael.Kimble@mackayshields.com ; Steven.Buckley@mackayshields.com"
+Subj = "treasury future cost and forward curve analysis"
+Msg = "Dear All," & vbCrLf & vbCrLf & "Attached displays the treasury future and forward curve analysis as of " & as_of_date & "." & vbCrLf & "This workbook is also available in " & REPORT_PATH & ". Please let me know if you have any questions." & vbCrLf & vbCrLf & "Thanks,"
+
+'send email without ms excel asking if u want 2 "allow"
+Set OutApp = CreateObject("Outlook.Application")
+Set OutMail = OutApp.CreateItem(0)
+
+With OutMail
+    .To = recipients
+    .Subject = Subj
+    .Body = Msg
+    .Attachments.Add (REPORT_PATH & REPORT_NAME)
+    .ReadReceiptRequested = False
+    .Send
+End With
+
+Set OutMail = Nothing
+Set OutApp = Nothing
+
+'close workbook without ms excel asking if u want to "save before closing"
+Workbooks(REPORT_NAME).Close (False)
+    
+End Sub

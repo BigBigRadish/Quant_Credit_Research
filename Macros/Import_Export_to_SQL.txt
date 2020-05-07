@@ -1,0 +1,117 @@
+Public Function MAH_Get_Ticker_Weight_for_Index(index, request_type, ticker) As Variant
+       ' Applications.Voltaile True
+      
+
+   'Declare variables'
+        Dim objMyConn As ADODB.Connection
+        Dim objMyCmd As ADODB.Command
+        Dim objMyRecordset As ADODB.Recordset
+        
+        Set objMyConn = New ADODB.Connection
+        Set objMyCmd = New ADODB.Command
+        Set objMyRecordset = New ADODB.Recordset
+
+    'Open Connection'
+        objMyConn.ConnectionString = "Provider=SQLOLEDB;Data Source=msfixed2\r2stand;Initial Catalog=AppliedResearch;Integrated Security=SSPI"
+        objMyConn.Open
+
+    'Set and Excecute SQL Command'
+        Set objMyCmd.ActiveConnection = objMyConn
+        objMyCmd.CommandText = "sp_EXCEL_API"
+        objMyCmd.CommandType = adCmdStoredProc
+        
+        Set p = objMyCmd.Parameters
+        p.Append objMyCmd.CreateParameter("@index", adChar, adParamInput, 20)
+        p.Append objMyCmd.CreateParameter("@ticker", adChar, adParamInput, 10)
+        p.Append objMyCmd.CreateParameter("@type", adChar, adParamInput, 10)
+        
+        objMyCmd("@index") = index
+        objMyCmd("@ticker") = ticker
+        objMyCmd("@type") = request_type
+   'Open Recordset'
+        Set objMyRecordset.Source = objMyCmd
+       objMyRecordset.Open
+
+   'Copy Data to Excel'
+    
+  'MAH_Get_Ticker_Weight_for_Index = objMyRecordset(0).Value
+  If request_type = "weight" Then
+        If IsNumeric(objMyRecordset(0).Value) = True Then
+        MAH_Get_Ticker_Weight_for_Index = objMyRecordset(0).Value
+        Else
+        MAH_Get_Ticker_Weight_for_Index = 0#
+        End If
+Else
+        MAH_Get_Ticker_Weight_for_Index = objMyRecordset(0).Value
+
+End If
+
+        
+End Function
+
+
+
+Sub insert_recweight_rank_bondsymbol_into_sql_from_buy_list()
+
+Application.Calculation = xlCalculationManual
+
+ActiveWorkbook.Worksheets("Core Buy List").Activate
+
+    Dim objMyConn As ADODB.Connection
+    Dim objMyCmd As ADODB.Command
+    Dim objMyRecordset As ADODB.Recordset
+       
+    Set objMyConn = New ADODB.Connection
+    Set objMyCmd = New ADODB.Command
+    Set objMyRecordset = New ADODB.Recordset
+
+    'Open Connection'
+    objMyConn.ConnectionString = "Provider=SQLOLEDB;Data Source=msfixed2\r2stand;Initial Catalog=AppliedResearch;Integrated Security=SSPI"
+    objMyConn.Open
+
+    'Set and Excecute SQL Command'
+    Set objMyCmd.ActiveConnection = objMyConn
+    objMyCmd.CommandText = "SP_INSERT_INTO_REF_ANALYST_REC_WEIGHT"
+    objMyCmd.CommandType = adCmdStoredProc
+        
+    Set p = objMyCmd.Parameters
+    p.Append objMyCmd.CreateParameter("@ticker", adChar, adParamInput, 20)
+    p.Append objMyCmd.CreateParameter("@rank", adInteger, adParamInput)
+    p.Append objMyCmd.CreateParameter("@rec_weight", adDouble, adParamInput)
+        
+    Dim i As Integer
+    
+            i = 0
+            For x = 7 To 1000
+                If Cells(x, 7).Value <> "" And Cells(x, 8).Value <> "" And Cells(x, 11).Value <> "" Then
+                    objMyCmd("@ticker") = Cells(x, 11).Value
+                    objMyCmd("@rank") = Cells(x, 8).Value
+                    objMyCmd("@rec_weight") = Cells(x, 7).Value
+                    objMyCmd.Execute
+                End If
+                
+            Application.StatusBar = "Processing line item: " & x + 1
+            
+            Next
+  
+Application.StatusBar = "Ready"
+Application.Calculation = xlCalculationAutomatic
+
+End Sub
+
+
+Option Explicit
+
+Sub Auto_Open()
+    ' create the cashflows menus
+    MenuBars(xlWorksheet).Menus.Add Caption:="&FI_Analytics", _
+        before:="Help"
+    With MenuBars(xlWorksheet).Menus("FI_Analytics")
+        .MenuItems.Add Caption:="&Run_Buy_List_Upload Cashflows", OnAction:="insert_recweight_rank_bondsymbol_into_sql_from_buy_list"
+    End With
+End Sub
+
+Sub Auto_Close()
+    MenuBars(xlWorksheet).Menus("&FI_Analytics").Delete
+    On Error Resume Next
+End Sub

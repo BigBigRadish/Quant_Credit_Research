@@ -1,0 +1,142 @@
+Option Explicit
+
+Dim h As Integer, hy As Integer, hl As Integer, PortiaDir As String, _
+PortiaFile1 As String
+
+ 
+
+Sub Read_Data()
+
+
+PortiaDir = ThisWorkbook.Worksheets("GHI Data").Cells(16, 2).Value
+PortiaFile1 = ThisWorkbook.Worksheets("GHI Data").Cells(14, 2).Value & ".csv"
+
+
+End Sub
+
+Sub Run()
+
+        
+'copy data for Global high Income Fund (3032)
+    Workbooks.OpenText Filename:=PortiaDir & PortiaFile1, origin:=xlWindows, DataType:=xlDelimited, comma:=True
+    Windows(PortiaFile1).Visible = False
+    Windows(PortiaFile1).Activate
+    
+    Columns("A:AG").Select
+    Selection.Copy
+    ThisWorkbook.Worksheets("Global High Income Fund").Activate
+    Cells(1, 1).Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+    Application.CutCopyMode = False
+    h = 5
+    Do While Not IsEmpty(Cells(h, 1))
+    Cells(h, 32) = Cells(h, 26)
+    h = h + 1
+    Loop
+ 
+ 'close Portia file
+ 
+Workbooks(PortiaFile1).Close savechanges:=False
+
+
+End Sub
+Sub Format()
+
+'
+' Format Macro
+'
+
+'
+    Columns("A:AG").Select
+    Columns("A:AG").EntireColumn.AutoFit
+    Columns("C:C").Select
+    Selection.EntireColumn.Hidden = True
+    Columns("E:E").Select
+    Selection.EntireColumn.Hidden = True
+    Columns("F:F").Select
+    Selection.EntireColumn.Hidden = True
+    Range("Z2").Select
+    Selection.End(xlToLeft).Select
+    Range("I5:K5").Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Range("H5:H130").Select
+    Selection.NumberFormat = "0.00"
+    Range("K5:M130").Select
+    Selection.NumberFormat = "m/d/yyyy"
+    Range("C3").Select
+    Range(Selection, Selection.End(xlToRight)).Select
+    Range(Selection, Selection.End(xlToRight)).Select
+    Range(Selection, Selection.End(xlToRight)).Select
+    Range(Selection, Selection.End(xlToRight)).Select
+    Range(Selection, Selection.End(xlToLeft)).Select
+    Range("C3:AF3").Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Range("C3:AF130").Select
+    With Selection
+        .HorizontalAlignment = xlCenter
+        .VerticalAlignment = xlBottom
+        .WrapText = False
+        .Orientation = 0
+        .AddIndent = False
+        .IndentLevel = 0
+        .ShrinkToFit = False
+        .ReadingOrder = xlContext
+        .MergeCells = False
+    End With
+    Range("D3").Select
+    ActiveCell.FormulaR1C1 = "Type"
+    Range("A2").Select
+    Selection.NumberFormat = "m/d/yyyy"
+    Range("H3").Select
+    ActiveCell.FormulaR1C1 = "Coupon"
+    Range("AF3").Select
+    ActiveCell.FormulaR1C1 = "Country of Risk"
+    Range("S3").Select
+    ActiveCell.FormulaR1C1 = "YTW"
+    Range("T3").Select
+    ActiveCell.FormulaR1C1 = "Yrs to Eff Maturity"
+    Columns("T:T").EntireColumn.AutoFit
+    Range("W3").Select
+    ActiveCell.FormulaR1C1 = "Class"
+    Range("X3").Select
+    ActiveCell.FormulaR1C1 = "Capital Structure Rank"
+    Columns("X:X").EntireColumn.AutoFit
+    Range("Y3").Select
+    ActiveCell.FormulaR1C1 = "Sector"
+    Selection.End(xlToLeft).Select
+    Selection.End(xlToLeft).Select
+    Selection.End(xlToLeft).Select
+    Selection.End(xlToLeft).Select
+    Selection.End(xlToLeft).Select
+    Selection.End(xlToLeft).Select
+    Selection.End(xlToLeft).Select
+    Selection.End(xlToLeft).Select
+    Selection.End(xlToLeft).Select
+    Selection.End(xlToLeft).Select
+    Range(Selection, Selection.End(xlToRight)).Select
+    Range(Selection, Selection.End(xlToRight)).Select
+    Range(Selection, Selection.End(xlToRight)).Select
+    Range(Selection, Selection.End(xlToRight)).Select
+    Range("A3:XFC3").Select
+    Range(Selection, Selection.End(xlToLeft)).Select
+    Range("A3:AF4").Select
+    Selection.Font.Bold = True
+    Range("B5").Select
+    ActiveWindow.FreezePanes = True
+    Range("AC1").Select
+    Selection.End(xlToLeft).Select
+    Range("A1").Select
+    Range("B1").Select
+
+End Sub
+
+
+Sub Update()
+
+    Read_Data
+    Run
+    Format
+
+End Sub

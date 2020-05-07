@@ -1,0 +1,37 @@
+Function VarCovar(rng As Range) As Variant
+    Dim i As Integer
+    Dim j As Integer
+    Dim numCols As Integer
+    numCols = rng.Columns.Count
+    numRows = rng.Rows.Count
+    Dim matrix() As Double
+    ReDim matrix(numCols - 1, numCols - 1)
+    
+    For i = 1 To numCols
+        For j = 1 To numCols
+            matrix(i - 1, j - 1) = Application.WorksheetFunction.Covar(rng.Columns(i), rng.Columns(j)) _
+            * numRows / (numRows - 1)
+        Next j
+    Next i
+    VarCovar = matrix
+End Function
+Function CorrMatrix(rng As Range) As Variant
+    Dim i As Integer
+    Dim j As Integer
+    Dim numCols As Integer
+    numCols = rng.Columns.Count
+    numRows = rng.Rows.Count
+    Dim matrix() As Double
+    ReDim matrix(numCols - 1, numCols - 1)
+    
+    For i = 1 To numCols
+        For j = 1 To numCols
+            matrix(i - 1, j - 1) = Application.WorksheetFunction.Correl(rng.Columns(i), rng.Columns(j))
+        Next j
+    Next i
+    CorrMatrix = matrix
+End Function
+
+
+
+

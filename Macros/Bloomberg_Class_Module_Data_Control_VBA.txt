@@ -1,0 +1,530 @@
+' --------------------------------------------------------------------------
+' Bloomberg L.L.P.
+'
+' COM v3 Data Control code example - Visual Basic.
+'
+' Demonstrates the use of the Bloomberg Data Control for Intraday tick data.
+'
+' ** Registered Data Control Class Module **
+'
+' THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND,
+' EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED
+' WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A  PARTICULAR PURPOSE.
+'
+' --------------------------------------------------------------------------
+
+Option Explicit
+
+Private WithEvents session As blpapicomLib.session
+Dim refdataservice As blpapicomLib.Service
+
+Private Const FNBLPAPICOM = "blpapicom.dll"
+'Private Const FNBLPAPICOM = "C:\blp\api\blpapicom.dll" 'Old Decalaration
+
+Private Const SERVICE_REFDATA As String = "//blp/refdata"
+
+'Private Declare Function BlpCoCreateInstance Lib "C:\blp\api\bbloaderv3.dll" Old declaration
+Private Declare Function BlpCoCreateInstance Lib "bbloaderv3.dll" _
+   (ByVal lpszFilePathName As String, ByRef rclsid As GUID, riid As GUID) As Object
+   
+Private Declare Function CLSIDFromString Lib "ole32.dll" (pstCLS As Long, _
+    clsid As GUID) As Long
+
+Private Type GUID
+    Data1 As Long
+    Data2 As Long
+    Data3 As Long
+    Data4(7) As Byte
+End Type
+
+Dim rclsid As GUID
+Dim riid As GUID
+
+
+
+Dim subFields As Variant
+
+'these matrices will store the ranked bid/ask results
+Dim mResultsMatrixBid As Variant
+Dim mResultsMatrixAsk As Variant
+
+Dim mMappingOfCorrelationIDsBid As Collection
+Dim mMappingOfCorrelationIDsAsk As Collection
+
+Dim mSecurityCounter As Integer
+Dim mRequestCounter As Integer
+Dim colwidth As Integer
+Public Function TryStartService() As Boolean
+
+    On Error GoTo uRegv3
+    
+    If Not session Is Nothing Then
+        TryStartService = True
+        Exit Function
+    End If
+    
+    'try use registered control
+    Set session = New blpapicomLib.session
+    
+    On Error GoTo failed
+    GoTo startservice
+
+uRegv3:
+
+    'try use loader to load unregistered control
+    Set session = BlpCoCreateInstance(FNBLPAPICOM, _
+        GuidFromStGuid("{guid {1122778A-992E-475A-900F-4FD68505CB34}}"), _
+        GuidFromStGuid("{guid {28DB37DF-673E-41D2-BA21-37F28BF483C8}}"))
+
+'once we have an instance, start services
+startservice:
+    If session Is Nothing Then GoTo failed
+    session.QueueEvents = True
+    session.Start
+    session.OpenService SERVICE_REFDATA
+    Set refdataservice = session.GetService(SERVICE_REFDATA)
+    TryStartService = True
+    Exit Function
+
+failed:
+    MsgBox "Failed to initialize blpapicom", , "Bloomberg V3 Request Control"
+End Function
+
+Private Function GuidFromStGuid(ByVal stGuid As String) As GUID
+    Dim rc As Long
+    If Left$(stGuid, 7) = "{guid {" Then
+        If Right$(stGuid, 2) = "}}" Then
+            stGuid = Mid$(stGuid, 7, 38)
+        End If
+    End If
+    rc = CLSIDFromString(ByVal StrPtr(stGuid), GuidFromStGuid)
+End Function
+' Instantiate the Bloomberg ActiveX Control
+Private Sub Class_Initialize()
+    Dim fileName As String
+    fileName = "C:\blp\api\blpapicom.dll"
+    Set session = BlpCoCreateInstance(fileName, GuidFromStGuid("{guid {1122778A-992E-475A-900F-4FD68505CB34}}"), GuidFromStGuid("{guid {28DB37DF-673E-41D2-BA21-37F28BF483C8}}"))
+
+    'Set session = New blpapicomLib.session
+   
+    session.QueueEvents = True
+    session.Start
+   
+    Dim cid As blpapicomLib.CorrelationId
+    Set cid = session.CreateCorrelationId(1001)
+    session.OpenService ("//blp/refdata")
+    Set refdataservice = session.GetService("//blp/refdata")
+   
+End Sub
+
+Public Sub MakeRequest()
+    
+'    On Error GoTo errHandler
+    
+    'initialize results matrices
+    ReDim mResultsMatrixBid(wsMain.Range("c2"), 6) As String
+    ReDim mResultsMatrixAsk(wsMain.Range("c2"), 6) As String
+    
+    Set mMappingOfCorrelationIDsAsk = New Collection
+    Set mMappingOfCorrelationIDsBid = New Collection
+    
+    mSecurityCounter = 0
+    mRequestCounter = 0
+    colwidth = 1
+    'wsMatrix.Range(Cells(1, 1), Cells([tickers], [dealers] * 2)).ClearContents
+    If (wsMain.Range("S1").Value2 = 2) Then
+        Call LoopThroughAllSecuritiesAndRequestData("BID", mMappingOfCorrelationIDsBid)
+    ElseIf (wsMain.Range("S1").Value2 = 3) Then
+        Call LoopThroughAllSecuritiesAndRequestData("ASK", mMappingOfCorrelationIDsAsk)
+    ElseIf (wsMain.Range("S1").Value2 = 1 Or wsMain.Range("S1").Value2 = 4) Then
+        Call LoopThroughAllSecuritiesAndRequestData("BID", mMappingOfCorrelationIDsBid)
+        Call LoopThroughAllSecuritiesAndRequestData("ASK", mMappingOfCorrelationIDsAsk)
+        colwidth = 2
+    Else
+        MsgBox "Error in logic for making bid or ask request"  'should never occur
+    End If
+    
+
+
+'errHandler:
+'    MsgBox Err.Description
+End Sub
+Private Sub LoopThroughAllSecuritiesAndRequestData(marketSide As String, mapOfCorrelationIDToSecurity As Collection)
+    Dim req As Request
+    Dim nRow As Long
+    Dim secLine
+    Dim key As String
+
+    For secLine = 1 To wsMain.Range("c2")
+        Set req = refdataservice.CreateRequest("IntradayTickRequest")
+        wsData.Range("A:C").ClearContents
+        req.Set "security", wsMain.Cells(secLine + 8, 3).Value
+        Dim startTime As blpapicomLib.DateTime
+        Dim endTime As blpapicomLib.DateTime
+        
+        ' All times are in GMT
+        Set startTime = session.CreateDatetime
+        startTime.Year = wsData.Cells(2, 16).Value
+        startTime.Month = wsData.Cells(2, 14).Value
+        startTime.Day = wsData.Cells(2, 15).Value
+        startTime.Hour = wsData.Cells(2, 17).Value + wsMain.Cells(1, 26).Value
+        startTime.Minute = wsData.Cells(2, 18).Value
+        startTime.Second = wsData.Cells(2, 19).Value
+        
+        Set endTime = session.CreateDatetime
+        endTime.Year = wsData.Cells(3, 16).Value
+        endTime.Month = wsData.Cells(3, 14).Value
+        endTime.Day = wsData.Cells(3, 15).Value
+        endTime.Hour = wsData.Cells(3, 17).Value + wsMain.Cells(1, 26).Value
+        endTime.Minute = wsData.Cells(3, 18).Value
+        endTime.Second = wsData.Cells(3, 19).Value
+       
+        req.Set "startDateTime", startTime
+        req.Set "endDateTime", endTime
+        req.Set "endDateTime", endTime
+           req.Set "includeBrokerCodes", True
+        req.Append "eventTypes", marketSide
+        Dim cid As blpapicomLib.CorrelationId
+        Set cid = session.SendRequest(req)
+        key = cid.Value
+        Call mapOfCorrelationIDToSecurity.Add(secLine, key)
+        mRequestCounter = mRequestCounter + 1
+    '    Exit Sub
+    Next secLine
+End Sub
+
+'Destroy the Bloomberg COM Control
+Private Sub Class_Terminate()
+
+   Set session = Nothing
+   
+End Sub
+
+Private Sub session_ProcessEvent(ByVal obj As Object)
+    
+    Dim tickDataMatrix As Variant
+    Dim bestMatirx As Variant
+Dim dealer
+Dim dlrmulti
+    
+    
+   ' On Error GoTo Failure
+    
+    Dim eventObj As blpapicomLib.Event
+    Dim i As Integer
+    Dim sTime As String, sVal As String, sSize As String, sType As String, sbrokerbuy As String, sbrokersell As String
+'    Dim max1 As Integer
+'    Dim max2 As Integer
+'    Dim max3 As Integer
+'    Dim min1 As Integer
+'    Dim min2 As Integer
+'    Dim min3 As Integer
+    Dim max1 As Double
+    Dim max2 As Double
+    Dim max3 As Double
+    Dim min1 As Double
+    Dim min2 As Double
+    Dim min3 As Double
+
+    Dim m1 As Variant
+    Dim m2 As Variant
+    Dim m3 As Variant
+    Dim mi1
+    Dim mi2
+    Dim mi3
+    Dim y
+    Dim d
+    
+    Dim secLine
+    Dim key As String
+    
+    Dim isBidSide As Boolean
+    
+    Set eventObj = obj
+    
+    If Application.Ready Then
+        If eventObj.EventType = PARTIAL_RESPONSE Or eventObj.EventType = RESPONSE Then
+            Dim it As blpapicomLib.MessageIterator
+            Set it = eventObj.CreateMessageIterator()
+            
+            'increment security counter
+            mSecurityCounter = mSecurityCounter + 1
+            
+            Do While it.Next()
+                Dim msg As blpapicomLib.Message
+                Set msg = it.Message
+                key = msg.CorrelationId.Value
+                Dim tickData As Element
+                On Error Resume Next
+                Set tickData = msg.GetElement("tickData").GetElement("tickData")
+                On Error GoTo 0
+                
+                If Not tickData Is Nothing Then
+                     'if there are ticks in data
+                    If tickData.NumValues <> 0 Then
+                        'check if the ticks are bid side or ask side
+                        If tickData.GetValueAsElement(0).GetElement(1).Value = "BID" Then
+                            isBidSide = True
+                            'retrieve security number from mapping
+                            secLine = mMappingOfCorrelationIDsBid(key)
+                        Else
+                            isBidSide = False
+                            secLine = mMappingOfCorrelationIDsAsk(key)
+                        End If
+                        
+                        'write all ticks to the Data worksheet
+                        ReDim tickDataMatrix(0 To tickData.NumValues - 1, 0 To 2) As Variant
+                        ReDim bestMatrix(0, 0 To 5) As Variant
+                        Dim BROKERSHORT As String
+                        For i = 0 To tickData.NumValues - 1
+                            y = (tickData.NumValues - 1) - i
+                            sTime = tickData.GetValueAsElement(y).GetElement(0).Value - (wsMain.Cells(1, 26).Value / 24)
+                            sType = tickData.GetValueAsElement(y).GetElement(1).Value
+                            sVal = tickData.GetValueAsElement(y).GetElement(2).Value
+                            sSize = tickData.GetValueAsElement(y).GetElement(3).Value
+                            
+                            If tickData.GetValueAsElement(y).NumElements = 5 Then
+                                sbrokerbuy = tickData.GetValueAsElement(y).GetElement(4).Value
+                            Else
+                                sbrokerbuy = ""
+                            End If
+                            
+                            tickDataMatrix(i, 0) = Format(sTime, "h:nn AM/PM")
+                            tickDataMatrix(i, 1) = sVal
+                            tickDataMatrix(i, 2) = sbrokerbuy
+                                
+                            For d = 1 To [dealers]
+                                Select Case Len(wsDealers.Cells(9 + d, 3))
+                                Case 1
+                                BROKERSHORT = wsDealers.Cells(9 + d, 3).Value & "   "
+                                Case 2
+                                BROKERSHORT = wsDealers.Cells(9 + d, 3).Value & "  "
+                                Case 3
+                                BROKERSHORT = wsDealers.Cells(9 + d, 3).Value & " "
+                                Case 4
+                                BROKERSHORT = wsDealers.Cells(9 + d, 3).Value
+                                End Select
+                                
+                                If BROKERSHORT = sbrokerbuy Then
+                                    If tickData.GetValueAsElement(0).GetElement(1).Value = "BID" Then
+                                        If wsMatrix.Cells(secLine, d) = "" Then
+                                            wsMatrix.Cells(secLine, d) = sVal
+                                        Else
+                                        End If
+                                    Else
+                                        If wsMatrix.Cells(secLine, d + [dealers]) = "" Then
+                                            wsMatrix.Cells(secLine, d + [dealers]) = sVal
+                                        Else
+                                        End If
+                                    End If
+                                Else
+                                End If
+                            Next d
+                        Next i
+                        
+    '                    wsData.Range("a:C").ClearContents
+    '                    wsData.Range(wsData.Cells(1, 1), wsData.Cells(tickData.NumValues, 3)) = tickDataMatrix
+                        'end of writing ticks to sheet
+                    
+                      If wsMain.Range("u1") = 2 Then
+                            If isBidSide Then
+                            '**TODO: write sorting logic
+                                For y = 1 To 3
+                                    For i = 0 To tickData.NumValues - 1
+                                    sVal = tickDataMatrix(i, 1)
+                                        Select Case y
+                                        Case 1
+                                            If sVal > max1 Then
+                                                max1 = sVal
+                                                m1 = i
+                                            End If
+                                        Case 2
+                                            If (sVal < max1 And sVal > max2) Then
+                                                max2 = sVal
+                                                m2 = i
+                                            End If
+                                        Case 3
+                                            If (sVal < max2 And sVal > max3) Then
+                                                max3 = sVal
+                                                m3 = i
+                                            End If
+                                        End Select
+                                    Next
+                                Next
+                            Else 'sorting logic for ask side
+                                max1 = 10000
+                                max2 = 10000
+                                max3 = 10000
+                                        For y = 1 To 3
+                                            For i = 0 To tickData.NumValues - 1
+                                            sVal = tickDataMatrix(i, 1)
+                                                Select Case y
+                                                Case 1
+                                                    If sVal < max1 Then
+                                                        max1 = sVal
+                                                        m1 = i
+                                                    End If
+                                                Case 2
+                                                    If (sVal > max1 And sVal < max2) Then
+                                                        max2 = sVal
+                                                        m2 = i
+                                                    End If
+                                                Case 3
+                                                    If (sVal > max2 And sVal < max3) Then
+                                                        max3 = sVal
+                                                        m3 = i
+                                                    End If
+                                                End Select
+                                            Next
+                                        Next
+                            End If  '**End of ranking logic
+                      ElseIf wsMain.Range("u1") = 1 Then
+                        If isBidSide Then
+                            For y = 1 To 3
+                                For i = 0 To tickData.NumValues - 1
+                                sVal = tickDataMatrix(i, 1)
+                                    Select Case y
+                                    Case 1
+                                        If sVal > max1 Then
+                                            max1 = sVal
+                                            m1 = i
+                                        End If
+                                    Case 2
+                                        If (sVal <= max1 And sVal > max2 And tickDataMatrix(i, 2) <> tickDataMatrix(m1, 2)) Then
+                                            max2 = sVal
+                                            m2 = i
+                                        End If
+                                    Case 3
+                                        If (sVal <= max2 And sVal > max3 And tickDataMatrix(i, 2) <> tickDataMatrix(m1, 2) And tickDataMatrix(i, 2) <> tickDataMatrix(m2, 2)) Then
+                                            max3 = sVal
+                                            m3 = i
+                                        End If
+                                    End Select
+                                Next
+                            Next
+                        Else 'sorting logic for ask side
+                            max1 = 10000
+                            max2 = 10000
+                            max3 = 10000
+                            For y = 1 To 3
+                                For i = 0 To tickData.NumValues - 1
+                                    sVal = tickDataMatrix(i, 1)
+                                    Select Case y
+                                    Case 1
+                                        If sVal < max1 Then
+                                            max1 = sVal
+                                            m1 = i
+                                        End If
+                                    Case 2
+                                        If (sVal >= max1 And sVal < max2 And tickDataMatrix(i, 2) <> tickDataMatrix(m1, 2)) Then
+                                            max2 = sVal
+                                            m2 = i
+                                        End If
+                                    Case 3
+                                        If (sVal >= max2 And sVal < max3 And tickDataMatrix(i, 2) <> tickDataMatrix(m1, 2) And tickDataMatrix(i, 2) <> tickDataMatrix(m2, 2)) Then
+                                            max3 = sVal
+                                            m3 = i
+                                        End If
+                                    End Select
+                                Next
+                            Next
+                        End If  '**End of ranking logic
+                    Else
+                        If tickData.NumValues >= 3 Then
+                            m1 = 0
+                            m2 = 1
+                            m3 = 2
+                        Else
+                            Select Case tickData.NumValues
+                            Case 1
+                            m1 = 0
+                            Case 2
+                            m2 = 1
+                            End Select
+                        End If
+                    End If
+                        'write top 3 rankings to appropriate results matrix
+                        If isBidSide Then
+                        If (m1 = Empty And m1 <> "0") Then
+                        mResultsMatrixBid(secLine - 1, 0) = ""
+                        Else
+                            mResultsMatrixBid(secLine - 1, 0) = tickDataMatrix(m1, 0)
+                            mResultsMatrixBid(secLine - 1, 1) = tickDataMatrix(m1, 1) & "   " & tickDataMatrix(m1, 2)
+                        End If
+                        If (m2 = Empty And m2 <> "0") Then
+                        mResultsMatrixBid(secLine - 1, 2) = ""
+                        Else
+                            mResultsMatrixBid(secLine - 1, 2) = tickDataMatrix(m2, 0)
+                            mResultsMatrixBid(secLine - 1, 3) = tickDataMatrix(m2, 1) & "   " & tickDataMatrix(m2, 2)
+                        End If
+                        If (m3 = Empty And m3 <> "0") Then
+                        mResultsMatrixBid(secLine - 1, 4) = ""
+                        Else
+                            mResultsMatrixBid(secLine - 1, 4) = tickDataMatrix(m3, 0)
+                            mResultsMatrixBid(secLine - 1, 5) = tickDataMatrix(m3, 1) & "   " & tickDataMatrix(m3, 2)
+                        End If
+                        Else
+                        If (m1 = Empty And m1 <> "0") Then
+                        mResultsMatrixAsk(secLine - 1, 0) = ""
+                        Else
+                            mResultsMatrixAsk(secLine - 1, 0) = tickDataMatrix(m1, 0)
+                            mResultsMatrixAsk(secLine - 1, 1) = tickDataMatrix(m1, 1) & "   " & tickDataMatrix(m1, 2)
+                        End If
+                        If (m2 = Empty And m2 <> "0") Then
+                        mResultsMatrixAsk(secLine - 1, 2) = ""
+                        Else
+                            mResultsMatrixAsk(secLine - 1, 2) = tickDataMatrix(m2, 0)
+                            mResultsMatrixAsk(secLine - 1, 3) = tickDataMatrix(m2, 1) & "   " & tickDataMatrix(m2, 2)
+                        End If
+                        If (m3 = Empty And m3 <> "0") Then
+                        mResultsMatrixAsk(secLine - 1, 4) = ""
+                        Else
+                            mResultsMatrixAsk(secLine - 1, 4) = tickDataMatrix(m3, 0)
+                            mResultsMatrixAsk(secLine - 1, 5) = tickDataMatrix(m3, 1) & "   " & tickDataMatrix(m3, 2)
+                        End If
+                        End If
+                    Else
+                        'if no ticks in data, then do nothing
+                    End If
+                End If
+           Loop  'loop through next message, if exists
+           
+           'if received all responses back
+           If mSecurityCounter >= mRequestCounter Then
+                'MsgBox "ready to write"
+                '**TODO call write results function
+                dealer = wsDealers.Range("d9").Value2
+If wsMain.Range("v1") = "True" Then
+Select Case wsMain.Range("S1")
+    Case 1
+    dlrmulti = 2
+    wsMain.Range(wsMain.Cells(9, (dealer * dlrmulti) + 11), wsMain.Cells(wsMain.Range("c2").Value + 8, (dealer * dlrmulti) + 16)) = mResultsMatrixBid
+    wsMain.Range(wsMain.Cells(9, (dealer * dlrmulti) + 17), wsMain.Cells(wsMain.Range("c2").Value + 8, (dealer * dlrmulti) + 22)) = mResultsMatrixAsk
+
+    Case 2
+    dlrmulti = 1
+    wsMain.Range(wsMain.Cells(9, (dealer * dlrmulti) + 11), wsMain.Cells(wsMain.Range("c2").Value + 8, (dealer * dlrmulti) + 16)) = mResultsMatrixBid
+    Case 3
+    dlrmulti = 1
+    wsMain.Range(wsMain.Cells(9, (dealer * dlrmulti) + 11), wsMain.Cells(wsMain.Range("c2").Value + 8, (dealer * dlrmulti) + 16)) = mResultsMatrixAsk
+    Case 4
+    dlrmulti = 0
+    wsMain.Range(wsMain.Cells(9, (dealer * dlrmulti) + 11), wsMain.Cells(wsMain.Range("c2").Value + 8, (dealer * dlrmulti) + 16)) = mResultsMatrixBid
+    wsMain.Range(wsMain.Cells(9, (dealer * dlrmulti) + 17), wsMain.Cells(wsMain.Range("c2").Value + 8, (dealer * dlrmulti) + 22)) = mResultsMatrixAsk
+
+End Select
+Else
+End If
+            
+           End If
+           
+        Else
+            'if not a response or partial response, then do nothing
+        End If
+        
+    End If 'end to "if Application.Ready"
+  
+'Failure:
+'    MsgBox Err.Description
+  
+End Sub

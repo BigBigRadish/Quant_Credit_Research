@@ -1,0 +1,1349 @@
+function simple_gui2
+% SIMPLE_GUI2 Select a data set from the pop-up menu, then
+% click one of the plot-type push buttons. Clicking the button
+% plots the selected data in the axes.
+ 
+   %  Create and then hide the GUI as it is being constructed.
+   f = figure('Visible','off','Position',[360,500,450,285]);
+ 
+   %  Construct the components.
+   hsurf = uicontrol('Style','pushbutton','String','Surf',...
+          'Position',[315,220,70,25],...
+          'Callback',{@surfbutton_Callback});
+   hmesh = uicontrol('Style','pushbutton','String','Mesh',...
+          'Position',[315,180,70,25],...
+          'Callback',{@meshbutton_Callback});
+   hcontour = uicontrol('Style','pushbutton',...
+          'String','Countour',...
+          'Position',[315,135,70,25],...
+          'Callback',{@contourbutton_Callback}); 
+   htext = uicontrol('Style','text','String','Select Data',...
+          'Position',[325,90,60,15]);
+   hpopup = uicontrol('Style','popupmenu',...
+          'String',{'Peaks','Membrane','Sinc'},...
+          'Position',[300,50,100,25],...
+          'Callback',{@popup_menu_Callback});
+   ha = axes('Units','Pixels','Position',[50,60,200,185]); 
+   align([hsurf,hmesh,hcontour,htext,hpopup],'Center','None');
+   
+   % Create the data to plot.
+   peaks_data = peaks(35);
+   membrane_data = membrane;
+   [x,y] = meshgrid(-8:.5:8);
+   r = sqrt(x.^2+y.^2) + eps;
+   sinc_data = sin(r)./r;
+   
+   % Initialize the GUI.
+   % Change units to normalized so components resize 
+   % automatically.
+   set([f,ha,hsurf,hmesh,hcontour,htext,hpopup],...
+   'Units','normalized');
+   %Create a plot in the axes.
+   current_data = peaks_data;
+   surf(current_data);
+   % Assign the GUI a name to appear in the window title.
+   set(f,'Name','Simple GUI')
+   % Move the GUI to the center of the screen.
+   movegui(f,'center')
+   % Make the GUI visible.
+   set(f,'Visible','on');
+ 
+   %  Callbacks for simple_gui. These callbacks automatically
+   %  have access to component handles and initialized data 
+   %  because they are nested at a lower level.
+ 
+   %  Pop-up menu callback. Read the pop-up menu Value property
+   %  to determine which item is currently displayed and make it
+   %  the current data.
+      function popup_menu_Callback(source,eventdata) 
+         % Determine the selected data set.
+         str = get(source, 'String');
+         val = get(source,'Value');
+         % Set current data to the selected data set.
+         switch str{val};
+         case 'Peaks' % User selects Peaks.
+            current_data = peaks_data;
+         case 'Membrane' % User selects Membrane.
+            current_data = membrane_data;
+         case 'Sinc' % User selects Sinc.
+            current_data = sinc_data;
+         end
+      end
+  
+   % Push button callbacks. Each callback plots current_data in
+   % the specified plot type.
+ 
+   function surfbutton_Callback(source,eventdata) 
+   % Display surf plot of the currently selected data.
+      surf(current_data);
+   end
+ 
+   function meshbutton_Callback(source,eventdata) 
+   % Display mesh plot of the currently selected data.
+      mesh(current_data);
+   end
+ 
+   function contourbutton_Callback(source,eventdata) 
+   % Display contour plot of the currently selected data.
+      contour(current_data);
+   end 
+ 
+end
+
+
+
+
+function varargout = simple_gui(varargin)
+% SIMPLE_GUI M-file for simple_gui.fig
+%      SIMPLE_GUI, by itself, creates a new SIMPLE_GUI or raises the existing
+%      singleton*.
+%
+%      H = SIMPLE_GUI returns the handle to a new SIMPLE_GUI or the handle to
+%      the existing singleton*.
+%
+%      SIMPLE_GUI('CALLBACK',hObject,eventData,handles,...) calls the local
+%      function named CALLBACK in SIMPLE_GUI.M with the given input arguments.
+%
+%      SIMPLE_GUI('Property','Value',...) creates a new SIMPLE_GUI or raises the
+%      existing singleton*.  Starting from the left, property value pairs are
+%      applied to the GUI before simple_gui_OpeningFunction gets called.  An
+%      unrecognized property name or invalid value makes property application
+%      stop.  All inputs are passed to simple_gui_OpeningFcn via varargin.
+%
+%      *See GUI Options on GUIDE's Tools menu.  Choose "GUI allows only one
+%      instance to run (singleton)".
+%
+% See also: GUIDE, GUIDATA, GUIHANDLES
+
+% Edit the above text to modify the response to help simple_gui
+
+% Copyright 2001-2003 The MathWorks, Inc.
+
+% Last Modified by GUIDE v2.5 17-Dec-2003 12:35:18
+
+% Begin initialization code - DO NOT EDIT
+gui_Singleton = 1;
+gui_State = struct('gui_Name',       mfilename, ...
+                   'gui_Singleton',  gui_Singleton, ...
+                   'gui_OpeningFcn', @simple_gui_OpeningFcn, ...
+                   'gui_OutputFcn',  @simple_gui_OutputFcn, ...
+                   'gui_LayoutFcn',  [] , ...
+                   'gui_Callback',   []);
+if nargin & isstr(varargin{1})
+    gui_State.gui_Callback = str2func(varargin{1});
+end
+
+if nargout
+    [varargout{1:nargout}] = gui_mainfcn(gui_State, varargin{:});
+else
+    gui_mainfcn(gui_State, varargin{:});
+end
+% End initialization code - DO NOT EDIT
+
+
+% --- Executes just before simple_gui is made visible.
+function simple_gui_OpeningFcn(hObject, eventdata, handles, varargin)
+% This function has no output args, see OutputFcn.
+% hObject    handle to figure
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+% varargin   command line arguments to simple_gui (see VARARGIN)
+% Create the data to plot
+handles.peaks=peaks(35);
+handles.membrane=membrane;
+[x,y] = meshgrid(-8:.5:8);
+r = sqrt(x.^2+y.^2) + eps;
+sinc = sin(r)./r;
+handles.sinc = sinc;
+handles.current_data = handles.peaks;
+surf(handles.current_data)
+
+% Choose default command line output for simple_gui
+handles.output = hObject;
+
+% Update handles structure
+guidata(hObject, handles);
+
+% UIWAIT makes simple_gui wait for user response (see UIRESUME)
+% uiwait(handles.figure1);
+
+
+% --- Outputs from this function are returned to the command line.
+function varargout = simple_gui_OutputFcn(hObject, eventdata, handles)
+% varargout  cell array for returning output args (see VARARGOUT);
+% hObject    handle to figure
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Get default command line output from handles structure
+varargout{1} = handles.output;
+
+
+% --- Executes on button press in pushbutton1.
+function surf_pushbutton_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+% Display surf plot of the currently selected data
+surf(handles.current_data);
+
+% --- Executes on button press in pushbutton2.
+function mesh_pushbutton_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton2 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+% Display mesh plot of the currently selected data
+mesh(handles.current_data);
+
+% --- Executes on button press in pushbutton3.
+function contour_pushbutton_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton3 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+% Display contour plot of the currently selected data
+contour(handles.current_data);
+
+% --- Executes on selection change in plot_popup.
+function plot_popup_Callback(hObject, eventdata, handles)
+% hObject    handle to plot_popup (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+val = get(hObject,'Value');
+str = get(hObject, 'String');
+switch str{val};
+case 'peaks' % User selects peaks
+	handles.current_data = handles.peaks;
+case 'membrane' % User selects membrane
+	handles.current_data = handles.membrane;
+case 'sinc' % User selects sinc
+	handles.current_data = handles.sinc;
+end
+guidata(hObject,handles)
+% Hints: contents = get(hObject,'String') returns plot_popup contents as cell array
+%        contents{get(hObject,'Value')} returns selected item from plot_popup
+
+
+% --- Executes during object creation, after setting all properties.
+function plot_popup_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to plot_popup (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: popupmenu controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc
+    set(hObject,'BackgroundColor','white');
+else
+    set(hObject,'BackgroundColor',get(0,'defaultUicontrolBackgroundColor'));
+end
+
+
+% --- Executes during object creation, after setting all properties.
+function figure1_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to figure1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+
+function [MDD, MDDs, MDDe, MDDr] = MAXDRAWDOWN(r)
+% Maximum drawdown is defined as the largest drop from a peak to a bottom
+% experienced in a certain time period.
+%
+% [MDD, MDDs, MDDe, MDDr] = MAXDRAWDOWN(r)
+%
+% INPUTS:
+% r...      vector of log returns
+%
+% OUTPUTS:
+% MDD...   Maximum drawdown expressed as a log return figure
+% MDDs...  Start of maximum drawdown period expressed as an
+%          index on vector aReturnVector
+% MDDe...  End of maximum drawdown period expressed as an
+%          index on vector aReturnVector
+% MDDr...  End of recovery period expressed as an index on vector
+%          aReturnVector
+%
+% Andreas Steiner, March 2006
+% performanceanalysis@andreassteiner.net,
+% http://www.andreassteiner.net/performanceanalysis
+
+% size of r
+n = max(size(r));
+
+% calculate vector of cum returns
+cr = cumsum(r);
+
+% calculate drawdown vector
+for i = 1:n
+    dd(i) = max(cr(1:i))-cr(i);
+end;
+
+% calculate maximum drawdown statistics
+MDD = max(dd);
+if MDD ~= 0
+    MDDe = find(dd==MDD);
+    MDDs = find(abs(cr(MDDe)+ MDD - cr) < 0.000001);
+    % MDDr = MDDe+min(find(cr(MDDe:end) >= cr(MDDs)))-1;
+    if (size(find(cr(MDDe:end) >= cr(MDDs)),1) > 0)
+        MDDr = MDDe+min(find(cr(MDDe:end) >= cr(MDDs)))-1;
+    else
+        MDDr = MDDe;
+    end
+else
+    MDDe = 0;
+    MDDs = 0;
+    MDDr = 0;
+end
+
+
+
+clear
+clc
+load('ReturnStream.mat')
+RS = ReturnStreams(:,2:5);
+DT = ReturnStreams(:,1);
+
+RS = 1 + RS/100;
+
+dbaRtn = [1;RS(75:end,1)];
+uncRtn = [1;RS(178:end,2)];
+ibRtn = [1;RS(178:end,3)];
+
+dbaDT = DT(74:end);
+uncDT = DT(177:end);
+ibDT = DT(177:end);
+
+
+db_cr = [cumprod(dbaRtn)];
+unc_cr = [cumprod(uncRtn)];
+ib_cr = [cumprod(ibRtn)];
+
+db_r = log(db_cr(2:end)./db_cr(1:end-1));
+unc_r = log(unc_cr(2:end)./unc_cr(1:end-1));
+ib_r =  log(ib_cr(2:end)./ib_cr(1:end-1));
+
+
+%rtn = db_r;
+%rtn = unc_r;
+rtn = ib_r;
+
+len = size(rtn,1);
+lin = 0:len;
+per = 12;
+
+for i = 1:(len -per+1)
+    
+    if i == 94
+        i;
+    end
+    
+    [MDD(i,1), MDDs(i,1), MDDe(i,1), MDDr(i,1)] = ...
+        MAXDRAWDOWN(rtn(i:i+per-1));
+end;
+
+plot(lin,unc_cr)
+
+
+
+
+function varargout = controlsuite(varargin)
+% CONTROLSUITE M-file for controlsuite.fig
+%      CONTROLSUITE, by itself, creates a new CONTROLSUITE or raises the existing
+%      singleton*.
+%
+%      H = CONTROLSUITE returns the handle to a new CONTROLSUITE or the handle to
+%      the existing singleton*.
+%
+%      CONTROLSUITE('CALLBACK',hObject,eventData,handles,...) calls the local
+%      function named CALLBACK in CONTROLSUITE.M with the given input arguments.
+%
+%      CONTROLSUITE('Property','Value',...) creates a new CONTROLSUITE or raises the
+%      existing singleton*.  Starting from the left, property value pairs are
+%      applied to the GUI before controlsuite_OpeningFcn gets called.  An
+%      unrecognized property name or invalid value makes property application
+%      stop.  All inputs are passed to controlsuite_OpeningFcn via varargin.
+%
+%      *See GUI Options on GUIDE's Tools menu.  Choose "GUI allows only one
+%      instance to run (singleton)".
+%
+% See also: GUIDE, GUIDATA, GUIHANDLES
+
+% This GUI is not resizable.
+% Edit the above text to modify the response to help controlsuite
+
+% Last Modified by GUIDE v2.5 27-Jun-2013 15:15:35
+
+% Begin initialization code - DO NOT EDIT
+gui_Singleton = 1;
+gui_State = struct('gui_Name',       mfilename, ...
+                   'gui_Singleton',  gui_Singleton, ...
+                   'gui_OpeningFcn', @controlsuite_OpeningFcn, ...
+                   'gui_OutputFcn',  @controlsuite_OutputFcn, ...
+                   'gui_LayoutFcn',  [] , ...
+                   'gui_Callback',   []);
+if nargin && ischar(varargin{1})
+    gui_State.gui_Callback = str2func(varargin{1});
+end
+
+if nargout
+    [varargout{1:nargout}] = gui_mainfcn(gui_State, varargin{:});
+else
+    gui_mainfcn(gui_State, varargin{:});
+end
+% End initialization code - DO NOT EDIT
+
+
+% --- Executes just before controlsuite is made visible.
+function controlsuite_OpeningFcn(hObject, eventdata, handles, varargin)
+% This function has no output args, see OutputFcn.
+% hObject    handle to figure
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+% varargin   command line arguments to controlsuite (see VARARGIN)
+
+% Choose default command line output for controlsuite
+handles.output = hObject;
+
+% Update handles structure
+guidata(hObject, handles);
+
+% UIWAIT makes controlsuite wait for user response (see UIRESUME)
+% uiwait(handles.figure1);
+
+% Create a surfaceplot of the membrane function in the GUI's axes
+membrane(1)
+
+
+% --- Outputs from this function are returned to the command line.
+function varargout = controlsuite_OutputFcn(hObject, eventdata, handles) 
+% varargout  cell array for returning output args (see VARARGOUT);
+% hObject    handle to figure
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Get default command line output from handles structure
+varargout{1} = handles.output;
+
+
+% --- Executes on button press in pushbutton1.
+function pushbutton1_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+set(handles.textStatus, 'String', 'Push button pushed')
+
+
+% --- Executes on button press in pushbutton2.
+function pushbutton2_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton2 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+set(handles.textStatus, 'String', 'Picture button pushed')
+
+
+% --- Executes on button press in togglebutton1.
+function togglebutton1_Callback(hObject, eventdata, handles)
+% hObject    handle to togglebutton1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of togglebutton1
+
+isDown = get(hObject,'Value');
+
+if isDown
+    set(handles.textStatus, 'string', 'Toggle down')
+else
+    set(handles.textStatus, 'string', 'Toggle up')
+end
+
+
+% --- Executes on button press in togglebutton2.
+function togglebutton2_Callback(hObject, eventdata, handles)
+% hObject    handle to togglebutton2 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of togglebutton2
+
+isDown = get(hObject,'Value');
+if isDown
+    set(handles.textStatus, 'string', 'Table editable')
+    set(handles.uitable1, 'ColumnEditable', true)
+else
+    set(handles.textStatus, 'string', 'Table locked')
+    set(handles.uitable1, 'ColumnEditable', false)
+end
+
+
+% --- Executes on button press in checkbox1.
+function checkbox1_Callback(hObject, eventdata, handles)
+% hObject    handle to checkbox1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of checkbox1
+
+isChecked = get(hObject,'Value');
+
+if isChecked
+    set(handles.textStatus, 'string', 'Box checked')
+else
+    set(handles.textStatus, 'string', 'Box unchecked')
+end
+
+
+% --- Executes during object creation, after setting all properties.
+function edit1_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to edit1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), ...
+                   get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+function edit1_Callback(hObject, eventdata, handles)
+% hObject    handle to edit1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of edit1 as text
+%        str2double(get(hObject,'String')) returns contents of edit1 as a double
+
+myText = get(hObject,'String');
+set(handles.textStatus, 'string', myText)
+
+
+% --- Executes during object creation, after setting all properties.
+function edit2_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to edit2 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), ...
+           get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+function edit2_Callback(hObject, eventdata, handles)
+% hObject    handle to edit2 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of edit2 as text
+%        str2double(get(hObject,'String')) returns contents of edit2 as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function listbox1_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to listbox1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: listbox controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), ...
+                   get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+% --- Executes on selection change in listbox1.
+function listbox1_Callback(hObject, eventdata, handles)
+% hObject    handle to listbox1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: contents = get(hObject,'String') returns listbox1 contents as cell array
+%        contents{get(hObject,'Value')} returns selected item from listbox1
+
+contents     = get(hObject,'String');
+selectedText = contents{get(hObject,'Value')};
+set(handles.textStatus, 'string', selectedText)
+
+
+% --- Executes during object creation, after setting all properties.
+function pushbutton2_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to pushbutton2 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+buttonIm = cat(3, ones(10),eye(10),eye(10));
+set(hObject,            ...
+    'cdata',  buttonIm, ...
+    'string', '');
+
+
+% --- Executes during object creation, after setting all properties.
+function radiobutton1_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to radiobutton1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+set(hObject,'String','Top Radio button')
+
+
+% --- Executes on button press in radiobutton1.
+function radiobutton1_Callback(hObject, eventdata, handles)
+% hObject    handle to radiobutton1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of radiobutton1
+
+set(handles.textStatus, 'string', 'Top radio button pushed')
+
+
+% --- Executes during object creation, after setting all properties.
+function radiobutton2_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to radiobutton2 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+set(hObject,'String','Middle Radio button')
+
+
+% --- Executes on button press in radiobutton2.
+function radiobutton2_Callback(hObject, eventdata, handles)
+% hObject    handle to radiobutton2 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of radiobutton2
+
+set(handles.textStatus, 'string', 'Middle radio button pushed')
+
+
+% --- Executes during object creation, after setting all properties.
+function radiobutton3_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to radiobutton3 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+set(hObject,'String','Bottom Radio button')
+
+
+% --- Executes on button press in radiobutton3.
+function radiobutton3_Callback(hObject, eventdata, handles)
+% hObject    handle to radiobutton3 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of radiobutton3
+
+set(handles.textStatus, 'string', 'Bottom radio button pushed')
+
+
+% --- Executes during object creation, after setting all properties.
+function popupmenu1_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to popupmenu1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: popupmenu controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), ...
+                   get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+% --- Executes on selection change in popupmenu1.
+function popupmenu1_Callback(hObject, eventdata, handles)
+% hObject    handle to popupmenu1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: contents = get(hObject,'String') returns popupmenu1 contents as cell array
+%        contents{get(hObject,'Value')} returns selected item from popupmenu1
+
+contents       = get(hObject,'String'); 
+selectedText   = contents{get(hObject,'Value')};
+colormapStatus = [selectedText ' colormap'];
+set(handles.textStatus, 'string', colormapStatus);
+colormap(selectedText)
+
+
+% --- Executes during object creation, after setting all properties.
+function slider1_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to slider1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: slider controls usually have a light gray background.
+if isequal(get(hObject,'BackgroundColor'), ...
+           get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor',[.9 .9 .9]);
+end
+set(hObject,'Min',0,'Max',360)
+set(hObject,'Value',322.5)
+
+
+% --- Executes on slider movement.
+function slider1_Callback(hObject, eventdata, handles)
+% hObject    handle to slider1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'Value') returns position of slider
+%        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
+
+sliderVal    = get(hObject,'Value');
+sliderStatus = ['View azimuth: ' num2str(sliderVal)];
+set(handles.textStatus, 'string', sliderStatus)
+view(sliderVal, 30)
+
+
+% --- Executes during object creation, after setting all properties.
+function uitable1_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to uitable1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+memb = membrane(1);
+set(hObject, 'data', memb)
+
+
+% --- Executes when entered data in editable cell(s) in uitable1.
+function uitable1_CellEditCallback(hObject, eventdata, handles)
+% hObject    handle to uitable1 (see GCBO)
+% eventdata  structure with the following fields (see UITABLE)
+%	Indices: row and column indices of the cell(s) edited
+%	PreviousData: previous data for the cell(s) edited
+%	EditData: string(s) entered by the user
+%	NewData: EditData or its converted form set on the Data property. Empty if Data was not changed
+%	Error: error string when failed to convert EditData to appropriate value for Data
+% handles    structure with handles and user data (see GUIDATA)
+
+cellStatus = sprintf('Value [%g,%g] of %6.4g changed to %6.4g',...
+                     eventdata.Indices,...
+                     eventdata.PreviousData, eventdata.NewData);
+set(handles.textStatus,'string',cellStatus) 
+set(get(handles.axes1,'Children'),'ZData',get(hObject,'Data'))
+
+
+
+function r=corr(X)
+% correlation coefficient 
+% function r=corr(X)
+% X is a 2-column data vector
+% ignores NaN's in one of the vectors
+i=find(~isnan(X(:,1)) & ~isnan(X(:,2)));
+if size(i,1)<3
+    r=NaN;
+else
+    A=corrcoef(X(i,:));  
+    if (~isnan(A))
+        r=A(2,1);
+    else 
+        r=NaN;
+    end;
+end;
+
+
+
+
+function [INT,Convert]=fac2int(R)
+% function [INT,Convert]=fac2int(R)
+% fac2int deals with string entries in data matrices 
+% for plots and pivottables
+% R=either Matrix,Cell array of string elements, or Cell array of mixed elements
+% INT: Integer representation of factor 
+% Convert.isnum = [vector of falgs if the column was numeric]
+% Convert.names{} = if string, it stores the names for the codes.
+if isnumeric(R) | islogical(R)
+    INT=R;
+    Convert.isnum=ones(1,size(R,2));
+elseif iscell(R)
+    [rows,cols]=size(R);
+    if (rows>1)
+        R={R};
+        [rows,cols]=size(R);
+    end;
+    INT=zeros(size(R{1},1),cols);
+    for i=1:cols
+        if iscell(R{1,i});
+            Convert.isnum(i)=0;
+            [Convert.names{i},d,INT(:,i)]=unique(R{1,i});
+        else
+            Convert.isnum(i)=1;
+            INT(:,i)=R{1,i};
+        end;
+    end;
+end;
+
+
+
+function R=int2fac(INT,Convert)
+% function [INT,Convert]=fac2int(R)
+% fac2int deals with string entries in data matrices 
+% for plots and pivottables
+% R=either Matrix,Cell array of string elements, or Cell array of mixed elements
+% INT: Integer representation of factor 
+% Convert.isnum = [vector of falgs if the column was numeric]
+% Convert.names{} = if string, it stores the names for the codes.
+if all(Convert.isnum)
+    R=INT;
+else 
+    [rows,cols]=size(INT);
+    for i=1:cols
+        if Convert.isnum(i)
+            R{i}=INT(:,i);
+        else 
+            R{i}={Convert.names{i}{INT(:,i)}}';
+        end;
+    end;
+    if cols==1
+        R=R{1};
+    end;
+end;
+
+
+
+function A  = pidata(R,F) 
+% gives the data sorted ready for a  pivot table in a cell array 
+% 
+% function A  = pidata(R,F)
+% A is a N*2 cell array 
+% A{:,1} is a vector which describes the combination of R-factors 
+% A{:,2} hold a vector of field data 
+% Bug-fix 7/25/03: if there is a NaN in one of the Row-data, the old
+% version automatically crashed. Bug is fixed.
+% Extension: data can be two or more column
+% 7/12/04: Rewrote function to avoid recursion and expensive matrix-resizing, 
+% uses 
+B={};
+  [rr,rc]=size(R);
+  [fr,fc]=size(F);
+  if (rr~=fr) 
+      error('Rows, Column and Field vector must have same length');
+  end;
+  B=unique(R,'rows');
+  for i=1:size(B,1);
+      A{i,1}=B(i,:);
+      indx=findrow(R,B(i,:));
+      A{i,2}=F(indx,:);
+  end;
+
+
+
+
+
+
+
+function [FA,RA,CA]  = pivottable(R,C,f,fieldcommand,varargin) 
+% gives a pivot table with (Rows-signifier, column-signifier, )
+% [FA,RA,CA]  = pivottable(R,C,F,fieldcommand,varargin) 
+% input:
+%   R,C: row and columns of the pivottable.  These are vectors/ mtaices of size (N*numrow_variables) and N*numcolumn_variables)
+%        total number of categories should be lower than 500
+%   F: Data Field
+%   fieldcommand: function-name to plug in example:
+%      (mean,median,corr,robustmean etc....)
+%   VARARGIN: 
+%       'datafilename',filename: saves pivottable as a formated text file
+%       'numformat',format: makes pivottprint print it out in specified
+%               number format
+%       'subset',indicator: selects a subset of the data, indicated by 
+%               the 1's in the indicator 
+%       'forcerow',values: Forces the rows to have the entries values 
+%       'forcecol',values: Forces the rows to have the entries values 
+% output :
+%   FA: the field of the pivot table
+%   RA: row-headers
+%   CA: column-headers
+%  If no output varaibles are given, pivottable prints the table on the
+%  screen
+% 
+% EXAMPLES: 
+% D=dload('alldata.txt');
+%
+% Only gives row,column, and field back:
+% [f,r,c]=pivottable(D.SN,D.Cond,D.RT,'robustmean','subset',D.c==1);
+% 
+% prints it on the screen & saves it as a formatted file:
+% pivottable([D.Group D.SN],[D.Cond D.subcond],D.angle,'circstddeg','save','myresultfile');
+% 
+% calculates the correlation within each subject (no column category)
+% pivottable(D.SN,[],[D.x D.y],'corr');
+% 
+% Field commands can also be whole strings of expressions. The dependent 
+% variable is marked as an x. The following command calculates the RMSE:
+% pivottable(D.SN,D.condition,D.error,'sqrt(mean(x.^2))');
+%
+% written by Joern Diedrichsen (jdiedric@jhu.edu)
+% v.1: 2001
+% v.2: Fixed a couple of bugs in utility routines pidata and pivrecurs: 
+%       Now treats NaN's in the data sheet correctly
+%       can accomodate fieldcommands that are returning a scalar on a multi-column variable 
+%       (for example: correlations)
+%       Support for writing text files
+% v.3: done varargin arguments for subset 
+% v.4: Allows for complex field commands 
+% v.5: added the feature of forcerow and forcecol
+FA=[];RA=[];CA=[];
+[C,Cconv]=fac2int(C);
+[R,Rconv]=fac2int(R);
+[Cr,Cc]=size(C);
+[Rr,Rc]=size(R);
+[Fr,Fc]=size(f);
+numformat='%6.2f';
+% check for empty matrixes
+if(Fr==0) 
+    fprintf('Pivottable error: Pivottable empty\n');
+    return;
+end;
+
+if (nargin<4) 
+    fprintf('Pivottable error: You need to specify field command (e.g. "mean")\n');
+    return;
+end;
+
+datafilename=[];
+subset=ones(size(f,1),1);
+vararginoptions(varargin,{'datafilename','subset','numformat','forcecol','forcerow'});
+if (~isempty(R)) 
+    R=R(find(subset),:);
+end;
+if (~isempty(C)) 
+    C=C(find(subset),:);
+end;
+f=f(find(subset),:);
+if (isempty(f))
+    return;
+end;
+A=pidata([R C],f); % get the columns-oriented version
+[numCat,Ac]=size(A);
+
+% compress A into a matrix of row-categories, column-catgories and results
+R_temp=[];C_temp=[];F_temp=[];
+for r=1:numCat
+    R_temp=[R_temp;A{r,1}(1:Rc)];
+    C_temp=[C_temp;A{r,1}(Rc+1:end)];
+    F_temp=[F_temp;fcneval(fieldcommand,A{r,2})];
+end;
+
+% put them into final matrix form
+[RA,ri,rj]=unique(R_temp,'rows');
+[CA,ci,cj]=unique(C_temp,'rows');
+FA=ones(size(RA,1),size(CA,1))*NaN;
+for i=1:numCat
+    FA(rj(i),cj(i))=F_temp(i);
+end;
+% now sort the entrees
+if length(RA)>1
+    [RA,Index]=sortrows(RA);
+    FA=FA(Index,:);
+end;
+if length(CA)>1
+    [CA,Index]=sortrows(CA);
+    FA=FA(:,Index);
+end;
+
+% Now check if we need to do forcecol or forcerow
+if (exist('forcecol','var'))
+    if (size(CA,2)~=size(forcecol,2))
+        error('forcecol argument must have same size as column argument');
+    end;
+    F_new=ones(size(FA,1),size(forcecol,1))*NaN;
+    for i=1:size(forcecol,1)
+        j=findrow(CA,forcecol(i,:));
+        if (~isempty(j))
+            F_new(:,i)=FA(:,j);
+        end;
+    end;
+    CA=forcecol;
+    FA=F_new;
+end;
+if (exist('forcerow','var'))
+    if (size(RA,2)~=size(forcerow,2))
+        error('forcerow argument must have same size as column argument');
+    end;
+    F_new=ones(size(forcerow,1),size(FA,2))*NaN;
+    for i=1:size(forcerow,1)
+        j=findrow(RA,forcerow(i,:));
+        if (~isempty(j))
+            F_new(i,:)=FA(j,:);
+        end;
+    end;
+    RA=forcerow;
+    FA=F_new;
+end;
+RA=int2fac(RA,Rconv);
+CA=int2fac(CA,Cconv);
+if (nargout==0)
+    print_pivot(RA,CA,FA,numformat);
+end;
+if (~isempty(datafilename)) 
+    [Cr,Cc]=size(CA);
+    [Rr,Rc]=size(RA);
+    F=[zeros(Cc,Rc)*NaN CA';RA FA];
+    dlmwrite(datafilename,F,'\t'); 
+end;
+
+
+
+
+
+
+function print_pivot(RA,CA,FA,numformat)
+% function print_pivot(RA,CA,FA)
+% provides formated output of a pivot table 
+if nargin<4 
+    numformat='%6.2f';
+end;
+if (iscell(RA) & size(RA,2)==1)
+    RA={RA};
+end;
+if (iscell(CA) & size(CA,2)==1)
+    CA={CA};
+end;
+rowvars=size(RA,2);
+colvars=size(CA,2);
+[r,c]=size(FA);
+for (i=1:colvars)
+    for (x=1:rowvars)
+        fprintf('      \t');
+    end;
+    fprintf('|');
+    if (iscell(CA))
+        var=CA{i};
+    else
+        var=CA(:,i);
+    end;
+    if iscell(var)
+        for j=1:c
+            fprintf(['%6s\t'],var{j});
+        end;
+    else 
+        fprintf([numformat '\t'],var);
+    end;
+    fprintf('\n');
+end;
+for (x=1:rowvars)
+    fprintf('------\t');
+end;
+fprintf('|');
+for (x=1:c)
+    fprintf('------\t');
+end; 
+fprintf('\n');
+for (i=1:r)
+    for j=1:rowvars
+        if iscell(RA)
+            fprintf(['%6s\t'],RA{j}{i,1});
+        else
+            fprintf([numformat '\t'],RA(i,j));
+        end;
+    end;
+    fprintf('|');
+    fprintf([numformat '\t'],FA(i,:));
+    fprintf('\n');
+end;
+
+
+
+
+
+function d=ssq_diff(X)
+d=sum((X(:,1)-X(:,2)).^2);
+
+
+
+function err=stderr(x)
+err=nanstd(x)/sqrt(size(x,1));
+
+
+
+function T  = tapply(D,categories,varargin) 
+% T  = tapply(D,categories,{dependent 1},{dependent 2},...)
+% Condenses a data structure into a new data structure 
+% EXAMPLE:
+%   tapply(D,{'Cond','Subcond'},{'RT','mean',subset',D.SN == 1,'name','mRT'},...,'subset',D.good)
+%   makes a new data frame with variables Cond, Subcond 
+%   and other variables that are calculated based on prescription
+% --------------------------------------------------------------
+% Joern Diedrichsen jdiedric@jhu.edu
+Dep={};R=[];T=[];
+if (~iscell(categories))
+    categories={categories};
+end;
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Do the category variable 
+for i=1:length(categories)
+    x=getfield(D,categories{i}); 
+    [R(:,i),R_conv{i}]=fac2int(x);
+end;
+[rR,cR]=size(R);
+index=logical(ones(size(R,1),1));
+c=1;
+
+% Parse dependents: Cells are dependent variables 
+while c<=length(varargin)
+    if (iscell(varargin{c}))
+        Dep{end+1}=varargin{c};
+        c=c+1;
+    else 
+        switch (varargin{c})
+            case 'subset'
+                index=varargin{c+1};c=c+2;
+            otherwise 
+                error('tapply: unknown option');
+        end;
+    end;
+end;
+
+
+
+% Now do all the pivottables for all the Y
+TR=[];FR=[];dv=1;
+for dvar=1:length(Dep)
+    [F,Cat,name{dvar}]=do_dependent(Dep{dvar},R,D,index);
+    FR=[FR ones(size(FR,1),1)*NaN];
+    for i=1:size(Cat,1)
+        x=findrow(TR,Cat(i,:));
+        if (isempty(x))
+            TR(end+1,:)=Cat(i,:);
+            x=size(TR,1);
+            FR(end+1,:)=ones(1,size(FR,2))*NaN;
+        end;
+        FR(x,dv:dv+size(F,2)-1)=F(i,:);
+    end;
+    dv=dv+size(F,2);
+
+end;
+
+% Now tranfer the fields
+for c=1:length(categories)
+    if (R_conv{c}.isnum)
+        T=setfield(T,categories{c},TR(:,c));
+    else 
+        T=setfield(T,categories{c},{R_conv{c}.names{1}{TR(:,c)}}');
+    end;
+end;
+dvar=1;
+for c=1:length(name)
+    if (iscell(name{c}))
+        for v=1:length(name{c})
+            T=setfield(T,name{c}{v},FR(:,dvar));
+            dvar=dvar+1;    
+        end;
+    else
+        T=setfield(T,name{c},FR(:,dvar));
+        dvar=dvar+1;
+    end;
+end;
+% keyboard;
+
+
+function [F,Cat,name]=do_dependent(Dep,R,D,index);
+if ischar(Dep{1})
+    name=Dep{1};
+    Y=getfield(D,name);
+else 
+    name='var';
+    Y=Dep{1};
+end;
+if length(Dep)<2
+    fcn='nanmean';
+else
+    fcn=Dep{2};
+end;
+c=3;
+Column=[];
+while c<=length(Dep)
+    switch (Dep{c})
+        case 'name'
+            name=Dep{c+1};
+            c=c+2;
+        case 'subset'
+            index=index & Dep{c+1};
+            c=c+2;
+        case 'split'
+            Column=Dep{c+1};
+            c=c+2;
+        otherwise 
+            error (sprintf('unknown option: %s',Dep{c+1}));
+    end;
+end;
+[F,Cat,Split]=pivottable(R,Column,Y,fcn,'subset',index);
+if (~isempty(Split))
+    for i=1:size(Split,1)
+        New_name{i}=[name sprintf('_%d',Split(i,:))];
+    end;
+    name=New_name;
+end;
+
+
+
+
+
+function out = pivottable(inMatrix, pivotRow, varargin)
+%PIVOTTABLE Group a matrix into a pivot table, is flexible as in Excel
+%
+% out = pivottable(inMatrix, pivotRow, pivotColumn, valueColumn, valueFun) group
+% the input matrix "inMatrix" into a pivottable similar with Excel. Anyone
+% who are familiar with the pivottable in Excel will not have difficulties
+% with this function.
+%
+% How the pivottables created are shown in following examples:
+% let 
+%     inMatrix = {
+%         '2009', 'Mon', 12, 31;
+%         '2009', 'Wed', 11, 34;
+%         '2009', 'Fri', 1, 4;
+%         '2009', 'Mon', 3, 4;
+%         '2009', 'Wed', 9, 6;
+%         '2009', 'Fri', 1, 4;
+%         '2010', 'Mon', 18, 15;
+%         '2010', 'Wed', 11, 21;
+%         '2010', 'Wed', 1, 4;    
+%         };
+% then
+%     pivottable(inMatrix, 1, 2, 3, @sum) output a cell
+%             []    'Fri'    'Mon'    'Wed'
+%         '2009'    [  2]    [ 15]    [ 20]
+%         '2010'       []    [ 18]    [ 12]
+%     pivottable(inMatrix, [1 2], [], 3, @sum) output a cell
+%         '2009'    'Fri'    [ 2]
+%         '2009'    'Mon'    [15]
+%         '2009'    'Wed'    [20]
+%         '2010'    'Mon'    [18]
+%         '2010'    'Wed'    [12]    
+%     pivottable(inMatrix, [], 2, 3, @sum) output a cell
+%         'Fri'    'Mon'    'Wed'
+%         [  2]    [ 33]    [ 32]
+%     pivottable(inMatrix, 1, 2, [3 4], {@sum, @(x)(numel(x))})
+%             []    'Fri'    'Fri'    'Mon'    'Mon'    'Wed'    'Wed'
+%         '2009'    [  2]    [  2]    [ 15]    [  2]    [ 20]    [  2]
+%         '2010'       []       []    [ 18]    [  1]    [ 12]    [  2]    
+%
+% author: zhang@zhiqiang.org, http://zhiqiang.org/blog/it/pivottable-in-matlab.html
+% version: 2011-02-28 ver 1
+
+if nargin == 5
+    pivotColumn = varargin{1};
+    valueColumn = varargin{2};
+    valueFun = varargin{3};
+else
+    pivotColumn = [];
+    valueColumn = varargin{1};
+    valueFun = varargin{2};
+end
+
+inMatrix = sortrows(inMatrix, [pivotRow pivotColumn]);
+if isnumeric(inMatrix), inMatrix = num2cell(inMatrix); end
+if ~iscell(valueFun), valueFun = {valueFun}; end
+
+inN = cell2mat(inMatrix(:, valueColumn));
+
+out = [];
+N = numel(pivotRow);
+M = numel(valueColumn);
+
+tmp = cell(1, N + M);
+
+s = 1;
+
+if isempty(pivotColumn)
+    while s <= size(inMatrix, 1)
+        i = s + 1;
+        while i <= size(inMatrix, 1) && isequal(inMatrix(i, pivotRow), inMatrix(s, pivotRow))
+            i = i + 1;
+        end
+        
+        tmp(1:N) = inMatrix(s, pivotRow);
+        
+        for j = 1:M
+            tmp{N+j} = feval(valueFun{j}, inN(s:i-1, j));
+        end
+        
+        out = [out; tmp];
+        s = i;
+    end
+else
+    % 先构造out矩阵的行头和列头，其中前numel(pivotColumn)行为pivotRow列对应的值，
+    % 前numel(pivotRow)列为pivotColumn列对应的值
+    out = cell(numel(pivotColumn), numel(pivotRow));
+    
+    % 构造列头
+    s = 1;
+    while s <= size(inMatrix, 1)
+        i = s + 1;
+        while i <= size(inMatrix, 1) && isequal(inMatrix(i, pivotRow), inMatrix(s, pivotRow))
+            i = i + 1;
+        end
+        
+        out = [out; inMatrix(s, pivotRow)];
+        s = i;
+    end
+    
+    
+    % 构造行头，行头从第numel(pivotRow) + 1列开始
+    % 注意，每个行头会重复numel(valueColumn)次
+    in1 = sortrows(inMatrix, pivotColumn);
+    t = 1; k = numel(pivotRow) + 1;
+    while t <= size(in1, 1)
+        i = t + 1;
+        while i <= size(in1, 1) && isequal(in1(i, pivotColumn), in1(t, pivotColumn))
+            i = i + 1;
+        end
+        
+        for r = k:k+numel(valueColumn)-1
+            out(1:numel(pivotColumn), r) = in1(t, pivotColumn)';
+        end
+        
+        k = k + numel(valueColumn);
+        t = i;
+    end
+
+    % 此处开始填写实际值
+    % 首先还是先循环每行，先找出pivotColumn一样的行，在这些行里再进行分类
+    s = 1; ks = numel(pivotColumn);
+    while s <= size(inMatrix, 1)
+        i = s + 1;
+        ks = ks + 1;
+        while i <= size(inMatrix, 1) && isequal(inMatrix(i, pivotRow), inMatrix(s, pivotRow))
+            i = i + 1;
+        end
+        
+        % 至此处第[s:i-1]行的pivotColumn列值完全一样，下面再对着i-s行根据
+        % pivotRow列值进行细分
+        t = s;
+        k = numel(pivotRow) + 1;
+        while t < i
+            j = t + 1;
+            while j < i && isequal(inMatrix(j, pivotColumn), inMatrix(t, pivotColumn))
+                j = j + 1;
+            end
+            
+            % 至此处第[t:j-1]行的pivotColumn、pivotRow列值完全一样
+            while ~isequal(inMatrix(t, pivotColumn), out(1:numel(pivotColumn), k)')
+                k = k + numel(valueColumn);
+            end
+
+            for r = 1:numel(valueColumn)
+                try
+                    out{ks, k + r - 1} = feval(valueFun{r}, cell2mat(inMatrix(t:j-1, valueColumn(r))));
+                catch
+                    out(ks, k + r - 1) = feval(valueFun{r}, inMatrix(t:j-1, valueColumn(r)));
+                end
+            end
+
+            t = j;
+        end
+        
+        s = i;
+    end    
+end

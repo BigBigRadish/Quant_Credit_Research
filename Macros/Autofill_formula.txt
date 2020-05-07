@@ -1,0 +1,2 @@
+Range("C6:M6").Select
+Selection.AutoFill Destination:=Range("C7:M" & lngMaxRow), Type:=xlFillDefault

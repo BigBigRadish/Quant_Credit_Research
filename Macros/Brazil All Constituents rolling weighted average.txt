@@ -1,0 +1,48 @@
+x = 4
+        
+        Do While (x < lngMaxRow)
+        
+            sum(0) = sum(0) + Cells(x, 19).Value
+            Cells(x, 9).Value = (Cells(x, 8).Value * (Cells(x, 19).Value / sum(0)))
+            sum(1) = sum(1) + Cells(x, 9).Value
+            
+            If Cells(x, 2).Value = Cells(x + 1, 2).Value Then
+            
+                Cells(x, 1).Value = ""
+                
+                x = x + 1
+                
+            Else
+            
+                Cells(x, 1).Value = ""
+            
+                Rows(x + 1).Select
+                Selection.Insert shift:=xlShiftDown
+                Selection.Insert shift:=xlShiftDown
+                
+                Cells(x + 2, 1).Value = Cells(x + 3, 1).Value & " - " & Cells(x + 3, 14).Value
+                
+                Cells(x + 1, 19) = sum(0) 'displays sum on worksheet
+                Cells(x + 1, 9) = sum(1)
+                
+                Cells(x + 1, 19).Font.Bold = True
+                Cells(x + 1, 9).Font.Bold = True
+                
+                sum(0) = 0
+                sum(1) = 0
+                
+                x = x + 3
+            
+            End If
+            
+            Application.StatusBar = "Processing line item: " & x
+            
+            lngMaxRow = LastCell(Sheets("Constituents")).Row + 1
+        
+        Loop
+        
+        Application.StatusBar = True
+        
+        Cells(lngMaxRow, 1).Value = ""
+        
+        lngMaxRow = LastCell(Sheets("Constituents")).Row

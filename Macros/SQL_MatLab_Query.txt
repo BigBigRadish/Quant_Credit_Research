@@ -1,0 +1,17 @@
+SELECT  sum(mktvalAccrued_usd)
+  FROM [ERM].[gfi].[FACT_holdings_all_Vw]
+  where portcode = '1789' and DATE = '5/21/2013'
+
+
+SELECT 	FACT_holdings_all_Vw.Date
+     ,	FACT_holdings_all_Vw.portcode 
+     ,	sum(mktvalAccrued_usd) as mktval_usd
+     ,	sum(FACT_holdings_all_Vw.pct_port) as pct_port
+     ,	sum(FACT_holdings_all_Vw.spread_to_worst*FACT_holdings_all_Vw.pct_port )/100 as spread_to_worst
+     ,	sum(FACT_holdings_all_Vw.yld_to_worst*FACT_holdings_all_Vw.pct_port)/100 as ytw
+     ,	sum(FACT_holdings_all_Vw.duration*FACT_holdings_all_Vw.pct_port)/100 as dur
+     ,	sum(FACT_holdings_all_Vw.eff_convexity*FACT_holdings_all_Vw.pct_port)/100 as conv
+     FROM 	ERM.gfi.FACT_holdings_all_Vw 
+     WHERE 	FACT_holdings_all_Vw.portcode in ('3032')
+     group by DATE,portcode 
+     ORDER BY 	FACT_holdings_all_Vw.Date ASC

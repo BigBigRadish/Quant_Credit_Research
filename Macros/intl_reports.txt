@@ -1,0 +1,3579 @@
+Option Explicit
+
+Const FilenameEMCB As String = "G:\Share\BFagan\ML Data\Test.csv"
+Const FilenameEMCBIndex As String = "G:\Share\BFagan\ML Data\Index Test.csv"
+Const FilenameEMCBCREDIT As String = "G:\Share\BFagan\ML Data\EM2.csv"
+Const FilenameEMCBCREDITIndex As String = "G:\Share\BFagan\ML Data\Index EM2.csv"
+Const EMCBPath As String = "Test.csv"
+Const EMCBIndexPath As String = "Index Test.csv"
+Const EMCBCREDITPath As String = "EM2.csv"
+Const EMCBCREDITIndexPath As String = "Index EM2.csv"
+
+Dim sum(1) As Double, x, y, lr, lngMaxRow, lngMaxColumn As Long, tabs As Variant
+Dim letter, header, right_header, rows_repeat, IsActive_Issuer_Breakdown, IsActive_Country_Breakdown, IsActive_Sector_Breakdown, IsActive_Ratings_Breakdown As String
+
+Sub run()
+    
+    Application.Cursor = xlWait
+    Application.ScreenUpdating = False
+    
+    embi_country
+    embi_security
+    emcb_top
+    
+    Sheets("embi_security_data").Move After:=Sheets("embi_country_data")
+    Sheets("embi_country_print").Move After:=Sheets("embi_security_data")
+    Sheets("emcb_top_print").Move After:=Sheets("embi_security_top_print")
+    
+    Application.Cursor = xlDefault
+    Application.ScreenUpdating = True
+    Application.DisplayAlerts = False
+    ActiveWorkbook.Save
+
+End Sub
+
+Sub embi_country()
+    
+    ThisWorkbook.Worksheets("embi_country_data").Activate
+    Application.DisplayAlerts = False
+    Sheets("embi_country_print").Delete
+    Sheets.Add().Name = "embi_country_print"
+    Sheets("embi_country_data").Activate
+    
+    last_row
+    
+    Range("A1:BZ" & lngMaxRow).Select
+    Selection.Copy
+    Sheets("embi_country_print").Activate
+    Range("A1").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone
+    Selection.PasteSpecial Paste:=xlPasteFormats, Operation:=xlNone
+    Application.CutCopyMode = False
+    
+     For x = 1 To lngMaxRow
+        If Cells(x, 2).Value = 0 And Cells(x, 3).Value <> 0 Then
+            Range("C" & x).Select
+            Selection.Font.Bold = True
+        End If
+    Next
+    
+    Range("A:A, D:E, K:K, M:O, U:BZ").Select
+    Selection.Delete shift:=xlToLeft
+    
+    last_column
+    
+    Columns("K:M").Select    '# of Issues, #of Issuers & Avg S&P Rtg from K:M to C:E
+    Selection.Cut
+    Range("C:C").Select
+    Selection.Insert shift:=xlToRight
+    Columns.AutoFit
+    Range(Cells(1, 1), Cells(1, lngMaxColumn)).Select
+    Selection.Font.Bold = True
+    With Selection.Interior
+        .Pattern = xlSolid
+        .PatternColorIndex = xlAutomatic
+        .ThemeColor = xlThemeColorDark1
+        .TintAndShade = -0.25
+        .PatternTintAndShade = 0
+    End With
+    Range(Cells(1, 1), Cells(1, lngMaxColumn)).Select
+    With Selection.Borders(xlEdgeBottom)
+        .LineStyle = xlContinuous
+        .Weight = xlThin
+    End With
+    Range("A2:A" & lngMaxRow).Select
+    Selection.HorizontalAlignment = xlLeft
+    Range(Cells(1, 3), Cells(lngMaxRow, lngMaxColumn)).Select
+    Selection.HorizontalAlignment = xlCenter
+    Range("F2:F" & lngMaxRow).Select   'Format Mkt Cap
+    Selection.Style = "Comma"
+    Selection.NumberFormat = "_(* #,##0_);_(* (#,##0);_(* ""-""??_);_(@_)"
+    Range("G2:J" & lngMaxRow).Select   'Format Mkt Cap%, Avg Life, Duration, YTM
+    Selection.NumberFormat = "0.0"
+    Range("K2:K" & lngMaxRow).Select   'Format Spread
+    Selection.NumberFormat = "0"
+    Range("L2:M" & lngMaxRow).Select   'Format MTD & YTD % Change
+    Selection.NumberFormat = "0.00"
+    Range(Cells(2, lngMaxColumn - 1), Cells(2, lngMaxColumn - 1)).Select
+    Selection.Font.Bold = True
+    x = 2
+    
+    Do While x < lngMaxRow
+        x = Cells(x, 1).End(xlDown).Row
+        lr = Cells(x, 1).End(xlDown).Row
+        Sheets("embi_country_print").Sort.SortFields.Clear
+        Sheets("embi_country_print").Sort.SortFields.Add Key:=Range(Cells(x, lngMaxColumn - 1), Cells(lr, lngMaxColumn - 1)), SortOn:=xlSortOnValues, order:=xlDescending, DataOption:=xlSortNormal
+            With Sheets("embi_country_print").Sort
+            .SetRange Range(Cells(x, 1), Cells(lr, lngMaxColumn))
+            .header = xlGuess
+            .MatchCase = False
+            .orientation = xlTopToBottom
+            .SortMethod = xlPinYin
+            .Apply
+            End With
+        Range(Cells(x, lngMaxColumn - 1), Cells(lr, lngMaxColumn - 1)).Select
+        Selection.Font.Bold = True
+        x = lr
+    Loop
+    
+    'data for print_out
+    lastcolumn_letter
+    rows_repeat = "$1:$1"
+    header = "EMBI Global Diversified Regional and Country Attribution"
+    right_header = "2"
+    lr = 1
+    x = 1
+    print_out
+    Range("A1").Select
+
+End Sub
+
+Sub embi_security()
+
+    ThisWorkbook.Worksheets("embi_security_data").Activate
+    Application.DisplayAlerts = False
+    Sheets(Array("embi_security_top_print", "embi_security_bottom_print")).Delete
+    tabs = Array("embi_security_top_print", "embi_security_bottom_print")
+        
+        For x = LBound(tabs) To UBound(tabs)
+
+            Sheets.Add().Name = tabs(x)
+    
+        Next x
+        
+    Sheets("embi_security_data").Activate
+    
+    last_row
+    last_column
+    lastcolumn_letter
+    
+    Range("A1:" & letter & lngMaxRow).Select
+    Selection.Copy
+    Sheets("embi_security_top_print").Activate
+    Range("A1").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone
+    Selection.PasteSpecial Paste:=xlPasteFormats, Operation:=xlNone
+    Application.CutCopyMode = False
+    
+    Cells(1, 4).Value = "Issuer Type"
+    Cells(2, 3).Value = "EMBI Global Diversified"
+    Cells(1, 26).Value = "Rating"
+    
+     For x = 1 To lngMaxColumn
+        If Cells(2, x).Value = 0 Then
+            Cells(2, x).Value = "Index"
+        End If
+    Next
+    
+    For x = 3 To lngMaxRow
+        If Cells(x, 4).Value = "S" Then
+            Cells(x, 4).Value = "Sovereign"
+        ElseIf Cells(x, 4).Value = "Q" Then
+            Cells(x, 4).Value = "Quasi-Sovereign"
+        End If
+    Next
+    
+    For x = 3 To lngMaxRow
+        If Cells(x, 26).Value = "NR" And Cells(x, 27).Value = "NR" Then
+            Cells(x, 26).Value = "NR"
+        ElseIf Cells(x, 26).Value = "NR" And Cells(x, 27).Value <> "NR" Then
+            Cells(x, 26).Value = Cells(x, 27).Value
+        End If
+    Next
+    
+    Range("A:B, E:E, H:H, K:K, M:O, T:W, AA:AP").Select
+    Selection.Delete shift:=xlToLeft
+    
+    last_column
+    lastcolumn_letter
+
+    Sheets("embi_country_print").Activate
+    Range("E2").Select
+    Selection.Copy
+    Sheets("embi_security_top_print").Activate
+    Range(letter & 2).Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone
+    Application.CutCopyMode = False
+    
+    Columns.AutoFit
+    Columns("L:N").Select    'Country, Region & Rating from L:N to B:D
+    Selection.Cut
+    Range("B:B").Select
+    Selection.Insert shift:=xlToRight
+    
+    Range("A1:" & letter & 1).Select
+    Selection.Font.Bold = True
+    With Selection.Interior
+        .Pattern = xlSolid
+        .PatternColorIndex = xlAutomatic
+        .ThemeColor = xlThemeColorDark1
+        .TintAndShade = -0.25
+        .PatternTintAndShade = 0
+    End With
+    Range("A1:" & letter & 1).Select
+    With Selection.Borders(xlEdgeBottom)
+        .LineStyle = xlContinuous
+        .Weight = xlThin
+    End With
+    
+    Range("B1:" & letter & lngMaxRow).Select
+        Selection.HorizontalAlignment = xlCenter
+    Range("F2:F" & lngMaxRow).Select   'Format Mkt Cap
+        Selection.Style = "Comma"
+        Selection.NumberFormat = "_(* #,##0_);_(* (#,##0);_(* ""-""??_);_(@_)"
+    Range("G2:G" & lngMaxRow).Select   'Format Mkt Cap%
+        Selection.NumberFormat = "0.00"
+    Range("H2:I" & lngMaxRow).Select   'Duration, YTM
+        Selection.NumberFormat = "0.0"
+    Range("J2:J" & lngMaxRow).Select   'Format Spread
+        Selection.NumberFormat = "0"
+    Range("K2:N" & lngMaxRow).Select   'Format MTD, YTD, Bid & Ask
+        Selection.NumberFormat = "0.00"
+    Range("K2:K" & lngMaxRow).Select
+        Selection.Font.Bold = True
+    Range("A1:" & letter & lngMaxRow).Select
+        Selection.Copy
+        Sheets("embi_security_bottom_print").Activate
+        Range("A1").Select
+        Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone
+        Selection.PasteSpecial Paste:=xlPasteFormats, Operation:=xlNone
+        Application.CutCopyMode = False
+    Columns.AutoFit
+    Sheets("embi_security_top_print").Activate
+    Sheets("embi_security_top_print").Sort.SortFields.Clear
+    Sheets("embi_security_top_print").Sort.SortFields.Add Key:=Range("K3:K" & lngMaxRow), SortOn:=xlSortOnValues, order:=xlDescending, DataOption:=xlSortNormal
+        With Sheets("embi_security_top_print").Sort
+            .SetRange Range("A3:" & letter & lngMaxRow)
+            .header = xlGuess
+            .MatchCase = False
+            .orientation = xlTopToBottom
+            .SortMethod = xlPinYin
+            .Apply
+        End With
+    
+    Range("A53:" & letter & lngMaxRow).Select
+    Selection.Clear
+    
+    'data for print_out
+    last_row
+    rows_repeat = "$1:$1"
+    header = "EMBI Global Diversified Top 50 MTD Security Level Performers"
+    right_header = "3"
+    lr = 2
+    x = 1
+    print_out
+    Range("A1").Select
+    
+    Sheets("embi_security_bottom_print").Activate
+    last_row
+    Sheets("embi_security_bottom_print").Sort.SortFields.Clear
+    Sheets("embi_security_bottom_print").Sort.SortFields.Add Key:=Range("K3:K" & lngMaxRow), SortOn:=xlSortOnValues, order:=xlAscending, DataOption:=xlSortNormal
+        With Sheets("embi_security_bottom_print").Sort
+            .SetRange Range("A3:" & letter & lngMaxRow)
+            .header = xlGuess
+            .MatchCase = False
+            .orientation = xlTopToBottom
+            .SortMethod = xlPinYin
+            .Apply
+        End With
+    
+    Range("A53:" & letter & lngMaxRow).Select
+    Selection.Clear
+    
+    'data for print_out
+    last_row
+    rows_repeat = "$1:$1"
+    header = "EMBI Global Diversified Bottom 50 MTD Security Level Performers"
+    right_header = "4"
+    lr = 2
+    x = 1
+    print_out
+    Range("A1").Select
+
+End Sub
+
+Sub emcb_top()
+    
+    ThisWorkbook.Worksheets("embi_security_top_print").Activate
+    IsActive_Country_Breakdown = 0
+    IsActive_Sector_Breakdown = 0
+    IsActive_Ratings_Breakdown = 0
+    IsActive_Issuer_Breakdown = 0
+    
+    Application.DisplayAlerts = False
+    Sheets("emcb_top_print").Delete
+    tabs = Array("emcb_top_print", "all", "computation", "index")
+        
+        For x = LBound(tabs) To UBound(tabs)
+
+            Sheets.Add().Name = tabs(x)
+    
+        Next x
+    
+    Sheets("emcb_top_print").Activate
+    Cells(1, 1).Value = "Issuer"
+    Cells(1, 2).Value = "# of Issuers"
+    Cells(1, 3).Value = "Sector"
+    Cells(1, 4).Value = "Country"
+    Cells(1, 5).Value = "Coupon"
+    Cells(1, 6).Value = "Maturity"
+    Cells(1, 7).Value = "Market Value USD"
+    Cells(1, 8).Value = "% Mkt Value"
+    Cells(1, 9).Value = "Rating"
+    Cells(1, 10).Value = "OAS"
+    Cells(1, 11).Value = "Yield to Worst"
+    Cells(1, 12).Value = "Effective Duration"
+    Cells(1, 13).Value = "Effective Convexity"
+    Cells(1, 14).Value = "Price"
+    Cells(1, 15).Value = "Total Return % MTD USD H"
+    Cells(1, 16).Value = "BS"
+    last_column
+    Range(Cells(1, 1), Cells(1, lngMaxColumn)).Select
+    Selection.Font.Bold = True
+    With Selection.Interior
+        .Pattern = xlSolid
+        .PatternColorIndex = xlAutomatic
+        .ThemeColor = xlThemeColorDark1
+        .TintAndShade = -0.25
+        .PatternTintAndShade = 0
+    End With
+    Range(Cells(1, 1), Cells(1, lngMaxColumn)).Select
+    With Selection.Borders(xlEdgeBottom)
+        .LineStyle = xlContinuous
+        .Weight = xlThin
+    End With
+    Range(Cells(1, 2), Cells(1, lngMaxColumn)).Select
+    Selection.HorizontalAlignment = xlCenter
+    Rows("3:3").RowHeight = 8
+    Cells(4, 1).Value = "By Country (Top 30)"
+    Range("A4").Font.Bold = True
+    Rows("35:35").RowHeight = 8
+    Cells(36, 1).Value = "By Sector (Top 30)"
+    Range("A36").Font.Bold = True
+    Rows("67:67").RowHeight = 8
+    Cells(68, 1).Value = "By Issuer (Top 30)"
+    Range("A68").Font.Bold = True
+    Rows("99:99").RowHeight = 8
+    Cells(100, 1).Value = "By Credit Bucket"
+    Range("A100").Font.Bold = True
+    Rows("103:103").RowHeight = 8
+    Cells(104, 1).Value = "By Sub Credit Bucket"
+    Range("A104").Font.Bold = True
+    
+    Sheets("index").Activate
+    Workbooks.Open Filename:=FilenameEMCB
+    last_row
+    Range("A4").Select
+    Selection.AutoFilter
+    ActiveSheet.Range("$A$4:$AZ$" & lngMaxRow).AutoFilter Field:=1, Criteria1:="EMCB"
+    Range("B4:AZ" & lngMaxRow).Select
+    Selection.Copy
+    Windows("reports.xlsm").Activate
+    Sheets("index").Select
+    Range("A1").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    Workbooks(EMCBPath).Activate
+    Application.DisplayAlerts = False
+    ActiveWorkbook.Close
+    
+    country
+    sector
+    issuer
+    rating
+    index_batch
+    
+    Application.DisplayAlerts = False
+    Sheets(Array("all", "computation", "index")).Delete
+    Sheets("emcb_top_print").Activate
+    Range("A1").Select
+   
+End Sub
+
+Sub country()
+
+    IsActive_Country_Breakdown = 1
+    index_scrub
+    IsActive_Country_Breakdown = 0
+
+End Sub
+    
+Sub sector()
+
+    IsActive_Sector_Breakdown = 1
+    index_scrub
+    IsActive_Sector_Breakdown = 0
+
+End Sub
+
+Sub issuer()
+
+    IsActive_Issuer_Breakdown = 1
+    index_scrub
+    IsActive_Issuer_Breakdown = 0
+
+End Sub
+
+Sub rating()
+
+    IsActive_Ratings_Breakdown = 1
+    index_scrub
+    IsActive_Ratings_Breakdown = 0
+
+End Sub
+
+Sub index_scrub()
+
+    'import emcb data scrub
+    Workbooks("reports.xlsm").Worksheets("index").Activate
+    last_row
+    Range("$A$1:$AZ$" & lngMaxRow).Select
+    Selection.Copy
+    Sheets("computation").Select
+    Range("A1").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    last_row
+    
+    Range("AK2:AK" & lngMaxRow).Select
+    Selection.ClearContents
+    x = 2
+    
+    For x = x To lngMaxRow
+        Cells(x, 37).Value = Cells(x, 20).Value * Cells(x, 29).Value
+    Next
+    
+    Range("J:J,P:P,R:S,U:X,Z:Z,AB:AB,AD:AE,AG:AH").Select    'lvl 1, accrued interest, PrevMend % weight, cash, OAS MTD, Asset Swap, Asset Swap MTD change, effective yield, YTM, excess return % MTD, mod DTW, mod duration, CTW, semi convexity
+    Selection.Delete shift:=xlToLeft
+    Range("V:V").Select
+    Selection.Insert shift:=xlToRight
+    
+        
+    If IsActive_Issuer_Breakdown = 1 Or IsActive_Country_Breakdown = 1 Or IsActive_Sector_Breakdown = 1 Then
+    
+        order
+        
+        country_and_rating
+            
+        process_data
+        
+        rating_to_numeric
+        
+        create_report_view
+        
+        consolidate
+        
+    Else
+    
+        order
+        
+        country_and_rating
+            
+        process_data
+        
+        rating_to_numeric
+        
+        create_report_view
+        
+        consolidate
+        
+        rating_batch
+        
+    End If
+
+End Sub
+
+Sub order()
+
+    ThisWorkbook.Worksheets("computation").Activate
+    
+    With ActiveSheet
+    
+        If IsActive_Issuer_Breakdown = 1 Then
+                
+            Columns("U:U").Select    'Full Market Value copy over Face Value
+            Selection.Cut
+            Range("M1").Select
+            ActiveSheet.Paste
+            Columns("C:C").Select    'Decription To U
+            Selection.Copy
+            Columns("U:U").Select
+            Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, SkipBlanks _
+            :=False, Transpose:=False
+            Columns("G:G").Select    'Rating to V
+            Selection.Copy
+            Columns("V:V").Select
+            Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, SkipBlanks _
+            :=False, Transpose:=False
+            Columns("D:D").Select    'Ticker to A
+            Selection.Cut
+            Columns("A:A").Select
+            Selection.Insert shift:=xlToRight
+            Columns("C:C").Select    'ISIN to B
+            Selection.Cut
+            Columns("B:B").Select
+            Selection.Insert shift:=xlToRight
+            Columns("F:F").Select     'Maturity to E
+            Selection.Cut
+            Columns("E:E").Select
+            Selection.Insert shift:=xlToRight
+            Columns("P:P").Select    'OAS to G
+            Selection.Cut
+            Columns("G:G").Select
+            Selection.Insert shift:=xlToRight
+            Columns("P:P").Select   '% Mkt Val to H
+            Selection.Cut
+            Columns("H:H").Select
+            Selection.Insert shift:=xlToRight
+            Columns("P:P").Select   'Price to I
+            Selection.Cut
+            Columns("I:I").Select
+            Selection.Insert shift:=xlToRight
+            Columns("Q:Q").Select   'YTW to J
+            Selection.Cut
+            Columns("J:J").Select
+            Selection.Insert shift:=xlToRight
+            Columns("P:P").Select   'Lvl 4 to L
+            Selection.Cut
+            Columns("L:L").Select
+            Selection.Insert shift:=xlToRight
+            
+            Range("A1:AL" & lngMaxRow).Sort Key1:=Range("A1"), Key2:=Range("O1"), Key3:=Range("E1"), Order1:=xlAscending, Order2:=xlAscending, Order3:=xlAscending, _
+            header:=xlYes, OrderCustom:=1, MatchCase:=False, orientation:=xlTopToBottom, DataOption1:=xlSortNormal, DataOption2:=xlSortNormal, DataOption3:=xlSortNormal
+            
+            Rows(2).Select
+            Selection.Insert shift:=xlShiftDown
+            
+            lngMaxRow = lngMaxRow + 1
+         
+        ElseIf IsActive_Country_Breakdown = 1 Then
+    
+            Columns("U:U").Select    'Full Market Value copy over Face Value
+            Selection.Cut
+            Range("M1").Select
+            ActiveSheet.Paste
+            Columns("C:C").Select    'Description To U
+            Selection.Copy
+            Columns("U:U").Select
+            Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+            Columns("D:D").Select    'Ticker copy over lvl 2
+            Selection.Copy
+            Columns("J:J").Select
+            Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+            Columns("G:G").Select    'Rating to V
+            Selection.Copy
+            Columns("V:V").Select
+            Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+            Columns("D:D").Select    'Ticker to A
+            Selection.Cut
+            Columns("A:A").Select
+            Selection.Insert shift:=xlToRight
+            Columns("I:I").Select    'Country To A
+            Selection.Copy
+            Columns("A:A").Select
+            Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+            Columns("C:C").Select    'ISIN to B
+            Selection.Cut
+            Columns("B:B").Select
+            Selection.Insert shift:=xlToRight
+            Columns("F:F").Select     'Maturity to E
+            Selection.Cut
+            Columns("E:E").Select
+            Selection.Insert shift:=xlToRight
+            Columns("P:P").Select    'OAS to G
+            Selection.Cut
+            Columns("G:G").Select
+            Selection.Insert shift:=xlToRight
+            Columns("P:P").Select   '% Mkt Val to H
+            Selection.Cut
+            Columns("H:H").Select
+            Selection.Insert shift:=xlToRight
+            Columns("P:P").Select   'Price to I
+            Selection.Cut
+            Columns("I:I").Select
+            Selection.Insert shift:=xlToRight
+            Columns("Q:Q").Select   'YTW to J
+            Selection.Cut
+            Columns("J:J").Select
+            Selection.Insert shift:=xlToRight
+            Columns("P:P").Select   'Lvl 4 to L
+            Selection.Cut
+            Columns("L:L").Select
+            Selection.Insert shift:=xlToRight
+            
+            Range("A1:AL" & lngMaxRow).Sort Key1:=Range("A1"), Key2:=Range("O1"), Key3:=Range("E1"), Order1:=xlAscending, Order2:=xlAscending, Order3:=xlAscending, _
+            header:=xlYes, OrderCustom:=1, MatchCase:=False, orientation:=xlTopToBottom, DataOption1:=xlSortNormal, DataOption2:=xlSortNormal, DataOption3:=xlSortNormal
+            
+            Rows(2).Select
+            Selection.Insert shift:=xlShiftDown
+            
+            lngMaxRow = lngMaxRow + 1
+        
+        ElseIf IsActive_Sector_Breakdown = 1 Then
+            
+            Columns("U:U").Select    'Full Market Value copy over Face Value
+            Selection.Cut
+            Range("M1").Select
+            ActiveSheet.Paste
+            Columns("C:C").Select    'Description To U
+            Selection.Copy
+            Columns("U:U").Select
+            Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+            Columns("D:D").Select    'Ticker copy over lvl 2
+            Selection.Copy
+            Columns("J:J").Select
+            Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+            Columns("G:G").Select    'Rating to V
+            Selection.Copy
+            Columns("V:V").Select
+            Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+            Columns("D:D").Select    'Ticker to A
+            Selection.Cut
+            Columns("A:A").Select
+            Selection.Insert shift:=xlToRight
+            Columns("L:L").Select    'lvl 4 To A
+            Selection.Copy
+            Columns("A:A").Select
+            Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+            Columns("C:C").Select    'ISIN to B
+            Selection.Cut
+            Columns("B:B").Select
+            Selection.Insert shift:=xlToRight
+            Columns("F:F").Select     'Maturity to E
+            Selection.Cut
+            Columns("E:E").Select
+            Selection.Insert shift:=xlToRight
+            Columns("P:P").Select    'OAS to G
+            Selection.Cut
+            Columns("G:G").Select
+            Selection.Insert shift:=xlToRight
+            Columns("P:P").Select   '% Mkt Val to H
+            Selection.Cut
+            Columns("H:H").Select
+            Selection.Insert shift:=xlToRight
+            Columns("P:P").Select   'Price to I
+            Selection.Cut
+            Columns("I:I").Select
+            Selection.Insert shift:=xlToRight
+            Columns("Q:Q").Select   'YTW to J
+            Selection.Cut
+            Columns("J:J").Select
+            Selection.Insert shift:=xlToRight
+            Columns("P:P").Select   'Lvl 4 to L
+            Selection.Cut
+            Columns("L:L").Select
+            Selection.Insert shift:=xlToRight
+            
+            Range("A1:AL" & lngMaxRow).Sort Key1:=Range("A1"), Key2:=Range("O1"), Key3:=Range("E1"), Order1:=xlAscending, Order2:=xlAscending, Order3:=xlAscending, _
+            header:=xlYes, OrderCustom:=1, MatchCase:=False, orientation:=xlTopToBottom, DataOption1:=xlSortNormal, DataOption2:=xlSortNormal, DataOption3:=xlSortNormal
+            
+            Rows(2).Select
+            Selection.Insert shift:=xlShiftDown
+            
+            lngMaxRow = lngMaxRow + 1
+        
+        ElseIf IsActive_Ratings_Breakdown = 1 Then
+            
+            Columns("U:U").Select    'Full Market Value copy over Face Value
+            Selection.Cut
+            Range("M1").Select
+            ActiveSheet.Paste
+            Columns("C:C").Select    'Description To U
+            Selection.Copy
+            Columns("U:U").Select
+            Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+            Columns("D:D").Select    'Ticker copy over lvl 2
+            Selection.Copy
+            Columns("J:J").Select
+            Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+            Columns("G:G").Select    'Rating to V
+            Selection.Copy
+            Columns("V:V").Select
+            Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+            Columns("D:D").Select    'Ticker to A
+            Selection.Cut
+            Columns("A:A").Select
+            Selection.Insert shift:=xlToRight
+            Columns("G:G").Select    'Rating To A
+            Selection.Copy
+            Columns("A:A").Select
+            Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+            Columns("C:C").Select    'ISIN to B
+            Selection.Cut
+            Columns("B:B").Select
+            Selection.Insert shift:=xlToRight
+            Columns("F:F").Select     'Maturity to E
+            Selection.Cut
+            Columns("E:E").Select
+            Selection.Insert shift:=xlToRight
+            Columns("P:P").Select    'OAS to G
+            Selection.Cut
+            Columns("G:G").Select
+            Selection.Insert shift:=xlToRight
+            Columns("P:P").Select   '% Mkt Val to H
+            Selection.Cut
+            Columns("H:H").Select
+            Selection.Insert shift:=xlToRight
+            Columns("P:P").Select   'Price to I
+            Selection.Cut
+            Columns("I:I").Select
+            Selection.Insert shift:=xlToRight
+            Columns("Q:Q").Select   'YTW to J
+            Selection.Cut
+            Columns("J:J").Select
+            Selection.Insert shift:=xlToRight
+            Columns("P:P").Select   'Lvl 4 to L
+            Selection.Cut
+            Columns("L:L").Select
+            Selection.Insert shift:=xlToRight
+            
+            Range("A1:AL" & lngMaxRow).Sort Key1:=Range("A1"), Key2:=Range("O1"), Key3:=Range("E1"), Order1:=xlAscending, Order2:=xlAscending, Order3:=xlAscending, _
+            header:=xlYes, OrderCustom:=1, MatchCase:=False, orientation:=xlTopToBottom, DataOption1:=xlSortNormal, DataOption2:=xlSortNormal, DataOption3:=xlSortNormal
+            
+            Rows(2).Select
+            Selection.Insert shift:=xlShiftDown
+            
+            lngMaxRow = lngMaxRow + 1
+        
+        End If
+        
+    End With
+    
+End Sub
+
+Sub country_and_rating()
+
+ ThisWorkbook.Worksheets("computation").Activate
+ 
+ With ActiveSheet
+    
+    For x = 2 To lngMaxRow
+    
+        If Cells(x, 15).Value = "CASH" Then
+            
+            Rows(x).Clear
+            
+        ElseIf Cells(x, 14).Value = "AF" Then
+            
+            Cells(x, 14).Value = "Afghanistan"
+            
+        ElseIf Cells(x, 14).Value = "AL" Then
+            
+            Cells(x, 14).Value = "Albania"
+            
+        ElseIf Cells(x, 14).Value = "DZ" Then
+            
+            Cells(x, 14).Value = "Algeria"
+            
+        ElseIf Cells(x, 14).Value = "AD" Then
+            
+            Cells(x, 14).Value = "Andorra"
+            
+        ElseIf Cells(x, 14).Value = "AO" Then
+            
+            Cells(x, 14).Value = "Angola"
+            
+        ElseIf Cells(x, 14).Value = "AR" Then
+            
+            Cells(x, 14).Value = "Argentina"
+            
+        ElseIf Cells(x, 14).Value = "AM" Then
+            
+            Cells(x, 14).Value = "Armenia"
+            
+        ElseIf Cells(x, 14).Value = "AW" Then
+            
+            Cells(x, 14).Value = "Aruba"
+            
+        ElseIf Cells(x, 14).Value = "AU" Then
+            
+            Cells(x, 14).Value = "Australia"
+            
+        ElseIf Cells(x, 14).Value = "AT" Then
+            
+            Cells(x, 14).Value = "Austria"
+            
+        ElseIf Cells(x, 14).Value = "AZ" Then
+            
+            Cells(x, 14).Value = "Azerbaijan"
+            
+        ElseIf Cells(x, 14).Value = "BS" Then
+            
+            Cells(x, 14).Value = "Bahamas"
+            
+        ElseIf Cells(x, 14).Value = "BH" Then
+            
+            Cells(x, 14).Value = "Bahrain"
+            
+        ElseIf Cells(x, 14).Value = "BD" Then
+            
+            Cells(x, 14).Value = "Bangladesh"
+            
+        ElseIf Cells(x, 14).Value = "BB" Then
+            
+            Cells(x, 14).Value = "Barbados"
+            
+        ElseIf Cells(x, 14).Value = "BY" Then
+            
+            Cells(x, 14).Value = "Belarus"
+            
+        ElseIf Cells(x, 14).Value = "BE" Then
+            
+            Cells(x, 14).Value = "Belgium"
+            
+        ElseIf Cells(x, 14).Value = "BZ" Then
+            
+            Cells(x, 14).Value = "Belize"
+            
+        ElseIf Cells(x, 14).Value = "BJ" Then
+            
+            Cells(x, 14).Value = "Benin"
+            
+        ElseIf Cells(x, 14).Value = "BM" Then
+            
+            Cells(x, 14).Value = "Bermuda"
+            
+        ElseIf Cells(x, 14).Value = "BT" Then
+            
+            Cells(x, 14).Value = "Bhutan"
+            
+        ElseIf Cells(x, 14).Value = "BO" Then
+            
+            Cells(x, 14).Value = "Bolivia"
+            
+        ElseIf Cells(x, 14).Value = "BA" Then
+            
+            Cells(x, 14).Value = "Bosnia"
+            
+        ElseIf Cells(x, 14).Value = "BR" Then
+            
+            Cells(x, 14).Value = "Brazil"
+            
+        ElseIf Cells(x, 14).Value = "BG" Then
+            
+            Cells(x, 14).Value = "Bulgaria"
+            
+        ElseIf Cells(x, 14).Value = "BI" Then
+            
+            Cells(x, 14).Value = "Burundi"
+            
+        ElseIf Cells(x, 14).Value = "KH" Then
+            
+            Cells(x, 14).Value = "Cambodia"
+            
+        ElseIf Cells(x, 14).Value = "CM" Then
+            
+            Cells(x, 14).Value = "Cameroon"
+            
+        ElseIf Cells(x, 14).Value = "CA" Then
+            
+            Cells(x, 14).Value = "Canada"
+            
+        ElseIf Cells(x, 14).Value = "KY" Then
+            
+            Cells(x, 14).Value = "Cayman Islands"
+            
+        ElseIf Cells(x, 14).Value = "TD" Then
+            
+            Cells(x, 14).Value = "Chad"
+            
+        ElseIf Cells(x, 14).Value = "CL" Then
+            
+            Cells(x, 14).Value = "Chile"
+            
+        ElseIf Cells(x, 14).Value = "CN" Then
+            
+            Cells(x, 14).Value = "China"
+            
+        ElseIf Cells(x, 14).Value = "CO" Then
+            
+            Cells(x, 14).Value = "Colombia"
+            
+        ElseIf Cells(x, 14).Value = "CG" Then
+            
+            Cells(x, 14).Value = "Congo"
+            
+        ElseIf Cells(x, 14).Value = "CR" Then
+            
+            Cells(x, 14).Value = "Costa Rica"
+            
+        ElseIf Cells(x, 14).Value = "CI" Then
+            
+            Cells(x, 14).Value = "Cote D'Ivoire"
+            
+        ElseIf Cells(x, 14).Value = "HR" Then
+            
+            Cells(x, 14).Value = "Croatia"
+            
+        ElseIf Cells(x, 14).Value = "CU" Then
+            
+            Cells(x, 14).Value = "Cuba"
+            
+        ElseIf Cells(x, 14).Value = "CY" Then
+            
+            Cells(x, 14).Value = "Cyprus"
+            
+        ElseIf Cells(x, 14).Value = "CZ" Then
+            
+            Cells(x, 14).Value = "Czech Republic"
+            
+        ElseIf Cells(x, 14).Value = "DK" Then
+            
+            Cells(x, 14).Value = "Denmark"
+            
+        ElseIf Cells(x, 14).Value = "DM" Then
+            
+            Cells(x, 14).Value = "Dominica"
+            
+        ElseIf Cells(x, 14).Value = "DO" Then
+            
+            Cells(x, 14).Value = "Dominican Republic"
+            
+        ElseIf Cells(x, 14).Value = "EC" Then
+            
+            Cells(x, 14).Value = "Ecuador"
+            
+        ElseIf Cells(x, 14).Value = "EG" Then
+            
+            Cells(x, 14).Value = "Egypt"
+            
+        ElseIf Cells(x, 14).Value = "SV" Then
+            
+            Cells(x, 14).Value = "El Salvador"
+            
+        ElseIf Cells(x, 14).Value = "EE" Then
+            
+            Cells(x, 14).Value = "Estonia"
+            
+        ElseIf Cells(x, 14).Value = "ET" Then
+            
+            Cells(x, 14).Value = "Ethiopia"
+            
+        ElseIf Cells(x, 14).Value = "FJ" Then
+            
+            Cells(x, 14).Value = "Fiji"
+            
+        ElseIf Cells(x, 14).Value = "FI" Then
+            
+            Cells(x, 14).Value = "Finland"
+            
+        ElseIf Cells(x, 14).Value = "FR" Then
+            
+            Cells(x, 14).Value = "France"
+            
+        ElseIf Cells(x, 14).Value = "GA" Then
+            
+            Cells(x, 14).Value = "Gabon"
+            
+        ElseIf Cells(x, 14).Value = "GM" Then
+            
+            Cells(x, 14).Value = "Gambia"
+            
+        ElseIf Cells(x, 14).Value = "GE" Then
+            
+            Cells(x, 14).Value = "Georgia"
+            
+        ElseIf Cells(x, 14).Value = "DE" Then
+            
+            Cells(x, 14).Value = "Germany"
+            
+        ElseIf Cells(x, 14).Value = "GH" Then
+            
+            Cells(x, 14).Value = "Ghana"
+            
+        ElseIf Cells(x, 14).Value = "GR" Then
+            
+            Cells(x, 14).Value = "Greece"
+            
+        ElseIf Cells(x, 14).Value = "GL" Then
+            
+            Cells(x, 14).Value = "Greenland"
+            
+        ElseIf Cells(x, 14).Value = "GD" Then
+            
+            Cells(x, 14).Value = "Grenada"
+            
+        ElseIf Cells(x, 14).Value = "GT" Then
+            
+            Cells(x, 14).Value = "Guatemala"
+            
+        ElseIf Cells(x, 14).Value = "GY" Then
+            
+            Cells(x, 14).Value = "Guyana"
+            
+        ElseIf Cells(x, 14).Value = "HT" Then
+            
+            Cells(x, 14).Value = "Haiti"
+            
+        ElseIf Cells(x, 14).Value = "HN" Then
+            
+            Cells(x, 14).Value = "Honduras"
+            
+        ElseIf Cells(x, 14).Value = "HK" Then
+            
+            Cells(x, 14).Value = "Hong Kong"
+            
+        ElseIf Cells(x, 14).Value = "HU" Then
+            
+            Cells(x, 14).Value = "Hungary"
+            
+        ElseIf Cells(x, 14).Value = "IS" Then
+            
+            Cells(x, 14).Value = "Iceland"
+            
+        ElseIf Cells(x, 14).Value = "IN" Then
+            
+            Cells(x, 14).Value = "India"
+            
+        ElseIf Cells(x, 14).Value = "ID" Then
+            
+            Cells(x, 14).Value = "Indonesia"
+            
+        ElseIf Cells(x, 14).Value = "IR" Then
+            
+            Cells(x, 14).Value = "Iran"
+            
+        ElseIf Cells(x, 14).Value = "IQ" Then
+            
+            Cells(x, 14).Value = "Iraq"
+            
+        ElseIf Cells(x, 14).Value = "IE" Then
+            
+            Cells(x, 14).Value = "Ireland"
+            
+        ElseIf Cells(x, 14).Value = "IL" Then
+            
+            Cells(x, 14).Value = "Israel"
+            
+        ElseIf Cells(x, 14).Value = "IT" Then
+            
+            Cells(x, 14).Value = "Italy"
+            
+        ElseIf Cells(x, 14).Value = "JM" Then
+            
+            Cells(x, 14).Value = "Jamaica"
+            
+        ElseIf Cells(x, 14).Value = "JP" Then
+            
+            Cells(x, 14).Value = "Japan"
+            
+        ElseIf Cells(x, 14).Value = "JE" Then
+            
+            Cells(x, 14).Value = "Jersey"
+            
+        ElseIf Cells(x, 14).Value = "JO" Then
+            
+            Cells(x, 14).Value = "Jordan"
+            
+        ElseIf Cells(x, 14).Value = "KZ" Then
+            
+            Cells(x, 14).Value = "Kazakhstan"
+            
+        ElseIf Cells(x, 14).Value = "KE" Then
+            
+            Cells(x, 14).Value = "Kenya"
+            
+        ElseIf Cells(x, 14).Value = "KP" Then
+            
+            Cells(x, 14).Value = "North Korea"
+            
+        ElseIf Cells(x, 14).Value = "KR" Then
+            
+            Cells(x, 14).Value = "South Korea"
+            
+        ElseIf Cells(x, 14).Value = "KW" Then
+            
+            Cells(x, 14).Value = "Kuwait"
+            
+        ElseIf Cells(x, 14).Value = "KG" Then
+            
+            Cells(x, 14).Value = "Kyrgyzstan"
+            
+        ElseIf Cells(x, 14).Value = "LA" Then
+            
+            Cells(x, 14).Value = "Lao"
+            
+        ElseIf Cells(x, 14).Value = "LV" Then
+            
+            Cells(x, 14).Value = "Latvia"
+            
+        ElseIf Cells(x, 14).Value = "LB" Then
+            
+            Cells(x, 14).Value = "Lebanon"
+            
+        ElseIf Cells(x, 14).Value = "LS" Then
+            
+            Cells(x, 14).Value = "Lesotho"
+            
+        ElseIf Cells(x, 14).Value = "LR" Then
+            
+            Cells(x, 14).Value = "Liberia"
+            
+        ElseIf Cells(x, 14).Value = "LY" Then
+            
+            Cells(x, 14).Value = "Libya"
+            
+        ElseIf Cells(x, 14).Value = "LI" Then
+            
+            Cells(x, 14).Value = "Liechtenstein"
+            
+        ElseIf Cells(x, 14).Value = "LT" Then
+            
+            Cells(x, 14).Value = "Lithuania"
+            
+        ElseIf Cells(x, 14).Value = "LU" Then
+            
+            Cells(x, 14).Value = "Luxembourg"
+            
+        ElseIf Cells(x, 14).Value = "MO" Then
+            
+            Cells(x, 14).Value = "Macao"
+            
+        ElseIf Cells(x, 14).Value = "MK" Then
+            
+            Cells(x, 14).Value = "Macedonia"
+            
+        ElseIf Cells(x, 14).Value = "MG" Then
+            
+            Cells(x, 14).Value = "Madagascar"
+            
+        ElseIf Cells(x, 14).Value = "MW" Then
+            
+            Cells(x, 14).Value = "Malawi"
+            
+        ElseIf Cells(x, 14).Value = "MY" Then
+            
+            Cells(x, 14).Value = "Malaysia"
+            
+        ElseIf Cells(x, 14).Value = "MT" Then
+            
+            Cells(x, 14).Value = "Malta"
+            
+        ElseIf Cells(x, 14).Value = "MX" Then
+            
+            Cells(x, 14).Value = "Mexico"
+            
+        ElseIf Cells(x, 14).Value = "MD" Then
+            
+            Cells(x, 14).Value = "Moldova"
+            
+        ElseIf Cells(x, 14).Value = "MC" Then
+            
+            Cells(x, 14).Value = "Monaco"
+            
+        ElseIf Cells(x, 14).Value = "MN" Then
+            
+            Cells(x, 14).Value = "Mongolia"
+            
+        ElseIf Cells(x, 14).Value = "ME" Then
+            
+            Cells(x, 14).Value = "Montenegro"
+            
+        ElseIf Cells(x, 14).Value = "MA" Then
+            
+            Cells(x, 14).Value = "Morocco"
+            
+        ElseIf Cells(x, 14).Value = "MZ" Then
+            
+            Cells(x, 14).Value = "Mozambique"
+            
+        ElseIf Cells(x, 14).Value = "MM" Then
+            
+            Cells(x, 14).Value = "Myanmar"
+            
+        ElseIf Cells(x, 14).Value = "NA" Then
+            
+            Cells(x, 14).Value = "Namibia"
+            
+        ElseIf Cells(x, 14).Value = "NP" Then
+            
+            Cells(x, 14).Value = "Nepal"
+            
+        ElseIf Cells(x, 14).Value = "NL" Then
+            
+            Cells(x, 14).Value = "Netherlands"
+            
+        ElseIf Cells(x, 14).Value = "NZ" Then
+            
+            Cells(x, 14).Value = "New Zealand"
+            
+        ElseIf Cells(x, 14).Value = "NI" Then
+            
+            Cells(x, 14).Value = "Nicaragua"
+            
+        ElseIf Cells(x, 14).Value = "NE" Then
+            
+            Cells(x, 14).Value = "Niger"
+            
+        ElseIf Cells(x, 14).Value = "NG" Then
+            
+            Cells(x, 14).Value = "Nigeria"
+            
+        ElseIf Cells(x, 14).Value = "NO" Then
+            
+            Cells(x, 14).Value = "Norway"
+            
+        ElseIf Cells(x, 14).Value = "OM" Then
+            
+            Cells(x, 14).Value = "Oman"
+            
+        ElseIf Cells(x, 14).Value = "PK" Then
+            
+            Cells(x, 14).Value = "Pakistan"
+            
+        ElseIf Cells(x, 14).Value = "PS" Then
+            
+            Cells(x, 14).Value = "Palestine"
+            
+        ElseIf Cells(x, 14).Value = "PA" Then
+            
+            Cells(x, 14).Value = "Panama"
+            
+        ElseIf Cells(x, 14).Value = "PG" Then
+            
+            Cells(x, 14).Value = "Papua New Guinea"
+            
+        ElseIf Cells(x, 14).Value = "PY" Then
+            
+            Cells(x, 14).Value = "Paraguay"
+            
+        ElseIf Cells(x, 14).Value = "PE" Then
+            
+            Cells(x, 14).Value = "Peru"
+            
+        ElseIf Cells(x, 14).Value = "PH" Then
+            
+            Cells(x, 14).Value = "Philippines"
+            
+        ElseIf Cells(x, 14).Value = "PL" Then
+            
+            Cells(x, 14).Value = "Poland"
+            
+        ElseIf Cells(x, 14).Value = "PT" Then
+            
+            Cells(x, 14).Value = "Portugal"
+            
+        ElseIf Cells(x, 14).Value = "PR" Then
+            
+            Cells(x, 14).Value = "Puerto Rico"
+            
+        ElseIf Cells(x, 14).Value = "QA" Then
+            
+            Cells(x, 14).Value = "Qatar"
+            
+        ElseIf Cells(x, 14).Value = "RO" Then
+            
+            Cells(x, 14).Value = "Romania"
+            
+        ElseIf Cells(x, 14).Value = "RU" Then
+            
+            Cells(x, 14).Value = "Russia"
+            
+        ElseIf Cells(x, 14).Value = "RW" Then
+            
+            Cells(x, 14).Value = "Rwanda"
+            
+        ElseIf Cells(x, 14).Value = "SA" Then
+            
+            Cells(x, 14).Value = "Saudi Arabia"
+            
+        ElseIf Cells(x, 14).Value = "SN" Then
+            
+            Cells(x, 14).Value = "Senegal"
+            
+        ElseIf Cells(x, 14).Value = "RS" Then
+            
+            Cells(x, 14).Value = "Serbia"
+            
+        ElseIf Cells(x, 14).Value = "SC" Then
+            
+            Cells(x, 14).Value = "Seychelles"
+            
+        ElseIf Cells(x, 14).Value = "SL" Then
+            
+            Cells(x, 14).Value = "Sierra Leone"
+            
+        ElseIf Cells(x, 14).Value = "SG" Then
+            
+            Cells(x, 14).Value = "Singapore"
+            
+        ElseIf Cells(x, 14).Value = "SK" Then
+            
+            Cells(x, 14).Value = "Slovakia"
+            
+        ElseIf Cells(x, 14).Value = "SI" Then
+            
+            Cells(x, 14).Value = "Slovenia"
+            
+        ElseIf Cells(x, 14).Value = "SO" Then
+            
+            Cells(x, 14).Value = "Somalia"
+            
+        ElseIf Cells(x, 14).Value = "ZA" Then
+            
+            Cells(x, 14).Value = "South Africa"
+            
+        ElseIf Cells(x, 14).Value = "ES" Then
+            
+            Cells(x, 14).Value = "Spain"
+            
+        ElseIf Cells(x, 14).Value = "LK" Then
+            
+            Cells(x, 14).Value = "Sri Lanka"
+            
+        ElseIf Cells(x, 14).Value = "SD" Then
+            
+            Cells(x, 14).Value = "Sudan"
+            
+        ElseIf Cells(x, 14).Value = "SNAT" Then
+            
+            Cells(x, 14).Value = "Supranational"
+            
+        ElseIf Cells(x, 14).Value = "SZ" Then
+            
+            Cells(x, 14).Value = "Swaziland"
+            
+        ElseIf Cells(x, 14).Value = "SE" Then
+            
+            Cells(x, 14).Value = "Sweden"
+            
+        ElseIf Cells(x, 14).Value = "CH" Then
+            
+            Cells(x, 14).Value = "Switzerland"
+            
+        ElseIf Cells(x, 14).Value = "TW" Then
+            
+            Cells(x, 14).Value = "Taiwan"
+            
+        ElseIf Cells(x, 14).Value = "TJ" Then
+            
+            Cells(x, 14).Value = "Tajikistan"
+            
+        ElseIf Cells(x, 14).Value = "TZ" Then
+            
+            Cells(x, 14).Value = "Tanzania"
+            
+        ElseIf Cells(x, 14).Value = "TH" Then
+            
+            Cells(x, 14).Value = "Thailand"
+            
+        ElseIf Cells(x, 14).Value = "TG" Then
+            
+            Cells(x, 14).Value = "Togo"
+            
+        ElseIf Cells(x, 14).Value = "TO" Then
+            
+            Cells(x, 14).Value = "Tonga"
+            
+        ElseIf Cells(x, 14).Value = "TT" Then
+            
+            Cells(x, 14).Value = "Trinidad and Tobago"
+            
+        ElseIf Cells(x, 14).Value = "TN" Then
+            
+            Cells(x, 14).Value = "Tunisia"
+            
+        ElseIf Cells(x, 14).Value = "TR" Then
+            
+            Cells(x, 14).Value = "Turkey"
+            
+        ElseIf Cells(x, 14).Value = "TM" Then
+            
+            Cells(x, 14).Value = "Turkmenistan"
+            
+        ElseIf Cells(x, 14).Value = "UG" Then
+            
+            Cells(x, 14).Value = "Uganda"
+            
+        ElseIf Cells(x, 14).Value = "UA" Then
+            
+            Cells(x, 14).Value = "Ukraine"
+            
+        ElseIf Cells(x, 14).Value = "AE" Then
+            
+            Cells(x, 14).Value = "United Arab Emirates"
+            
+        ElseIf Cells(x, 14).Value = "GB" Then
+            
+            Cells(x, 14).Value = "Great Britain"
+            
+        ElseIf Cells(x, 14).Value = "US" Then
+            
+            Cells(x, 14).Value = "USA"
+            
+        ElseIf Cells(x, 14).Value = "UY" Then
+            
+            Cells(x, 14).Value = "Uruguay"
+            
+        ElseIf Cells(x, 14).Value = "UZ" Then
+            
+            Cells(x, 14).Value = "Uzbekistan"
+            
+        ElseIf Cells(x, 14).Value = "VE" Then
+            
+            Cells(x, 14).Value = "Venezuela"
+            
+        ElseIf Cells(x, 14).Value = "VN" Then
+            
+            Cells(x, 14).Value = "Vietnam"
+            
+        ElseIf Cells(x, 14).Value = "YE" Then
+            
+            Cells(x, 14).Value = "Yemen"
+            
+        ElseIf Cells(x, 14).Value = "ZM" Then
+            
+            Cells(x, 14).Value = "Zambia"
+            
+        ElseIf Cells(x, 14).Value = "ZW" Then
+            
+            Cells(x, 14).Value = "Zimbabwe"
+            
+        Else: Cells(x, 14).Value = ""
+            
+        End If
+     
+     Next
+     
+     For x = 2 To lngMaxRow
+    
+        If Cells(x, 22).Value = "AAA" Then
+            
+            Cells(x, 22).Value = 1
+            
+        ElseIf Cells(x, 22).Value = "AA1" Then
+            
+            Cells(x, 22).Value = 2
+            
+        ElseIf Cells(x, 22).Value = "AA2" Then
+            
+            Cells(x, 22).Value = 3
+            
+        ElseIf Cells(x, 22).Value = "AA3" Then
+            
+            Cells(x, 22).Value = 4
+            
+        ElseIf Cells(x, 22).Value = "A1" Then
+            
+            Cells(x, 22).Value = 5
+            
+        ElseIf Cells(x, 22).Value = "A2" Then
+            
+            Cells(x, 22).Value = 6
+            
+        ElseIf Cells(x, 22).Value = "A3" Then
+            
+            Cells(x, 22).Value = 7
+            
+        ElseIf Cells(x, 22).Value = "BBB1" Then
+            
+            Cells(x, 22).Value = 8
+            
+        ElseIf Cells(x, 22).Value = "BBB2" Then
+            
+            Cells(x, 22).Value = 9
+            
+        ElseIf Cells(x, 22).Value = "BBB3" Then
+            
+            Cells(x, 22).Value = 10
+            
+        ElseIf Cells(x, 22).Value = "BB1" Then
+            
+            Cells(x, 22).Value = 11
+            
+        ElseIf Cells(x, 22).Value = "BB2" Then
+            
+            Cells(x, 22).Value = 12
+            
+        ElseIf Cells(x, 22).Value = "BB3" Then
+            
+            Cells(x, 22).Value = 13
+            
+        ElseIf Cells(x, 22).Value = "B1" Then
+            
+            Cells(x, 22).Value = 14
+            
+        ElseIf Cells(x, 22).Value = "B2" Then
+            
+            Cells(x, 22).Value = 15
+            
+        ElseIf Cells(x, 22).Value = "B3" Then
+            
+            Cells(x, 22).Value = 16
+            
+        ElseIf Cells(x, 22).Value = "CCC1" Then
+            
+            Cells(x, 22).Value = 17
+            
+        ElseIf Cells(x, 22).Value = "CCC2" Then
+            
+            Cells(x, 22).Value = 18
+            
+        ElseIf Cells(x, 22).Value = "CCC3" Then
+            
+            Cells(x, 22).Value = 19
+            
+        ElseIf Cells(x, 22).Value = "CC" Then
+            
+            Cells(x, 22).Value = 20
+            
+        ElseIf Cells(x, 22).Value = "C" Then
+            
+            Cells(x, 22).Value = 21
+            
+        ElseIf Cells(x, 22).Value = "NR" Then
+            
+            Cells(x, 22).Value = 22
+            
+        Else: Cells(x, 22).Value = ""
+        
+        End If
+            
+     Next
+     
+    For x = 2 To lngMaxRow
+ 
+        If Cells(x, 12).Value = "Local-Authority" Then
+    
+            Cells(x, 12).Value = "Quasi-Sovereign"
+
+        ElseIf Cells(x, 12).Value = "Government Guaranteed" Then
+    
+            Cells(x, 12).Value = "Quasi-Sovereign"
+        
+        ElseIf Cells(x, 12).Value = "Agency" Then
+    
+            Cells(x, 12).Value = "Quasi-Sovereign"
+
+        End If
+        
+    Next
+        
+     For x = lngMaxRow To 2 Step -1
+    
+        If Application.CountA(Cells(x, 1).EntireRow) = 0 Then
+           .Cells(x, 1).EntireRow.Delete
+        End If
+        
+     Next
+        
+    End With
+    
+    last_row
+
+End Sub
+
+Sub process_data()
+
+    ThisWorkbook.Worksheets("computation").Activate
+    
+    With ActiveSheet
+    
+        If IsActive_Issuer_Breakdown = 1 Then
+        
+            Columns("A:A").Select    'copy ticker over description
+            Selection.Copy
+            Columns("D:D").Select
+            .Paste
+            Columns("L:L").Select    'copy lvl 4 over lvl 3
+            Selection.Copy
+            Columns("P:P").Select
+            .Paste
+            Application.CutCopyMode = False
+            
+            Range("A1:AL" & lngMaxRow).Sort Key1:=Range("A1"), Key2:=Range("O1"), Key3:=Range("E1"), Order1:=xlAscending, Order2:=xlAscending, Order3:=xlAscending, _
+            header:=xlYes, OrderCustom:=1, MatchCase:=False, orientation:=xlTopToBottom, DataOption1:=xlSortNormal, DataOption2:=xlSortNormal, DataOption3:=xlSortNormal
+            
+            Columns("A:A").Select
+        
+            Selection.Insert shift:=xlToRight
+            
+            Columns("E:E").Select    'copy ticker to column A
+            Selection.Copy
+            Columns("A:A").Select
+            .Paste
+            Application.CutCopyMode = False
+                     
+            Rows(2).Select
+            Selection.Insert shift:=xlShiftDown
+            Selection.Insert shift:=xlShiftDown
+            
+            Range("I:I").Select    'insert new column to the right of Mkt Val
+            Selection.Insert shift:=xlToLeft
+            
+            Cells(3, 1).Value = Cells(4, 1).Value
+            
+        ElseIf IsActive_Country_Breakdown = 1 Then
+        
+            Columns("N:N").Select    'copy country name over column A, D
+            Selection.Copy
+            Range("A:A,D:D").Select
+            .Paste
+            Columns("L:L").Select    'copy lvl 4 over lvl 3
+            Selection.Copy
+            Range("P:P").Select
+            .Paste
+            Application.CutCopyMode = False
+            
+            Range("A1:AL" & lngMaxRow).Sort Key1:=Range("A1"), Key2:=Range("O1"), Key3:=Range("E1"), Order1:=xlAscending, Order2:=xlAscending, Order3:=xlAscending, _
+            header:=xlYes, OrderCustom:=1, MatchCase:=False, orientation:=xlTopToBottom, DataOption1:=xlSortNormal, DataOption2:=xlSortNormal, DataOption3:=xlSortNormal
+            
+            Columns("A:A").Select
+        
+            Selection.Insert shift:=xlToRight
+            
+            Columns("E:E").Select    'copy country to column A
+            Selection.Copy
+            Columns("A:A").Select
+            .Paste
+            Application.CutCopyMode = False
+                     
+            Rows(2).Select
+            Selection.Insert shift:=xlShiftDown
+            Selection.Insert shift:=xlShiftDown
+            
+            Range("I:I").Select    'insert new column to the right of Mkt Val
+            Selection.Insert shift:=xlToLeft
+            
+            Cells(3, 1).Value = Cells(4, 1).Value
+            
+        ElseIf IsActive_Sector_Breakdown = 1 Then
+        
+            Columns("L:L").Select    'copy new lvl 4 over description & old lvl 4
+            Selection.Copy
+            Range("A:A,D:D").Select
+            .Paste
+            Application.CutCopyMode = False
+            
+            Range("A1:AL" & lngMaxRow).Sort Key1:=Range("A1"), Key2:=Range("O1"), Key3:=Range("E1"), Order1:=xlAscending, Order2:=xlAscending, Order3:=xlAscending, _
+            header:=xlYes, OrderCustom:=1, MatchCase:=False, orientation:=xlTopToBottom, DataOption1:=xlSortNormal, DataOption2:=xlSortNormal, DataOption3:=xlSortNormal
+            
+            Columns("A:A").Select
+        
+            Selection.Insert shift:=xlToRight
+            
+            Columns("E:E").Select    'copy sector to column A
+            Selection.Copy
+            Columns("A:A").Select
+            .Paste
+            Application.CutCopyMode = False
+                     
+            Rows(2).Select
+            Selection.Insert shift:=xlShiftDown
+            Selection.Insert shift:=xlShiftDown
+            
+            Range("I:I").Select    'insert new column to the right of Mkt Val
+            Selection.Insert shift:=xlToLeft
+            
+            Cells(3, 1).Value = Cells(4, 1).Value
+            
+        ElseIf IsActive_Ratings_Breakdown = 1 Then
+        
+            Sheets("computation").Activate
+            last_row
+            rating_batch
+            
+            Columns("A:A").Select    'copy rating over description
+            Selection.Copy
+            Columns("D:D").Select
+            .Paste
+            Columns("L:L").Select    'copy lvl 4 over lvl 3
+            Selection.Copy
+            Range("P:P").Select
+            .Paste
+            Application.CutCopyMode = False
+            Range("A2:Z" & lngMaxRow).Select
+            Application.AddCustomList ListArray:=Array("AAA", "AA", "A", "BBB", "BB", "B", "CCC", "CC", "C", "Distressed")
+            Sheets("computation").Sort.SortFields.Clear
+            Sheets("computation").Sort.SortFields.Add Key:=Range("A2:A" & lngMaxRow), SortOn:=xlSortOnValues, order:=xlAscending, CustomOrder:= _
+                "AAA,AA,A,BBB,BB,B,CCC,CC,C,Distressed", DataOption:=xlSortNormal
+            With Sheets("computation").Sort
+                .SetRange Range("A2:Z" & lngMaxRow)
+                .header = xlGuess
+                .MatchCase = False
+                .orientation = xlTopToBottom
+                .SortMethod = xlPinYin
+                .Apply
+            End With
+            
+            Columns("A:A").Select
+            Selection.Insert shift:=xlToRight
+            
+            Columns("E:E").Select    'copy rating to column A
+            Selection.Copy
+            Range("A:A,V:V").Select
+            .Paste
+            Application.CutCopyMode = False
+                     
+            Rows(2).Select
+            Selection.Insert shift:=xlShiftDown
+            Selection.Insert shift:=xlShiftDown
+            
+            Range("I:I").Select    'insert new column to the right of Mkt Val
+            Selection.Insert shift:=xlToLeft
+            
+            Cells(3, 1).Value = Cells(4, 1).Value
+        
+        End If
+        
+        x = 4
+        
+        Do While (x < lngMaxRow + 1)
+        
+            sum(0) = sum(0) + Cells(x, 19).Value
+            
+            If Cells(x, 2).Value = Cells(x + 1, 2).Value Then
+            
+                Cells(x, 1).Value = ""
+                
+                x = x + 1
+                
+            Else
+            
+                Cells(x, 1).Value = ""
+            
+                Rows(x + 1).Select
+                Selection.Insert shift:=xlShiftDown
+                Selection.Insert shift:=xlShiftDown
+                
+                Cells(x + 2, 1).Value = Cells(x + 3, 1).Value
+                
+                Cells(x + 1, 19) = sum(0) 'displays sum on worksheet
+                
+                Cells(x + 1, 19).Font.Bold = True
+                
+                sum(0) = 0
+                
+                x = x + 3
+            
+            End If
+            
+            last_row
+            
+            Application.StatusBar = "Processing line item: " & x
+           
+        Loop
+        
+        Application.StatusBar = "Computing statistics on line item: " & x
+        
+        last_row
+        
+        y = 4
+            
+            Do While Not (IsEmpty(Cells(y, 8))) And (y < lngMaxRow + 1)
+            
+                If Cells(y, 2).Value = Cells(y - 1, 2).Value And Cells(y, 2).Value <> Cells(y + 1, 2).Value Then
+                    
+                    Cells(y, 19).Select
+                    
+                    Selection.End(xlDown).Select
+                    
+                    sum(1) = ActiveCell.Value
+                    
+                    Cells(y, 9).Value = Cells(y, 19).Value / sum(1)
+                    
+                    sum(1) = 0
+                    
+                    x = Range("I" & y).End(xlUp).Row
+                    
+                    Range("F" & y + 1).Formula = "=SUMPRODUCT(F" & y & ":" & "F" & x & "," & "I" & y & ":" & "I" & x & ")"
+                    
+                    Range("G" & y + 1).Formula = "=SUMPRODUCT(G" & y & ":" & "G" & x & "," & "I" & y & ":" & "I" & x & ")"
+                    
+                    Range("H" & y + 1).Formula = "=SUMPRODUCT(H" & y & ":" & "H" & x & "," & "I" & y & ":" & "I" & x & ")"
+                    
+                    Range("J" & y + 1).Formula = "=SUM(J" & y & ":" & "J" & x & ")"
+                    
+                    Range("K" & y + 1).Formula = "=SUMPRODUCT(K" & y & ":" & "K" & x & "," & "I" & y & ":" & "I" & x & ")"
+                    
+                    Range("L" & y + 1).Formula = "=SUMPRODUCT(L" & y & ":" & "L" & x & "," & "I" & y & ":" & "I" & x & ")"
+                    
+                    Range("M" & y + 1) = Range("M" & y - 1)
+                    
+                    ActiveSheet.Range("Q" & y & ":Q" & x).RemoveDuplicates Columns:=1, header:=xlNo
+                    Range("Q" & y + 1).Formula = "=COUNTA(Q" & y & ":" & "Q" & x & ")"
+                    
+                    Range("T" & y + 1).Formula = "=SUMPRODUCT(T" & y & ":" & "T" & x & "," & "I" & y & ":" & "I" & x & ")"
+                    
+                    Range("U" & y + 1).Formula = "=SUMPRODUCT(U" & y & ":" & "U" & x & "," & "I" & y & ":" & "I" & x & ")"
+                    
+                    Range("V" & y + 1).Formula = "=SUMPRODUCT(V" & y & ":" & "V" & x & "," & "I" & y & ":" & "I" & x & ")"
+                    
+                    Range("X" & y + 1).Formula = "=ROUND(SUMPRODUCT(X" & y & ":" & "X" & x & "," & "I" & y & ":" & "I" & x & "),0)"
+                    
+                    Range("Z" & y + 1).Formula = "=ROUND(SUMPRODUCT(Z" & y & ":" & "Z" & x & "," & "I" & y & ":" & "I" & x & "),0)"
+                    
+                    If IsActive_Issuer_Breakdown = 1 Or IsActive_Ratings_Breakdown = 1 Then
+    
+                        If IsEmpty(Cells(x + 1, 23)) Then
+                        
+                            Cells(x - 1, 1).Value = Cells(x, 23).Value
+                            Cells(y + 1, 16).Value = Cells(y, 16).Value
+                            Cells(y + 1, 18).Value = Cells(y, 18).Value
+                        Else
+                        
+                            Cells(x - 1, 1).Value = Cells(x + 1, 23).Value
+                            Cells(y + 1, 16).Value = Cells(y, 16).Value
+                            Cells(y + 1, 18).Value = Cells(y, 18).Value
+                    
+                        End If
+                        
+                    End If
+                    
+                    Range("F" & y + 1 & ":" & "Z" & y + 1).Select
+                    Selection.Cut
+                    Range("F" & x - 1 & ":" & "Z" & x - 1).Select
+                    .Paste
+                    Range("F" & x - 1 & ":" & "Z" & x - 1).Select
+                    Selection.Copy
+                    Range("F" & x - 1 & ":" & "Z" & x - 1).Select
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+                    Application.CutCopyMode = False
+                    Rows(x - 1).Font.Bold = False
+                    
+                    x = 0
+                    
+                    y = y + 3
+                
+                ElseIf Cells(y, 2).Value <> Cells(y + 1, 2).Value Then
+                
+                    Cells(y, 9).Value = 1
+                    
+                    Cells(y + 1, 6).Value = Cells(y, 6).Value
+                    
+                    Cells(y + 1, 7).Value = Cells(y, 7).Value
+                
+                    Cells(y + 1, 8).Value = Cells(y, 8).Value
+                    
+                    Cells(y + 1, 10).Value = Cells(y, 10).Value
+                    
+                    Cells(y + 1, 11).Value = Cells(y, 11).Value
+                    
+                    Cells(y + 1, 12).Value = Cells(y, 12).Value
+                    
+                    Cells(y + 1, 13).Value = Cells(y, 13).Value
+                    
+                    Cells(y + 1, 14).Value = Cells(y, 14).Value
+                    
+                    Cells(y + 1, 15).Value = Cells(y, 15).Value
+                    
+                    Cells(y + 1, 17).Value = 1
+                    
+                    Cells(y + 1, 20).Value = Cells(y, 20).Value
+                    
+                    Cells(y + 1, 21).Value = Cells(y, 21).Value
+                    
+                    Cells(y + 1, 22).Value = Cells(y, 22).Value
+                    
+                    Cells(y + 1, 24).Value = Cells(y, 24).Value
+                    
+                    Cells(y + 1, 25).Value = Cells(y, 25).Value
+                    
+                    Cells(y + 1, 26).Value = Cells(y, 26).Value
+                    
+                    x = Cells(y + 1, 8).End(xlUp).Row
+                    
+                    If IsActive_Issuer_Breakdown = 1 Or IsActive_Ratings_Breakdown = 1 Then
+    
+                        If IsEmpty(Cells(x + 1, 23)) Then
+                        
+                            Cells(x - 1, 1).Value = Cells(x, 23).Value
+                            Cells(y + 1, 16).Value = Cells(y, 16).Value
+                            Cells(y + 1, 18).Value = Cells(y, 18).Value
+                            
+                        Else
+                        
+                            Cells(x - 1, 1).Value = Cells(x + 1, 23).Value
+                            Cells(y + 1, 16).Value = Cells(y, 16).Value
+                            Cells(y + 1, 18).Value = Cells(y, 18).Value
+                    
+                        End If
+                        
+                    End If
+                        
+                    Range("F" & y + 1 & ":" & "Z" & y + 1).Select
+                    Selection.Cut
+                    Range("F" & x - 1 & ":" & "Z" & x - 1).Select
+                    .Paste
+                    Range("F" & x - 1 & ":" & "Z" & x - 1).Select
+                    Selection.Copy
+                    Range("F" & x - 1 & ":" & "Z" & x - 1).Select
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+                    Application.CutCopyMode = False
+                    Rows(x - 1).Font.Bold = False
+                                        
+                    x = 0
+                    
+                    y = y + 3
+                    
+                Else
+                    
+                    Cells(y, 19).Select
+                    
+                    Selection.End(xlDown).Select
+                    
+                    sum(1) = ActiveCell.Value
+                    
+                    Cells(y, 9).Value = Cells(y, 19).Value / sum(1)
+                    
+                    sum(1) = 0
+                    
+                    y = y + 1
+                    
+                End If
+                
+            Application.StatusBar = "Processing line item: " & y
+                
+            Loop
+        
+    End With
+
+End Sub
+
+Sub rating_to_numeric()
+
+    
+    ThisWorkbook.Worksheets("computation").Activate
+    
+    With ActiveSheet
+    
+    For x = 2 To lngMaxRow
+        
+        If Cells(x, 24).Value = 1 Then
+            
+            Cells(x, 24).Value = "AAA"
+            
+        ElseIf Cells(x, 24).Value = 2 Then
+            
+            Cells(x, 24).Value = "AA+"
+            
+        ElseIf Cells(x, 24).Value = 3 Then
+            
+            Cells(x, 24).Value = "AA"
+            
+        ElseIf Cells(x, 24).Value = 4 Then
+            
+            Cells(x, 24).Value = "AA-"
+            
+        ElseIf Cells(x, 24).Value = 5 Then
+            
+            Cells(x, 24).Value = "A+"
+            
+        ElseIf Cells(x, 24).Value = 6 Then
+            
+            Cells(x, 24).Value = "A"
+            
+        ElseIf Cells(x, 24).Value = 7 Then
+            
+            Cells(x, 24).Value = "A-"
+            
+        ElseIf Cells(x, 24).Value = 8 Then
+            
+            Cells(x, 24).Value = "BBB+"
+            
+        ElseIf Cells(x, 24).Value = 9 Then
+            
+            Cells(x, 24).Value = "BBB"
+            
+        ElseIf Cells(x, 24).Value = 10 Then
+            
+            Cells(x, 24).Value = "BBB-"
+            
+        ElseIf Cells(x, 24).Value = 11 Then
+            
+            Cells(x, 24).Value = "BB+"
+            
+        ElseIf Cells(x, 24).Value = 12 Then
+            
+            Cells(x, 24).Value = "BB"
+            
+        ElseIf Cells(x, 24).Value = 13 Then
+            
+            Cells(x, 24).Value = "BB-"
+            
+        ElseIf Cells(x, 24).Value = 14 Then
+            
+            Cells(x, 24).Value = "B+"
+            
+        ElseIf Cells(x, 24).Value = 15 Then
+            
+            Cells(x, 24).Value = "B"
+            
+        ElseIf Cells(x, 24).Value = 16 Then
+            
+            Cells(x, 24).Value = "B-"
+            
+        ElseIf Cells(x, 24).Value = 17 Then
+            
+            Cells(x, 24).Value = "CCC+"
+            
+        ElseIf Cells(x, 24).Value = 18 Then
+            
+            Cells(x, 24).Value = "CCC"
+            
+        ElseIf Cells(x, 24).Value = 19 Then
+            
+            Cells(x, 24).Value = "CCC-"
+            
+        ElseIf Cells(x, 24).Value = 20 Then
+            
+            Cells(x, 24).Value = "CC"
+            
+        ElseIf Cells(x, 24).Value = 21 Then
+            
+            Cells(x, 24).Value = "C"
+            
+        ElseIf Cells(x, 24).Value = 22 Then
+            
+            Cells(x, 24).Value = "NR"
+            
+        Else: Cells(x, 24).Value = ""
+        
+        End If
+                
+    Next
+
+    End With
+
+End Sub
+
+Sub rating_batch()
+    
+    With ActiveSheet
+    
+    For x = 2 To lngMaxRow
+        
+        If Cells(x, 1).Value = "AAA" Then
+            
+            Cells(x, 1).Value = "AAA"
+            
+        ElseIf Cells(x, 1).Value = "AA1" Then
+            
+            Cells(x, 1).Value = "AA"
+            
+        ElseIf Cells(x, 1).Value = "AA2" Then
+            
+            Cells(x, 1).Value = "AA"
+            
+        ElseIf Cells(x, 1).Value = "AA3" Then
+            
+            Cells(x, 1).Value = "AA"
+            
+        ElseIf Cells(x, 1).Value = "A1" Then
+            
+            Cells(x, 1).Value = "A"
+            
+        ElseIf Cells(x, 1).Value = "A2" Then
+            
+            Cells(x, 1).Value = "A"
+            
+        ElseIf Cells(x, 1).Value = "A3" Then
+            
+            Cells(x, 1).Value = "A"
+            
+        ElseIf Cells(x, 1).Value = "BBB1" Then
+            
+            Cells(x, 1).Value = "BBB"
+            
+        ElseIf Cells(x, 1).Value = "BBB2" Then
+            
+            Cells(x, 1).Value = "BBB"
+            
+        ElseIf Cells(x, 1).Value = "BBB3" Then
+            
+            Cells(x, 1).Value = "BBB"
+            
+        ElseIf Cells(x, 1).Value = "BB1" Then
+            
+            Cells(x, 1).Value = "BB"
+            
+        ElseIf Cells(x, 1).Value = "BB2" Then
+            
+            Cells(x, 1).Value = "BB"
+            
+        ElseIf Cells(x, 1).Value = "BB3" Then
+            
+            Cells(x, 1).Value = "BB"
+            
+        ElseIf Cells(x, 1).Value = "B1" Then
+            
+            Cells(x, 1).Value = "B"
+            
+        ElseIf Cells(x, 1).Value = "B2" Then
+            
+            Cells(x, 1).Value = "B"
+            
+        ElseIf Cells(x, 1).Value = "B3" Then
+            
+            Cells(x, 1).Value = "B"
+            
+        ElseIf Cells(x, 1).Value = "CCC1" Then
+            
+            Cells(x, 1).Value = "CCC"
+            
+        ElseIf Cells(x, 1).Value = "CCC2" Then
+            
+            Cells(x, 1).Value = "CCC"
+            
+        ElseIf Cells(x, 1).Value = "CCC3" Then
+            
+            Cells(x, 1).Value = "CCC"
+            
+        ElseIf Cells(x, 1).Value = "CC" Then
+            
+            Cells(x, 1).Value = "CC"
+            
+        ElseIf Cells(x, 1).Value = "C" Then
+            
+            Cells(x, 1).Value = "C"
+            
+        ElseIf Cells(x, 1).Value = "NR" Then
+            
+            Cells(x, 1).Value = "NR"
+            
+        Else: Cells(x, 1).Value = ""
+        
+        End If
+                
+    Next
+
+    End With
+
+End Sub
+
+Sub create_report_view()
+
+    ThisWorkbook.Worksheets("computation").Activate
+
+    With ActiveSheet
+    
+        Application.StatusBar = "Creating Report View"
+        
+        If IsActive_Issuer_Breakdown = 1 Then
+        
+            Range("X3:X" & lngMaxRow).Select
+            Selection.Cut
+            Range("M3:M" & lngMaxRow).Select
+            .Paste
+            
+            Range("B:B,D:E,N:N").Select   'remove ticker,cusip,ticker,lvl 4
+            Selection.Delete shift:=xlToLeft
+            
+            Columns(3).Select     'maturity date
+            Selection.NumberFormat = "mm/dd/yyyy"
+            
+            Columns(4).Select   'coupon
+            Selection.NumberFormat = "0.0"
+            
+            Columns(5).Select   'oas
+            Selection.NumberFormat = "0"
+            
+            Columns(6).Select   'Issuer Weight
+            Selection.NumberFormat = "0.00"
+            
+            Columns(7).Select  '% mkt value
+            Selection.NumberFormat = "0.00"
+            
+            Columns(8).Select   'price
+            Selection.NumberFormat = "0.0"
+            
+            Columns(9).Select   'ytw
+            Selection.NumberFormat = "0.0"
+            
+            Columns(15).Select   'mkt value
+            Selection.NumberFormat = "0"
+            
+            Columns(16).Select   'total return
+            Selection.NumberFormat = "0.00"
+            
+            Columns(17).Select   'eff duration
+            Selection.NumberFormat = "0.0"
+            
+            Columns(18).Select   'eff convexity
+            Selection.NumberFormat = "0.0"
+            
+            Columns(22).Select   'BS
+            Selection.NumberFormat = "0"
+                            
+            Cells(1, 1).Value = "Issuer"
+            Cells(1, 2).Value = "ISIN"
+            Cells(1, 3).Value = "Maturity"
+            Cells(1, 4).Value = "Coupon"
+            Cells(1, 5).Value = "OAS"
+            Cells(1, 6).Value = "Issue Weight"
+            Cells(1, 7).Value = "% Mkt Value"
+            Cells(1, 8).Value = "Price"
+            Cells(1, 9).Value = "Yield to Worst"
+            Cells(1, 10).Value = "Rating"
+            Cells(1, 11).Value = "Currency"
+            Cells(1, 12).Value = "Country"
+            Cells(1, 13).Value = "Level 2"
+            Cells(1, 14).Value = "Sector"
+            Cells(1, 15).Value = "Market Value USD"
+            Cells(1, 16).Value = "Total Return % MTD USD H"
+            Cells(1, 17).Value = "Effective Duration"
+            Cells(1, 18).Value = "Effective Convexity"
+            Cells(1, 21).Value = "Bond Type"
+            Cells(1, 22).Value = "BS"
+            
+            Columns("A:Z").Select
+            Columns("A:Z").EntireColumn.AutoFit
+            Columns("C:Z").Select
+            With Selection
+                .HorizontalAlignment = xlCenter
+                .VerticalAlignment = xlBottom
+                .WrapText = False
+            End With
+            
+        ElseIf IsActive_Country_Breakdown = 1 Then
+        
+            Range("X3:X" & lngMaxRow).Select    'cut weighted avg rating & issue ratings and paste over avg rating
+            Selection.Cut
+            Range("M3:M" & lngMaxRow).Select
+            .Paste
+            Range("Q3:Q" & lngMaxRow).Select    'cut ticker and paste over country
+            Selection.Cut
+            Range("P3:P" & lngMaxRow).Select
+            .Paste
+            Range("W3:W" & lngMaxRow).Select    'cut description and paste over empty column Q
+            Selection.Cut
+            Range("Q3:Q" & lngMaxRow).Select
+            .Paste
+            
+            Range("B:B,D:E,N:N").Select   'remove ticker,description,cusip,lvl 4
+            Selection.Delete shift:=xlToLeft
+            
+            Columns(3).Select     'maturity date
+            Selection.NumberFormat = "mm/dd/yyyy"
+            
+            Columns(4).Select   'coupon
+            Selection.NumberFormat = "0.0"
+            
+            Columns(5).Select   'oas
+            Selection.NumberFormat = "0"
+            
+            Columns(6).Select   'Issuer Weight
+            Selection.NumberFormat = "0.00"
+            
+            Columns(7).Select  '% mkt value
+            Selection.NumberFormat = "0.00"
+            
+            Columns(8).Select   'price
+            Selection.NumberFormat = "0.0"
+            
+            Columns(9).Select   'ytw
+            Selection.NumberFormat = "0.0"
+            
+            Columns(15).Select   'face value
+            Selection.NumberFormat = "0"
+            
+            Columns(16).Select   'total return
+            Selection.NumberFormat = "0.00"
+            
+            Columns(17).Select   'eff duration
+            Selection.NumberFormat = "0.0"
+            
+            Columns(18).Select   'eff convexity
+            Selection.NumberFormat = "0.0"
+            
+            Columns(22).Select   'BS
+            Selection.NumberFormat = "0"
+                            
+            Cells(1, 1).Value = "Issuer"
+            Cells(1, 2).Value = "ISIN"
+            Cells(1, 3).Value = "Maturity"
+            Cells(1, 4).Value = "Coupon"
+            Cells(1, 5).Value = "OAS"
+            Cells(1, 6).Value = "Issue Weight"
+            Cells(1, 7).Value = "% Mkt Value"
+            Cells(1, 8).Value = "Price"
+            Cells(1, 9).Value = "Yield to Worst"
+            Cells(1, 10).Value = "Rating"
+            Cells(1, 11).Value = "Currency"
+            Cells(1, 12).Value = "# of Issuers"
+            Cells(1, 13).Value = "Description"
+            Cells(1, 14).Value = "Sector"
+            Cells(1, 15).Value = "Market Value USD"
+            Cells(1, 16).Value = "Total Return % MTD USD H"
+            Cells(1, 17).Value = "Effective Duration"
+            Cells(1, 18).Value = "Effective Convexity"
+            Cells(1, 21).Value = "Bond Type"
+            Cells(1, 22).Value = "BS"
+            
+            Columns("A:Z").Select
+            Columns("A:Z").EntireColumn.AutoFit
+            Columns("C:Z").Select
+            With Selection
+                .HorizontalAlignment = xlCenter
+                .VerticalAlignment = xlBottom
+                .WrapText = False
+            End With
+            
+        ElseIf IsActive_Sector_Breakdown = 1 Then
+        
+            Range("X3:X" & lngMaxRow).Select
+            Selection.Cut
+            Range("M3:M" & lngMaxRow).Select
+            .Paste
+            Range("Q3:Q" & lngMaxRow).Select    'cut ticker and paste over lvl 3
+            Selection.Cut
+            Range("R3:R" & lngMaxRow).Select
+            .Paste
+            Range("W3:W" & lngMaxRow).Select    'cut description and paste over empty column Q
+            Selection.Cut
+            Range("Q3:Q" & lngMaxRow).Select
+            .Paste
+            Range("P3:P" & lngMaxRow).Select    'cut country and paste over empty column W
+            Selection.Cut
+            Range("W3:W" & lngMaxRow).Select
+            .Paste
+            Range("R3:R" & lngMaxRow).Select    'cut ticker and paste over empty column P
+            Selection.Cut
+            Range("P3:P" & lngMaxRow).Select
+            .Paste
+            Range("W3:W" & lngMaxRow).Select    'cut country and paste over empty column R
+            Selection.Cut
+            Range("R3:R" & lngMaxRow).Select
+            .Paste
+            
+            Range("B:B,D:E,N:N").Select   'remove ticker,description,cusip,lvl 4
+            Selection.Delete shift:=xlToLeft
+            
+            Columns(3).Select     'maturity date
+            Selection.NumberFormat = "mm/dd/yyyy"
+            
+            Columns(4).Select   'coupon
+            Selection.NumberFormat = "0.0"
+            
+            Columns(5).Select   'oas
+            Selection.NumberFormat = "0"
+            
+            Columns(6).Select   'Issuer Weight
+            Selection.NumberFormat = "0.00"
+            
+            Columns(7).Select  '% mkt value
+            Selection.NumberFormat = "0.00"
+            
+            Columns(8).Select   'price
+            Selection.NumberFormat = "0.0"
+            
+            Columns(9).Select   'ytw
+            Selection.NumberFormat = "0.0"
+            
+            Columns(15).Select   'full mkt value
+            Selection.NumberFormat = "0"
+            
+            Columns(16).Select   'total return
+            Selection.NumberFormat = "0.00"
+            
+            Columns(17).Select   'eff duration
+            Selection.NumberFormat = "0.0"
+            
+            Columns(18).Select   'eff convexity
+            Selection.NumberFormat = "0.0"
+            
+            Columns(22).Select   'BS
+            Selection.NumberFormat = "0"
+                            
+            Cells(1, 1).Value = "Issuer"
+            Cells(1, 2).Value = "ISIN"
+            Cells(1, 3).Value = "Maturity"
+            Cells(1, 4).Value = "Coupon"
+            Cells(1, 5).Value = "OAS"
+            Cells(1, 6).Value = "Issue Weight"
+            Cells(1, 7).Value = "% Mkt Value"
+            Cells(1, 8).Value = "Price"
+            Cells(1, 9).Value = "Yield to Worst"
+            Cells(1, 10).Value = "Rating"
+            Cells(1, 11).Value = "Currency"
+            Cells(1, 12).Value = "Ticker"
+            Cells(1, 13).Value = "Description"
+            Cells(1, 14).Value = "Country"
+            Cells(1, 15).Value = "Market Value USD"
+            Cells(1, 16).Value = "Total Return % MTD USD H"
+            Cells(1, 17).Value = "Effective Duration"
+            Cells(1, 18).Value = "Effective Convexity"
+            Cells(1, 21).Value = "Bond Type"
+            Cells(1, 22).Value = "BS"
+            
+            Columns("A:Z").Select
+            Columns("A:Z").EntireColumn.AutoFit
+            Columns("C:Z").Select
+            With Selection
+                .HorizontalAlignment = xlCenter
+                .VerticalAlignment = xlBottom
+                .WrapText = False
+            End With
+            
+        ElseIf IsActive_Ratings_Breakdown = 1 Then
+        
+            Range("X3:X" & lngMaxRow).Select
+            Selection.Cut
+            Range("M3:M" & lngMaxRow).Select
+            .Paste
+            Range("R3:R" & lngMaxRow).Select   'cut lvl 4 with data over empty lvl 4
+            Selection.Cut
+            Range("N3:N" & lngMaxRow).Select
+            .Paste
+            Range("Q3:Q" & lngMaxRow).Select    'cut ticker and paste over lvl 3
+            Selection.Cut
+            Range("R3:R" & lngMaxRow).Select
+            .Paste
+            Range("W3:W" & lngMaxRow).Select    'cut description and paste over empty column Q
+            Selection.Cut
+            Range("Q3:Q" & lngMaxRow).Select
+            .Paste
+            Range("P3:P" & lngMaxRow).Select    'cut country and paste over empty column W
+            Selection.Cut
+            Range("W3:W" & lngMaxRow).Select
+            .Paste
+            Range("R3:R" & lngMaxRow).Select    'cut ticker and paste over empty column P
+            Selection.Cut
+            Range("P3:P" & lngMaxRow).Select
+            .Paste
+            Range("W3:W" & lngMaxRow).Select    'cut country and paste over empty column R
+            Selection.Cut
+            Range("R3:R" & lngMaxRow).Select
+            .Paste
+            
+            Range("B:B,D:E,O:O").Select   'remove ticker,description,cusip,lvl 4
+            Selection.Delete shift:=xlToLeft
+            
+            Columns(3).Select     'maturity date
+            Selection.NumberFormat = "mm/dd/yyyy"
+            
+            Columns(4).Select   'coupon
+            Selection.NumberFormat = "0.0"
+            
+            Columns(5).Select   'oas
+            Selection.NumberFormat = "0"
+            
+            Columns(6).Select   'Issuer Weight
+            Selection.NumberFormat = "0.00"
+            
+            Columns(7).Select  '% mkt value
+            Selection.NumberFormat = "0.00"
+            
+            Columns(8).Select   'price
+            Selection.NumberFormat = "0.0"
+            
+            Columns(9).Select   'ytw
+            Selection.NumberFormat = "0.0"
+            
+            Columns(15).Select   'face value
+            Selection.NumberFormat = "0"
+            
+            Columns(16).Select   'total return
+            Selection.NumberFormat = "0.00"
+            
+            Columns(17).Select   'eff duration
+            Selection.NumberFormat = "0.0"
+            
+            Columns(18).Select   'eff convexity
+            Selection.NumberFormat = "0.0"
+            
+            Columns(22).Select   'BS
+            Selection.NumberFormat = "0"
+                            
+            Cells(1, 1).Value = "Issuer"
+            Cells(1, 2).Value = "ISIN"
+            Cells(1, 3).Value = "Maturity"
+            Cells(1, 4).Value = "Coupon"
+            Cells(1, 5).Value = "OAS"
+            Cells(1, 6).Value = "Issue Weight"
+            Cells(1, 7).Value = "% Mkt Value"
+            Cells(1, 8).Value = "Price"
+            Cells(1, 9).Value = "Yield to Worst"
+            Cells(1, 10).Value = "Rating"
+            Cells(1, 11).Value = "Sector"
+            Cells(1, 12).Value = "Ticker"
+            Cells(1, 13).Value = "Rating"
+            Cells(1, 14).Value = "Country"
+            Cells(1, 15).Value = "Market Value USD"
+            Cells(1, 16).Value = "Total Return % MTD USD H"
+            Cells(1, 17).Value = "Effective Duration"
+            Cells(1, 18).Value = "Effective Convexity"
+            Cells(1, 21).Value = "Bond Type"
+            Cells(1, 22).Value = "BS"
+            
+            Columns("A:Z").Select
+            Columns("A:Z").EntireColumn.AutoFit
+            Columns("C:Z").Select
+            With Selection
+                .HorizontalAlignment = xlCenter
+                .VerticalAlignment = xlBottom
+                .WrapText = False
+            End With
+            
+        End If
+        
+    End With
+
+End Sub
+
+Sub consolidate()
+
+    ThisWorkbook.Worksheets("computation").Activate
+    last_row
+    
+    For x = lngMaxRow To 1 Step -1
+        
+        If Cells(x, 1).Value = "" Then
+           Cells(x, 1).EntireRow.Delete
+        End If
+        
+    Application.StatusBar = "Processing line item: " & x
+    
+    Next
+    
+    last_row
+    
+    If IsActive_Issuer_Breakdown = 1 Then
+    
+        Range("A1000000").Select
+        lngMaxRow = ActiveCell.Row
+        lngMaxRow = Cells(lngMaxRow, 1).End(xlUp).Row
+        
+        ThisWorkbook.Worksheets("computation").Sort.SortFields.Clear
+        Range("A1:AL" & lngMaxRow).Sort Key1:=Range("G1"), Order1:=xlDescending, header:=True, OrderCustom:=1, MatchCase:=False, orientation:=xlTopToBottom, _
+        DataOption1:=xlSortNormal    'sort by % Mkt Value (largest to smallest)
+    
+        Range("B:B,F:F,K:K,M:M,S:U").Select   'delete ISIN, issue weight, crncy, lvl 2, description, rating, bond type
+        Selection.Delete shift:=xlToLeft
+        
+        Columns("J:J").Select    'Sector to after Issuer
+        Selection.Cut
+        Columns("B:B").Select
+        Selection.Insert shift:=xlToRight
+        Columns("J:J").Select    'Country to after Sector
+        Selection.Cut
+        Columns("C:C").Select
+        Selection.Insert shift:=xlToRight
+        Columns("E:E").Select    'Coupon to after Country
+        Selection.Cut
+        Columns("D:D").Select
+        Selection.Insert shift:=xlToRight
+        Columns("F:F").Select    'OAS to after % Mkt Value
+        Selection.Cut
+        Columns("H:H").Select
+        Selection.Insert shift:=xlToRight
+        Columns("K:K").Select    'Market Value to after Maturity
+        Selection.Cut
+        Columns("F:F").Select
+        Selection.Insert shift:=xlToRight
+        Columns("K:K").Select    'Rating to after % Mkt Value
+        Selection.Cut
+        Columns("H:H").Select
+        Selection.Insert shift:=xlToRight
+        Columns("K:K").Select    'YTW to after OAS
+        Selection.Cut
+        Columns("J:J").Select
+        Selection.Insert shift:=xlToRight
+        Columns("M:M").Select    'Effective Duration to after YTW
+        Selection.Cut
+        Columns("K:K").Select
+        Selection.Insert shift:=xlToRight
+        Columns("N:N").Select    'Effective Convexity to after Effective Duration
+        Selection.Cut
+        Columns("L:L").Select
+        Selection.Insert shift:=xlToRight
+        
+        Range("F2:F" & lngMaxRow).Select
+        Selection.Style = "Comma"
+        Selection.NumberFormat = "_(* #,##0.0_);_(* (#,##0.0);_(* ""-""??_);_(@_)"
+        Selection.NumberFormat = "_(* #,##0_);_(* (#,##0);_(* ""-""??_);_(@_)"
+        
+        Columns("A:A").Select   'Align Issuer to the left
+        Selection.HorizontalAlignment = xlLeft
+        Columns("A:AB").Select
+        Columns("A:AB").EntireColumn.AutoFit
+        
+        'copy data to "all" sheet for portfolio lookup reference
+        Sheets("all").Activate
+        Range("C:D").Select
+        Selection.Insert shift:=xlToRight
+        Cells(1, 3).Value = "Sector"
+        Cells(1, 4).Value = "Country"
+        Sheets("computation").Activate
+        Range("A2:A" & lngMaxRow).Select
+        Selection.Copy
+        Sheets("all").Activate
+        last_row
+        Range("A" & lngMaxRow + 1).Select
+        Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+        Selection.PasteSpecial Paste:=xlPasteFormats, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+        Application.CutCopyMode = False
+        Sheets("computation").Activate
+        last_row
+        Range("B2:Z" & lngMaxRow).Select
+        Selection.Copy
+        Sheets("all").Activate
+        last_row
+        Range("C" & lngMaxRow + 1).Select
+        Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+        Selection.PasteSpecial Paste:=xlPasteFormats, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+        Application.CutCopyMode = False
+        Sheets("computation").Select
+        Range("A2:A31").Select
+        Selection.Copy
+        Sheets("emcb_top_print").Activate
+        Range("A69").Select
+        Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+        Selection.PasteSpecial Paste:=xlPasteFormats, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+        Application.CutCopyMode = False
+        Sheets("computation").Select
+        Range("B2:Z31").Select
+        Selection.Copy
+        Sheets("emcb_top_print").Activate
+        Range("C69").Select
+        Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+        Selection.PasteSpecial Paste:=xlPasteFormats, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+        Application.CutCopyMode = False
+        Range("A69:Z98" & lngMaxRow).Sort Key1:=Range("O69"), Order1:=xlDescending, header:= _
+        xlGuess, OrderCustom:=1, MatchCase:=False, orientation:=xlTopToBottom, DataOption1:=xlSortNormal    'sort by Total Return (best to worst)
+        Range("O69:O98").Font.Bold = True
+        Sheets("computation").Activate
+        Range("A1:AZ100000").Select
+        Selection.Clear
+        
+    ElseIf IsActive_Country_Breakdown = 1 Then
+        
+        Range("A1000000").Select
+        lngMaxRow = ActiveCell.Row
+        lngMaxRow = Cells(lngMaxRow, 1).End(xlUp).Row
+        
+        ThisWorkbook.Worksheets("computation").Sort.SortFields.Clear
+        Range("A1:AL" & lngMaxRow).Sort Key1:=Range("G1"), Order1:=xlDescending, header:=True, OrderCustom:=1, MatchCase:=False, orientation:=xlTopToBottom, _
+        DataOption1:=xlSortNormal    'sort by % Mkt Value (largest to smallest)
+        
+        Range("B:B,F:F,K:K,M:N,S:U").Select    'delete ISIN, Issuer Weight, Description, Sector, Description, Rating, Bond Type
+        Selection.Delete shift:=xlToLeft
+        
+        Columns("C:C").Select    'Coupon to after Country
+        Selection.Cut
+        Columns("B:B").Select
+        Selection.Insert shift:=xlToRight
+        Columns("D:D").Select    'OAS to after % Mkt Value
+        Selection.Cut
+        Columns("F:F").Select
+        Selection.Insert shift:=xlToRight
+        Columns("J:J").Select    'Market Value to after Maturity
+        Selection.Cut
+        Columns("D:D").Select
+        Selection.Insert shift:=xlToRight
+        Columns("I:I").Select    'Rating to after % Mkt Value
+        Selection.Cut
+        Columns("F:F").Select
+        Selection.Insert shift:=xlToRight
+        Columns("I:I").Select    'YTW to after OAS
+        Selection.Cut
+        Columns("H:H").Select
+        Selection.Insert shift:=xlToRight
+        Columns("L:L").Select    'Effective Duration to after YTW
+        Selection.Cut
+        Columns("I:I").Select
+        Selection.Insert shift:=xlToRight
+        Columns("M:M").Select    'Effective Convexity to after Effective Duration
+        Selection.Cut
+        Columns("J:J").Select
+        Selection.Insert shift:=xlToRight
+        Columns("L:L").Select    '# of Issuers to after Country
+        Selection.Cut
+        Columns("B:B").Select
+        Selection.Insert shift:=xlToRight
+        
+        Range("E2:E" & lngMaxRow).Select    'Format Market Value
+        Selection.Style = "Comma"
+        Selection.NumberFormat = "_(* #,##0.0_);_(* (#,##0.0);_(* ""-""??_);_(@_)"
+        Selection.NumberFormat = "_(* #,##0_);_(* (#,##0);_(* ""-""??_);_(@_)"
+        
+        Columns("A:AB").Select
+        Columns("A:AB").EntireColumn.AutoFit
+        
+        'copy data to "all" sheet for portfolio lookup reference and top 30 for print out
+        Range("A1:Z" & lngMaxRow).Select
+        Selection.Copy
+        Sheets("all").Activate
+        Range("A1").Select
+        Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+        Selection.PasteSpecial Paste:=xlPasteFormats, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+        Application.CutCopyMode = False
+        Sheets("computation").Select
+        Range("A2:B31").Select
+        Selection.Copy
+        Sheets("emcb_top_print").Activate
+        Range("A5").Select
+        Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+        Selection.PasteSpecial Paste:=xlPasteFormats, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+        Application.CutCopyMode = False
+        Sheets("computation").Select
+        Range("C2:Z31").Select
+        Selection.Copy
+        Sheets("emcb_top_print").Activate
+        Range("E5").Select
+        Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+        Selection.PasteSpecial Paste:=xlPasteFormats, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+        Application.CutCopyMode = False
+        Range("A5:Z34" & lngMaxRow).Sort Key1:=Range("O5"), Order1:=xlDescending, header:= _
+        xlGuess, OrderCustom:=1, MatchCase:=False, orientation:=xlTopToBottom, DataOption1:=xlSortNormal    'sort by Total Return (best to worst)
+        Range("O5:O34").Font.Bold = True
+        Sheets("computation").Activate
+        Range("A1:AZ100000").Select
+        Selection.Clear
+        
+    ElseIf IsActive_Sector_Breakdown = 1 Then
+        
+        Range("A1000000").Select
+        lngMaxRow = ActiveCell.Row
+        lngMaxRow = Cells(lngMaxRow, 1).End(xlUp).Row
+        
+        ThisWorkbook.Worksheets("computation").Sort.SortFields.Clear
+        Range("A1:AL" & lngMaxRow).Sort Key1:=Range("G1"), Order1:=xlDescending, header:= _
+        True, OrderCustom:=1, MatchCase:=False, orientation:=xlTopToBottom, DataOption1:=xlSortNormal    'sort by % Mkt Value (largest to smallest)
+        
+        Range("B:B,F:F,K:K,M:N,S:U").Select    'delete ISIN, Issuer Weight, Description, Sector, Description, Rating, Bond Type
+        Selection.Delete shift:=xlToLeft
+        
+        Columns("C:C").Select    'Coupon to after Sector
+        Selection.Cut
+        Columns("B:B").Select
+        Selection.Insert shift:=xlToRight
+        Columns("D:D").Select    'OAS to after % Mkt Value
+        Selection.Cut
+        Columns("F:F").Select
+        Selection.Insert shift:=xlToRight
+        Columns("J:J").Select    'Market Value to after Maturity
+        Selection.Cut
+        Columns("D:D").Select
+        Selection.Insert shift:=xlToRight
+        Columns("I:I").Select    'Rating to after % Mkt Value
+        Selection.Cut
+        Columns("F:F").Select
+        Selection.Insert shift:=xlToRight
+        Columns("I:I").Select    'YTW to after OAS
+        Selection.Cut
+        Columns("H:H").Select
+        Selection.Insert shift:=xlToRight
+        Columns("L:L").Select    'Effective Duration to after YTW
+        Selection.Cut
+        Columns("I:I").Select
+        Selection.Insert shift:=xlToRight
+        Columns("M:M").Select    'Effective Convexity to after Effective Duration
+        Selection.Cut
+        Columns("J:J").Select
+        Selection.Insert shift:=xlToRight
+        Columns("L:L").Select    'Ticker Count to after Issuer
+        Selection.Cut
+        Columns("B:B").Select
+        Selection.Insert shift:=xlToRight
+        
+        Columns(2).Select   'Ticker Count
+        Selection.NumberFormat = "0"
+        
+        Range("E2:E" & lngMaxRow).Select    'Format Market Value
+        Selection.Style = "Comma"
+        Selection.NumberFormat = "_(* #,##0.0_);_(* (#,##0.0);_(* ""-""??_);_(@_)"
+        Selection.NumberFormat = "_(* #,##0_);_(* (#,##0);_(* ""-""??_);_(@_)"
+        
+        Columns("A:A").Select   'Align Issuer to the left
+        Selection.HorizontalAlignment = xlLeft
+        Columns("A:AB").Select
+        Columns("A:AB").EntireColumn.AutoFit
+        
+        'copy data to "all" sheet for portfolio lookup reference
+        Range("A2:Z" & lngMaxRow).Select
+        Selection.Copy
+        Sheets("all").Activate
+        last_row
+        Range("A" & lngMaxRow + 1).Select
+        Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+        Selection.PasteSpecial Paste:=xlPasteFormats, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+        Application.CutCopyMode = False
+        Sheets("computation").Select
+        Range("A2:B31").Select
+        Selection.Copy
+        Sheets("emcb_top_print").Activate
+        Range("A37").Select
+        Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+        Selection.PasteSpecial Paste:=xlPasteFormats, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+        Application.CutCopyMode = False
+        Sheets("computation").Select
+        Range("C2:Z31").Select
+        Selection.Copy
+        Sheets("emcb_top_print").Activate
+        Range("E37").Select
+        Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+        Selection.PasteSpecial Paste:=xlPasteFormats, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+        Application.CutCopyMode = False
+        Range("A37:Z66" & lngMaxRow).Sort Key1:=Range("O37"), Order1:=xlDescending, header:= _
+        xlGuess, OrderCustom:=1, MatchCase:=False, orientation:=xlTopToBottom, DataOption1:=xlSortNormal    'sort by Total Return (best to worst)
+        Range("O37:O66").Font.Bold = True
+        Sheets("computation").Activate
+        Range("A1:AZ100000").Select
+        Selection.Clear
+        
+    ElseIf IsActive_Ratings_Breakdown = 1 Then
+    
+        Range("A1000000").Select
+        lngMaxRow = ActiveCell.Row
+        lngMaxRow = Cells(lngMaxRow, 1).End(xlUp).Row
+        
+        ThisWorkbook.Worksheets("computation").Sort.SortFields.Clear
+        Range("A1:AL" & lngMaxRow).Sort Key1:=Range("G1"), Order1:=xlDescending, header:= _
+        True, OrderCustom:=1, MatchCase:=False, orientation:=xlTopToBottom, DataOption1:=xlSortNormal    'sort by % Mkt Value (largest to smallest)
+        
+        Range("B:B,F:F,J:J,M:M,S:U").Select    'delete ISIN, Issue Weight, Rating x 4, Bond Type
+        Selection.Delete shift:=xlToLeft
+        
+        Columns("I:I").Select    'Ticker to after Issuer
+        Selection.Cut
+        Columns("B:B").Select
+        Selection.Insert shift:=xlToRight
+        Range("I:J").Select    'Sector & Country to after Ticker
+        Selection.Cut
+        Columns("C:C").Select
+        Selection.Insert shift:=xlToRight
+        Columns("F:F").Select    'Coupon to after Country
+        Selection.Cut
+        Columns("E:E").Select
+        Selection.Insert shift:=xlToRight
+        Columns("G:G").Select    'OAS to after % Mkt Value
+        Selection.Cut
+        Columns("I:I").Select
+        Selection.Insert shift:=xlToRight
+        Columns("K:K").Select    'Market Value to after Maturity
+        Selection.Cut
+        Columns("G:G").Select
+        Selection.Insert shift:=xlToRight
+        Columns("I:I").Select    'Rating blank insert
+        Selection.Insert shift:=xlToRight
+        Columns("L:L").Select    'YTW to after OAS
+        Selection.Cut
+        Columns("K:K").Select
+        Selection.Insert shift:=xlToRight
+        Columns("N:O").Select    'Effective Duration & Effective Convexity to after YTW
+        Selection.Cut
+        Columns("L:L").Select
+        Selection.Insert shift:=xlToRight
+        Columns("C:D").Select    'Clear Sector & Country
+        Selection.Clear
+        
+        Range("G2:G" & lngMaxRow).Select    'Format Market Value
+        Selection.Style = "Comma"
+        Selection.NumberFormat = "_(* #,##0.0_);_(* (#,##0.0);_(* ""-""??_);_(@_)"
+        Selection.NumberFormat = "_(* #,##0_);_(* (#,##0);_(* ""-""??_);_(@_)"
+        
+        Columns("A:AB").Select
+        Columns("A:AB").EntireColumn.AutoFit
+        
+        'copy data to "all" sheet for portfolio lookup reference
+        Range("A2:Z" & lngMaxRow).Select
+        Selection.Copy
+        Sheets("all").Activate
+        last_row
+        Range("A" & lngMaxRow + 1).Select
+        Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+        Selection.PasteSpecial Paste:=xlPasteFormats, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+        Application.CutCopyMode = False
+        Sheets("computation").Select
+        last_row
+        Range("A2:Z" & lngMaxRow).Select
+        Selection.Copy
+        Sheets("emcb_top_print").Activate
+        Range("A105").Select
+        Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+        Selection.PasteSpecial Paste:=xlPasteFormats, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+        Application.CutCopyMode = False
+        last_row
+        Range("A105:Z" & lngMaxRow).Sort Key1:=Range("O105"), Order1:=xlDescending, header:= _
+        xlGuess, OrderCustom:=1, MatchCase:=False, orientation:=xlTopToBottom, DataOption1:=xlSortNormal    'sort by Total Return (best to worst)
+        Range("O105:O" & lngMaxRow).Font.Bold = True
+        Sheets("computation").Activate
+        last_row
+        
+    End If
+    
+End Sub
+
+Sub index_batch()
+
+    ThisWorkbook.Worksheets("emcb_top_print").Activate
+    Cells(2, 1).Value = "Emerging Market Corporate Plus Index"
+    Cells(2, 3).Value = "Index"
+    Cells(2, 4).Value = "Index"
+    Cells(2, 8).Value = 100
+    ThisWorkbook.Worksheets("index").Activate
+    Rows(2).Select
+    Selection.Insert shift:=xlShiftDown
+    last_row
+    last_column
+    
+    'security level bak spread
+    For x = 3 To lngMaxRow
+        Cells(x, lngMaxColumn).Value = Cells(x, 17).Value * Cells(x, 20).Value * Cells(x, 29).Value
+    Next
+    
+    'Force 0 return for cash positions
+    For x = 3 To lngMaxRow
+        If Cells(x, 4).Value = "CASH" Then
+           Cells(x, 27).Value = 0
+        End If
+    Next
+    
+    'Calculate EMCB Index level statistics
+    ActiveSheet.Range("D3:D" & lngMaxRow).RemoveDuplicates Columns:=1, header:=xlNo
+    Range("D2").Formula = "=COUNTA(D3:D" & lngMaxRow & ")-1"
+    Range("E2").Formula = "=SUMPRODUCT(E" & 3 & ":" & "E" & lngMaxRow & "," & "Q" & 3 & ":" & "Q" & lngMaxRow & ")/100"
+    Range("F2").Formula = "=SUMPRODUCT(F" & 3 & ":" & "F" & lngMaxRow & "," & "Q" & 3 & ":" & "Q" & lngMaxRow & ")/100"
+    Range("O2").Formula = "=SUMPRODUCT(O" & 3 & ":" & "O" & lngMaxRow & "," & "Q" & 3 & ":" & "Q" & lngMaxRow & ")/100"
+    Range("T2").Formula = "=SUMPRODUCT(T" & 3 & ":" & "T" & lngMaxRow & "," & "Q" & 3 & ":" & "Q" & lngMaxRow & ")/100"
+    Range("Y2").Formula = "=SUMPRODUCT(Y" & 3 & ":" & "Y" & lngMaxRow & "," & "Q" & 3 & ":" & "Q" & lngMaxRow & ")/100"
+    Range("AA2").Formula = "=SUMPRODUCT(AA" & 3 & ":" & "AA" & lngMaxRow & "," & "Q" & 3 & ":" & "Q" & lngMaxRow & ")/100"
+    Range("AC2").Formula = "=SUMPRODUCT(AC" & 3 & ":" & "AC" & lngMaxRow & "," & "Q" & 3 & ":" & "Q" & lngMaxRow & ")/100"
+    Range("AF2").Formula = "=SUMPRODUCT(AF" & 3 & ":" & "AF" & lngMaxRow & "," & "Q" & 3 & ":" & "Q" & lngMaxRow & ")/100"
+    Range("AI2").Formula = "=SUM(AI" & 3 & ":" & "AI" & lngMaxRow & ")"
+    Range("AK2").Formula = "=SUM(AK" & 3 & ":" & "AK" & lngMaxRow & ")/100"
+    
+    'open index test.csv and grab emcb rating
+    Workbooks.Open Filename:=FilenameEMCBIndex
+    Range("G4").Select
+    Selection.Copy
+    Windows("reports.xlsm").Activate
+    Range("A2").Select
+    ActiveSheet.Paste
+    Application.CutCopyMode = False
+    Workbooks(EMCBIndexPath).Activate
+    Application.DisplayAlerts = False
+    ActiveWorkbook.Close
+    lngMaxRow = 2
+    rating_batch
+    Range(Cells(2, 1), Cells(2, lngMaxColumn)).Select
+    Selection.Copy
+    Range(Cells(2, 1), Cells(2, lngMaxColumn)).Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    
+    'copy emcb data to print tab
+    Range("D2").Select
+    Selection.Copy
+    Sheets("emcb_top_print").Activate
+    Range("B2").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    Sheets("index").Activate
+    Range("E2:F2").Select
+    Selection.Copy
+    Sheets("emcb_top_print").Activate
+    Range("E2").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    Sheets("index").Activate
+    Range("AI2").Select
+    Selection.Copy
+    Sheets("emcb_top_print").Activate
+    Range("G2").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    Sheets("index").Activate
+    Range("A2").Select
+    Selection.Copy
+    Sheets("emcb_top_print").Activate
+    Range("I2").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    Sheets("index").Activate
+    Range("T2").Select
+    Selection.Copy
+    Sheets("emcb_top_print").Activate
+    Range("J2").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    Sheets("index").Activate
+    Range("Y2").Select
+    Selection.Copy
+    Sheets("emcb_top_print").Activate
+    Range("K2").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    Sheets("index").Activate
+    Range("AC2").Select
+    Selection.Copy
+    Sheets("emcb_top_print").Activate
+    Range("L2").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    Sheets("index").Activate
+    Range("AF2").Select
+    Selection.Copy
+    Sheets("emcb_top_print").Activate
+    Range("M2").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    Sheets("index").Activate
+    Range("O2").Select
+    Selection.Copy
+    Sheets("emcb_top_print").Activate
+    Range("N2").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    Sheets("index").Activate
+    Range("AA2").Select
+    Selection.Copy
+    Sheets("emcb_top_print").Activate
+    Range("O2").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    Sheets("index").Activate
+    Range("AK2").Select
+    Selection.Copy
+    Sheets("emcb_top_print").Activate
+    Range("P2").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    Range("A5:Z5").Select
+    Selection.Copy
+    Range("A2").Select
+    Selection.PasteSpecial Paste:=xlPasteFormats, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    Range("C2:D2").Select
+    Selection.HorizontalAlignment = xlCenter
+    Columns("A:Z").EntireColumn.AutoFit
+    Sheets("index").Activate
+    Rows("2:2").Select
+    Selection.Delete shift:=xlUp
+    Sheets("computation").Cells.Clear
+    
+    'open EM2.csv and grab emib constituents
+    Workbooks.Open Filename:=FilenameEMCBCREDIT
+    last_row
+    Range("A4").Select
+    Selection.AutoFilter
+    ActiveSheet.Range("$A$4:$AZ$" & lngMaxRow).AutoFilter Field:=1, Criteria1:="EMIB"
+    Range("B4:AZ" & lngMaxRow).Select
+    Selection.Copy
+    Windows("reports.xlsm").Activate
+    Sheets("computation").Select
+    Range("A1").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    Workbooks(EMCBCREDITPath).Activate
+    Application.DisplayAlerts = False
+    ActiveWorkbook.Close
+    
+    ThisWorkbook.Worksheets("emcb_top_print").Activate
+    Cells(101, 1).Value = "Investment Grade"
+    Cells(102, 1).Value = "High Yield"
+    Range("H102").Select
+    ThisWorkbook.Worksheets("computation").Activate
+    Rows(2).Select
+    Selection.Insert shift:=xlShiftDown
+    Range("H:H,O:R").Select
+    Selection.Delete shift:=xlToLeft
+    last_row
+    last_column
+    
+    'security level bak spread
+    For x = 3 To lngMaxRow
+        Cells(x, lngMaxColumn).Value = Cells(x, 17).Value * Cells(x, 20).Value * Cells(x, 29).Value
+    Next
+    
+    'Force 0 return for cash positions
+    For x = 3 To lngMaxRow
+        If Cells(x, 4).Value = "CASH" Then
+           Cells(x, 27).Value = 0
+        End If
+    Next
+    
+    'Calculate EMIB Index level statistics
+    ActiveSheet.Range("D3:D" & lngMaxRow).RemoveDuplicates Columns:=1, header:=xlNo
+    Range("D2").Formula = "=COUNTA(D3:D" & lngMaxRow & ")-1"
+    Range("E2").Formula = "=SUMPRODUCT(E" & 3 & ":" & "E" & lngMaxRow & "," & "Q" & 3 & ":" & "Q" & lngMaxRow & ")/100"
+    Range("F2").Formula = "=SUMPRODUCT(F" & 3 & ":" & "F" & lngMaxRow & "," & "Q" & 3 & ":" & "Q" & lngMaxRow & ")/100"
+    Range("O2").Formula = "=SUMPRODUCT(O" & 3 & ":" & "O" & lngMaxRow & "," & "Q" & 3 & ":" & "Q" & lngMaxRow & ")/100"
+    Range("T2").Formula = "=SUMPRODUCT(T" & 3 & ":" & "T" & lngMaxRow & "," & "Q" & 3 & ":" & "Q" & lngMaxRow & ")/100"
+    Range("Y2").Formula = "=SUMPRODUCT(Y" & 3 & ":" & "Y" & lngMaxRow & "," & "Q" & 3 & ":" & "Q" & lngMaxRow & ")/100"
+    Range("AA2").Formula = "=SUMPRODUCT(AA" & 3 & ":" & "AA" & lngMaxRow & "," & "Q" & 3 & ":" & "Q" & lngMaxRow & ")/100"
+    Range("AC2").Formula = "=SUMPRODUCT(AC" & 3 & ":" & "AC" & lngMaxRow & "," & "Q" & 3 & ":" & "Q" & lngMaxRow & ")/100"
+    Range("AF2").Formula = "=SUMPRODUCT(AF" & 3 & ":" & "AF" & lngMaxRow & "," & "Q" & 3 & ":" & "Q" & lngMaxRow & ")/100"
+    Range("AI2").Formula = "=SUM(AI" & 3 & ":" & "AI" & lngMaxRow & ")"
+    Range("AK2").Formula = "=SUM(AK" & 3 & ":" & "AK" & lngMaxRow & ")/100"
+    
+    
+    'open index EM2 Index.csv and grab emib rating
+    Workbooks.Open Filename:=FilenameEMCBCREDITIndex
+    Range("G10").Select
+    Selection.Copy
+    Windows("reports.xlsm").Activate
+    Sheets("computation").Activate
+    Range("A2").Select
+    ActiveSheet.Paste
+    Application.CutCopyMode = False
+    Workbooks(EMCBCREDITIndexPath).Activate
+    Application.DisplayAlerts = False
+    ActiveWorkbook.Close
+    lngMaxRow = 2
+    rating_batch
+    Range(Cells(2, 1), Cells(2, lngMaxColumn)).Select
+    Selection.Copy
+    Range(Cells(2, 1), Cells(2, lngMaxColumn)).Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    
+    'copy emib data to print tab
+    Range("D2").Select
+    Selection.Copy
+    Sheets("emcb_top_print").Activate
+    Range("B101").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    Sheets("computation").Activate
+    Range("E2:F2").Select
+    Selection.Copy
+    Sheets("emcb_top_print").Activate
+    Range("E101").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    Sheets("computation").Activate
+    Range("AI2").Select
+    Selection.Copy
+    Sheets("emcb_top_print").Activate
+    Range("G101").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    Sheets("computation").Activate
+    Range("A2").Select
+    Selection.Copy
+    Sheets("emcb_top_print").Activate
+    Range("I101").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    Sheets("computation").Activate
+    Range("T2").Select
+    Selection.Copy
+    Sheets("emcb_top_print").Activate
+    Range("J101").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    Sheets("computation").Activate
+    Range("Y2").Select
+    Selection.Copy
+    Sheets("emcb_top_print").Activate
+    Range("K101").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    Sheets("computation").Activate
+    Range("AC2").Select
+    Selection.Copy
+    Sheets("emcb_top_print").Activate
+    Range("L101").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    Sheets("computation").Activate
+    Range("AF2").Select
+    Selection.Copy
+    Sheets("emcb_top_print").Activate
+    Range("M101").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    Sheets("computation").Activate
+    Range("O2").Select
+    Selection.Copy
+    Sheets("emcb_top_print").Activate
+    Range("N101").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    Sheets("computation").Activate
+    Range("AA2").Select
+    Selection.Copy
+    Sheets("emcb_top_print").Activate
+    Range("O101").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    Sheets("computation").Activate
+    Range("AK2").Select
+    Selection.Copy
+    Sheets("emcb_top_print").Activate
+    Range("P101").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    Range("A2:Z2").Select
+    Selection.Copy
+    Range("A101").Select
+    Selection.PasteSpecial Paste:=xlPasteFormats, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    Columns("A:Z").EntireColumn.AutoFit
+    Sheets("computation").Activate
+    Sheets("computation").Cells.Clear
+    
+    'open EM2.csv and grab emhb constituents
+    Workbooks.Open Filename:=FilenameEMCBCREDIT
+    last_row
+    Range("A4").Select
+    Selection.AutoFilter
+    ActiveSheet.Range("$A$4:$AZ$" & lngMaxRow).AutoFilter Field:=1, Criteria1:="EMHB"
+    Range("B4:AZ" & lngMaxRow).Select
+    Selection.Copy
+    Windows("reports.xlsm").Activate
+    Sheets("computation").Select
+    Range("A1").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    Workbooks(EMCBCREDITPath).Activate
+    Application.DisplayAlerts = False
+    ActiveWorkbook.Close
+    
+    ThisWorkbook.Worksheets("computation").Activate
+    Rows(2).Select
+    Selection.Insert shift:=xlShiftDown
+    Range("H:H,O:R").Select
+    Selection.Delete shift:=xlToLeft
+    last_row
+    last_column
+    
+    'security level bak spread
+    For x = 3 To lngMaxRow
+        Cells(x, lngMaxColumn).Value = Cells(x, 17).Value * Cells(x, 20).Value * Cells(x, 29).Value
+    Next
+    
+    'Force 0 return for cash positions
+    For x = 3 To lngMaxRow
+        If Cells(x, 4).Value = "CASH" Then
+           Cells(x, 27).Value = 0
+        End If
+    Next
+    
+    'Calculate EMHB Index level statistics
+    ActiveSheet.Range("D3:D" & lngMaxRow).RemoveDuplicates Columns:=1, header:=xlNo
+    Range("D2").Formula = "=COUNTA(D3:D" & lngMaxRow & ")-1"
+    Range("E2").Formula = "=SUMPRODUCT(E" & 3 & ":" & "E" & lngMaxRow & "," & "Q" & 3 & ":" & "Q" & lngMaxRow & ")/100"
+    Range("F2").Formula = "=SUMPRODUCT(F" & 3 & ":" & "F" & lngMaxRow & "," & "Q" & 3 & ":" & "Q" & lngMaxRow & ")/100"
+    Range("O2").Formula = "=SUMPRODUCT(O" & 3 & ":" & "O" & lngMaxRow & "," & "Q" & 3 & ":" & "Q" & lngMaxRow & ")/100"
+    Range("T2").Formula = "=SUMPRODUCT(T" & 3 & ":" & "T" & lngMaxRow & "," & "Q" & 3 & ":" & "Q" & lngMaxRow & ")/100"
+    Range("Y2").Formula = "=SUMPRODUCT(Y" & 3 & ":" & "Y" & lngMaxRow & "," & "Q" & 3 & ":" & "Q" & lngMaxRow & ")/100"
+    Range("AA2").Formula = "=SUMPRODUCT(AA" & 3 & ":" & "AA" & lngMaxRow & "," & "Q" & 3 & ":" & "Q" & lngMaxRow & ")/100"
+    Range("AC2").Formula = "=SUMPRODUCT(AC" & 3 & ":" & "AC" & lngMaxRow & "," & "Q" & 3 & ":" & "Q" & lngMaxRow & ")/100"
+    Range("AF2").Formula = "=SUMPRODUCT(AF" & 3 & ":" & "AF" & lngMaxRow & "," & "Q" & 3 & ":" & "Q" & lngMaxRow & ")/100"
+    Range("AI2").Formula = "=SUM(AI" & 3 & ":" & "AI" & lngMaxRow & ")"
+    Range("AK2").Formula = "=SUM(AK" & 3 & ":" & "AK" & lngMaxRow & ")/100"
+    
+    'open index EM2 Index.csv and grab emib rating
+    Workbooks.Open Filename:=FilenameEMCBCREDITIndex
+    Range("G14").Select
+    Selection.Copy
+    Windows("reports.xlsm").Activate
+    Sheets("computation").Activate
+    Range("A2").Select
+    ActiveSheet.Paste
+    Application.CutCopyMode = False
+    Workbooks(EMCBCREDITIndexPath).Activate
+    Application.DisplayAlerts = False
+    ActiveWorkbook.Close
+    lngMaxRow = 2
+    rating_batch
+    Range(Cells(2, 1), Cells(2, lngMaxColumn)).Select
+    Selection.Copy
+    Range(Cells(2, 1), Cells(2, lngMaxColumn)).Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    
+    'copy emhb data to print tab
+    Range("D2").Select
+    Selection.Copy
+    Sheets("emcb_top_print").Activate
+    Range("B102").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    Sheets("computation").Activate
+    Range("E2:F2").Select
+    Selection.Copy
+    Sheets("emcb_top_print").Activate
+    Range("E102").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    Sheets("computation").Activate
+    Range("AI2").Select
+    Selection.Copy
+    Sheets("emcb_top_print").Activate
+    Range("G102").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    Sheets("computation").Activate
+    Range("A2").Select
+    Selection.Copy
+    Sheets("emcb_top_print").Activate
+    Range("I102").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    Sheets("computation").Activate
+    Range("T2").Select
+    Selection.Copy
+    Sheets("emcb_top_print").Activate
+    Range("J102").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    Sheets("computation").Activate
+    Range("Y2").Select
+    Selection.Copy
+    Sheets("emcb_top_print").Activate
+    Range("K102").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    Sheets("computation").Activate
+    Range("AC2").Select
+    Selection.Copy
+    Sheets("emcb_top_print").Activate
+    Range("L102").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    Sheets("computation").Activate
+    Range("AF2").Select
+    Selection.Copy
+    Sheets("emcb_top_print").Activate
+    Range("M102").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    Sheets("computation").Activate
+    Range("O2").Select
+    Selection.Copy
+    Sheets("emcb_top_print").Activate
+    Range("N102").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    Sheets("computation").Activate
+    Range("AA2").Select
+    Selection.Copy
+    Sheets("emcb_top_print").Activate
+    Range("O102").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    Sheets("computation").Activate
+    Range("AK2").Select
+    Selection.Copy
+    Sheets("emcb_top_print").Activate
+    Range("P102").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    Range("A2:Z2").Select
+    Selection.Copy
+    Range("A102").Select
+    Selection.PasteSpecial Paste:=xlPasteFormats, Operation:=xlNone, SkipBlanks:=False, Transpose:=False
+    Application.CutCopyMode = False
+    Columns("A:Z").EntireColumn.AutoFit
+    Cells(101, 8).Value = Cells(101, 7).Value / Cells(2, 7).Value * 100
+    Cells(102, 8).Value = 100 - Cells(101, 8).Value
+    
+    Range("A101:Z102").Sort Key1:=Range("O101"), Order1:=xlDescending, header:=xlGuess, OrderCustom:=1, _
+    MatchCase:=False, orientation:=xlTopToBottom, DataOption1:=xlSortNormal    'sort by Total Return (largest to smallest)
+    
+    'data for print_out
+    last_row
+    last_column
+    lastcolumn_letter
+    rows_repeat = "$1:$3"
+    header = "EM Corporate Plus Regional and Country level Attribution (MTD Sort)"
+    right_header = "5"
+    lr = 2
+    x = 2
+    print_out
+    
+End Sub
+
+Sub print_out()
+
+    Application.PrintCommunication = True
+    ActiveSheet.PageSetup.PrintArea = "A1:" & letter & lngMaxRow
+    Application.PrintCommunication = False
+    Application.DisplayAlerts = False
+    With ActiveSheet.PageSetup
+        .orientation = lr
+        .Draft = False
+        .PaperSize = xlPaper11x17
+        .FitToPagesWide = 1
+        .FitToPagesTall = x
+        .FirstPageNumber = right_header
+        .PrintTitleRows = rows_repeat
+        .PrintTitleColumns = ""
+        .LeftHeader = ""
+        .CenterHeader = "&""-,Bold""&12" & header & vbCr & "as of " & Format(Now(), "mm-dd-yyyy")
+        .RightHeader = "&""-,Bold""&25&P"
+        .LeftFooter = ""
+        .CenterFooter = ""
+        .RightFooter = ""
+        .LeftMargin = Application.InchesToPoints(0.75)
+        .RightMargin = Application.InchesToPoints(0.75)
+        .TopMargin = Application.InchesToPoints(1)
+        .BottomMargin = Application.InchesToPoints(1)
+        .HeaderMargin = Application.InchesToPoints(0.5)
+        .FooterMargin = Application.InchesToPoints(0.5)
+        .PrintHeadings = False
+        .PrintGridlines = False
+        .PrintComments = xlPrintNoComments
+        .PrintQuality = 600
+        .CenterHorizontally = False
+        .CenterVertically = False
+        .order = xlDownThenOver
+        .BlackAndWhite = False
+        .Zoom = False
+        .PrintErrors = xlPrintErrorsDisplayed
+        .OddAndEvenPagesHeaderFooter = False
+        .DifferentFirstPageHeaderFooter = False
+        .ScaleWithDocHeaderFooter = True
+        .AlignMarginsHeaderFooter = True
+        .EvenPage.LeftHeader.Text = ""
+        .EvenPage.CenterHeader.Text = ""
+        .EvenPage.RightHeader.Text = ""
+        .EvenPage.LeftFooter.Text = ""
+        .EvenPage.CenterFooter.Text = ""
+        .EvenPage.RightFooter.Text = ""
+        .FirstPage.LeftHeader.Text = ""
+        .FirstPage.CenterHeader.Text = ""
+        .FirstPage.RightHeader.Text = ""
+        .FirstPage.LeftFooter.Text = ""
+        .FirstPage.CenterFooter.Text = ""
+        .FirstPage.RightFooter.Text = ""
+    End With
+    
+    Application.PrintCommunication = True
+    ActiveSheet.PrintOut copies:=1, ActivePrinter:="\\msqueue\XEROX-GFI-43L", Collate:=True
+    
+End Sub
+
+Sub last_row()
+
+    With ActiveSheet
+    
+        .Range("A1000000").Select
+        lngMaxRow = ActiveCell.Row
+        lngMaxRow = Cells(lngMaxRow, 2).End(xlUp).Row
+    
+    End With
+    
+End Sub
+
+Sub last_column()
+
+    With ActiveSheet
+    
+        .Range("BZ1").Select
+        lngMaxColumn = ActiveCell.Row
+        lngMaxColumn = Cells(lngMaxColumn, 100).End(xlToLeft).Column
+    
+    End With
+    
+End Sub
+Sub lastcolumn_letter()
+
+    With ActiveSheet
+        
+        letter = lngMaxColumn
+        
+        If letter = 1 Then
+            letter = "A"
+        ElseIf letter = 2 Then
+            letter = "B"
+        ElseIf letter = 3 Then
+            letter = "C"
+        ElseIf letter = 4 Then
+            letter = "D"
+        ElseIf letter = 5 Then
+            letter = "E"
+        ElseIf letter = 6 Then
+            letter = "F"
+        ElseIf letter = 7 Then
+            letter = "G"
+        ElseIf letter = 8 Then
+            letter = "H"
+        ElseIf letter = 9 Then
+            letter = "I"
+        ElseIf letter = 10 Then
+            letter = "J"
+        ElseIf letter = 11 Then
+            letter = "K"
+        ElseIf letter = 12 Then
+            letter = "L"
+        ElseIf letter = 13 Then
+            letter = "M"
+        ElseIf letter = 14 Then
+            letter = "N"
+        ElseIf letter = 15 Then
+            letter = "O"
+        ElseIf letter = 16 Then
+            letter = "P"
+        ElseIf letter = 17 Then
+            letter = "Q"
+        ElseIf letter = 18 Then
+            letter = "R"
+        ElseIf letter = 19 Then
+            letter = "S"
+        ElseIf letter = 20 Then
+            letter = "T"
+        ElseIf letter = 21 Then
+            letter = "U"
+        ElseIf letter = 22 Then
+            letter = "V"
+        ElseIf letter = 23 Then
+            letter = "W"
+        ElseIf letter = 24 Then
+            letter = "X"
+        ElseIf letter = 25 Then
+            letter = "Y"
+        ElseIf letter = 26 Then
+            letter = "Z"
+        ElseIf letter = 27 Then
+            letter = "AA"
+        ElseIf letter = 28 Then
+            letter = "AB"
+        ElseIf letter = 29 Then
+            letter = "AC"
+        ElseIf letter = 30 Then
+            letter = "AD"
+        ElseIf letter = 31 Then
+            letter = "AE"
+        ElseIf letter = 32 Then
+            letter = "AF"
+        ElseIf letter = 33 Then
+            letter = "AG"
+        ElseIf letter = 34 Then
+            letter = "AH"
+        ElseIf letter = 35 Then
+            letter = "AI"
+        ElseIf letter = 36 Then
+            letter = "AJ"
+        ElseIf letter = 37 Then
+            letter = "AK"
+        ElseIf letter = 38 Then
+            letter = "AL"
+        ElseIf letter = 39 Then
+            letter = "AM"
+        ElseIf letter = 40 Then
+            letter = "AN"
+        ElseIf letter = 41 Then
+            letter = "AO"
+        ElseIf letter = 42 Then
+            letter = "AP"
+        ElseIf letter = 43 Then
+            letter = "AQ"
+        ElseIf letter = 44 Then
+            letter = "AR"
+        ElseIf letter = 45 Then
+            letter = "AS"
+        ElseIf letter = 46 Then
+            letter = "AT"
+        ElseIf letter = 47 Then
+            letter = "AU"
+        ElseIf letter = 48 Then
+            letter = "AV"
+        ElseIf letter = 49 Then
+            letter = "AW"
+        ElseIf letter = 50 Then
+            letter = "AX"
+        ElseIf letter = 51 Then
+            letter = "AY"
+        ElseIf letter = 52 Then
+            letter = "AZ"
+            
+        End If
+        
+    End With
+
+End Sub

@@ -1,0 +1,62 @@
+***Make Sure Private sub is in "ThisWorkbook" and the action is set to "Open"***
+Private Sub Workbook_Open()
+Application.OnTime TimeValue("11:59:00 PM"), "ClosingQuote"
+Application.CalculateFull
+
+End Sub
+
+Sub ClosingQuote()
+Application.DisplayAlerts = False
+If Time = TimeValue("11:59:00 PM") Then ActiveWorkbook.Close
+End Sub
+
+Public Function MAH_Get_Ticker_Weight_for_Index(index, request_type, ticker) As Variant
+       ' Applications.Voltaile True
+      
+
+   'Declare variables'
+        Dim objMyConn As ADODB.Connection
+        Dim objMyCmd As ADODB.Command
+        Dim objMyRecordset As ADODB.Recordset
+        
+        Set objMyConn = New ADODB.Connection
+        Set objMyCmd = New ADODB.Command
+        Set objMyRecordset = New ADODB.Recordset
+
+    'Open Connection'
+        objMyConn.ConnectionString = "Provider=SQLOLEDB;Data Source=msfixed2\r2stand;Initial Catalog=AppliedResearch;Integrated Security=SSPI"
+        objMyConn.Open
+
+    'Set and Excecute SQL Command'
+        Set objMyCmd.ActiveConnection = objMyConn
+        objMyCmd.CommandText = "sp_EXCEL_API"
+        objMyCmd.CommandType = adCmdStoredProc
+        
+        Set p = objMyCmd.Parameters
+        p.Append objMyCmd.CreateParameter("@index", adChar, adParamInput, 20)
+        p.Append objMyCmd.CreateParameter("@ticker", adChar, adParamInput, 10)
+        p.Append objMyCmd.CreateParameter("@type", adChar, adParamInput, 10)
+        
+        objMyCmd("@index") = index
+        objMyCmd("@ticker") = ticker
+        objMyCmd("@type") = request_type
+   'Open Recordset'
+        Set objMyRecordset.Source = objMyCmd
+       objMyRecordset.Open
+
+   'Copy Data to Excel'
+    
+  'MAH_Get_Ticker_Weight_for_Index = objMyRecordset(0).Value
+  If request_type = "weight" Then
+        If IsNumeric(objMyRecordset(0).Value) = True Then
+        MAH_Get_Ticker_Weight_for_Index = objMyRecordset(0).Value
+        Else
+        MAH_Get_Ticker_Weight_for_Index = 0#
+        End If
+Else
+        MAH_Get_Ticker_Weight_for_Index = objMyRecordset(0).Value
+
+End If
+
+        
+End Function
