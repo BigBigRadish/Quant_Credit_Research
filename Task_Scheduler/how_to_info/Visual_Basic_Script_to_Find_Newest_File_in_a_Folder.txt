@@ -1,0 +1,2 @@
+Visual Basic Script to Find Newest File in a Folder
+http://www.tek-tips.com/viewthread.cfm?qid=992948

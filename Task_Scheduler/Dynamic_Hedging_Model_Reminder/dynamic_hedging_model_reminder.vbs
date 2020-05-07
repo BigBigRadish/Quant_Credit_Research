@@ -1,0 +1,1 @@
+x=msgbox("Please check to see if an email was sent out by Jakob Bak or Brian Fagan stating whether or not there are dynamic hedging treasury future trades. Thanks", &h51000, "Dynamic Hedging Model Check")
