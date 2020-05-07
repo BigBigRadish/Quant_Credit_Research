@@ -1,0 +1,3 @@
+SQL Query on How to Use Values from previous or Next Rows in SQL Server Query
+
+https://www.interfacett.com/blogs/how-to-use-values-from-previous-or-next-rows-in-a-query-in-sql-server/

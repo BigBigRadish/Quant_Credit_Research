@@ -1,0 +1,7 @@
+SQL Window Functions for Time-Series Analysis
+
+https://www.kdnuggets.com/2017/12/sql-window-functions-tutorial-business-analytics.html
+
+SQL Time Stamp Function
+
+https://blog.modeanalytics.com/date-trunc-sql-timestamp-function-count-on/
