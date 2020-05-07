@@ -1,0 +1,1 @@
+http://blogs.lobsterpot.com.au/2011/08/23/t-sql-thoughts-about-the-95th-percentile/
