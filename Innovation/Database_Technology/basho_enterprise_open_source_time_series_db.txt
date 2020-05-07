@@ -1,0 +1,3 @@
+Basho - Enterprise Grade Time Series DB
+
+http://www.computerweekly.com/blog/Open-Source-Insider/Basho-why-the-IoT-needs-a-time-series-database?utm_medium=EM&asrc=EM_NLN_87933751&utm_campaign=20180112_Word%20of%20the%20Day:%20time%20series%20chart&utm_source=NLN&src=918705
