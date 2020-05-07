@@ -1,0 +1,6 @@
+Ripple Developer Resources
+https://ripple.com/build/data-api-v2/
+
+
+Ripple GitHub
+https://github.com/ripple/rippled-historical-database
