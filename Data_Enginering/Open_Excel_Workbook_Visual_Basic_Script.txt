@@ -1,0 +1,7 @@
+Set xlApp = CreateObject("Excel.Application")
+Set xlWorkBook = xlApp.Workbooks.Open("C:\Users\Quant_B\Desktop\book1.xls")
+	xlApp.Visible = True
+        xlApp.DisplayAlerts = False
+        xlWorkBook.Close()
+        xlApp.Quit()
+	WScript.Quit
