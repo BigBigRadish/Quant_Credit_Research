@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <VersionPrefix>1.0.2</VersionPrefix>
+    <Authors>Headspring</Authors>
+    <TargetFrameworks>net452;netstandard1.3</TargetFrameworks>
+    <Summary>LINQ to SQL bulk copy</Summary>
+    <Description>LINQ to SQL bulk copy</Description>
+    <AssemblyName>BulkWriter</AssemblyName>
+    <PackageId>BulkWriter</PackageId>
+    <PackageProjectUrl>https://github.com/HeadspringLabs/bulk-writer</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/HeadspringLabs/bulk-writer/blob/master/LICENSE</PackageLicenseUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>git://github.com/HeadspringLabs/bulk-writer</RepositoryUrl>
+    <PackageIconUrl>https://github.com/HeadspringLabs/bulk-writer/raw/master/logo.png</PackageIconUrl>
+  </PropertyGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net452' ">
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.3' ">
+    <PackageReference Include="System.Data.SqlClient" Version="4.4.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.4.0" />
+  </ItemGroup>
+</Project>
